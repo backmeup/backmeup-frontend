@@ -1,0 +1,14 @@
+# default
+*.pyc
+.DS_Store
+*~
+
+# static & media
+/static_collect
+/media_root/uploads
+/media_root/versions
+
+# config
+/apache/backmeup*
+/project/settings/settings.py
+

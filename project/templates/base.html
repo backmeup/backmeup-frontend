@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>{% block html_title %}backmeup{% endblock html_title %}</title>
+</head>
+<body>
+  {% block header %}
+    {% include "www/includes/header.html" %}
+  {% endblock header %}
+  
+  {% block content %}{% endblock content %}
+  
+  {% block footer %}{% endblock footer %}
+</body>
+</html>
