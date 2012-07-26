@@ -208,14 +208,14 @@ class RestDatasink(RestBase):
         return self._delete(path=datasink_id)
     
 
-class RestDataskinProfile(RestBase):
+class RestDatasinkProfile(RestBase):
     
     def __init__(self, username, path="datasinks/"):
         if not username:
             raise ValueError('argument "username" is missing.')
         self.username = username
         
-        super(RestDatasourceProfile, self).__init__()
+        super(RestDatasinkProfile, self).__init__()
         self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
     
     def get_all(self):
