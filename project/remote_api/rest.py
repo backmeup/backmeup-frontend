@@ -114,8 +114,8 @@ class RestUser(RestBase):
             'password': password,
         }
         
-        return = self._get('/login', req_params)
-        
+        return self._get('/login', req_params)
+
 
 class RestDatasource(RestBase):
     def __init__(self, path="datasources/"):
@@ -226,9 +226,9 @@ class RestDatasinkProfile(RestBase):
     
     def auth(self, datasink_id, data):
         if not "profile_name" in data:
-            raise ValueError('key "profile_name is missing in argument "data".')
+            raise ValueError('key "profile_name" is missing in argument "data".')
         if not "key_ring" in data:
-            raise ValueError('key "key_ring is missing in argument "data".')
+            raise ValueError('key "key_ring" is missing in argument "data".')
         params = {
             "profileName": data["profile_name"],
             "keyRing": data["key_ring"],
@@ -245,5 +245,122 @@ class RestDatasinkProfile(RestBase):
             #"sourceOptions": json.dumps(data['source_options']),
         }
         return self._post(path="%s/auth/post" % profile_id, data=params)
+
+
+class RestAction(RestBase):
     
+    def __init__(self, path="actions/"):
+        super(RestAction, self).__init__()
+        self.base_url = self.base_url + path
+    
+    def get_all(self):
+        return self._get()
+    
+    def options(self, action_id):
+        return self._get(path=action_id + "/options/")
+    
+    def post(self, data):
+        if not "name" in data:
+            raise ValueError('key "name" is missing in argument "data".')
+        if not "filename" in data:
+            raise ValueError('key "filename" is missing in argument "data".')
         
+        params = {
+            'name': data['name'],
+            'filename': data['filename'],
+        }
+        
+        return self._post(data=data)
+    
+    def delete(self, action_id):
+        return self._delete(path=action_id + "/")
+
+
+class RestJobs(RestBase):
+    
+    def __init__(self, username, path="jobs/"):
+        if not username:
+            raise ValueError('argument "username" is missing.')
+        self.username = username
+        
+        super(RestJobs, self).__init__()
+        self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
+    
+    def post(self):
+        """
+        sourceProfileIds - Die zu sichernden Quellen
+
+        requiredActionIds - Die durchzuführenden Aktionen
+
+        sinkProfileId - Die einzusetzende Senke
+
+        timeExpression - Der Zeitpunkt, zu dem der Job durchgeführt werden soll (realtime, weekly, monthly)
+
+        keyRing - Das Schlüsselbundpasswort des Benutzers
+        """
+        if not "source_profile_id" in data:
+            raise ValueError('key "source_profile_id" is missing in argument "data".')
+        if not "required_action_ids" in data:
+            raise ValueError('key "required_action_ids" is missing in argument "data".')
+        if not "sink_profile_id" in data:
+            raise ValueError('key "sink_profile_id" is missing in argument "data".')
+        if not "time_expression" in data:
+            raise ValueError('key "time_expression" is missing in argument "data".')
+        if not "key_ring" in data:
+            raise ValueError('key "key_ring" is missing in argument "data".')
+        
+        params = {
+            'sourceProfileIds': data['source_profile_id'],
+            'requiredActionIds': data['required_action_ids'],
+            'sinkProfileId': data['sink_profile_id'],
+            'timeExpression': data['time_expression'],
+            'keyRing': data['key_ring'],
+        }
+        
+        return self._post(data=data)
+    
+    def delete(self, job_id):
+        return self._delete(path=job_id + "/status/")
+    
+    def get_user_status(self):
+        return self._get()
+    
+    def get_job_status(self, job_id):
+        return self._get(path=job_id + "/status/")
+    
+    def get_file_status(self, file_id):
+        return self._get(path=file_id + "/details/")
+    
+    def get_user_profile_status(self):
+        return self._get(path="/status/overview/")
+    
+    def validate(self, job_id):
+        return self._get(path="validate/%s/" % job_id)
+    
+#
+#class RestSearch(RestBase):
+#    
+#    def __init__(self, username, path="backups/"):
+#        if not username:
+#            raise ValueError('argument "username" is missing.')
+#        self.username = username
+#        
+#        super(RestJobs, self).__init__()
+#        self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
+#
+
+
+class RestMetadata(RestBase):
+
+    def __init__(self, username, path="meta/"):
+        if not username:
+            raise ValueError('argument "username" is missing.')
+        self.username = username
+        
+        super(RestMetadata, self).__init__()
+        self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
+    
+    def get(self, profile_id):
+        return self._get(path=profile_id + "/")
+    
+    
