@@ -1,9 +1,15 @@
-<div class="blueBar">
-  <span>Back Me Up</span>
-  
+{% load i18n %}
+
+<header id="header" class="header">
+  <a href="/" id="logo">Back Me Up</span>
+  {% comment %}
+    TO DO: 
+      if user is logged in: show username with hidden dropdown (to logout?)
+      if user is NOT logged in: show log-in-link; on meta-pages: show additional register-link
+  {% endcomment %}
   <ul>
-    <li><a href="#">Einloggen</a></li>
-    <li><a href="{% url signup %}">Account erstellen</a></li>
+    <li><a href="#">{% trans "Einloggen" %}</a></li>
+    <li><a href="{% url signup %}">{% trans "Registrieren" %}</a></li>
   </ul>
   
-</div>
+</header>

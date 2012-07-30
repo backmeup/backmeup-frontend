@@ -2,6 +2,7 @@
 *.pyc
 .DS_Store
 *~
+.sass-cache
 
 # static & media
 /static_collect
@@ -11,4 +12,3 @@
 # config
 /apache/backmeup*
 /project/settings/settings.py
-

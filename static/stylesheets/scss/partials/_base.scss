@@ -1,0 +1,63 @@
+// ---------------------------------------------------------------------------
+// SUSY
+
+// Browser Support
+$experimental-support-for-khtml:false;
+$legacy-support-for-ie6 : false;
+$relative-font-sizing : true;
+
+// Variables
+$base-font-size: 16px;
+$base-line-height: 24px;
+
+$bg-clr1: #5b80ab;
+$bg-clr2: #e9eff4;
+
+$clr-text: #5c5c5c;
+$clr-link: #3a6395;
+$clr-headline: #000;
+$clr-ok: #589406;
+$clr-highlight: #ff931e;
+$clr-error: #ff1d25;
+
+// Grid
+$show-grid-backgrounds: true;
+$total-columns: 12;
+$column-width: 4em;
+$gutter-width: 1em;
+$grid-padding: $gutter-width;
+$side-gutter-width: 1em;;
+
+
+// ---------------------------------------------------------------------------
+// COMPASS
+$default-border-radius: 5px;
+
+
+// ---------------------------------------------------------------------------
+// Imports
+@import "susy";
+@import "compass";
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/typography";
+@import "compass/utilities";
+
+// ---------------------------------------------------------------------------
+// Mixins
+@mixin susy-grid-background {
+  @include grid-background($total-columns, $column-width, $gutter-width, $base-line-height, $side-gutter-width, $force-fluid: true);
+}
+
+// ---------------------------------------------------------------------------
+// Includes
+@include establish-baseline;
+
+
+
+// extend this class to show your grid.
+.grid {
+  @include susy-grid-background;
+//@include baseline-grid-background($base-rhythm-unit);
+}
+
