@@ -8,7 +8,6 @@
   
 </head>
 <body {% block body_class %}{% endblock %}>
-  <div class="container">
   
     {% block header %}
       {% include "www/includes/header.html" %}
@@ -20,14 +19,14 @@
     {% endblock %}
     
     <div id="content">
-      {% block content %}{% endblock content %}
+      <div class="container">
+        {% block content %}{% endblock content %}
+      </div>
     </div>
   
     {% block footer %}
       {% include "www/includes/footer.html" %}
     {% endblock footer %}
-  
-  </div>
   
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}js/libs/jquery-1.7.2.min.js"><\/script>')</script>

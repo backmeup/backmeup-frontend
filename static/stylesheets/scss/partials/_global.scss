@@ -39,9 +39,7 @@ ol {
 
 .container {
   @include container;
-  @extend .grid;
 //  background: #E9EFF4;
-  
 }
 
 #logo {
@@ -64,6 +62,9 @@ ol {
   @include padding-leader(1);
   @include padding-trailer(1);
 }
+#content .container {
+  @extend .grid;
+}
 // login-nav
 #login-nav {
   float: right;
@@ -77,18 +78,14 @@ ol {
   color:white;
 }
 // breadcrumbs
-.breadcrumbs {
+.breadcrumbs,
+#footer {
   @include padding-leader(.5);
   @include padding-trailer(.5);
   background: $bg-clr2;
 }
 .breadcrumbs ul {
   @include horizontal-list;
-}
-
-// footer
-#footer {
-  background: $bg-clr2;
 }
 
 // meta-nav
