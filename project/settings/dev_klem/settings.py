@@ -183,3 +183,5 @@ LOGGING = {
 # django-grappelli
 #
 GRAPPELLI_ADMIN_TITLE = "backmeup"
+
+AUTH_PROFILE_MODULE = 'access.UserProfile'
