@@ -4,6 +4,6 @@
 {% block content %}
 <form action="." method="post">{% csrf_token %}
   {{ form.as_p }}
-  <p><input type="submit" value="{% trans "Sign Up" %}"></p>
+  <p><input type="submit" value="{% trans "Sign Up" %}" class="btn"></p>
 </form>
 {% endblock content %}

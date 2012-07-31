@@ -53,6 +53,8 @@ $default-border-radius: 5px;
   color: white;
   display: inline-block;
   padding: .25em 2em;
+  border: 0;
+  cursor: pointer;
   @include border-radius(1em);
   @include rhythm($leader: 0.25, $padding-leader: 0.25, $padding-trailer: 0.25, $trailer: 0.25, $font-size: $base-font-size);
 }
