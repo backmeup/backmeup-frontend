@@ -49,9 +49,12 @@ $default-border-radius: 5px;
 @mixin susy-grid-background {
   @include grid-background($total-columns, $column-width, $gutter-width, $base-line-height, $side-gutter-width, $force-fluid: true);
 }
-@mixin inverted-color {
-  background: $bg-clr1;
+@mixin standard-button {
   color: white;
+  display: inline-block;
+  padding: .25em 2em;
+  @include border-radius(1em);
+  @include rhythm($leader: 0.25, $padding-leader: 0.25, $padding-trailer: 0.25, $trailer: 0.25, $font-size: $base-font-size);
 }
 
 // ---------------------------------------------------------------------------

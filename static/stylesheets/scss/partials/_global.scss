@@ -22,14 +22,19 @@ a:active,
 a:focus {
   text-decoration: underline;
 }
-p {
-  
+p, ul, ol {
+  @include margin-trailer(1)
 }
 ul {
   
 }
 ol {
   
+}
+
+.btn {
+  background: $bg-clr1;
+  @include standard-button;
 }
 
 .container {
@@ -55,6 +60,9 @@ ol {
 }
 #content {
   background: white;
+  @include clearfix;
+  @include padding-leader(1);
+  @include padding-trailer(1);
 }
 // login-nav
 #login-nav {
