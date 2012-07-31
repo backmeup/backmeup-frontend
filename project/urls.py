@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     url(r'^$', 'main.views.index', name="index"),
     url(r'^signup/$', 'access.views.signup', name="signup"),
     url(r'^verify_email/$', 'access.views.verify_email', name="verify-email"),
+    (r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'www/access/login.html'}),
 )
 
 

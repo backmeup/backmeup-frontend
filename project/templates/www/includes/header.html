@@ -1,15 +1,19 @@
 {% load i18n %}
 
 <header id="header" class="header">
-  <a href="/" id="logo">Back Me Up</span>
+  <a href="/" id="logo">Back Me Up</a>
   {% comment %}
     TO DO: 
       if user is logged in: show username with hidden dropdown (to logout?)
       if user is NOT logged in: show log-in-link; on meta-pages: show additional register-link
   {% endcomment %}
   <ul>
-    <li><a href="#">{% trans "Einloggen" %}</a></li>
-    <li><a href="{% url signup %}">{% trans "Registrieren" %}</a></li>
+    {% if user.is_authenticated %}
+      <li>{{ user }}</li>
+    {% else %}
+      <li><a href="{% url django.contrib.auth.views.login %}">{% trans "Einloggen" %}</a></li>
+      <li><a href="{% url signup %}">{% trans "Registrieren" %}</a></li>
+    {% endif %}
   </ul>
   
 </header>
