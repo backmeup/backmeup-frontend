@@ -200,9 +200,10 @@ p, ul, ol {
 /* line 69, ../scss/partials/_global.scss */
 #login-nav {
   float: right;
+  text-align: right;
 }
 
-/* line 72, ../scss/partials/_global.scss */
+/* line 73, ../scss/partials/_global.scss */
 #login-nav ul {
   margin: 0;
   padding: 0;
@@ -236,12 +237,12 @@ p, ul, ol {
   padding-right: 0;
 }
 
-/* line 77, ../scss/partials/_global.scss */
+/* line 78, ../scss/partials/_global.scss */
 #login-nav a {
   color: white;
 }
 
-/* line 82, ../scss/partials/_global.scss */
+/* line 83, ../scss/partials/_global.scss */
 .breadcrumbs,
 #footer {
   padding-top: 0.75em;
@@ -249,7 +250,7 @@ p, ul, ol {
   background: #e9eff4;
 }
 
-/* line 87, ../scss/partials/_global.scss */
+/* line 88, ../scss/partials/_global.scss */
 .breadcrumbs ul {
   margin: 0;
   padding: 0;
@@ -281,7 +282,7 @@ p, ul, ol {
   padding-right: 0;
 }
 
-/* line 92, ../scss/partials/_global.scss */
+/* line 93, ../scss/partials/_global.scss */
 #meta-nav ul {
   margin: 0;
   padding: 0;
@@ -313,9 +314,19 @@ p, ul, ol {
   padding-right: 0;
 }
 
-/* line 97, ../scss/partials/_global.scss */
+/* line 98, ../scss/partials/_global.scss */
 .copyright {
   float: left;
   color: #245E8C;
   padding-right: 16px;
+}
+
+/* line 1, ../scss/partials/_interactive.scss */
+#user-dropdown {
+  display: none;
+}
+
+/* line 4, ../scss/partials/_interactive.scss */
+.open #user-dropdown {
+  display: block;
 }

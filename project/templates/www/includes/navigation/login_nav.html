@@ -1,18 +1,16 @@
 {% load i18n %}
 
 <nav id="login-nav" class="nav">
-  {# if user is logged in: show username with hidden dropdown (to logout?) #}
-  
-  {# <a href="#" class="logged-in-handler">Max Mustermann</a> #}
-  {# <ul class="logged-in-list"> #}
-  {#   <li><a href="#link-to-user-settings">{% trans "Konto-Einstellungen" %}</a></li> #}
-  {#   <li><a href="#log-me-out">{% trans "Abmelden" %}</a></li> #}
-  {# </ul> #}
-  
-  {# else (if user is NOT logged in): show log-in-link; on meta-pages: show additional register-link #}
   <ul>
     {% if user.is_authenticated %}
-      <li>{{ user }}</li>
+      <li>
+        {#  TODO: decide whether to use bootstrap-library or not #}
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user }}</a>
+        <ul id="user-dropdown">
+          <li><a href="#link-to-user-settings">{% trans "Konto-Einstellungen" %}</a></li>
+          <li><a href="#log-me-out">{% trans "Abmelden" %}</a></li>
+        </ul>
+      </li>
     {% else %}
       <li><a href="{% url django.contrib.auth.views.login %}">{% trans "Einloggen" %}</a></li>
       <li><a href="{% url signup %}">{% trans "Registrieren" %}</a></li>

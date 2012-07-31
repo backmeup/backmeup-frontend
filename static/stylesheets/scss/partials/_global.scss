@@ -68,6 +68,7 @@ ol {
 // login-nav
 #login-nav {
   float: right;
+  text-align: right;
 }
 #login-nav ul {
   @include horizontal-list;
