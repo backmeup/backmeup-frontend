@@ -17,21 +17,12 @@ a {
   color: $clr-link;
   text-decoration: none;
 }
-a:hover,
-a:active,
-a:focus {
+a:hover {
   text-decoration: underline;
 }
-p, ul, ol {
+#content p, #content ul, #content ol {
   @include margin-trailer(1)
 }
-ul {
-  
-}
-ol {
-  
-}
-
 .btn {
   background: $bg-clr1;
   @include standard-button;

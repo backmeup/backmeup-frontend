@@ -119,19 +119,17 @@ a {
   text-decoration: none;
 }
 
-/* line 22, ../scss/partials/_global.scss */
-a:hover,
-a:active,
-a:focus {
+/* line 20, ../scss/partials/_global.scss */
+a:hover {
   text-decoration: underline;
 }
 
-/* line 25, ../scss/partials/_global.scss */
-p, ul, ol {
+/* line 23, ../scss/partials/_global.scss */
+#content p, #content ul, #content ol {
   margin-bottom: 1.5em;
 }
 
-/* line 35, ../scss/partials/_global.scss */
+/* line 26, ../scss/partials/_global.scss */
 .btn {
   background: #5b80ab;
   color: white;
@@ -148,7 +146,7 @@ p, ul, ol {
   margin-bottom: 0.375em;
 }
 
-/* line 40, ../scss/partials/_global.scss */
+/* line 31, ../scss/partials/_global.scss */
 .container {
   *zoom: 1;
   max-width: 59em;
@@ -164,7 +162,7 @@ p, ul, ol {
   clear: both;
 }
 
-/* line 45, ../scss/partials/_global.scss */
+/* line 36, ../scss/partials/_global.scss */
 #logo {
   font-size: 1.5em;
   line-height: 2em;
@@ -181,14 +179,14 @@ p, ul, ol {
   height: 2em;
 }
 
-/* line 55, ../scss/partials/_global.scss */
+/* line 46, ../scss/partials/_global.scss */
 #header {
   background: #5b80ab;
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 59, ../scss/partials/_global.scss */
+/* line 50, ../scss/partials/_global.scss */
 #content {
   background: white;
   overflow: hidden;
@@ -197,13 +195,13 @@ p, ul, ol {
   padding-bottom: 1.5em;
 }
 
-/* line 69, ../scss/partials/_global.scss */
+/* line 60, ../scss/partials/_global.scss */
 #login-nav {
   float: right;
   text-align: right;
 }
 
-/* line 73, ../scss/partials/_global.scss */
+/* line 64, ../scss/partials/_global.scss */
 #login-nav ul {
   margin: 0;
   padding: 0;
@@ -237,12 +235,12 @@ p, ul, ol {
   padding-right: 0;
 }
 
-/* line 78, ../scss/partials/_global.scss */
+/* line 69, ../scss/partials/_global.scss */
 #login-nav a {
   color: white;
 }
 
-/* line 83, ../scss/partials/_global.scss */
+/* line 74, ../scss/partials/_global.scss */
 .breadcrumbs,
 #footer {
   padding-top: 0.75em;
@@ -250,7 +248,7 @@ p, ul, ol {
   background: #e9eff4;
 }
 
-/* line 88, ../scss/partials/_global.scss */
+/* line 79, ../scss/partials/_global.scss */
 .breadcrumbs ul {
   margin: 0;
   padding: 0;
@@ -282,7 +280,7 @@ p, ul, ol {
   padding-right: 0;
 }
 
-/* line 93, ../scss/partials/_global.scss */
+/* line 84, ../scss/partials/_global.scss */
 #meta-nav ul {
   margin: 0;
   padding: 0;
@@ -314,7 +312,7 @@ p, ul, ol {
   padding-right: 0;
 }
 
-/* line 98, ../scss/partials/_global.scss */
+/* line 89, ../scss/partials/_global.scss */
 .copyright {
   float: left;
   color: #245E8C;
@@ -329,4 +327,5 @@ p, ul, ol {
 /* line 4, ../scss/partials/_interactive.scss */
 .open #user-dropdown {
   display: block;
+  padding: 0;
 }
