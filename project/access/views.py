@@ -21,6 +21,7 @@ def signup(request):
         context_instance=RequestContext(request)
     )
 
+
 def verify_email(request):
     context = {}
     return render_to_response(
