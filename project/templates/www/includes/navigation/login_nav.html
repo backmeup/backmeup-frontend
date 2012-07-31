@@ -1,11 +1,15 @@
 {% load i18n %}
 
 <nav id="login-nav" class="nav">
-  {% comment %}
-    TO DO: 
-      if user is logged in: show username with hidden dropdown (to logout?)
-      if user is NOT logged in: show log-in-link; on meta-pages: show additional register-link
-  {% endcomment %}
+  {# if user is logged in: show username with hidden dropdown (to logout?) #}
+  
+  {# <a href="#" class="logged-in-handler">Max Mustermann</a> #}
+  {# <ul class="logged-in-list"> #}
+  {#   <li><a href="#link-to-user-settings">{% trans "Konto-Einstellungen" %}</a></li> #}
+  {#   <li><a href="#log-me-out">{% trans "Abmelden" %}</a></li> #}
+  {# </ul> #}
+  
+  {# else (if user is NOT logged in): show log-in-link; on meta-pages: show additional register-link #}
   <ul>
     {% if user.is_authenticated %}
       <li>{{ user }}</li>
@@ -14,4 +18,6 @@
       <li><a href="{% url signup %}">{% trans "Registrieren" %}</a></li>
     {% endif %}
   </ul>
+  
+  
 </nav>
