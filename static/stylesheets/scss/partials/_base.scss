@@ -26,7 +26,8 @@ $total-columns: 12;
 $column-width: 4em;
 $gutter-width: 1em;
 $grid-padding: $gutter-width;
-$side-gutter-width: 1em;;
+$side-gutter-width: 1em;
+
 
 
 // ---------------------------------------------------------------------------
@@ -47,6 +48,10 @@ $default-border-radius: 5px;
 // Mixins
 @mixin susy-grid-background {
   @include grid-background($total-columns, $column-width, $gutter-width, $base-line-height, $side-gutter-width, $force-fluid: true);
+}
+@mixin inverted-color {
+  background: $bg-clr1;
+  color: white;
 }
 
 // ---------------------------------------------------------------------------

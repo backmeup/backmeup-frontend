@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
+{% load i18n %}
+
+{% block body_class %}class="home"{% endblock %}
+
 {% block content %}
-<ul>
-  <li><a href="{% url signup %}">Registrierung</a></li>
-  <li><a href="#">mehr info</a></li>
-</ul>
+  <p><a href="{% url signup %}" class="btn">{% trans "Registrieren" %}</a></p>
+  <p><a href="#" class="more-link">{% trans "Mehr erfahren" %}</a></p>
 {% endblock content %}

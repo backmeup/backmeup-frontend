@@ -7,14 +7,21 @@
   <script src="{{ STATIC_URL }}js/libs/html5shiv-printshiv.js"></script>
   
 </head>
-<body>
+<body {% block body_class %}{% endblock %}>
   <div class="container">
   
     {% block header %}
       {% include "www/includes/header.html" %}
     {% endblock header %}
-  
-    {% block content %}{% endblock content %}
+      {#  TODO: make breadcrumbs dynamic #}
+      {% include "www/includes/breadcrumbs.html" %}
+    {% block breadcrumbs %}
+      
+    {% endblock %}
+    
+    <div id="content">
+      {% block content %}{% endblock content %}
+    </div>
   
     {% block footer %}
       {% include "www/includes/footer.html" %}

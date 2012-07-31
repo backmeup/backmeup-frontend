@@ -1,1 +1,13 @@
-&copy; BackMeUp
+{% load i18n %}
+
+<footer id="footer">
+  <span class="copyright">BackMeUp</span>
+  {# TO DO: make meta-nav dynamic #}
+  <nav id="meta-nav" class="nav">
+    <ul>
+      <li><a href="#">{% trans "Get Involved" %}</a></li>
+      <li><a href="#">{% trans "Über das Projekt" %}</a></li>
+      <li><a href="#">{% trans "Hilfe" %}</a></li>
+    </ul>
+  </nav>
+</footer>

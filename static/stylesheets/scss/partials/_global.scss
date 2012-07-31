@@ -1,0 +1,109 @@
+body {
+  background: white;
+  color: $clr-text;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1,h2,h3,h4,h5,h6 {
+  color: $clr-headline;
+  font-weight:bold;
+}
+h1 {
+  @include adjust-font-size-to(32px);
+}
+h2 {
+  @include adjust-font-size-to(24px);
+}
+a {
+  color: $clr-link;
+  text-decoration: none;
+}
+a:hover,
+a:active,
+a:focus {
+  text-decoration: underline;
+}
+p {
+  
+}
+ul {
+  
+}
+ol {
+  
+}
+
+.container {
+  @include container;
+  @extend .grid;
+//  background: #E9EFF4;
+  
+}
+
+#logo {
+  @include adjust-font-size-to(24px);
+  color: white;
+  text-decoration: none;
+  float: left;
+  @include replace-text('/static/img/BackMeUp_logo.png', 0, .5em);
+  width:158px;
+  height:2em;
+}
+// header
+#header {
+  background: $bg-clr1;
+  @include clearfix;
+}
+#content {
+  background: white;
+}
+// login-nav
+#login-nav {
+  float: right;
+}
+#login-nav ul {
+  @include horizontal-list;
+  @include padding-leader(.5);
+  @include padding-trailer(.5);
+}
+#login-nav a {
+  color:white;
+}
+// breadcrumbs
+.breadcrumbs {
+  @include padding-leader(.5);
+  @include padding-trailer(.5);
+  background: $bg-clr2;
+}
+.breadcrumbs ul {
+  @include horizontal-list;
+}
+
+// footer
+#footer {
+  background: $bg-clr2;
+}
+
+// meta-nav
+#meta-nav ul{
+  @include horizontal-list;
+}
+
+// TO DO: figure out best practice for text-replacement and vertical rhythm and responsive layout
+.copyright {
+  float: left;
+  color: #245E8C;
+  padding-right: 16px;
+//  width: 117px;
+//  height: 1em;
+//  display: inline-block;
+//  @include replace-text('/static/img/backmeup-small.png', 0, 0);
+}
+//.copyright:before {
+//  content: '';
+//  background: url(/static/img/backmeup-icon.png);
+//  display: inline-block;
+//  width: 19px;
+//  height: 16px;
+//}
+
+

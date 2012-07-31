@@ -1,13 +1,4 @@
 // ------------------------------------------
 // IMPORTING PARTIALS
 @import "partials/base";
-
-.container {
-//  @include container;
-//  @include susy-grid-background;
-  @include container;
-  
-  background-color: rgb(250,250,250);
-  @extend .grid;
-  
-}
+@import "partials/global";
