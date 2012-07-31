@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 
 
@@ -10,6 +11,7 @@ class UserProfile(models.Model):
     """
     
     user = models.ForeignKey(User, unique=True, related_name="user_profile", verbose_name="User")
+    #user = models.OneToOneField(User)
     rest_id = models.BigIntegerField("REST ID", unique=True)
     
     #company = models.CharField("Firmenname", max_length=50, blank=True, null=True)
@@ -29,3 +31,11 @@ class UserProfile(models.Model):
     
     def __unicode__(self):
         return u"%s" % self.user.username
+
+
+#def create_user_profile(sender, instance, created, **kwargs):
+#    if created:
+#        UserProfile.objects.create(user=instance)
+#
+#
+#post_save.connect(create_user_profile, sender=User)
