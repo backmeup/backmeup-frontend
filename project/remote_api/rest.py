@@ -22,7 +22,7 @@ class RestBase(object):
     
     def _get(self, path="", data=None):
         response = requests.get(self.base_url + path, data=data)
-        if response.status_code == 404:
+        if response.status_code == 404 or response.status_code == 401:
             return False
         elif response.status_code == 204:
             return True
@@ -105,8 +105,6 @@ class RestUser(RestBase):
         
         the actual login and session handling is done by the backmeup-frontend.
         '''
-        if not username:
-            raise ValueError('argument "username" is missing.')
         if not password:
             raise ValueError('argument "password" is missing.')
         
@@ -114,7 +112,7 @@ class RestUser(RestBase):
             'password': password,
         }
         
-        return self._get('/login', req_params)
+        return self._post(path='login/', data=req_params)
 
 
 class RestDatasource(RestBase):
