@@ -11,7 +11,7 @@ class RestBackend(object):
         """foo"""
         
         remote_user = RestUser(username)
-        if remote_user.login(password):
+        if remote_user.check_login(password):
             try:
                 user = User.objects.get(username=username)
             except User.DoesNotExist:
