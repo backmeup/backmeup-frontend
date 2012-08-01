@@ -1,10 +1,10 @@
 body {
   background: white;
-  color: $clr-text;
   font-family: Arial, Helvetica, sans-serif;
 }
 body, input, textarea {
   font-size: $base-font-size;
+  color: $clr-text;
 }
 h1,h2,h3,h4,h5,h6 {
   color: $clr-headline;
@@ -24,7 +24,7 @@ a:hover {
   text-decoration: underline;
 }
 #content p, #content ul, #content ol {
-  @include margin-trailer(1)
+  @include margin-trailer(1);
 }
 .btn {
   background: $bg-clr1;
@@ -57,7 +57,7 @@ a:hover {
   @include padding-trailer(1);
 }
 #content .container {
-  @extend .grid;
+//  @extend .grid;
 }
 // login-nav
 #login-nav {

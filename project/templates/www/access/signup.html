@@ -3,7 +3,52 @@
 
 {% block content %}
 <form action="." method="post">{% csrf_token %}
-  {{ form.as_p }}
-  <p><input type="submit" value="{% trans "Sign Up" %}" class="btn"></p>
+  {# {{ form.as_p }} #}
+  <div>
+    {{ form.username.label }}
+    {{ form.username }}
+    <span class="helptext">{{ form.username.help_text }}</span>
+    {% if form.username.errors %}
+      <span class="form-error">{{ form.username.errors }}</span>
+    {% endif %}
+  </div>
+  <div>
+    {{ form.email.label }}
+    {{ form.email }}
+    {% if form.email.errors %}
+      <span class="form-error">{{ form.email.errors }}</span>
+    {% endif %}
+  </div>
+  <div>
+    {{ form.password1.label }}
+    {{ form.password1 }}
+    {% if form.password1.errors %}
+      <span class="form-error">{{ form.password1.errors }}</span>
+    {% endif %}
+  </div>
+  <div>
+    {{ form.password2.label }}
+    {{ form.password2 }}
+    <span class="helptext">{{ form.password2.help_text }}</span>
+    {% if form.password2.errors %}
+      <span class="form-error">{{ form.password2.errors }}</span>
+    {% endif %}
+  </div>
+  <div>
+    {{ form.key_ring1.label }}
+    {{ form.key_ring1 }}
+    {% if form.key_ring1.errors %}
+      <span class="form-error">{{ form.key_ring1.errors }}</span>
+    {% endif %}
+  </div>
+  <div>
+    {{ form.key_ring2.label }}
+    {{ form.key_ring2 }}
+    <span class="helptext">{{ form.key_ring2.help_text }}</span>
+    {% if form.key_ring2.errors %}
+      <span class="form-error">{{ form.key_ring2.errors }}</span>
+    {% endif %}
+  </div>
+  <p><input type="submit" value="{% trans "Neuen Zugang erstellen" %}" class="btn"></p>
 </form>
 {% endblock content %}

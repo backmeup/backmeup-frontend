@@ -1,18 +1,44 @@
+form div {
+  @include margin-trailer(1);
+}
+
 label {
   display: block;
 }
-input[type="text"], input[type="password"] {
-  @include single-transition(border, 0.2, linear, 0);
-//  -moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
-  @include rhythm-borders($width: 1px, $lines: 0, $font-size: $base-font-size, $border-style: solid);
-  background-color: white;
-  border-color: #87888A;
-  border-radius: 3px;
-//  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-//  @include single-box-shadow(rgba(0, 0, 0, 0.75), 0, 1px, 1px,  inset)
+input {
+  &[type="text"], &[type="password"] {
+      @include single-transition(border, 0.2, linear, 0);
+    //  -moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+
+    //  @include adjust-font-size-to(14px, 1, 16px);
+    //  @include rhythm-borders(1px, 0.25, 14px);
+      padding-left:.25em;
+      padding-right:.25em;
+//      @include adjust-font-size-to(14px, 1, 16px);
+      @include rhythm-borders($width: 1px, $lines: 0, $font-size: 14px, $border-style: solid);
+//      font-size: 14px;
+
+      @include box-sizing(border-box);
+      
+      display: block;
+      background-color: white;
+      border-color: #87888A;
+      border-radius: 3px;
+    //  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    //  @include single-box-shadow(rgba(0, 0, 0, 0.75), 0, 1px, 1px,  inset)
+  }
 }
 input[type="text"]:focus, input[type="password"]:focus {
   border-color: rgba(82, 168, 236, 0.8);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
   outline: 0 none;
+}
+.helptext {
+  display: block;
+  @include adjust-font-size-to(14px, 1, 16px);
+}
+
+// Form Feedback Styles
+.form-error {
+  color: $clr-error;
 }
