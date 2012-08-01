@@ -4,6 +4,8 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+from django.views.generic import TemplateView
+
 from filebrowser.sites import site
 
 # Uncomment the next two lines to enable the admin:
@@ -29,9 +31,12 @@ urlpatterns = patterns('',
     
     url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'www/access/login.html'}),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
-
     
     url(r'^create_backup/$', 'main.views.create_backup', name="create-backup"),
+    
+    # styleguide
+    (r'^styleguide$', TemplateView.as_view(template_name='www/styleguide/styleguide.html')),
+
 )
 
 

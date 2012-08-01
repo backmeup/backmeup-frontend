@@ -119,22 +119,28 @@ h2 {
 }
 
 /* line 19, ../scss/partials/_global.scss */
+h3 {
+  font-size: 1.25em;
+  line-height: 1.2em;
+}
+
+/* line 22, ../scss/partials/_global.scss */
 a {
   color: #3a6395;
   text-decoration: none;
 }
 
-/* line 23, ../scss/partials/_global.scss */
+/* line 26, ../scss/partials/_global.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 26, ../scss/partials/_global.scss */
+/* line 29, ../scss/partials/_global.scss */
 #content p, #content ul, #content ol {
   margin-bottom: 1.5em;
 }
 
-/* line 29, ../scss/partials/_global.scss */
+/* line 32, ../scss/partials/_global.scss */
 .btn {
   background: #5b80ab;
   color: white;
@@ -153,7 +159,7 @@ a:hover {
   margin-bottom: 0.375em;
 }
 
-/* line 34, ../scss/partials/_global.scss */
+/* line 37, ../scss/partials/_global.scss */
 .container {
   *zoom: 1;
   max-width: 59em;
@@ -169,7 +175,7 @@ a:hover {
   clear: both;
 }
 
-/* line 39, ../scss/partials/_global.scss */
+/* line 42, ../scss/partials/_global.scss */
 #logo {
   font-size: 1.5em;
   line-height: 2em;
@@ -186,14 +192,14 @@ a:hover {
   height: 2em;
 }
 
-/* line 49, ../scss/partials/_global.scss */
+/* line 52, ../scss/partials/_global.scss */
 #header {
   background: #5b80ab;
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 53, ../scss/partials/_global.scss */
+/* line 56, ../scss/partials/_global.scss */
 #content {
   background: white;
   overflow: hidden;
@@ -202,13 +208,13 @@ a:hover {
   padding-bottom: 1.5em;
 }
 
-/* line 63, ../scss/partials/_global.scss */
+/* line 66, ../scss/partials/_global.scss */
 #login-nav {
   float: right;
   text-align: right;
 }
 
-/* line 67, ../scss/partials/_global.scss */
+/* line 70, ../scss/partials/_global.scss */
 #login-nav ul {
   margin: 0;
   padding: 0;
@@ -242,12 +248,12 @@ a:hover {
   padding-right: 0;
 }
 
-/* line 72, ../scss/partials/_global.scss */
+/* line 75, ../scss/partials/_global.scss */
 #login-nav a {
   color: white;
 }
 
-/* line 77, ../scss/partials/_global.scss */
+/* line 80, ../scss/partials/_global.scss */
 .breadcrumbs,
 #footer {
   padding-top: 0.75em;
@@ -255,7 +261,7 @@ a:hover {
   background: #e9eff4;
 }
 
-/* line 82, ../scss/partials/_global.scss */
+/* line 85, ../scss/partials/_global.scss */
 .breadcrumbs ul {
   margin: 0;
   padding: 0;
@@ -287,7 +293,7 @@ a:hover {
   padding-right: 0;
 }
 
-/* line 87, ../scss/partials/_global.scss */
+/* line 90, ../scss/partials/_global.scss */
 #meta-nav ul {
   margin: 0;
   padding: 0;
@@ -319,7 +325,7 @@ a:hover {
   padding-right: 0;
 }
 
-/* line 92, ../scss/partials/_global.scss */
+/* line 95, ../scss/partials/_global.scss */
 .copyright {
   float: left;
   color: #245E8C;

@@ -16,6 +16,9 @@ h1 {
 h2 {
   @include adjust-font-size-to(24px);
 }
+h3 {
+  @include adjust-font-size-to(20px);
+}
 a {
   color: $clr-link;
   text-decoration: none;
