@@ -1,8 +1,8 @@
 django==1.4
 psycopg2==2.4.2
 
-git+git://github.com/sehmaschine/django-grappelli.git@grappelli_2_4
-git+git://github.com/sehmaschine/django-filebrowser.git@filebrowser_3_5
+django-grappelli==2.4.0
+django-filebrowser==3.5.0
 PIL==1.1.7
 
 django_compressor
