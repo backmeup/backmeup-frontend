@@ -121,7 +121,7 @@ class RestDatasource(RestBase):
         self.base_url = self.base_url + path
     
     def get_all(self):
-        return self._get()
+        return self._get()['sources']
     
     def post(self, data):
         return self._post(data=data)
