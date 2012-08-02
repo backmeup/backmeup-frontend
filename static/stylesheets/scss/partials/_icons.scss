@@ -1,0 +1,55 @@
+/*  Font Awesome
+    the iconic font designed for use with Twitter Bootstrap
+    -------------------------------------------------------
+    The full suite of pictographic icons, examples, and documentation
+    can be found at: http://fortawesome.github.com/Font-Awesome/ */
+
+@include font-face(
+    'FontAwesome',
+    font-files(
+        "#{$fontAwesomePath}.woff", woff,
+        "#{$fontAwesomePath}.ttf", truetype,
+        "#{$fontAwesomePath}.svg#FontAwesomeRegular", svg),
+    '#{$fontAwesomePath}.eot',
+    normal,
+    normal);
+
+[class^="icon-before-"]:before,
+[class*=" icon-before-"]:before {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  margin-right: .5em;
+}
+
+[class^="icon-after-"]:after,
+[class*=" icon-after-"]:after {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  margin-left: .5em;
+}
+
+a [class^="icon-"],
+a [class*=" icon-"] {
+  display: inline-block;
+  text-decoration: inherit;
+}
+
+.icon-after-caret-down:after            { content: "\f0d7"; }
+.icon-after-caret-up:after              { content: "\f0d8"; }
+.icon-before-search:before              { content: "\f002"; }
+.icon-after-search:after                { content: "\f002"; }
+.icon-before-facebook-sign:before       { content: "\f082"; }
+.icon-before-twitter-sign:before        { content: "\f081"; }
+.icon-before-check:before               { content: "\f046"; }
+.icon-before-check-empty:before         { content: "\f096"; }
+.icon-after-chevron-right:after         { content: "\f054"; }
+.icon-before-exclamation-sign:before    { content: "\f06a"; }
+.icon-after-exclamation-sign:after      { content: "\f06a"; }
+
+

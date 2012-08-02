@@ -59,10 +59,11 @@ ul, ol {
   color: white;
   text-decoration: none;
   float: left;
-  @include replace-text('/static/img/BackMeUp_logo.png', 0, .5em);
+  @include replace-text("BackMeUp_logo.png", 0, .5em);
   width:158px;
   height:2em;
 }
+
 // header
 #header {
   background: $bg-clr1;
@@ -105,6 +106,7 @@ ul, ol {
 #meta-nav ul{
   @include horizontal-list(8px);
 }
+
 
 // TO DO: figure out best practice for text-replacement and vertical rhythm and responsive layout
 .copyright {
