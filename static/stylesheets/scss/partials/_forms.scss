@@ -7,19 +7,17 @@ label {
 }
 input {
   &[type="text"], &[type="password"] {
-      @include single-transition(border, 0.2, linear, 0);
+//      @include single-transition(border, 0.2, linear, 0);
     //  -moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
 
     //  @include adjust-font-size-to(14px, 1, 16px);
     //  @include rhythm-borders(1px, 0.25, 14px);
-      padding-left:.25em;
-      padding-right:.25em;
-//      @include adjust-font-size-to(14px, 1, 16px);
+      @include adjust-font-size-to(14px, 0, 16px);
       @include rhythm-borders($width: 1px, $lines: 0, $font-size: 14px, $border-style: solid);
 //      font-size: 14px;
-
+      padding: 3px;
       @include box-sizing(border-box);
-      
+      height: $base-line-height;
       display: block;
       background-color: white;
       border-color: #87888A;

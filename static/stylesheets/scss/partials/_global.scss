@@ -1,10 +1,14 @@
-body {
-  background: white;
+html,
+button,
+input,
+select,
+textarea {
   font-family: Arial, Helvetica, sans-serif;
-}
-body, input, textarea {
   font-size: $base-font-size;
   color: $clr-text;
+}
+body {
+  background: white;
 }
 h1,h2,h3,h4,h5,h6 {
   color: $clr-headline;
@@ -25,6 +29,17 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+ul, ol {
+  list-style: none outside;
+}
+#content ul, {
+  padding-left: 1em;
+  list-style-type: circle;
+}
+#content ol {
+  padding-left: 1em;
+  list-style-type: decimal;
 }
 #content p, #content ul, #content ol {
   @include margin-trailer(1);
@@ -60,7 +75,7 @@ a:hover {
   @include padding-trailer(1);
 }
 #content .container {
-//  @extend .grid;
+  @extend .grid;
 }
 // login-nav
 #login-nav {
@@ -88,7 +103,7 @@ a:hover {
 
 // meta-nav
 #meta-nav ul{
-  @include horizontal-list;
+  @include horizontal-list(8px);
 }
 
 // TO DO: figure out best practice for text-replacement and vertical rhythm and responsive layout

@@ -1,68 +1,3 @@
-/* line 17, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-/* line 22, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-html {
-  line-height: 1;
-}
-
-/* line 24, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-ol, ul {
-  list-style: none;
-}
-
-/* line 26, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* line 28, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-/* line 30, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-q, blockquote {
-  quotes: none;
-}
-/* line 103, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-/* line 32, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-a img {
-  border: none;
-}
-
-/* line 116, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
-  display: block;
-}
-
 /* line 61, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 100%;
@@ -75,7 +10,7 @@ html {
 }
 
 /* line 69, ../scss/partials/_base.scss */
-.grid {
+.grid, #content .container {
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 0, 0, 0.5)), color-stop(5%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(1.639%, rgba(0, 0, 0, 0)), color-stop(1.639%, rgba(100, 100, 225, 0.25)), color-stop(8.197%, rgba(100, 100, 225, 0.25)), color-stop(8.197%, rgba(0, 0, 0, 0)), color-stop(9.836%, rgba(0, 0, 0, 0)), color-stop(9.836%, rgba(100, 100, 225, 0.25)), color-stop(16.393%, rgba(100, 100, 225, 0.25)), color-stop(16.393%, rgba(0, 0, 0, 0)), color-stop(18.033%, rgba(0, 0, 0, 0)), color-stop(18.033%, rgba(100, 100, 225, 0.25)), color-stop(24.59%, rgba(100, 100, 225, 0.25)), color-stop(24.59%, rgba(0, 0, 0, 0)), color-stop(26.23%, rgba(0, 0, 0, 0)), color-stop(26.23%, rgba(100, 100, 225, 0.25)), color-stop(32.787%, rgba(100, 100, 225, 0.25)), color-stop(32.787%, rgba(0, 0, 0, 0)), color-stop(34.426%, rgba(0, 0, 0, 0)), color-stop(34.426%, rgba(100, 100, 225, 0.25)), color-stop(40.984%, rgba(100, 100, 225, 0.25)), color-stop(40.984%, rgba(0, 0, 0, 0)), color-stop(42.623%, rgba(0, 0, 0, 0)), color-stop(42.623%, rgba(100, 100, 225, 0.25)), color-stop(49.18%, rgba(100, 100, 225, 0.25)), color-stop(49.18%, rgba(0, 0, 0, 0)), color-stop(50.82%, rgba(0, 0, 0, 0)), color-stop(50.82%, rgba(100, 100, 225, 0.25)), color-stop(57.377%, rgba(100, 100, 225, 0.25)), color-stop(57.377%, rgba(0, 0, 0, 0)), color-stop(59.016%, rgba(0, 0, 0, 0)), color-stop(59.016%, rgba(100, 100, 225, 0.25)), color-stop(65.574%, rgba(100, 100, 225, 0.25)), color-stop(65.574%, rgba(0, 0, 0, 0)), color-stop(67.213%, rgba(0, 0, 0, 0)), color-stop(67.213%, rgba(100, 100, 225, 0.25)), color-stop(73.77%, rgba(100, 100, 225, 0.25)), color-stop(73.77%, rgba(0, 0, 0, 0)), color-stop(75.41%, rgba(0, 0, 0, 0)), color-stop(75.41%, rgba(100, 100, 225, 0.25)), color-stop(81.967%, rgba(100, 100, 225, 0.25)), color-stop(81.967%, rgba(0, 0, 0, 0)), color-stop(83.607%, rgba(0, 0, 0, 0)), color-stop(83.607%, rgba(100, 100, 225, 0.25)), color-stop(90.164%, rgba(100, 100, 225, 0.25)), color-stop(90.164%, rgba(0, 0, 0, 0)), color-stop(91.803%, rgba(0, 0, 0, 0)), color-stop(91.803%, rgba(100, 100, 225, 0.25)), color-stop(98.361%, rgba(100, 100, 225, 0.25)), color-stop(98.361%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
   background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 1.639%, rgba(100, 100, 225, 0.25) 1.639%, rgba(100, 100, 225, 0.25) 8.197%, rgba(0, 0, 0, 0) 8.197%, rgba(0, 0, 0, 0) 9.836%, rgba(100, 100, 225, 0.25) 9.836%, rgba(100, 100, 225, 0.25) 16.393%, rgba(0, 0, 0, 0) 16.393%, rgba(0, 0, 0, 0) 18.033%, rgba(100, 100, 225, 0.25) 18.033%, rgba(100, 100, 225, 0.25) 24.59%, rgba(0, 0, 0, 0) 24.59%, rgba(0, 0, 0, 0) 26.23%, rgba(100, 100, 225, 0.25) 26.23%, rgba(100, 100, 225, 0.25) 32.787%, rgba(0, 0, 0, 0) 32.787%, rgba(0, 0, 0, 0) 34.426%, rgba(100, 100, 225, 0.25) 34.426%, rgba(100, 100, 225, 0.25) 40.984%, rgba(0, 0, 0, 0) 40.984%, rgba(0, 0, 0, 0) 42.623%, rgba(100, 100, 225, 0.25) 42.623%, rgba(100, 100, 225, 0.25) 49.18%, rgba(0, 0, 0, 0) 49.18%, rgba(0, 0, 0, 0) 50.82%, rgba(100, 100, 225, 0.25) 50.82%, rgba(100, 100, 225, 0.25) 57.377%, rgba(0, 0, 0, 0) 57.377%, rgba(0, 0, 0, 0) 59.016%, rgba(100, 100, 225, 0.25) 59.016%, rgba(100, 100, 225, 0.25) 65.574%, rgba(0, 0, 0, 0) 65.574%, rgba(0, 0, 0, 0) 67.213%, rgba(100, 100, 225, 0.25) 67.213%, rgba(100, 100, 225, 0.25) 73.77%, rgba(0, 0, 0, 0) 73.77%, rgba(0, 0, 0, 0) 75.41%, rgba(100, 100, 225, 0.25) 75.41%, rgba(100, 100, 225, 0.25) 81.967%, rgba(0, 0, 0, 0) 81.967%, rgba(0, 0, 0, 0) 83.607%, rgba(100, 100, 225, 0.25) 83.607%, rgba(100, 100, 225, 0.25) 90.164%, rgba(0, 0, 0, 0) 90.164%, rgba(0, 0, 0, 0) 91.803%, rgba(100, 100, 225, 0.25) 91.803%, rgba(100, 100, 225, 0.25) 98.361%, rgba(0, 0, 0, 0) 98.361%, rgba(0, 0, 0, 0) 100%);
   background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -moz-linear-gradient(left, rgba(0, 0, 0, 0) 1.639%, rgba(100, 100, 225, 0.25) 1.639%, rgba(100, 100, 225, 0.25) 8.197%, rgba(0, 0, 0, 0) 8.197%, rgba(0, 0, 0, 0) 9.836%, rgba(100, 100, 225, 0.25) 9.836%, rgba(100, 100, 225, 0.25) 16.393%, rgba(0, 0, 0, 0) 16.393%, rgba(0, 0, 0, 0) 18.033%, rgba(100, 100, 225, 0.25) 18.033%, rgba(100, 100, 225, 0.25) 24.59%, rgba(0, 0, 0, 0) 24.59%, rgba(0, 0, 0, 0) 26.23%, rgba(100, 100, 225, 0.25) 26.23%, rgba(100, 100, 225, 0.25) 32.787%, rgba(0, 0, 0, 0) 32.787%, rgba(0, 0, 0, 0) 34.426%, rgba(100, 100, 225, 0.25) 34.426%, rgba(100, 100, 225, 0.25) 40.984%, rgba(0, 0, 0, 0) 40.984%, rgba(0, 0, 0, 0) 42.623%, rgba(100, 100, 225, 0.25) 42.623%, rgba(100, 100, 225, 0.25) 49.18%, rgba(0, 0, 0, 0) 49.18%, rgba(0, 0, 0, 0) 50.82%, rgba(100, 100, 225, 0.25) 50.82%, rgba(100, 100, 225, 0.25) 57.377%, rgba(0, 0, 0, 0) 57.377%, rgba(0, 0, 0, 0) 59.016%, rgba(100, 100, 225, 0.25) 59.016%, rgba(100, 100, 225, 0.25) 65.574%, rgba(0, 0, 0, 0) 65.574%, rgba(0, 0, 0, 0) 67.213%, rgba(100, 100, 225, 0.25) 67.213%, rgba(100, 100, 225, 0.25) 73.77%, rgba(0, 0, 0, 0) 73.77%, rgba(0, 0, 0, 0) 75.41%, rgba(100, 100, 225, 0.25) 75.41%, rgba(100, 100, 225, 0.25) 81.967%, rgba(0, 0, 0, 0) 81.967%, rgba(0, 0, 0, 0) 83.607%, rgba(100, 100, 225, 0.25) 83.607%, rgba(100, 100, 225, 0.25) 90.164%, rgba(0, 0, 0, 0) 90.164%, rgba(0, 0, 0, 0) 91.803%, rgba(100, 100, 225, 0.25) 91.803%, rgba(100, 100, 225, 0.25) 98.361%, rgba(0, 0, 0, 0) 98.361%, rgba(0, 0, 0, 0) 100%);
@@ -88,59 +23,398 @@ html {
   background-position: left top;
 }
 
-/* line 1, ../scss/partials/_global.scss */
-body {
-  background: white;
-  font-family: Arial, Helvetica, sans-serif;
+/* customized normalize - based on http://github.com/necolas/normalize.css */
+/* line 3, ../scss/partials/_normalize.scss */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Corrects `block` display not defined in IE6/7/8/9 & FF3.
+ */
+/* line 23, ../scss/partials/_normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/*
+ * Corrects `inline-block` display not defined in IE6/7/8/9 & FF3.
+ */
+/* line 33, ../scss/partials/_normalize.scss */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/*
+ * Prevents modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS5 devices.
+ */
+/* line 44, ../scss/partials/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/*
+ * Addresses styling for `hidden` attribute not present in IE7/8/9, FF3, S4.
+ * Known issue: no IE6 support.
+ */
+/* line 54, ../scss/partials/_normalize.scss */
+[hidden] {
+  display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Corrects text resizing oddly in IE6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevents iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+/* line 69, ../scss/partials/_normalize.scss */
+html {
+  font-size: 100%;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/*
+ * Addresses `outline` inconsistency between Chrome and other browsers.
+ */
+/* line 83, ../scss/partials/_normalize.scss */
+a:focus {
+  outline: thin dotted;
+}
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers.
+ * people.opera.com/patrickl/experiments/keyboard/test
+ */
+/* line 93, ../scss/partials/_normalize.scss */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/* line 102, ../scss/partials/_normalize.scss */
+b,
+strong {
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * 1. Removes border when inside `a` element in IE6/7/8/9, FF3.
+ * 2. Improves image quality when scaled in IE7.
+ *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */
+/* line 116, ../scss/partials/_normalize.scss */
+img {
+  border: 0;
+  /* 1 */
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+}
+
+/*
+ * Corrects overflow displayed oddly in IE9.
+ */
+/* line 125, ../scss/partials/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/*
+ * Addresses margin not present in IE6/7/8/9, S5, O11.
+ */
+/* line 137, ../scss/partials/_normalize.scss */
+figure {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/*
+ * Corrects margin displayed oddly in IE6/7.
+ */
+/* line 149, ../scss/partials/_normalize.scss */
+form {
+  margin: 0;
+}
+
+/*
+ * Define consistent border, margin, and padding.
+ */
+/* line 157, ../scss/partials/_normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/*
+ * 1. Corrects color not being inherited in IE6/7/8/9.
+ * 2. Corrects text not wrapping in FF3.
+ * 3. Corrects alignment displayed oddly in IE6/7.
+ */
+/* line 169, ../scss/partials/_normalize.scss */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  white-space: normal;
+  /* 2 */
+  *margin-left: -7px;
+  /* 3 */
+}
+
+/*
+ * 1. Corrects font size not being inherited in all browsers.
+ * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome.
+ * 3. Improves appearance and consistency in all browsers.
+ */
+/* line 185, ../scss/partials/_normalize.scss */
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  vertical-align: baseline;
+  /* 3 */
+  *vertical-align: middle;
+  /* 3 */
+}
+
+/*
+ * Addresses FF3/4 setting `line-height` on `input` using `!important` in the
+ * UA stylesheet.
+ */
+/* line 198, ../scss/partials/_normalize.scss */
+button,
+input {
+  line-height: normal;
+}
+
+/*
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Corrects inability to style clickable `input` types in iOS.
+ * 3. Improves usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Removes inner spacing in IE7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE6.
+ */
+/* line 215, ../scss/partials/_normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+  *overflow: visible;
+  /* 4 */
+}
+
+/*
+ * Re-set default cursor for disabled elements.
+ */
+/* line 226, ../scss/partials/_normalize.scss */
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+/*
+ * 1. Addresses box sizing set to content-box in IE8/9.
+ * 2. Removes excess padding in IE8/9.
+ * 3. Removes excess padding in IE7.
+ *    Known issue: excess padding remains in IE6.
+ */
+/* line 238, ../scss/partials/_normalize.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+  *height: 13px;
+  /* 3 */
+  *width: 13px;
+  /* 3 */
+}
+
+/*
+ * 1. Addresses `appearance` set to `searchfield` in S5, Chrome.
+ * 2. Addresses `box-sizing` set to `border-box` in S5, Chrome (include `-moz`
+ *    to future-proof).
+ */
+/* line 251, ../scss/partials/_normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/*
+ * Removes inner padding and search cancel button in S5, Chrome on OS X.
+ */
+/* line 263, ../scss/partials/_normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+ * Removes inner padding and border in FF3+.
+ */
+/* line 272, ../scss/partials/_normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*
+ * 1. Removes default vertical scrollbar in IE6/7/8/9.
+ * 2. Improves readability and alignment in all browsers.
+ */
+/* line 282, ../scss/partials/_normalize.scss */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/*
+ * Remove most spacing between table cells.
+ */
+/* line 295, ../scss/partials/_normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* line 5, ../scss/partials/_global.scss */
-body, input, textarea {
+html,
+button,
+input,
+select,
+textarea {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: #5c5c5c;
 }
 
-/* line 9, ../scss/partials/_global.scss */
+/* line 10, ../scss/partials/_global.scss */
+body {
+  background: white;
+}
+
+/* line 13, ../scss/partials/_global.scss */
 h1, h2, h3, h4, h5, h6 {
   color: black;
   font-weight: bold;
 }
 
-/* line 13, ../scss/partials/_global.scss */
+/* line 17, ../scss/partials/_global.scss */
 h1 {
   font-size: 2em;
   line-height: 1.5em;
 }
 
-/* line 16, ../scss/partials/_global.scss */
+/* line 20, ../scss/partials/_global.scss */
 h2 {
   font-size: 1.5em;
   line-height: 2em;
 }
 
-/* line 19, ../scss/partials/_global.scss */
+/* line 23, ../scss/partials/_global.scss */
 h3 {
   font-size: 1.25em;
   line-height: 1.2em;
 }
 
-/* line 22, ../scss/partials/_global.scss */
+/* line 26, ../scss/partials/_global.scss */
 a {
   color: #3a6395;
   text-decoration: none;
 }
 
-/* line 26, ../scss/partials/_global.scss */
+/* line 30, ../scss/partials/_global.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 29, ../scss/partials/_global.scss */
+/* line 33, ../scss/partials/_global.scss */
+ul, ol {
+  list-style: none outside;
+}
+
+/* line 36, ../scss/partials/_global.scss */
+#content ul {
+  padding-left: 1em;
+  list-style-type: circle;
+}
+
+/* line 40, ../scss/partials/_global.scss */
+#content ol {
+  padding-left: 1em;
+  list-style-type: decimal;
+}
+
+/* line 44, ../scss/partials/_global.scss */
 #content p, #content ul, #content ol {
   margin-bottom: 1.5em;
 }
 
-/* line 32, ../scss/partials/_global.scss */
+/* line 47, ../scss/partials/_global.scss */
 .btn {
   background: #5b80ab;
   color: white;
@@ -159,7 +433,7 @@ a:hover {
   margin-bottom: 0.375em;
 }
 
-/* line 37, ../scss/partials/_global.scss */
+/* line 52, ../scss/partials/_global.scss */
 .container {
   *zoom: 1;
   max-width: 59em;
@@ -175,7 +449,7 @@ a:hover {
   clear: both;
 }
 
-/* line 42, ../scss/partials/_global.scss */
+/* line 57, ../scss/partials/_global.scss */
 #logo {
   font-size: 1.5em;
   line-height: 2em;
@@ -192,14 +466,14 @@ a:hover {
   height: 2em;
 }
 
-/* line 52, ../scss/partials/_global.scss */
+/* line 67, ../scss/partials/_global.scss */
 #header {
   background: #5b80ab;
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 56, ../scss/partials/_global.scss */
+/* line 71, ../scss/partials/_global.scss */
 #content {
   background: white;
   overflow: hidden;
@@ -208,13 +482,13 @@ a:hover {
   padding-bottom: 1.5em;
 }
 
-/* line 66, ../scss/partials/_global.scss */
+/* line 81, ../scss/partials/_global.scss */
 #login-nav {
   float: right;
   text-align: right;
 }
 
-/* line 70, ../scss/partials/_global.scss */
+/* line 85, ../scss/partials/_global.scss */
 #login-nav ul {
   margin: 0;
   padding: 0;
@@ -248,12 +522,12 @@ a:hover {
   padding-right: 0;
 }
 
-/* line 75, ../scss/partials/_global.scss */
+/* line 90, ../scss/partials/_global.scss */
 #login-nav a {
   color: white;
 }
 
-/* line 80, ../scss/partials/_global.scss */
+/* line 95, ../scss/partials/_global.scss */
 .breadcrumbs,
 #footer {
   padding-top: 0.75em;
@@ -261,7 +535,7 @@ a:hover {
   background: #e9eff4;
 }
 
-/* line 85, ../scss/partials/_global.scss */
+/* line 100, ../scss/partials/_global.scss */
 .breadcrumbs ul {
   margin: 0;
   padding: 0;
@@ -293,7 +567,7 @@ a:hover {
   padding-right: 0;
 }
 
-/* line 90, ../scss/partials/_global.scss */
+/* line 105, ../scss/partials/_global.scss */
 #meta-nav ul {
   margin: 0;
   padding: 0;
@@ -309,8 +583,8 @@ a:hover {
   white-space: nowrap;
   display: inline;
   float: left;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 /* line 48, ../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
 #meta-nav ul li:first-child, #meta-nav ul li.first {
@@ -325,7 +599,7 @@ a:hover {
   padding-right: 0;
 }
 
-/* line 95, ../scss/partials/_global.scss */
+/* line 110, ../scss/partials/_global.scss */
 .copyright {
   float: left;
   color: #245E8C;
@@ -355,40 +629,37 @@ label {
 
 /* line 9, ../scss/partials/_forms.scss */
 input[type="text"], input[type="password"] {
-  -webkit-transition: border 0.2 linear;
-  -webkit-transition-delay: 0;
-  -moz-transition: border 0.2 linear 0;
-  -o-transition: border 0.2 linear 0;
-  transition: border 0.2 linear 0;
-  padding-left: .25em;
-  padding-right: .25em;
+  font-size: 0.875em;
+  line-height: 0em;
   border-style: solid;
   border-width: 0.071em;
   padding: -0.071em;
+  padding: 3px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  height: 24px;
   display: block;
   background-color: white;
   border-color: #87888A;
   border-radius: 3px;
 }
 
-/* line 31, ../scss/partials/_forms.scss */
+/* line 29, ../scss/partials/_forms.scss */
 input[type="text"]:focus, input[type="password"]:focus {
   border-color: rgba(82, 168, 236, 0.8);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
   outline: 0 none;
 }
 
-/* line 36, ../scss/partials/_forms.scss */
+/* line 34, ../scss/partials/_forms.scss */
 .helptext {
   display: block;
   font-size: 0.875em;
   line-height: 1.714em;
 }
 
-/* line 42, ../scss/partials/_forms.scss */
+/* line 40, ../scss/partials/_forms.scss */
 .form-error {
   color: #ff1d25;
 }

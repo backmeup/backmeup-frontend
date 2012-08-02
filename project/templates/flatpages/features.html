@@ -1,0 +1,14 @@
+{% extends "flatpages/default.html" %}
+
+{% load i18n %}
+
+{% block body_class %}class="features"{% endblock %}
+
+{% block content %}{{ block.super }}
+  <div class="register-teaser">
+    <h2>BackMeUp</h2>
+    <a href="{% url signup %}" class="btn">{% trans "jetzt Registrieren" %}</a>
+  </div>
+{% endblock %}
+
+{% load i18n %}

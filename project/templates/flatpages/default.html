@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-flatpages/default.html
 
-{{ flatpage }}
+<h1>{{ flatpage.title }}</h1>
+<article class="article">
+  {{ flatpage.content }}
+</article>
 {% endblock %}
 
