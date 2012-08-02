@@ -1,0 +1,12 @@
+Install
+=======
+
+* install python modules listed in backmeup-frontend/misc/pip-requirements.txt
+* setup apache vhost. example vhost and wsgi config files are in backmeup-frontend/apache/
+* copy/symlink django project settings file to backmeup-frontend/project/settings/settings.py
+* create a db and make sure the db connection settings in the settings.py are correct.
+* open the shell and do:
+ * $ cd backmeup-frontend/project/
+ * $ ./manage.py syncdb
+ * $ ./manage.py migrate
+
