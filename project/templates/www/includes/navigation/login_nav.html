@@ -8,7 +8,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user }}</a>
         <ul id="user-dropdown">
           <li><a href="#link-to-user-settings">{% trans "Konto-Einstellungen" %}</a></li>
-          <li><a href="#log-me-out">{% trans "Abmelden" %}</a></li>
+          <li><a href="{% url django.contrib.auth.views.logout %}">{% trans "Abmelden" %}</a></li>
         </ul>
       </li>
     {% else %}
@@ -16,6 +16,4 @@
       <li><a href="{% url signup %}">{% trans "Registrieren" %}</a></li>
     {% endif %}
   </ul>
-  
-  
 </nav>
