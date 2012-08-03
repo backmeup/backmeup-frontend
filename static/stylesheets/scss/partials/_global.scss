@@ -90,7 +90,8 @@ ul, ol {
   @include padding-trailer(.5);
 }
 #login-nav a {
-  color:white;
+  color: white;
+  text-decoration: none;
 }
 // breadcrumbs
 .breadcrumbs,
@@ -108,6 +109,25 @@ ul, ol {
   @include horizontal-list(8px);
 }
 
+// header search
+#header-search-form {
+  border-left: 1px solid $clr-text2;
+  margin-left: .5em;
+  padding-left: 1em;
+}
+#header-search-form label {
+//  TODO: compare to standard hide-visual technique
+  @include squish-text();
+}
+#header-search-field {
+  float: left;
+//  width: 100px;
+//  @include transition-property(width);
+//  @include transition-duration(1s);
+}
+#header-search-field:focus {
+//  width: 140px;
+}
 
 // TO DO: figure out best practice for text-replacement and vertical rhythm and responsive layout
 .copyright {

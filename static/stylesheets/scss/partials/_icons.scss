@@ -53,3 +53,23 @@ a [class*=" icon-"] {
 .icon-after-exclamation-sign:after      { content: "\f06a"; }
 .icon-before-home:before                { content: "\f015"; }
 
+
+
+
+// search icon in header search
+.searchsubmit {
+  background: none;
+  border: 0;
+}
+.searchsubmit:after {
+  font-family: FontAwesome;
+  content: "\f002";
+  color: $clr-text2;
+  margin-left: .5em;
+  @include adjust-font-size-to(20px);
+}
+.searchsubmit:focus:after {
+  outline: thin dotted;
+}
+
+
