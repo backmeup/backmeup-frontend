@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block breadcrumbs %}
+  {% include "www/includes/breadcrumbs.html" with page=flatpage %}
+{% endblock %}
+
 {% block content %}
 
 <h1>{{ flatpage.title }}</h1>
