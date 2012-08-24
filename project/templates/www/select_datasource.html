@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block body_class %}class="home"{% endblock %}
+
+{% block content %}
+  <h1>create backup</h1>
+  
+  <h2>{% trans "Select datasource" %}</h2>
+  
+  <form action="." method="POST">{% csrf_token %}
+    {{ form.non_field_errors }}
+    <div>
+      <label>{{ form.profile_name.label }}
+      {{ form.profile_name }}</label>
+      {% if form.profile_name.errors %}
+        <span class="form-error">{{ form.profile_name.errors }}</span>
+      {% endif %}
+    </div>
+    
+    <div>
+      {% for item in form.datasource %}
+         <label>{{ item.tag }} {{ item.choice_label }}</label>
+      {% endfor %}
+      {% if form.datasource.errors %}
+        <span class="form-error">{{ form.datasource.errors }}</span>
+      {% endif %}
+    </div>
+    
+    <div>
+      <label>{{ form.key_ring.label }}
+      {{ form.key_ring }}</label>
+      {% if form.key_ring.errors %}
+        <span class="form-error">{{ form.key_ring.errors }}</span>
+      {% endif %}
+    </div>
+    
+    <p><input type="submit" value="Continue &rarr;" class="btn"></p>
+  </form>
+  
+  {# <ul> #}
+  {#     {% for item in datasources %} #}
+  {#       <li><img src="{{ item.imageURL }}" width="48">{{ item.title }}</li> #}
+  {#     {% endfor %} #}
+  {#   </ul> #}
+{% endblock content %}

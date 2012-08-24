@@ -3,7 +3,7 @@
 import json
 import requests
 
-REST_API_BASE_URL = "http://localhost:8080/"
+from django.conf import settings
 
 # TODO 
 # move all requests api specific code to RestBase
@@ -13,15 +13,25 @@ class RestBase(object):
     To abstract the requests api
     '''
     
-    def __init__(self, url=REST_API_BASE_URL):
+    def __init__(self, url=settings.REST_API_BASE_URL):
         self.base_url = url
     
     def _delete(self, path="", data=None):
-        req = requests.delete(self.base_url + path, data=data)
-        return req
+        response = requests.delete(self.base_url + path, data=data)
+        if settings.DEBUG:
+            print "#######################_delete url:", self.base_url + path
+            print "#######################_delete data:", data
+            print "#######################_delete", response
+            print "#######################_delete", response.json
+        return response
     
     def _get(self, path="", data=None):
         response = requests.get(self.base_url + path, data=data)
+        if settings.DEBUG:
+            print "##########################_get url:", self.base_url + path
+            print "##########################_get data:", data
+            print "##########################_get", response
+            print "##########################_get", response.json
         if response.status_code == 404 or response.status_code == 401:
             return False
         elif response.status_code == 204:
@@ -30,12 +40,24 @@ class RestBase(object):
             return response.json
     
     def _post(self, path="", data=None):
-        req = requests.post(self.base_url + path, data=data)
-        return req
+        response = requests.post(self.base_url + path, data=data)
+        if settings.DEBUG:
+            print "#########################_post url:", self.base_url + path
+            print "#########################_post data:", data
+            print "#########################_post", response
+            print "#########################_post", response.json
+        if response.status_code == 204:
+            return True
+        return response.json
     
     def _put(self, path="", data=None):
-        req = requests.put(self.base_url + path, data=data)
-        return req
+        response = requests.put(self.base_url + path, data=data)
+        if settings.DEBUG:
+            print "##########################_put url:", self.base_url + path
+            print "##########################_put data:", data
+            print "##########################_put", response
+            print "##########################_put", response.json
+        return response
 
 
 class RestUser(RestBase):
@@ -115,6 +137,16 @@ class RestUser(RestBase):
         return self._post(path='login/', data=req_params)
 
 
+class RestEmailVerification(RestBase):
+    
+    def __init__(self, path="users/"):
+        super(RestEmailVerification, self).__init__()
+        self.base_url = self.base_url + path
+    
+    def verify(self, hash):
+        return self._get(path="%s/verifyEmail" % hash)
+
+
 class RestDatasource(RestBase):
     def __init__(self, path="datasources/"):
         super(RestDatasource, self).__init__()
@@ -179,15 +211,9 @@ class RestDatasourceProfile(RestBase):
     
     
     def auth_post(self, profile_id, data):
-        if not "profile_name" in data:
-            raise ValueError('key "profile_name is missing in argument "data".')
         if not "key_ring" in data:
-            raise ValueError('key "key_ring is missing in argument "data".')
-        params = {
-            "keyRing": data["key_ring"],
-            "sourceOptions": json.dumps(data['source_options']),
-        }
-        return self._post(path="%s/auth/post" % profile_id, data=params)
+            raise ValueError('key "key_ring" is missing in argument "data".')
+        return self._post(path="%s/auth/post" % profile_id, data=data)
 
 
 class RestDatasink(RestBase):

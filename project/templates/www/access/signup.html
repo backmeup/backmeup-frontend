@@ -3,7 +3,6 @@
 
 {% block content %}
 <form action="." method="post">{% csrf_token %}
-  {# {{ form.as_p }} #}
   <div>
     {{ form.username.label }}
     {{ form.username }}

@@ -2,12 +2,22 @@
 {% load i18n %}
 
 {% block content %}
-{# <form action="." method="post"> #}
-{#   {{ form }} #}
-{#   <p><input type="submit" value="{% trans "Sign Up" %}"></p> #}
-{# </form> #}
-dummy!
 
-<a href="{% url create-backup %}">{% trans "next" %}</a>
+<p>{% trans "insert the verification key or just click the link from the email to verify your email address." %}</p>
+
+<form action="." method="post">{% csrf_token %}
+  <div>
+    {{ form.verify_hash.label }}
+    {{ form.verify_hash }}
+    <span class="helptext">{{ form.verify_hash.help_text }}</span>
+    {% if form.verify_hash.errors %}
+      <span class="form-error">{{ form.verify_hash.errors }}</span>
+    {% endif %}
+  </div>
+  
+  <p><input type="submit" value="{% trans "Verify" %}" class="btn"></p>
+</form>
+
+<a href="{% url select-datasource %}">{% trans "next" %}</a>
 
 {% endblock content %}

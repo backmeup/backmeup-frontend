@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response
+
+from django.contrib.auth.decorators import login_required
+#from django.http import HttpResponseRedirect
+from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 
 from remote_api.rest import RestDatasource
+
+from main.forms import DatasourceSelectForm, DatasourceAuthForm
 
 def index(request):
     context = {}
@@ -15,15 +19,48 @@ def index(request):
     )
 
 
-def create_backup(request):
-    rest_datasource = RestDatasource()
-    datasources = rest_datasource.get_all()
-    
-    context = {
-        'datasources': datasources,
-    }
+@login_required
+def select_datasource(request):
+    form = DatasourceSelectForm(request.POST or None)
+    if form.is_valid():
+        #request.session['key_ring'] = form.cleaned_data['key_ring']
+        auth_data = form.rest_save(username=request.user.username)
+        print "@@@@@@@@@@@@@@@@@@@@@@@@auth_data", auth_data
+        if auth_data:
+            request.session['auth_data'] = auth_data
+            print "####################################JOJO select_datasource"
+            return redirect('auth-datasource')
+    print "@@@@@@@@@@@@@@@@@@@@@@@@@@WTF!!!"
     return render_to_response(
-        "www/create_backup.html",
-        context,
+        "www/select_datasource.html",
+        {
+            'form': form,
+        },
+        context_instance=RequestContext(request)
+    )
+
+
+@login_required
+def auth_datasource(request):
+    
+    print "####################################JOJO auth_datasource"
+    #if not 'auth_data' in request.session:
+    #    print "#############################################################NOOOOOOOOOO"
+    #    messages.add_message(request, messages.ERROR, 'Some error occured. It seems like you didn\'t select any datasource. please do here.')
+    #    redirect('select-datasource')
+    
+    form = DatasourceAuthForm(request.POST or None, auth_data=request.session['auth_data'])
+    
+    if form.is_valid():
+        result = form.rest_save(username=request.user.username, auth_data=request.session['auth_data'])
+        print "###########################################RESULT!!!", result
+        
+        return redirect('select_datasink')
+    
+    return render_to_response(
+        "www/auth_datasource.html",
+        {
+            'form': form,
+        },
         context_instance=RequestContext(request)
     )

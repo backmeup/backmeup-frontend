@@ -4,7 +4,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 
 from access.models import User
-from remote_api.rest import RestUser
+from remote_api.rest import RestUser, RestEmailVerification
 
 class UserCreationForm(forms.ModelForm):
     """
@@ -66,11 +66,22 @@ class UserCreationForm(forms.ModelForm):
             'email':  self.cleaned_data['email'],
         })
         
-        print "############################################", response
-        if not response.status_code == 204:
+        if not response.status_code == 200:
             raise Exception
-        
         
         if commit:
             user.save()
         return user
+
+
+class UserEmailVerificationForm(forms.Form):
+    
+    verify_hash = forms.CharField(label=_("Verification Key"))
+    
+    def save(self):
+        rest_api = RestEmailVerification()
+
+        if rest_api.verify(self.cleaned_data["verify_hash"]):
+            return True
+        else:
+            return False
