@@ -223,7 +223,7 @@ class RestDatasink(RestBase):
         self.base_url = self.base_url + path
     
     def get_all(self):
-        return self._get()
+        return self._get()['sinks']
     
     def post(self, data):
         return self._post(data)

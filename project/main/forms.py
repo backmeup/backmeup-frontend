@@ -4,7 +4,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 
 #from access.models import User
-from remote_api.rest import RestDatasource, RestDatasourceProfile
+from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile
 
 
 class DatasourceSelectForm(forms.Form):
@@ -72,5 +72,35 @@ class DatasourceAuthForm(forms.Form):
                 data[key] = value
         
         return rest_datasource_profile.auth_post(profile_id=auth_data['profileId'], data=data)
+
+
+class DatasinkSelectForm(forms.Form):
+    
+    #datasink = forms.ChoiceField(label=_("Datasink"), widget=forms.RadioSelect)
+    
+    profile_name = forms.CharField(label=_("Backup Name"))
+    
+    key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
+    
+    def __init__(self, *args, **kwargs):
+        super(DatasinkSelectForm, self).__init__(*args, **kwargs)
         
+        rest_datasink = RestDatasink()
+        datasinks = rest_datasink.get_all()
+
+        choices = []
+        
+        for item in datasinks:
+            choices.append((item['datasinkId'], item['title']))
+        
+        self.fields['datasink'] = forms.ChoiceField(label=_("Datasink"), widget=forms.RadioSelect, choices=choices)
+    
+    def rest_save(self, username):
+        rest_datasink_profile = RestDatasinkProfile(username=username)
+        data = {
+            "profile_name": self.cleaned_data['profile_name'],
+            "key_ring": self.cleaned_data['key_ring'],
+        }
+        return rest_datasink_profile.auth(datasink_id=self.cleaned_data['datasink'], data=data)
+
         
