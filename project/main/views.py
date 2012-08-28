@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 
-from remote_api.rest import RestDatasource
+#from remote_api.rest import RestDatasinkProfile
 
 from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm
 
@@ -21,16 +21,14 @@ def index(request):
 
 @login_required
 def select_datasource(request):
+    print "####################################view: select_datasource"
     form = DatasourceSelectForm(request.POST or None)
     if form.is_valid():
         #request.session['key_ring'] = form.cleaned_data['key_ring']
         auth_data = form.rest_save(username=request.user.username)
-        print "@@@@@@@@@@@@@@@@@@@@@@@@auth_data", auth_data
         if auth_data:
             request.session['auth_data'] = auth_data
-            print "####################################JOJO select_datasource"
             return redirect('auth-datasource')
-    print "@@@@@@@@@@@@@@@@@@@@@@@@@@WTF!!!"
     return render_to_response(
         "www/select_datasource.html",
         {
@@ -42,8 +40,7 @@ def select_datasource(request):
 
 @login_required
 def auth_datasource(request):
-    
-    print "####################################JOJO auth_datasource"
+    print "####################################view: auth_datasource"
     #if not 'auth_data' in request.session:
     #    print "#############################################################NOOOOOOOOOO"
     #    messages.add_message(request, messages.ERROR, 'Some error occured. It seems like you didn\'t select any datasource. please do here.')
@@ -69,18 +66,16 @@ def auth_datasource(request):
 
 @login_required
 def select_datasink(request):
+    print "####################################view: select_datasink"
     form = DatasinkSelectForm(request.POST or None)
     if form.is_valid():
         #request.session['key_ring'] = form.cleaned_data['key_ring']
         auth_data = form.rest_save(username=request.user.username)
-        print "@@@@@@@@@@@@@@@@@@@@@@@@auth_data", auth_data
         if auth_data:
-            request.session['auth_data'] = auth_data
+            request.session['auth_data'] = auth_datasource
             if auth_data['type'] == 'OAuth':
                 return redirect(auth_data['redirectURL'])
-            print "####################################JOJO select_datasource"
             return redirect('auth-datasink')
-    print "@@@@@@@@@@@@@@@@@@@@@@@@@@WTF!!!"
     return render_to_response(
         "www/select_datasink.html",
         {
@@ -92,8 +87,7 @@ def select_datasink(request):
 
 @login_required
 def auth_datasink(request):
-
-    print "####################################JOJO auth_datasink"
+    print "####################################view: auth_datasink"
     #if not 'auth_data' in request.session:
     #    print "#############################################################NOOOOOOOOOO"
     #    messages.add_message(request, messages.ERROR, 'Some error occured. It seems like you didn\'t select any datasink. please do here.')
@@ -105,7 +99,7 @@ def auth_datasink(request):
         result = form.rest_save(username=request.user.username, auth_data=request.session['auth_data'])
         request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
         del request.session['auth_data']
-        #return redirect('select-datasink')
+        return redirect('select-datasink')
 
     return render_to_response(
         "www/auth_datasink.html",
@@ -114,3 +108,17 @@ def auth_datasink(request):
         },
         context_instance=RequestContext(request)
     )
+
+@login_required
+def oauth_callback(request):
+    
+    request.session['auth_data']['oauth_data'] = request.GET.copy()
+    
+    next = request.session['next_step']
+    
+    if next == 'auth_datasink':
+        del request.session['next_step']
+        return redirect('auth_datasink')
+    elif next == 'auth_datasource':
+        del request.session['next_step']
+        return redirect('auth_datasource')

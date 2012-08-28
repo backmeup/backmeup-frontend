@@ -66,11 +66,13 @@ class DatasourceAuthForm(forms.Form):
         data = {
             "keyRing": self.cleaned_data['key_ring'],
         }
-        for key in self.cleaned_data:
-            if key.startswith('input_key_'):
-                value = self.cleaned_data[key.replace('input_key_', 'input_value_')]
-                data[self.cleaned_data[key]] = value
-        
+        if auth_data['type'] == 'Input':
+            for key in self.cleaned_data:
+                if key.startswith('input_key_'):
+                    value = self.cleaned_data[key.replace('input_key_', 'input_value_')]
+                    data[self.cleaned_data[key]] = value
+        elif auth_data['type'] == 'OAuth':
+            data.update(auth_data['oauth_data'])
         return rest_datasource_profile.auth_post(profile_id=auth_data['profileId'], data=data)
 
 
@@ -133,9 +135,11 @@ class DatasinkAuthForm(forms.Form):
         data = {
             "key_ring": self.cleaned_data['key_ring'],
         }
-        for key in self.cleaned_data:
-            if key.startswith('input_key_'):
-                value = self.cleaned_data[key.replace('input_key_', 'input_value_')]
-                data[key] = value
-        
+        if auth_data['type'] == 'Input':
+            for key in self.cleaned_data:
+                if key.startswith('input_key_'):
+                    value = self.cleaned_data[key.replace('input_key_', 'input_value_')]
+                    data[self.cleaned_data[key]] = value
+        elif auth_data['type'] == 'OAuth':
+            data.update(auth_data['oauth_data'])
         return rest_datasink_profile.auth_post(profile_id=auth_data['profileId'], data=data)
