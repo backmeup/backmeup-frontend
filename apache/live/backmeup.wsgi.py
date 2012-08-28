@@ -6,6 +6,8 @@ import os
 # same as settings.BASE_ROOT and settings.PROJECT_ROOT
 BASE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../'))
 PROJECT_ROOT = os.path.join(BASE_ROOT, 'project')
+print "#############################BASE_ROOT", BASE_ROOT
+print "##########################PROJECT_ROOT", PROJECT_ROOT
 
 sys.path = [
     PROJECT_ROOT,
