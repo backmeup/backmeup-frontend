@@ -66,7 +66,7 @@ class UserCreationForm(forms.ModelForm):
             'email':  self.cleaned_data['email'],
         })
         
-        if not response.status_code == 200:
+        if response == False:
             raise Exception
         
         if commit:

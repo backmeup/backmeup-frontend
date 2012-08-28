@@ -48,6 +48,8 @@ class RestBase(object):
             print "#########################_post", response.json
         if response.status_code == 204:
             return True
+        elif response.status_code == 400 or response.status_code == 404 or response.status_code == 401:
+            return False
         return response.json
     
     def _put(self, path="", data=None):
@@ -211,8 +213,8 @@ class RestDatasourceProfile(RestBase):
     
     
     def auth_post(self, profile_id, data):
-        if not "key_ring" in data:
-            raise ValueError('key "key_ring" is missing in argument "data".')
+        #if not "key_ring" in data:
+        #    raise ValueError('key "key_ring" is missing in argument "data".')
         return self._post(path="%s/auth/post" % profile_id, data=data)
 
 

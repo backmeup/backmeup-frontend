@@ -37,7 +37,7 @@ urlpatterns = patterns('',
     url(r'^auth_datasource/$', 'main.views.auth_datasource', name="auth-datasource"),
     
     url(r'^select_datasink/$', 'main.views.select_datasink', name="select-datasink"),
-    #url(r'^auth_datasource/$', 'main.views.auth_datasource', name="auth-datasource"),
+    url(r'^auth_datasink/$', 'main.views.auth_datasink', name="auth-datasink"),
     
     # styleguide
     (r'^styleguide$', TemplateView.as_view(template_name='www/styleguide/styleguide.html')),
