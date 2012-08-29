@@ -320,8 +320,8 @@ class RestJobs(RestBase):
         """
         if not "source_profile_ids" in data:
             raise ValueError('key "source_profile_id" is missing in argument "data".')
-        if not "required_action_ids" in data:
-            raise ValueError('key "required_action_ids" is missing in argument "data".')
+        #if not "required_action_ids" in data:
+        #    raise ValueError('key "required_action_ids" is missing in argument "data".')
         if not "sink_profile_ids" in data:
             raise ValueError('key "sink_profile_id" is missing in argument "data".')
         if not "time_expression" in data:
@@ -331,7 +331,7 @@ class RestJobs(RestBase):
         
         params = {
             'sourceProfileIds': data['source_profile_ids'],
-            'requiredActionIds': data['required_action_ids'],
+            #'requiredActionIds': data['required_action_ids'],
             'sinkProfileId': data['sink_profile_ids'],
             'timeExpression': data['time_expression'],
             'keyRing': data['key_ring'],

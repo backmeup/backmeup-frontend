@@ -187,7 +187,7 @@ class CreateJobForm(forms.Form):
             'time_expression': 'realtime',
             'source_profile_ids': self.cleaned_data['datasource_profile'],
             'sink_profile_ids': self.cleaned_data['datasink_profile'],
-            'required_action_ids': '',
+            #'required_action_ids': '',
         }
         return rest_jobs.post(data=data)
         
