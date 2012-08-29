@@ -120,9 +120,9 @@ def oauth_callback(request):
     
     next = request.session['next_step']
     
-    if next == 'auth_datasink':
+    if next == 'auth-datasink':
         del request.session['next_step']
         return redirect('auth_datasink')
-    elif next == 'auth_datasource':
+    elif next == 'auth-datasource':
         del request.session['next_step']
         return redirect('auth_datasource')
