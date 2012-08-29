@@ -180,8 +180,8 @@ class CreateJobForm(forms.Form):
         
         self.fields['datasink_profile'] = forms.MultipleChoiceField(label=_("Datasink Profile"), widget=CheckboxSelectMultiple, choices=datasink_profile_choices)
     
-    def rest_save(self, username):
-        rest_jobs = RestJobs(username=username)
+    def rest_save(self):
+        rest_jobs = RestJobs(username=self.username)
         data = {
             "key_ring": self.cleaned_data['key_ring'],
             'time_expression': 'realtime',
