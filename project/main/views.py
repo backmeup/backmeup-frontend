@@ -28,6 +28,9 @@ def select_datasource(request):
         auth_data = form.rest_save(username=request.user.username)
         if auth_data:
             request.session['auth_data'] = auth_data
+            if auth_data['type'] == 'OAuth':
+                request.session['next_step'] = 'auth-datasource'
+                return redirect(auth_data['redirectURL'])
             return redirect('auth-datasource')
     return render_to_response(
         "www/select_datasource.html",
@@ -49,7 +52,7 @@ def auth_datasource(request):
     form = DatasourceAuthForm(request.POST or None, auth_data=request.session['auth_data'])
     
     if form.is_valid():
-        result = form.rest_save(username=request.user.username, auth_data=request.session['auth_data'])
+        result = form.rest_save(username=request.user.username)
         if not result == False:
             request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
             del request.session['auth_data']
@@ -72,8 +75,9 @@ def select_datasink(request):
         #request.session['key_ring'] = form.cleaned_data['key_ring']
         auth_data = form.rest_save(username=request.user.username)
         if auth_data:
-            request.session['auth_data'] = auth_datasource
+            request.session['auth_data'] = auth_data
             if auth_data['type'] == 'OAuth':
+                request.session['next_step'] = 'auth-datasink'
                 return redirect(auth_data['redirectURL'])
             return redirect('auth-datasink')
     return render_to_response(
@@ -96,7 +100,7 @@ def auth_datasink(request):
     form = DatasinkAuthForm(request.POST or None, auth_data=request.session['auth_data'])
 
     if form.is_valid():
-        result = form.rest_save(username=request.user.username, auth_data=request.session['auth_data'])
+        result = form.rest_save(username=request.user.username)
         request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
         del request.session['auth_data']
         return redirect('select-datasink')

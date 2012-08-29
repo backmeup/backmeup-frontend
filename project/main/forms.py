@@ -42,38 +42,38 @@ class DatasourceAuthForm(forms.Form):
     key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
     
     def __init__(self, *args, **kwargs):
-        auth_data = kwargs.pop('auth_data')
+        self.auth_data = kwargs.pop('auth_data')
         super(DatasourceAuthForm, self).__init__(*args, **kwargs)
         
-        if auth_data['type'] == 'Input':
-            for i, item in enumerate(auth_data['typeMapping']):
+        if self.auth_data['type'] == 'Input':
+            for i, item in enumerate(self.auth_data['typeMapping']):
                 self.fields['input_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=item)
                 
                 field_kwargs = {
                     'label': _(item),
                 }
                 
-                if not item in auth_data['requiredInputs']:
+                if not item in self.auth_data['requiredInputs']:
                     field_kwargs['required'] = False
                 
-                if auth_data['typeMapping'][item] == 'Password':
+                if self.auth_data['typeMapping'][item] == 'Password':
                     field_kwargs['widget'] = forms.PasswordInput
                 
                 self.fields['input_value_%s' % i] = forms.CharField(**field_kwargs)
     
-    def rest_save(self, username, auth_data):
+    def rest_save(self, username):
         rest_datasource_profile = RestDatasourceProfile(username=username)
         data = {
             "keyRing": self.cleaned_data['key_ring'],
         }
-        if auth_data['type'] == 'Input':
+        if self.auth_data['type'] == 'Input':
             for key in self.cleaned_data:
                 if key.startswith('input_key_'):
                     value = self.cleaned_data[key.replace('input_key_', 'input_value_')]
                     data[self.cleaned_data[key]] = value
-        elif auth_data['type'] == 'OAuth':
-            data.update(auth_data['oauth_data'])
-        return rest_datasource_profile.auth_post(profile_id=auth_data['profileId'], data=data)
+        elif self.auth_data['type'] == 'OAuth':
+            data.update(self.auth_data['oauth_data'])
+        return rest_datasource_profile.auth_post(profile_id=self.auth_data['profileId'], data=data)
 
 
 class DatasinkSelectForm(forms.Form):
@@ -111,35 +111,35 @@ class DatasinkAuthForm(forms.Form):
     key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
     
     def __init__(self, *args, **kwargs):
-        auth_data = kwargs.pop('auth_data')
+        self.auth_data = kwargs.pop('auth_data')
         super(DatasinkAuthForm, self).__init__(*args, **kwargs)
         
-        if auth_data['type'] == 'Input':
-            for i, item in enumerate(auth_data['typeMapping']):
+        if self.auth_data['type'] == 'Input':
+            for i, item in enumerate(self.auth_data['typeMapping']):
                 self.fields['input_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=item)
                 
                 field_kwargs = {
                     'label': _(item),
                 }
                 
-                if not item in auth_data['requiredInputs']:
+                if not item in self.auth_data['requiredInputs']:
                     field_kwargs['required'] = False
                 
-                if auth_data['typeMapping'][item] == 'Password':
+                if self.auth_data['typeMapping'][item] == 'Password':
                     field_kwargs['widget'] = forms.PasswordInput
                 
                 self.fields['input_value_%s' % i] = forms.CharField(**field_kwargs)
             
-    def rest_save(self, username, auth_data):
+    def rest_save(self, username):
         rest_datasink_profile = RestDatasinkProfile(username=username)
         data = {
             "key_ring": self.cleaned_data['key_ring'],
         }
-        if auth_data['type'] == 'Input':
+        if self.auth_data['type'] == 'Input':
             for key in self.cleaned_data:
                 if key.startswith('input_key_'):
                     value = self.cleaned_data[key.replace('input_key_', 'input_value_')]
                     data[self.cleaned_data[key]] = value
-        elif auth_data['type'] == 'OAuth':
-            data.update(auth_data['oauth_data'])
-        return rest_datasink_profile.auth_post(profile_id=auth_data['profileId'], data=data)
+        elif self.auth_data['type'] == 'OAuth':
+            data.update(self.auth_data['oauth_data'])
+        return rest_datasink_profile.auth_post(profile_id=self.auth_data['profileId'], data=data)
