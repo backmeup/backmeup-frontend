@@ -163,6 +163,8 @@ class CreateJobForm(forms.Form):
         for item in datasource_profiles:
             datasource_profile_choices.append((item['datasourceProfileId'], item['title']))
         
+        print "################datasource_profile_choices: ", datasource_profile_choices
+        
         self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), widget=CheckboxSelectMultiple, choices=datasource_profile_choices)
         
         
@@ -173,6 +175,8 @@ class CreateJobForm(forms.Form):
         
         for item in datasink_profiles:
             datasink_profile_choices.append((item['datasinkProfileId'], item['title']))
+        
+        print "################datasink_profile_choices: ", datasink_profile_choices
         
         self.fields['datasink_profile'] = forms.ChoiceField(label=_("Datasink Profile"), widget=CheckboxSelectMultiple, choices=datasink_profile_choices)
     
