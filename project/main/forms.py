@@ -161,7 +161,7 @@ class CreateJobForm(forms.Form):
         datasource_profile_choices = []
         
         for item in datasource_profiles:
-            datasource_profile_choices.append((item['datasourceProfileId'], item['title']))
+            datasource_profile_choices.append((str(item['datasourceProfileId']), item['title']))
         
         print "################datasource_profile_choices: ", datasource_profile_choices
         
@@ -174,7 +174,7 @@ class CreateJobForm(forms.Form):
         datasink_profile_choices = []
         
         for item in datasink_profiles:
-            datasink_profile_choices.append((item['datasinkProfileId'], item['title']))
+            datasink_profile_choices.append((str(item['datasinkProfileId']), item['title']))
         
         print "################datasink_profile_choices: ", datasink_profile_choices
         
