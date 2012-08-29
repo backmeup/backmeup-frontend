@@ -2,6 +2,7 @@
 
 from django import forms
 from django.utils.translation import ugettext_lazy as _
+from django.forms.widgets import CheckboxSelectMultiple
 
 #from access.models import User
 from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile, RestJobs
@@ -162,7 +163,7 @@ class CreateJobForm(forms.Form):
         for item in datasource_profiles:
             datasource_profile_choices.append((item['datasourceProfileId'], item['title']))
         
-        self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), widget=forms.CheckboxInput, choices=datasource_profile_choices)
+        self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), widget=CheckboxSelectMultiple, choices=datasource_profile_choices)
         
         
         rest_datasink_profile = RestDatasinkProfile(username=self.username)
@@ -173,7 +174,7 @@ class CreateJobForm(forms.Form):
         for item in datasink_profiles:
             datasink_profile_choices.append((item['datasinkProfileId'], item['title']))
         
-        self.fields['datasink_profile'] = forms.ChoiceField(label=_("Datasink Profile"), widget=forms.CheckboxInput, choices=datasink_profile_choices)
+        self.fields['datasink_profile'] = forms.ChoiceField(label=_("Datasink Profile"), widget=CheckboxSelectMultiple, choices=datasink_profile_choices)
     
     def rest_save(self, username):
         rest_jobs = RestJobs(username=username)
