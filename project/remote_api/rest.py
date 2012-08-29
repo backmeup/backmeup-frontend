@@ -318,11 +318,11 @@ class RestJobs(RestBase):
 
         keyRing - Das Schlüsselbundpasswort des Benutzers
         """
-        if not "source_profile_id" in data:
+        if not "source_profile_ids" in data:
             raise ValueError('key "source_profile_id" is missing in argument "data".')
         if not "required_action_ids" in data:
             raise ValueError('key "required_action_ids" is missing in argument "data".')
-        if not "sink_profile_id" in data:
+        if not "sink_profile_ids" in data:
             raise ValueError('key "sink_profile_id" is missing in argument "data".')
         if not "time_expression" in data:
             raise ValueError('key "time_expression" is missing in argument "data".')
