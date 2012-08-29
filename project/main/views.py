@@ -12,10 +12,9 @@ from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectF
 
 def index(request):
     context = {}
-    
-    rest_jobs = RestJobs(username=request.user.username)
-    
-    context['jobs'] = rest_jobs.get_all()
+    if request.user.is_authenticated():
+        rest_jobs = RestJobs(username=request.user.username)
+        context['jobs'] = rest_jobs.get_all()
     
     return render_to_response(
         "www/index.html",

@@ -5,10 +5,12 @@
 
 <h2>Backup Jobs<h2>
 
-<ul>
+{% if jobs %}
+  <ul>
 
-{% for item in jobs %}
-  <li>id: {{ item.backupJobId }}</li>
-{% endfor %}
+  {% for item in jobs %}
+    <li>id: {{ item.backupJobId }}</li>
+  {% endfor %}
 
-</ul>
+  </ul>
+{% endif %}
