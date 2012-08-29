@@ -262,15 +262,9 @@ class RestDatasinkProfile(RestBase):
         return self._post(path="%s/auth" % datasink_id, data=params)
     
     def auth_post(self, profile_id, data):
-        if not "profile_id" in data:
-            raise ValueError('key "profile_id" is missing in argument "data".')
-        #if not "key_ring" in data:
-        #    raise ValueError('key "key_ring is missing in argument "data".')
-        params = {
-            "keyRing": data["key_ring"],
-            #"sourceOptions": json.dumps(data['source_options']),
-        }
-        return self._post(path="%s/auth/post" % profile_id, data=params)
+        if not "key_ring" in data:
+            raise ValueError('key "key_ring is missing in argument "data".')
+        return self._post(path="%s/auth/post" % profile_id, data=data)
 
 
 class RestAction(RestBase):
