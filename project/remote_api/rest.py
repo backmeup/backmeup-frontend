@@ -176,7 +176,7 @@ class RestDatasourceProfile(RestBase):
         self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
     
     def get_all(self):
-        return self._get(path="profiles/")
+        return self._get(path="profiles/")['sourceProfiles']
     
     def delete(self, profile_id):
         if not profile_id:
@@ -245,7 +245,7 @@ class RestDatasinkProfile(RestBase):
         self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
     
     def get_all(self):
-        return self._get(path="profiles/")
+        return self._get(path="profiles/")['sinkProfiles']
     
     def delete(self, profile_id):
         return self._delete(path="profiles/" + profile_id)
@@ -336,9 +336,9 @@ class RestJobs(RestBase):
             raise ValueError('key "key_ring" is missing in argument "data".')
         
         params = {
-            'sourceProfileIds': data['source_profile_id'],
+            'sourceProfileIds': data['source_profile_ids'],
             'requiredActionIds': data['required_action_ids'],
-            'sinkProfileId': data['sink_profile_id'],
+            'sinkProfileId': data['sink_profile_ids'],
             'timeExpression': data['time_expression'],
             'keyRing': data['key_ring'],
         }
