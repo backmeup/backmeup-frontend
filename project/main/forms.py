@@ -4,7 +4,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 
 #from access.models import User
-from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile
+from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile, RestJobs
 
 
 class DatasourceSelectForm(forms.Form):
@@ -143,3 +143,46 @@ class DatasinkAuthForm(forms.Form):
         elif self.auth_data['type'] == 'OAuth':
             data.update(self.auth_data['oauth_data'])
         return rest_datasink_profile.auth_post(profile_id=self.auth_data['profileId'], data=data)
+
+
+class CreateJobForm(forms.Form):
+    
+    key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
+    
+    def __init__(self, *args, **kwargs):
+        self.username = kwargs.pop('username')
+        super(CreateJobForm, self).__init__(*args, **kwargs)
+        
+        
+        rest_datasource_profile = RestDatasourceProfile(username=self.username)
+        datasource_profiles = rest_datasource_profile.get_all()
+
+        datasource_profile_choices = []
+        
+        for item in datasource_profiles:
+            datasource_profile_choices.append((item['datasourceProfileid'], item['title']))
+        
+        self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), widget=forms.CheckboxInput, choices=datasource_profile_choices)
+        
+        
+        rest_datasink_profile = RestDatasinkProfile(username=self.username)
+        datasink_profiles = rest_datasink_profile.get_all()
+
+        datasink_profile_choices = []
+        
+        for item in datasources:
+            datasink_profile_choices.append((item['datasinkProfileid'], item['title']))
+        
+        self.fields['datasink_profile'] = forms.ChoiceField(label=_("Datasink Profile"), widget=forms.CheckboxInput, choices=datasink_profile_choices)
+    
+    def rest_save(self, username):
+        rest_jobs = RestJobs(username=username)
+        data = {
+            "key_ring": self.cleaned_data['key_ring'],
+            'time_expression': 'realtime',
+            'source_profile_ids': self.cleaned_data['datasource_profile'],
+            'sink_profile_ids': self.cleaned_data['datasink_profile'],
+            'required_action_ids': '',
+        }
+        return rest_jobs.post(data=data)
+        

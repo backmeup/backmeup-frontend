@@ -8,7 +8,7 @@ from django.template import RequestContext
 
 #from remote_api.rest import RestDatasinkProfile
 
-from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm
+from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, CreateJobForm
 
 def index(request):
     context = {}
@@ -103,7 +103,7 @@ def auth_datasink(request):
         result = form.rest_save(username=request.user.username)
         request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
         del request.session['auth_data']
-        return redirect('select-datasink')
+        return redirect('create-job')
 
     return render_to_response(
         "www/auth_datasink.html",
@@ -128,3 +128,22 @@ def oauth_callback(request):
     if next in valid_redirects:
         del request.session['next_step']
         return redirect(next)
+
+
+@login_required
+def create_job(request):
+    form = CreateJobForm(request.POST or None, username=request.user.username)
+    
+    if form.is_valid():
+        result = form.rest_save()
+        if result:
+           return redirect('index')
+    
+    return render_to_response(
+        "www/create_job.html",
+        {
+            'form': form,
+        },
+        context_instance=RequestContext(request)
+    )
+
