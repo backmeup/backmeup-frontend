@@ -306,7 +306,7 @@ class RestJobs(RestBase):
         super(RestJobs, self).__init__()
         self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
     
-    def post(self):
+    def post(self, data):
         """
         sourceProfileIds - Die zu sichernden Quellen
 
@@ -337,7 +337,7 @@ class RestJobs(RestBase):
             'keyRing': data['key_ring'],
         }
         
-        return self._post(data=data)
+        return self._post(data=params)
     
     def delete(self, job_id):
         return self._delete(path=job_id + "/status/")
