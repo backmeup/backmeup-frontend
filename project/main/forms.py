@@ -170,7 +170,7 @@ class CreateJobForm(forms.Form):
 
         datasink_profile_choices = []
         
-        for item in datasources:
+        for item in datasink_profiles:
             datasink_profile_choices.append((item['datasinkProfileId'], item['title']))
         
         self.fields['datasink_profile'] = forms.ChoiceField(label=_("Datasink Profile"), widget=forms.CheckboxInput, choices=datasink_profile_choices)
