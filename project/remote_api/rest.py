@@ -342,8 +342,8 @@ class RestJobs(RestBase):
     def delete(self, job_id):
         return self._delete(path=job_id + "/status/")
     
-    def get_user_status(self):
-        return self._get()
+    def get_all(self):
+        return self._get()['backupJobs']
     
     def get_job_status(self, job_id):
         return self._get(path=job_id + "/status/")

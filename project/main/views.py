@@ -6,12 +6,17 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 
-#from remote_api.rest import RestDatasinkProfile
+from remote_api.rest import RestJobs
 
 from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, CreateJobForm
 
 def index(request):
     context = {}
+    
+    rest_jobs = RestJobs(username=request.user.username)
+    
+    context['jobs'] = rest_jobs.get_all()
+    
     return render_to_response(
         "www/index.html",
         context,
