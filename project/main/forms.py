@@ -165,7 +165,7 @@ class CreateJobForm(forms.Form):
         
         print "################datasource_profile_choices: ", datasource_profile_choices
         
-        self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), widget=CheckboxSelectMultiple, choices=datasource_profile_choices)
+        self.fields['datasource_profile'] = forms.MultipleChoiceField(label=_("Datasource Profile"), widget=CheckboxSelectMultiple, choices=datasource_profile_choices)
         
         
         rest_datasink_profile = RestDatasinkProfile(username=self.username)
@@ -178,7 +178,7 @@ class CreateJobForm(forms.Form):
         
         print "################datasink_profile_choices: ", datasink_profile_choices
         
-        self.fields['datasink_profile'] = forms.ChoiceField(label=_("Datasink Profile"), widget=CheckboxSelectMultiple, choices=datasink_profile_choices)
+        self.fields['datasink_profile'] = forms.MultipleChoiceField(label=_("Datasink Profile"), widget=CheckboxSelectMultiple, choices=datasink_profile_choices)
     
     def rest_save(self, username):
         rest_jobs = RestJobs(username=username)
