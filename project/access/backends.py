@@ -6,7 +6,9 @@ from remote_api.rest import RestUser
 
 class RestBackend(object):
     """foo"""
-
+    
+    supports_inactive_user = False
+    
     def authenticate(self, username=None, password=None):
         """foo"""
         
