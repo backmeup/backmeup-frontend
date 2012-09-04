@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
-
+# django
 #from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 
-
+# project
 from access.forms import UserCreationForm, UserEmailVerificationForm
 from remote_api.rest import RestEmailVerification
+
 
 def signup(request):
     form = UserCreationForm(request.POST or None)
@@ -27,8 +28,6 @@ def signup(request):
 
 
 def verify_email(request, verify_hash=None):
-    
-    
     if request.method == 'POST' or verify_hash:
         data = {
             "verify_hash": verify_hash,

@@ -10,22 +10,21 @@ from remote_api.rest import RestJobs
 
 from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, CreateJobForm
 
+
 def index(request):
     context = {}
     if request.user.is_authenticated():
         rest_jobs = RestJobs(username=request.user.username)
         context['jobs'] = rest_jobs.get_all()
-    
+
     return render_to_response(
         "www/index.html",
         context,
-        context_instance=RequestContext(request)
-    )
+        context_instance=RequestContext(request))
 
 
 @login_required
 def select_datasource(request):
-    print "####################################view: select_datasource"
     form = DatasourceSelectForm(request.POST or None)
     if form.is_valid():
         #request.session['key_ring'] = form.cleaned_data['key_ring']
@@ -41,39 +40,35 @@ def select_datasource(request):
         {
             'form': form,
         },
-        context_instance=RequestContext(request)
-    )
+        context_instance=RequestContext(request))
 
 
 @login_required
 def auth_datasource(request):
-    print "####################################view: auth_datasource"
     #if not 'auth_data' in request.session:
     #    print "#############################################################NOOOOOOOOOO"
     #    messages.add_message(request, messages.ERROR, 'Some error occured. It seems like you didn\'t select any datasource. please do here.')
     #    redirect('select-datasource')
-    
+
     form = DatasourceAuthForm(request.POST or None, auth_data=request.session['auth_data'])
-    
+
     if form.is_valid():
         result = form.rest_save(username=request.user.username)
         if not result == False:
             request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
             del request.session['auth_data']
             return redirect('select-datasink')
-    
+
     return render_to_response(
         "www/auth_datasource.html",
         {
             'form': form,
         },
-        context_instance=RequestContext(request)
-    )
+        context_instance=RequestContext(request))
 
 
 @login_required
 def select_datasink(request):
-    print "####################################view: select_datasink"
     form = DatasinkSelectForm(request.POST or None)
     if form.is_valid():
         #request.session['key_ring'] = form.cleaned_data['key_ring']
@@ -89,18 +84,16 @@ def select_datasink(request):
         {
             'form': form,
         },
-        context_instance=RequestContext(request)
-    )
+        context_instance=RequestContext(request))
 
 
 @login_required
 def auth_datasink(request):
-    print "####################################view: auth_datasink"
     #if not 'auth_data' in request.session:
     #    print "#############################################################NOOOOOOOOOO"
     #    messages.add_message(request, messages.ERROR, 'Some error occured. It seems like you didn\'t select any datasink. please do here.')
     #    redirect('select-datasink')
-    
+
     form = DatasinkAuthForm(request.POST or None, auth_data=request.session['auth_data'])
 
     if form.is_valid():
@@ -114,21 +107,20 @@ def auth_datasink(request):
         {
             'form': form,
         },
-        context_instance=RequestContext(request)
-    )
+        context_instance=RequestContext(request))
+
 
 @login_required
 def oauth_callback(request):
-    
     request.session['auth_data']['oauth_data'] = request.GET.copy()
-    
+
     next = request.session['next_step']
-    
+
     valid_redirects = [
         'auth-datasink',
         'auth-datasource',
     ]
-    
+
     if next in valid_redirects:
         del request.session['next_step']
         return redirect(next)
@@ -137,17 +129,15 @@ def oauth_callback(request):
 @login_required
 def create_job(request):
     form = CreateJobForm(request.POST or None, username=request.user.username)
-    
+
     if form.is_valid():
         result = form.rest_save()
         if result:
-           return redirect('index')
-    
+            return redirect('index')
+
     return render_to_response(
         "www/create_job.html",
         {
             'form': form,
         },
-        context_instance=RequestContext(request)
-    )
-
+        context_instance=RequestContext(request))
