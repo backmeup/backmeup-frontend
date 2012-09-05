@@ -34,7 +34,7 @@ class RestBase(object):
             print "##########################_get", response
             print "##########################_get", response.json
         if response.status_code == 404 or response.status_code == 401:
-            return False
+            return response.json
         elif response.status_code == 204:
             return True
         else:
@@ -343,7 +343,12 @@ class RestJobs(RestBase):
         return self._delete(path=job_id + "/status/")
 
     def get_all(self):
-        return self._get()['backupJobs']
+        response = self._get()
+
+        if 'backupJobs' in response:
+            return response['backupJobs']
+        else:
+            return response
 
     def get_job_status(self, job_id):
         return self._get(path=job_id + "/status/")

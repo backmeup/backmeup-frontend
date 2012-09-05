@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 #from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 
-from remote_api.rest import RestJobs
 
+from remote_api.rest import RestJobs
 from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, CreateJobForm
 
 
@@ -15,7 +15,10 @@ def index(request):
     context = {}
     if request.user.is_authenticated():
         rest_jobs = RestJobs(username=request.user.username)
-        context['jobs'] = rest_jobs.get_all()
+        result = rest_jobs.get_all()
+
+        if 'errorType' in result:
+            messages.error(request, _(result['errorType']))
 
     return render_to_response(
         "www/index.html",
