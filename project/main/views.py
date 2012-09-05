@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 #from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
+from django.utils.translation import ugettext_lazy as _
 
 
 from remote_api.rest import RestJobs
