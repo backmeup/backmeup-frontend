@@ -35,7 +35,9 @@ class UserCreationForm(forms.ModelForm):
         try:
             # check if remote api knows user
             remote_user = RestUser(username)
-            if not remote_user.get():
+            result = remote_user.get()
+
+            if 'errorType' in result and result['errorType'] == 'org.backmeup.model.exceptions.UnknownUserException':
                 # remote api doesn't know user, thus check with local db
                 User.objects.get(username=username)
         except User.DoesNotExist:
