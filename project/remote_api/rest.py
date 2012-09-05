@@ -33,9 +33,7 @@ class RestBase(object):
             print "##########################_get data:", data
             print "##########################_get", response
             print "##########################_get", response.json
-        if response.status_code == 404 or response.status_code == 401:
-            return response.json
-        elif response.status_code == 204:
+        if response.status_code == 204:
             return True
         else:
             return response.json
