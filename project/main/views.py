@@ -20,6 +20,8 @@ def index(request):
 
         if 'errorType' in result:
             messages.error(request, _(result['errorType']))
+        else:
+            context['jobs'] = result
 
     return render_to_response(
         "www/index.html",
