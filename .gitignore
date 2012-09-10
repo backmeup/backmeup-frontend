@@ -3,6 +3,7 @@
 .DS_Store
 *~
 .sass-cache
+NOTES-private
 
 # static & media
 /static_collect
