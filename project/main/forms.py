@@ -189,7 +189,7 @@ class CreateJobForm(forms.Form):
         rest_jobs = RestJobs(username=self.username)
         data = {
             "key_ring": self.cleaned_data['key_ring'],
-            'time_expression': 'realtime',
+            'time_expression': self.cleaned_data['time_expression'],
             'source_profile_ids': self.cleaned_data['datasource_profile'],
             'sink_profile_ids': self.cleaned_data['datasink_profile'],
             #'required_action_ids': '',
