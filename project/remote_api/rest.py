@@ -111,7 +111,7 @@ class RestUser(RestBase):
         req_params = {}
         if not 'old_password' in data:
             raise ValueError('argument "data[\'old_password\']" is missing.')
-        req_params['old_password'] = data['old_password']
+        req_params['oldPassword'] = data['old_password']
 
         if 'password' in data:
             req_params['password'] = data['password']
