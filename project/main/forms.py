@@ -157,7 +157,7 @@ class CreateJobForm(forms.Form):
 
     key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
 
-    time_expression = forms.ChoiceField(choices=BACKUP_JOB_TIME_EXPRESSION, default='realtime')
+    time_expression = forms.ChoiceField(choices=BACKUP_JOB_TIME_EXPRESSION, initial='realtime')
 
     def __init__(self, *args, **kwargs):
         self.username = kwargs.pop('username')
