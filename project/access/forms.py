@@ -160,5 +160,5 @@ class UserSettingsForm(forms.Form):
         if not new_email == self.user.email:
             data['email'] = new_email
 
-        returnrest_api.put(data)
+        return rest_api.put(data)
 
