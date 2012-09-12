@@ -94,20 +94,25 @@ class UserEmailVerificationForm(forms.Form):
 
 class UserSettingsForm(forms.Form):
 
-    old_password = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
 
     email = forms.EmailField(label=_('Email'), max_length=254, required=False)
 
-    new_password1 = forms.CharField(label=_("Password"), widget=forms.PasswordInput, required=False)
-    new_password2 = forms.CharField(label=_("Password confirmation"), widget=forms.PasswordInput,
+    new_password1 = forms.CharField(label=_("New Password"), widget=forms.PasswordInput, required=False)
+    new_password2 = forms.CharField(label=_("New Password confirmation"), widget=forms.PasswordInput,
         help_text=_("Enter the same password as above, for verification."), required=False)
 
-    new_key_ring1 = forms.CharField(label=_("KeyRing Password"), widget=forms.PasswordInput, required=False)
-    new_key_ring2 = forms.CharField(label=_("KeyRing Password confirmation"), widget=forms.PasswordInput,
+    new_key_ring1 = forms.CharField(label=_("New KeyRing Password"), widget=forms.PasswordInput, required=False)
+    new_key_ring2 = forms.CharField(label=_("New KeyRing Password confirmation"), widget=forms.PasswordInput,
         help_text=_("Enter the same KeyRing Password as above, for verification."), required=False)
-
+    
+    old_password = forms.CharField(label=_("Current Password"), widget=forms.PasswordInput,
+        help_text=_("Enter your current password for verification."))
+    
     def __init__(self, user, *args, **kwargs):
         self.user = user
+        kwargs['initial'] = {
+            'email': self.user.email,
+        }
         super(UserSettingsForm, self).__init__(*args, **kwargs)
 
     def clean_old_password(self):
