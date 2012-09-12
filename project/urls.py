@@ -29,6 +29,7 @@ urlpatterns = patterns('',
     url(r'^signup/$', 'access.views.signup', name="signup"),
     url(r'^verify_email/$', 'access.views.verify_email', name="verify-email"),
     url(r'^verify_email/(?P<verify_hash>\w+)/$', 'access.views.verify_email', name="verify-email"),
+    url(r'^user_settings/$', 'access.views.user_settings', name="user-settings"),
     
     url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'www/access/login.html'}),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),

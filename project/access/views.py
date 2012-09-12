@@ -5,9 +5,10 @@
 from django.contrib import messages
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
+from django.contrib.auth.decorators import login_required
 
 # project
-from access.forms import UserCreationForm, UserEmailVerificationForm
+from access.forms import UserCreationForm, UserEmailVerificationForm, UserSettingsForm
 from remote_api.rest import RestEmailVerification
 
 
@@ -43,6 +44,21 @@ def verify_email(request, verify_hash=None):
     
     return render_to_response(
         "www/access/verify_email.html",
+        {
+            "form": form,
+        },
+        context_instance=RequestContext(request)
+    )
+
+
+def user_settings(request):
+    form = UserSettingsForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('user-settings')
+    
+    return render_to_response(
+        'www/access/user_settings.html',
         {
             "form": form,
         },

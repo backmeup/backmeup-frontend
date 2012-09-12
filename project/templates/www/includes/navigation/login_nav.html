@@ -7,7 +7,7 @@
         {#  TODO: decide whether to use bootstrap-library or not #}
         <a href="#" class="dropdown-toggle icon-after-caret-down" data-toggle="dropdown">{{ user }}</a>
         <ul id="user-dropdown">
-          <li><a href="#link-to-user-settings">{% trans "Konto-Einstellungen" %}</a></li>
+          <li><a href="{% url user-settings %}">{% trans "Konto-Einstellungen" %}</a></li>
           <li><a href="{% url django.contrib.auth.views.logout %}">{% trans "Abmelden" %}</a></li>
         </ul>
       </li>
