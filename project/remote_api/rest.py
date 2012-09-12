@@ -113,11 +113,11 @@ class RestUser(RestBase):
             raise ValueError('argument "data[\'old_password\']" is missing.')
         req_params['old_password'] = data['old_password']
 
-        if data['password']:
+        if 'password' in data:
             req_params['password'] = data['password']
-        if data['keyRing']:
+        if 'keyRing' in data:
             req_params['keyRing'] = data['keyRing']
-        if data['email']:
+        if 'email' in data:
             req_params['email'] = data['email']
 
         return self._put(data=req_params)
