@@ -7,6 +7,13 @@ from django.forms.widgets import CheckboxSelectMultiple
 #from access.models import User
 from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile, RestJobs
 
+BACKUP_JOB_TIME_EXPRESSION = (
+    ('realtime', _('now')),
+    ('daily', _('daily')),
+    ('weekly', _('weekly')),
+    ('monthly', _('monthly')),
+)
+
 
 class DatasourceSelectForm(forms.Form):
 
@@ -149,6 +156,8 @@ class DatasinkAuthForm(forms.Form):
 class CreateJobForm(forms.Form):
 
     key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
+
+    time_expression = form.ChoiceField(choices=BACKUP_JOB_TIME_EXPRESSION, default='realtime')
 
     def __init__(self, *args, **kwargs):
         self.username = kwargs.pop('username')
