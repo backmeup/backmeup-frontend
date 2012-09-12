@@ -123,7 +123,7 @@ class UserSettingsForm(forms.Form):
     def clean_new_password2(self):
         new_password1 = self.cleaned_data.get("new_password1", "")
         new_password2 = self.cleaned_data["new_password2"]
-        if new_password1 == "" && new_password2 == "":
+        if new_password1 == "" and new_password2 == "":
             return new_password2
         if new_password1 != new_password2:
             raise forms.ValidationError(_("The two password fields didn't match."))
@@ -132,7 +132,7 @@ class UserSettingsForm(forms.Form):
     def clean_new_key_ring2(self):
         new_key_ring1 = self.cleaned_data.get("new_key_ring1", "")
         new_key_ring2 = self.cleaned_data["new_key_ring2"]
-        if new_key_ring1 == "" && new_key_ring2 == "":
+        if new_key_ring1 == "" and new_key_ring2 == "":
             return new_key_ring2
         if new_key_ring1 != new_key_ring2:
             raise forms.ValidationError(_("The two KeyRing Password fields didn't match."))
