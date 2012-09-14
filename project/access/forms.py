@@ -28,10 +28,10 @@ class UserCreationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ("email")
+        fields = ("email",)
 
-    def clean_username(self):
-        return self.cleaned_data["username"]
+    #def clean_username(self):
+    #    return self.cleaned_data["username"]
     
     def clean_email(self):
         email = self.cleaned_data["email"]
