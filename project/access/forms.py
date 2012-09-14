@@ -173,6 +173,68 @@ class UserSettingsForm(forms.Form):
     new_password2 = forms.CharField(label=_("New Password confirmation"), widget=forms.PasswordInput,
         help_text=_("Enter the same password as above, for verification."), required=False)
 
+    #new_key_ring1 = forms.CharField(label=_("New KeyRing Password"), widget=forms.PasswordInput, required=False)
+    #new_key_ring2 = forms.CharField(label=_("New KeyRing Password confirmation"), widget=forms.PasswordInput,
+    #    help_text=_("Enter the same KeyRing Password as above, for verification."), required=False)
+    
+    old_password = forms.CharField(label=_("Current Password"), widget=forms.PasswordInput,
+        help_text=_("Enter your current password for verification."))
+    
+    def __init__(self, user, *args, **kwargs):
+        self.user = user
+        kwargs['initial'] = {
+            'email': self.user.email,
+        }
+        super(UserSettingsForm, self).__init__(*args, **kwargs)
+
+    def clean_old_password(self):
+        """
+        Validates that the old_password field is correct.
+        """
+        old_password = self.cleaned_data["old_password"]
+        remote_user = RestUser(self.user.username)
+        if not remote_user.check_login(old_password):
+            raise forms.ValidationError(_("Your old password was entered incorrectly. Please enter it again."))
+        return old_password
+
+    def clean_new_password2(self):
+        new_password1 = self.cleaned_data.get("new_password1", "")
+        new_password2 = self.cleaned_data["new_password2"]
+        if new_password1 == "" and new_password2 == "":
+            return new_password2
+        if new_password1 != new_password2:
+            raise forms.ValidationError(_("The two password fields didn't match."))
+        return new_password2
+
+    def save(self):
+        rest_api = RestUser(self.user.username)
+        data = {}
+        
+        old_password = self.cleaned_data['old_password']
+        new_password = self.cleaned_data.get('new_password1', False)
+        new_key_ring = self.cleaned_data.get('new_password1', False)
+        new_email = self.cleaned_data.get('email', self.user.email)
+        
+        data['old_password'] = old_password
+        if new_password:
+            data['password'] = new_password
+        if new_key_ring:
+            data['keyRing'] = new_key_ring
+        if not new_email == self.user.email:
+            data['email'] = new_email
+
+        return rest_api.put(data)
+
+
+class DebugUserSettingsForm(forms.Form):
+
+
+    email = forms.EmailField(label=_('Email'), max_length=254, required=False)
+
+    new_password1 = forms.CharField(label=_("New Password"), widget=forms.PasswordInput, required=False)
+    new_password2 = forms.CharField(label=_("New Password confirmation"), widget=forms.PasswordInput,
+        help_text=_("Enter the same password as above, for verification."), required=False)
+
     new_key_ring1 = forms.CharField(label=_("New KeyRing Password"), widget=forms.PasswordInput, required=False)
     new_key_ring2 = forms.CharField(label=_("New KeyRing Password confirmation"), widget=forms.PasswordInput,
         help_text=_("Enter the same KeyRing Password as above, for verification."), required=False)
