@@ -55,16 +55,16 @@ class UserCreationForm(forms.ModelForm):
             raise forms.ValidationError(_("The two password fields didn't match."))
         return password2
 
-    def clean(self):
-        if not self.errors:
-            self.cleaned_data['username'] = self.cleaned_data['email']
-        super(UserCreationForm, self).clean()
-        return self.cleaned_data
+    #def clean(self):
+    #    if not self.errors:
+    #        self.cleaned_data['username'] = self.cleaned_data['email']
+    #    super(UserCreationForm, self).clean()
+    #    return self.cleaned_data
 
     def save(self, commit=True):
         user = super(UserCreationForm, self).save(commit=False)
-        #user.set_password(self.cleaned_data["password1"])
         user.set_password("")
+        user.username = self.cleaned_data['email']
 
         remote_user = RestUser(user.username)
         response = remote_user.post({
