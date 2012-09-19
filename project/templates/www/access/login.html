@@ -11,9 +11,9 @@
 <form method="post" action="{% url django.contrib.auth.views.login %}">
 {% csrf_token %}
   <p>
-    {{ form.username.label_tag }}
+    <label for="id_username">Email</label>
     {{ form.username }}
-  </p>  
+  </p>
   <p>
     {{ form.password.label_tag }}
     {{ form.password }}
