@@ -141,7 +141,7 @@ class DatasinkAuthForm(forms.Form):
     def rest_save(self, username):
         rest_datasink_profile = RestDatasinkProfile(username=username)
         data = {
-            "key_ring": self.cleaned_data['key_ring'],
+            "keyRing": self.cleaned_data['key_ring'],
         }
         if self.auth_data['type'] == 'Input':
             for key in self.cleaned_data:
