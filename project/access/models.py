@@ -7,18 +7,18 @@ from django.contrib.auth.signals import user_logged_in, user_logged_out
 
 
 def add_key_ring_to_session(sender, request, user, **kwargs):
-    print "#################request", request
-    print "#################request.POST", request.POST
-    print "#################request.GET", request.GET
-    
+    if request.method == "POST":
+        if "password" in request.POST:
+            request.session['key_ring'] = request.POST['password']
+
 
 def remove_key_ring_from_session(sender, request, user, **kwargs):
-    pass
+    if 'key_ring' in request.session:
+        del request.session['key_ring']
 
 
 user_logged_in.connect(add_key_ring_to_session)
 user_logged_out.connect(remove_key_ring_from_session)
-
 
 
 class UserProfile(models.Model):
