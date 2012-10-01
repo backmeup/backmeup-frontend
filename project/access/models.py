@@ -12,7 +12,7 @@ def add_key_ring_to_session(sender, request, user, **kwargs):
     print "#################request.GET", request.GET
     
 
-def add_key_ring_to_session(sender, request, user, **kwargs):
+def remove_key_ring_from_session(sender, request, user, **kwargs):
     pass
 
 
