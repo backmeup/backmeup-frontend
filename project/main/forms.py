@@ -21,7 +21,7 @@ class DatasourceSelectForm(forms.Form):
 
     #profile_name = forms.CharField(label=_("Backup Name"))
 
-    key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
+    #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
 
     def __init__(self, *args, **kwargs):
         super(DatasourceSelectForm, self).__init__(*args, **kwargs)
@@ -36,12 +36,12 @@ class DatasourceSelectForm(forms.Form):
 
         self.fields['datasource'] = forms.ChoiceField(label=_("Datasource"), widget=forms.RadioSelect, choices=choices)
 
-    def rest_save(self, username):
+    def rest_save(self, username, key_ring):
         rest_datasource_profile = RestDatasourceProfile(username=username)
         profile_name = _("%(plugin)s - datasource profile") % {'plugin': self.cleaned_data['datasource']}
         data = {
             "profile_name": profile_name,
-            "key_ring": self.cleaned_data['key_ring'],
+            "key_ring": key_ring,
         }
         return rest_datasource_profile.auth(datasource_id=self.cleaned_data['datasource'], data=data)
 
