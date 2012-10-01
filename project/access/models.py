@@ -3,6 +3,22 @@
 from django.db import models
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
+from django.contrib.auth.signals import user_logged_in, user_logged_out
+
+
+def add_key_ring_to_session(sender, request, user, **kwargs):
+    print "#################request", request
+    print "#################request.POST", request.POST
+    print "#################request.GET", request.GET
+    
+
+def add_key_ring_to_session(sender, request, user, **kwargs):
+    pass
+
+
+user_logged_in.connect(add_key_ring_to_session)
+user_logged_out.connect(remove_key_ring_from_session)
+
 
 
 class UserProfile(models.Model):
