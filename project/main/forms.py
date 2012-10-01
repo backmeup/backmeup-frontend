@@ -38,7 +38,7 @@ class DatasourceSelectForm(forms.Form):
 
     def rest_save(self, username, key_ring):
         rest_datasource_profile = RestDatasourceProfile(username=username)
-        profile_name = _("%(plugin)s - datasource profile") % {'plugin': self.cleaned_data['datasource']}
+        profile_name = _("%(plugin)s - profile") % {'plugin': self.cleaned_data['datasource']}
         data = {
             "profile_name": profile_name,
             "key_ring": key_ring,
@@ -89,9 +89,9 @@ class DatasinkSelectForm(forms.Form):
 
     #datasink = forms.ChoiceField(label=_("Datasink"), widget=forms.RadioSelect)
 
-    profile_name = forms.CharField(label=_("Backup Name"))
+    #profile_name = forms.CharField(label=_("Backup Name"))
 
-    key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
+    #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
 
     def __init__(self, *args, **kwargs):
         super(DatasinkSelectForm, self).__init__(*args, **kwargs)
@@ -106,10 +106,11 @@ class DatasinkSelectForm(forms.Form):
 
         self.fields['datasink'] = forms.ChoiceField(label=_("Datasink"), widget=forms.RadioSelect, choices=choices)
 
-    def rest_save(self, username):
+    def rest_save(self, username, key_ring):
         rest_datasink_profile = RestDatasinkProfile(username=username)
+        profile_name = _("%(plugin)s - profile") % {'plugin': self.cleaned_data['datasink']}
         data = {
-            "profile_name": self.cleaned_data['profile_name'],
+            "profile_name": profile_name,
             "key_ring": self.cleaned_data['key_ring'],
         }
         return rest_datasink_profile.auth(datasink_id=self.cleaned_data['datasink'], data=data)
