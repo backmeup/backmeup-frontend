@@ -30,7 +30,7 @@ def index(request):
 
 
 @login_required
-def select_datasource(request):
+def datasource_select(request):
     form = DatasourceSelectForm(request.POST or None)
     if form.is_valid():
         #request.session['key_ring'] = form.cleaned_data['key_ring']
@@ -38,11 +38,11 @@ def select_datasource(request):
         if auth_data:
             request.session['auth_data'] = auth_data
             if auth_data['type'] == 'OAuth':
-                request.session['next_step'] = 'auth-datasource'
+                request.session['next_step'] = 'datasource-auth'
                 return redirect(auth_data['redirectURL'])
-            return redirect('auth-datasource')
+            return redirect('datasource-auth')
     return render_to_response(
-        "www/select_datasource.html",
+        "www/datasource_select.html",
         {
             'form': form,
         },
@@ -50,11 +50,11 @@ def select_datasource(request):
 
 
 @login_required
-def auth_datasource(request):
+def datasource_auth(request):
     #if not 'auth_data' in request.session:
     #    print "#############################################################NOOOOOOOOOO"
     #    messages.add_message(request, messages.ERROR, 'Some error occured. It seems like you didn\'t select any datasource. please do here.')
-    #    redirect('select-datasource')
+    #    redirect('datasource-select')
 
     form = DatasourceAuthForm(request.POST or None, auth_data=request.session['auth_data'])
 
@@ -63,10 +63,10 @@ def auth_datasource(request):
         if not result == False:
             request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
             del request.session['auth_data']
-            return redirect('select-datasink')
+            return redirect('datasink-select')
 
     return render_to_response(
-        "www/auth_datasource.html",
+        "www/datasource_auth.html",
         {
             'form': form,
         },
@@ -74,7 +74,12 @@ def auth_datasource(request):
 
 
 @login_required
-def select_datasink(request):
+def datasource_options(request):
+    pass
+
+
+@login_required
+def datasink_select(request):
     form = DatasinkSelectForm(request.POST or None)
     if form.is_valid():
         #request.session['key_ring'] = form.cleaned_data['key_ring']
@@ -82,11 +87,11 @@ def select_datasink(request):
         if auth_data:
             request.session['auth_data'] = auth_data
             if auth_data['type'] == 'OAuth':
-                request.session['next_step'] = 'auth-datasink'
+                request.session['next_step'] = 'datasink-auth'
                 return redirect(auth_data['redirectURL'])
-            return redirect('auth-datasink')
+            return redirect('datasink-auth')
     return render_to_response(
-        "www/select_datasink.html",
+        "www/datasink_select.html",
         {
             'form': form,
         },
@@ -94,11 +99,11 @@ def select_datasink(request):
 
 
 @login_required
-def auth_datasink(request):
+def datasink_auth(request):
     #if not 'auth_data' in request.session:
     #    print "#############################################################NOOOOOOOOOO"
     #    messages.add_message(request, messages.ERROR, 'Some error occured. It seems like you didn\'t select any datasink. please do here.')
-    #    redirect('select-datasink')
+    #    redirect('datasink-select')
 
     form = DatasinkAuthForm(request.POST or None, auth_data=request.session['auth_data'])
 
@@ -109,11 +114,16 @@ def auth_datasink(request):
         return redirect('create-job')
 
     return render_to_response(
-        "www/auth_datasink.html",
+        "www/datasink_auth.html",
         {
             'form': form,
         },
         context_instance=RequestContext(request))
+
+
+@login_required
+def datasink_options(request):
+    pass
 
 
 @login_required
@@ -123,8 +133,8 @@ def oauth_callback(request):
     next = request.session['next_step']
 
     valid_redirects = [
-        'auth-datasink',
-        'auth-datasource',
+        'datasink-auth',
+        'datasource-auth',
     ]
 
     if next in valid_redirects:

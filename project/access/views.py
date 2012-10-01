@@ -36,7 +36,7 @@ def verify_email(request, verify_hash=None):
         form = UserEmailVerificationForm(request.POST or data)
         if form.is_valid() and form.save():
             messages.add_message(request, messages.INFO, 'user\'s email is verified')
-            return redirect('select-datasource')
+            return redirect('datasource-select')
         else:
             messages.add_message(request, messages.INFO, 'user\'s email couldn\'t be verified')
     else:

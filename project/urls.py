@@ -34,11 +34,11 @@ urlpatterns = patterns('',
     url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'www/access/login.html'}),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
     
-    url(r'^select_datasource/$', 'main.views.select_datasource', name="select-datasource"),
-    url(r'^auth_datasource/$', 'main.views.auth_datasource', name="auth-datasource"),
+    url(r'^datasource/select/$', 'main.views.datasource_select', name="datasource-select"),
+    url(r'^datasource/auth/$', 'main.views.datasource_auth', name="datasource-auth"),
     
-    url(r'^select_datasink/$', 'main.views.select_datasink', name="select-datasink"),
-    url(r'^auth_datasink/$', 'main.views.auth_datasink', name="auth-datasink"),
+    url(r'^datasink/select/$', 'main.views.datasink_select', name="datasink-select"),
+    url(r'^datasink/auth/$', 'main.views.datasink_auth', name="datasink-auth"),
     
     url(r'^oauth_callback/$', 'main.views.oauth_callback', name="oauth-callback"),
     
