@@ -72,8 +72,9 @@ class DatasourceAuthForm(forms.Form):
 
                 self.fields['input_value_%s' % i] = forms.CharField(**field_kwargs)
         # add "profile options" form field(s)
-        #rest_datasource_profile = RestDatasourceProfile(username=username)
-
+        rest_datasource_profile = RestDatasourceProfile(username=username)
+        print "#####################asdf", rest_datasource_profile.options(profile_id=self.auth_data['profileId'])
+        
     def rest_save(self, username, key_ring):
         rest_datasource_profile = RestDatasourceProfile(username=username)
         data = {
