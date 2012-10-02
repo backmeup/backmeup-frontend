@@ -139,9 +139,9 @@ def oauth_callback(request):
         'datasource-auth',
     ]
 
-    if next in valid_redirects:
-        del request.session['next_step']
-        return redirect(next)
+    #if next in valid_redirects:
+    #    del request.session['next_step']
+    #    return redirect(next)
 
 
 @login_required
