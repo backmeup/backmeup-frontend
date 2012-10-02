@@ -18,7 +18,7 @@ def index(request):
         rest_jobs = RestJobs(username=request.user.username)
         result = rest_jobs.get_all()
 
-        if 'errorType' in result:
+        if result and 'errorType' in result:
             messages.error(request, _(result['errorType']))
         else:
             context['jobs'] = result
