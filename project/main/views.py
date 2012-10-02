@@ -35,6 +35,7 @@ def datasource_select(request):
     if form.is_valid():
         #request.session['key_ring'] = form.cleaned_data['key_ring']
         auth_data = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
+        print "#########################auth_data", auth_data
         if auth_data:
             request.session['auth_data'] = auth_data
             if auth_data['type'] == 'OAuth':
