@@ -343,7 +343,7 @@ class RestJobs(RestBase):
     def get_all(self):
         response = self._get()
 
-        if 'backupJobs' in response:
+        if response and 'backupJobs' in response:
             return response['backupJobs']
         else:
             return response
