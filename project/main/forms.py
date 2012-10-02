@@ -52,6 +52,7 @@ class DatasourceAuthForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         self.auth_data = kwargs.pop('auth_data')
+        self.username = kwargs.pop('username')
         super(DatasourceAuthForm, self).__init__(*args, **kwargs)
         
         # add authentication form fields
