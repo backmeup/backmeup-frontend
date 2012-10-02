@@ -56,10 +56,10 @@ def datasource_auth(request):
     #    messages.add_message(request, messages.ERROR, 'Some error occured. It seems like you didn\'t select any datasource. please do here.')
     #    redirect('datasource-select')
 
-    form = DatasourceAuthForm(request.POST or None, username=request.user.username, auth_data=request.session['auth_data'])
+    form = DatasourceAuthForm(request.POST or None, username=request.user.username, auth_data=request.session['auth_data'], key_ring=request.session['key_ring'])
 
     if form.is_valid():
-        result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
+        result = form.rest_save(username=request.user.username)
         if not result == False:
             request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
             del request.session['auth_data']
