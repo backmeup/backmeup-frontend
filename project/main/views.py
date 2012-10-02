@@ -129,7 +129,9 @@ def datasink_options(request):
 @login_required
 def oauth_callback(request):
     request.session['auth_data']['oauth_data'] = request.GET.copy()
-
+    
+    print "###################################request.session['auth_data']['oauth_data']", request.session['auth_data']['oauth_data'] 
+    
     next = request.session['next_step']
 
     valid_redirects = [
