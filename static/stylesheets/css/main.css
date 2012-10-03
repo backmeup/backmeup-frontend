@@ -1,3 +1,4 @@
+/* --- Icon Mixins --- */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Library\/Ruby\/Gems\/1\.8\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/typography\/_vertical_rhythm\.scss}line{font-family:\0000361}}
 * html {
   font-size: 100%;
@@ -9,13 +10,13 @@ html {
   line-height: 1.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_base\.scss}line{font-family:\0000372}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_base\.scss}line{font-family:\0000399}}
 .grid {
-  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 0, 0, 0.5)), color-stop(5%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(1.639%, rgba(0, 0, 0, 0)), color-stop(1.639%, rgba(100, 100, 225, 0.25)), color-stop(8.197%, rgba(100, 100, 225, 0.25)), color-stop(8.197%, rgba(0, 0, 0, 0)), color-stop(9.836%, rgba(0, 0, 0, 0)), color-stop(9.836%, rgba(100, 100, 225, 0.25)), color-stop(16.393%, rgba(100, 100, 225, 0.25)), color-stop(16.393%, rgba(0, 0, 0, 0)), color-stop(18.033%, rgba(0, 0, 0, 0)), color-stop(18.033%, rgba(100, 100, 225, 0.25)), color-stop(24.59%, rgba(100, 100, 225, 0.25)), color-stop(24.59%, rgba(0, 0, 0, 0)), color-stop(26.23%, rgba(0, 0, 0, 0)), color-stop(26.23%, rgba(100, 100, 225, 0.25)), color-stop(32.787%, rgba(100, 100, 225, 0.25)), color-stop(32.787%, rgba(0, 0, 0, 0)), color-stop(34.426%, rgba(0, 0, 0, 0)), color-stop(34.426%, rgba(100, 100, 225, 0.25)), color-stop(40.984%, rgba(100, 100, 225, 0.25)), color-stop(40.984%, rgba(0, 0, 0, 0)), color-stop(42.623%, rgba(0, 0, 0, 0)), color-stop(42.623%, rgba(100, 100, 225, 0.25)), color-stop(49.18%, rgba(100, 100, 225, 0.25)), color-stop(49.18%, rgba(0, 0, 0, 0)), color-stop(50.82%, rgba(0, 0, 0, 0)), color-stop(50.82%, rgba(100, 100, 225, 0.25)), color-stop(57.377%, rgba(100, 100, 225, 0.25)), color-stop(57.377%, rgba(0, 0, 0, 0)), color-stop(59.016%, rgba(0, 0, 0, 0)), color-stop(59.016%, rgba(100, 100, 225, 0.25)), color-stop(65.574%, rgba(100, 100, 225, 0.25)), color-stop(65.574%, rgba(0, 0, 0, 0)), color-stop(67.213%, rgba(0, 0, 0, 0)), color-stop(67.213%, rgba(100, 100, 225, 0.25)), color-stop(73.77%, rgba(100, 100, 225, 0.25)), color-stop(73.77%, rgba(0, 0, 0, 0)), color-stop(75.41%, rgba(0, 0, 0, 0)), color-stop(75.41%, rgba(100, 100, 225, 0.25)), color-stop(81.967%, rgba(100, 100, 225, 0.25)), color-stop(81.967%, rgba(0, 0, 0, 0)), color-stop(83.607%, rgba(0, 0, 0, 0)), color-stop(83.607%, rgba(100, 100, 225, 0.25)), color-stop(90.164%, rgba(100, 100, 225, 0.25)), color-stop(90.164%, rgba(0, 0, 0, 0)), color-stop(91.803%, rgba(0, 0, 0, 0)), color-stop(91.803%, rgba(100, 100, 225, 0.25)), color-stop(98.361%, rgba(100, 100, 225, 0.25)), color-stop(98.361%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
-  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 1.639%, rgba(100, 100, 225, 0.25) 1.639%, rgba(100, 100, 225, 0.25) 8.197%, rgba(0, 0, 0, 0) 8.197%, rgba(0, 0, 0, 0) 9.836%, rgba(100, 100, 225, 0.25) 9.836%, rgba(100, 100, 225, 0.25) 16.393%, rgba(0, 0, 0, 0) 16.393%, rgba(0, 0, 0, 0) 18.033%, rgba(100, 100, 225, 0.25) 18.033%, rgba(100, 100, 225, 0.25) 24.59%, rgba(0, 0, 0, 0) 24.59%, rgba(0, 0, 0, 0) 26.23%, rgba(100, 100, 225, 0.25) 26.23%, rgba(100, 100, 225, 0.25) 32.787%, rgba(0, 0, 0, 0) 32.787%, rgba(0, 0, 0, 0) 34.426%, rgba(100, 100, 225, 0.25) 34.426%, rgba(100, 100, 225, 0.25) 40.984%, rgba(0, 0, 0, 0) 40.984%, rgba(0, 0, 0, 0) 42.623%, rgba(100, 100, 225, 0.25) 42.623%, rgba(100, 100, 225, 0.25) 49.18%, rgba(0, 0, 0, 0) 49.18%, rgba(0, 0, 0, 0) 50.82%, rgba(100, 100, 225, 0.25) 50.82%, rgba(100, 100, 225, 0.25) 57.377%, rgba(0, 0, 0, 0) 57.377%, rgba(0, 0, 0, 0) 59.016%, rgba(100, 100, 225, 0.25) 59.016%, rgba(100, 100, 225, 0.25) 65.574%, rgba(0, 0, 0, 0) 65.574%, rgba(0, 0, 0, 0) 67.213%, rgba(100, 100, 225, 0.25) 67.213%, rgba(100, 100, 225, 0.25) 73.77%, rgba(0, 0, 0, 0) 73.77%, rgba(0, 0, 0, 0) 75.41%, rgba(100, 100, 225, 0.25) 75.41%, rgba(100, 100, 225, 0.25) 81.967%, rgba(0, 0, 0, 0) 81.967%, rgba(0, 0, 0, 0) 83.607%, rgba(100, 100, 225, 0.25) 83.607%, rgba(100, 100, 225, 0.25) 90.164%, rgba(0, 0, 0, 0) 90.164%, rgba(0, 0, 0, 0) 91.803%, rgba(100, 100, 225, 0.25) 91.803%, rgba(100, 100, 225, 0.25) 98.361%, rgba(0, 0, 0, 0) 98.361%, rgba(0, 0, 0, 0) 100%);
-  background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -moz-linear-gradient(left, rgba(0, 0, 0, 0) 1.639%, rgba(100, 100, 225, 0.25) 1.639%, rgba(100, 100, 225, 0.25) 8.197%, rgba(0, 0, 0, 0) 8.197%, rgba(0, 0, 0, 0) 9.836%, rgba(100, 100, 225, 0.25) 9.836%, rgba(100, 100, 225, 0.25) 16.393%, rgba(0, 0, 0, 0) 16.393%, rgba(0, 0, 0, 0) 18.033%, rgba(100, 100, 225, 0.25) 18.033%, rgba(100, 100, 225, 0.25) 24.59%, rgba(0, 0, 0, 0) 24.59%, rgba(0, 0, 0, 0) 26.23%, rgba(100, 100, 225, 0.25) 26.23%, rgba(100, 100, 225, 0.25) 32.787%, rgba(0, 0, 0, 0) 32.787%, rgba(0, 0, 0, 0) 34.426%, rgba(100, 100, 225, 0.25) 34.426%, rgba(100, 100, 225, 0.25) 40.984%, rgba(0, 0, 0, 0) 40.984%, rgba(0, 0, 0, 0) 42.623%, rgba(100, 100, 225, 0.25) 42.623%, rgba(100, 100, 225, 0.25) 49.18%, rgba(0, 0, 0, 0) 49.18%, rgba(0, 0, 0, 0) 50.82%, rgba(100, 100, 225, 0.25) 50.82%, rgba(100, 100, 225, 0.25) 57.377%, rgba(0, 0, 0, 0) 57.377%, rgba(0, 0, 0, 0) 59.016%, rgba(100, 100, 225, 0.25) 59.016%, rgba(100, 100, 225, 0.25) 65.574%, rgba(0, 0, 0, 0) 65.574%, rgba(0, 0, 0, 0) 67.213%, rgba(100, 100, 225, 0.25) 67.213%, rgba(100, 100, 225, 0.25) 73.77%, rgba(0, 0, 0, 0) 73.77%, rgba(0, 0, 0, 0) 75.41%, rgba(100, 100, 225, 0.25) 75.41%, rgba(100, 100, 225, 0.25) 81.967%, rgba(0, 0, 0, 0) 81.967%, rgba(0, 0, 0, 0) 83.607%, rgba(100, 100, 225, 0.25) 83.607%, rgba(100, 100, 225, 0.25) 90.164%, rgba(0, 0, 0, 0) 90.164%, rgba(0, 0, 0, 0) 91.803%, rgba(100, 100, 225, 0.25) 91.803%, rgba(100, 100, 225, 0.25) 98.361%, rgba(0, 0, 0, 0) 98.361%, rgba(0, 0, 0, 0) 100%);
-  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -o-linear-gradient(left, rgba(0, 0, 0, 0) 1.639%, rgba(100, 100, 225, 0.25) 1.639%, rgba(100, 100, 225, 0.25) 8.197%, rgba(0, 0, 0, 0) 8.197%, rgba(0, 0, 0, 0) 9.836%, rgba(100, 100, 225, 0.25) 9.836%, rgba(100, 100, 225, 0.25) 16.393%, rgba(0, 0, 0, 0) 16.393%, rgba(0, 0, 0, 0) 18.033%, rgba(100, 100, 225, 0.25) 18.033%, rgba(100, 100, 225, 0.25) 24.59%, rgba(0, 0, 0, 0) 24.59%, rgba(0, 0, 0, 0) 26.23%, rgba(100, 100, 225, 0.25) 26.23%, rgba(100, 100, 225, 0.25) 32.787%, rgba(0, 0, 0, 0) 32.787%, rgba(0, 0, 0, 0) 34.426%, rgba(100, 100, 225, 0.25) 34.426%, rgba(100, 100, 225, 0.25) 40.984%, rgba(0, 0, 0, 0) 40.984%, rgba(0, 0, 0, 0) 42.623%, rgba(100, 100, 225, 0.25) 42.623%, rgba(100, 100, 225, 0.25) 49.18%, rgba(0, 0, 0, 0) 49.18%, rgba(0, 0, 0, 0) 50.82%, rgba(100, 100, 225, 0.25) 50.82%, rgba(100, 100, 225, 0.25) 57.377%, rgba(0, 0, 0, 0) 57.377%, rgba(0, 0, 0, 0) 59.016%, rgba(100, 100, 225, 0.25) 59.016%, rgba(100, 100, 225, 0.25) 65.574%, rgba(0, 0, 0, 0) 65.574%, rgba(0, 0, 0, 0) 67.213%, rgba(100, 100, 225, 0.25) 67.213%, rgba(100, 100, 225, 0.25) 73.77%, rgba(0, 0, 0, 0) 73.77%, rgba(0, 0, 0, 0) 75.41%, rgba(100, 100, 225, 0.25) 75.41%, rgba(100, 100, 225, 0.25) 81.967%, rgba(0, 0, 0, 0) 81.967%, rgba(0, 0, 0, 0) 83.607%, rgba(100, 100, 225, 0.25) 83.607%, rgba(100, 100, 225, 0.25) 90.164%, rgba(0, 0, 0, 0) 90.164%, rgba(0, 0, 0, 0) 91.803%, rgba(100, 100, 225, 0.25) 91.803%, rgba(100, 100, 225, 0.25) 98.361%, rgba(0, 0, 0, 0) 98.361%, rgba(0, 0, 0, 0) 100%);
-  background-image: linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), linear-gradient(left, rgba(0, 0, 0, 0) 1.639%, rgba(100, 100, 225, 0.25) 1.639%, rgba(100, 100, 225, 0.25) 8.197%, rgba(0, 0, 0, 0) 8.197%, rgba(0, 0, 0, 0) 9.836%, rgba(100, 100, 225, 0.25) 9.836%, rgba(100, 100, 225, 0.25) 16.393%, rgba(0, 0, 0, 0) 16.393%, rgba(0, 0, 0, 0) 18.033%, rgba(100, 100, 225, 0.25) 18.033%, rgba(100, 100, 225, 0.25) 24.59%, rgba(0, 0, 0, 0) 24.59%, rgba(0, 0, 0, 0) 26.23%, rgba(100, 100, 225, 0.25) 26.23%, rgba(100, 100, 225, 0.25) 32.787%, rgba(0, 0, 0, 0) 32.787%, rgba(0, 0, 0, 0) 34.426%, rgba(100, 100, 225, 0.25) 34.426%, rgba(100, 100, 225, 0.25) 40.984%, rgba(0, 0, 0, 0) 40.984%, rgba(0, 0, 0, 0) 42.623%, rgba(100, 100, 225, 0.25) 42.623%, rgba(100, 100, 225, 0.25) 49.18%, rgba(0, 0, 0, 0) 49.18%, rgba(0, 0, 0, 0) 50.82%, rgba(100, 100, 225, 0.25) 50.82%, rgba(100, 100, 225, 0.25) 57.377%, rgba(0, 0, 0, 0) 57.377%, rgba(0, 0, 0, 0) 59.016%, rgba(100, 100, 225, 0.25) 59.016%, rgba(100, 100, 225, 0.25) 65.574%, rgba(0, 0, 0, 0) 65.574%, rgba(0, 0, 0, 0) 67.213%, rgba(100, 100, 225, 0.25) 67.213%, rgba(100, 100, 225, 0.25) 73.77%, rgba(0, 0, 0, 0) 73.77%, rgba(0, 0, 0, 0) 75.41%, rgba(100, 100, 225, 0.25) 75.41%, rgba(100, 100, 225, 0.25) 81.967%, rgba(0, 0, 0, 0) 81.967%, rgba(0, 0, 0, 0) 83.607%, rgba(100, 100, 225, 0.25) 83.607%, rgba(100, 100, 225, 0.25) 90.164%, rgba(0, 0, 0, 0) 90.164%, rgba(0, 0, 0, 0) 91.803%, rgba(100, 100, 225, 0.25) 91.803%, rgba(100, 100, 225, 0.25) 98.361%, rgba(0, 0, 0, 0) 98.361%, rgba(0, 0, 0, 0) 100%);
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 0, 0, 0.5)), color-stop(5%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(1.63934%, rgba(0, 0, 0, 0)), color-stop(1.63934%, rgba(100, 100, 225, 0.25)), color-stop(8.19672%, rgba(100, 100, 225, 0.25)), color-stop(8.19672%, rgba(0, 0, 0, 0)), color-stop(9.83607%, rgba(0, 0, 0, 0)), color-stop(9.83607%, rgba(100, 100, 225, 0.25)), color-stop(16.39344%, rgba(100, 100, 225, 0.25)), color-stop(16.39344%, rgba(0, 0, 0, 0)), color-stop(18.03279%, rgba(0, 0, 0, 0)), color-stop(18.03279%, rgba(100, 100, 225, 0.25)), color-stop(24.59016%, rgba(100, 100, 225, 0.25)), color-stop(24.59016%, rgba(0, 0, 0, 0)), color-stop(26.22951%, rgba(0, 0, 0, 0)), color-stop(26.22951%, rgba(100, 100, 225, 0.25)), color-stop(32.78689%, rgba(100, 100, 225, 0.25)), color-stop(32.78689%, rgba(0, 0, 0, 0)), color-stop(34.42623%, rgba(0, 0, 0, 0)), color-stop(34.42623%, rgba(100, 100, 225, 0.25)), color-stop(40.98361%, rgba(100, 100, 225, 0.25)), color-stop(40.98361%, rgba(0, 0, 0, 0)), color-stop(42.62295%, rgba(0, 0, 0, 0)), color-stop(42.62295%, rgba(100, 100, 225, 0.25)), color-stop(49.18033%, rgba(100, 100, 225, 0.25)), color-stop(49.18033%, rgba(0, 0, 0, 0)), color-stop(50.81967%, rgba(0, 0, 0, 0)), color-stop(50.81967%, rgba(100, 100, 225, 0.25)), color-stop(57.37705%, rgba(100, 100, 225, 0.25)), color-stop(57.37705%, rgba(0, 0, 0, 0)), color-stop(59.01639%, rgba(0, 0, 0, 0)), color-stop(59.01639%, rgba(100, 100, 225, 0.25)), color-stop(65.57377%, rgba(100, 100, 225, 0.25)), color-stop(65.57377%, rgba(0, 0, 0, 0)), color-stop(67.21311%, rgba(0, 0, 0, 0)), color-stop(67.21311%, rgba(100, 100, 225, 0.25)), color-stop(73.77049%, rgba(100, 100, 225, 0.25)), color-stop(73.77049%, rgba(0, 0, 0, 0)), color-stop(75.40984%, rgba(0, 0, 0, 0)), color-stop(75.40984%, rgba(100, 100, 225, 0.25)), color-stop(81.96721%, rgba(100, 100, 225, 0.25)), color-stop(81.96721%, rgba(0, 0, 0, 0)), color-stop(83.60656%, rgba(0, 0, 0, 0)), color-stop(83.60656%, rgba(100, 100, 225, 0.25)), color-stop(90.16393%, rgba(100, 100, 225, 0.25)), color-stop(90.16393%, rgba(0, 0, 0, 0)), color-stop(91.80328%, rgba(0, 0, 0, 0)), color-stop(91.80328%, rgba(100, 100, 225, 0.25)), color-stop(98.36066%, rgba(100, 100, 225, 0.25)), color-stop(98.36066%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 1.63934%, rgba(100, 100, 225, 0.25) 1.63934%, rgba(100, 100, 225, 0.25) 8.19672%, rgba(0, 0, 0, 0) 8.19672%, rgba(0, 0, 0, 0) 9.83607%, rgba(100, 100, 225, 0.25) 9.83607%, rgba(100, 100, 225, 0.25) 16.39344%, rgba(0, 0, 0, 0) 16.39344%, rgba(0, 0, 0, 0) 18.03279%, rgba(100, 100, 225, 0.25) 18.03279%, rgba(100, 100, 225, 0.25) 24.59016%, rgba(0, 0, 0, 0) 24.59016%, rgba(0, 0, 0, 0) 26.22951%, rgba(100, 100, 225, 0.25) 26.22951%, rgba(100, 100, 225, 0.25) 32.78689%, rgba(0, 0, 0, 0) 32.78689%, rgba(0, 0, 0, 0) 34.42623%, rgba(100, 100, 225, 0.25) 34.42623%, rgba(100, 100, 225, 0.25) 40.98361%, rgba(0, 0, 0, 0) 40.98361%, rgba(0, 0, 0, 0) 42.62295%, rgba(100, 100, 225, 0.25) 42.62295%, rgba(100, 100, 225, 0.25) 49.18033%, rgba(0, 0, 0, 0) 49.18033%, rgba(0, 0, 0, 0) 50.81967%, rgba(100, 100, 225, 0.25) 50.81967%, rgba(100, 100, 225, 0.25) 57.37705%, rgba(0, 0, 0, 0) 57.37705%, rgba(0, 0, 0, 0) 59.01639%, rgba(100, 100, 225, 0.25) 59.01639%, rgba(100, 100, 225, 0.25) 65.57377%, rgba(0, 0, 0, 0) 65.57377%, rgba(0, 0, 0, 0) 67.21311%, rgba(100, 100, 225, 0.25) 67.21311%, rgba(100, 100, 225, 0.25) 73.77049%, rgba(0, 0, 0, 0) 73.77049%, rgba(0, 0, 0, 0) 75.40984%, rgba(100, 100, 225, 0.25) 75.40984%, rgba(100, 100, 225, 0.25) 81.96721%, rgba(0, 0, 0, 0) 81.96721%, rgba(0, 0, 0, 0) 83.60656%, rgba(100, 100, 225, 0.25) 83.60656%, rgba(100, 100, 225, 0.25) 90.16393%, rgba(0, 0, 0, 0) 90.16393%, rgba(0, 0, 0, 0) 91.80328%, rgba(100, 100, 225, 0.25) 91.80328%, rgba(100, 100, 225, 0.25) 98.36066%, rgba(0, 0, 0, 0) 98.36066%, rgba(0, 0, 0, 0) 100%);
+  background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -moz-linear-gradient(left, rgba(0, 0, 0, 0) 1.63934%, rgba(100, 100, 225, 0.25) 1.63934%, rgba(100, 100, 225, 0.25) 8.19672%, rgba(0, 0, 0, 0) 8.19672%, rgba(0, 0, 0, 0) 9.83607%, rgba(100, 100, 225, 0.25) 9.83607%, rgba(100, 100, 225, 0.25) 16.39344%, rgba(0, 0, 0, 0) 16.39344%, rgba(0, 0, 0, 0) 18.03279%, rgba(100, 100, 225, 0.25) 18.03279%, rgba(100, 100, 225, 0.25) 24.59016%, rgba(0, 0, 0, 0) 24.59016%, rgba(0, 0, 0, 0) 26.22951%, rgba(100, 100, 225, 0.25) 26.22951%, rgba(100, 100, 225, 0.25) 32.78689%, rgba(0, 0, 0, 0) 32.78689%, rgba(0, 0, 0, 0) 34.42623%, rgba(100, 100, 225, 0.25) 34.42623%, rgba(100, 100, 225, 0.25) 40.98361%, rgba(0, 0, 0, 0) 40.98361%, rgba(0, 0, 0, 0) 42.62295%, rgba(100, 100, 225, 0.25) 42.62295%, rgba(100, 100, 225, 0.25) 49.18033%, rgba(0, 0, 0, 0) 49.18033%, rgba(0, 0, 0, 0) 50.81967%, rgba(100, 100, 225, 0.25) 50.81967%, rgba(100, 100, 225, 0.25) 57.37705%, rgba(0, 0, 0, 0) 57.37705%, rgba(0, 0, 0, 0) 59.01639%, rgba(100, 100, 225, 0.25) 59.01639%, rgba(100, 100, 225, 0.25) 65.57377%, rgba(0, 0, 0, 0) 65.57377%, rgba(0, 0, 0, 0) 67.21311%, rgba(100, 100, 225, 0.25) 67.21311%, rgba(100, 100, 225, 0.25) 73.77049%, rgba(0, 0, 0, 0) 73.77049%, rgba(0, 0, 0, 0) 75.40984%, rgba(100, 100, 225, 0.25) 75.40984%, rgba(100, 100, 225, 0.25) 81.96721%, rgba(0, 0, 0, 0) 81.96721%, rgba(0, 0, 0, 0) 83.60656%, rgba(100, 100, 225, 0.25) 83.60656%, rgba(100, 100, 225, 0.25) 90.16393%, rgba(0, 0, 0, 0) 90.16393%, rgba(0, 0, 0, 0) 91.80328%, rgba(100, 100, 225, 0.25) 91.80328%, rgba(100, 100, 225, 0.25) 98.36066%, rgba(0, 0, 0, 0) 98.36066%, rgba(0, 0, 0, 0) 100%);
+  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -o-linear-gradient(left, rgba(0, 0, 0, 0) 1.63934%, rgba(100, 100, 225, 0.25) 1.63934%, rgba(100, 100, 225, 0.25) 8.19672%, rgba(0, 0, 0, 0) 8.19672%, rgba(0, 0, 0, 0) 9.83607%, rgba(100, 100, 225, 0.25) 9.83607%, rgba(100, 100, 225, 0.25) 16.39344%, rgba(0, 0, 0, 0) 16.39344%, rgba(0, 0, 0, 0) 18.03279%, rgba(100, 100, 225, 0.25) 18.03279%, rgba(100, 100, 225, 0.25) 24.59016%, rgba(0, 0, 0, 0) 24.59016%, rgba(0, 0, 0, 0) 26.22951%, rgba(100, 100, 225, 0.25) 26.22951%, rgba(100, 100, 225, 0.25) 32.78689%, rgba(0, 0, 0, 0) 32.78689%, rgba(0, 0, 0, 0) 34.42623%, rgba(100, 100, 225, 0.25) 34.42623%, rgba(100, 100, 225, 0.25) 40.98361%, rgba(0, 0, 0, 0) 40.98361%, rgba(0, 0, 0, 0) 42.62295%, rgba(100, 100, 225, 0.25) 42.62295%, rgba(100, 100, 225, 0.25) 49.18033%, rgba(0, 0, 0, 0) 49.18033%, rgba(0, 0, 0, 0) 50.81967%, rgba(100, 100, 225, 0.25) 50.81967%, rgba(100, 100, 225, 0.25) 57.37705%, rgba(0, 0, 0, 0) 57.37705%, rgba(0, 0, 0, 0) 59.01639%, rgba(100, 100, 225, 0.25) 59.01639%, rgba(100, 100, 225, 0.25) 65.57377%, rgba(0, 0, 0, 0) 65.57377%, rgba(0, 0, 0, 0) 67.21311%, rgba(100, 100, 225, 0.25) 67.21311%, rgba(100, 100, 225, 0.25) 73.77049%, rgba(0, 0, 0, 0) 73.77049%, rgba(0, 0, 0, 0) 75.40984%, rgba(100, 100, 225, 0.25) 75.40984%, rgba(100, 100, 225, 0.25) 81.96721%, rgba(0, 0, 0, 0) 81.96721%, rgba(0, 0, 0, 0) 83.60656%, rgba(100, 100, 225, 0.25) 83.60656%, rgba(100, 100, 225, 0.25) 90.16393%, rgba(0, 0, 0, 0) 90.16393%, rgba(0, 0, 0, 0) 91.80328%, rgba(100, 100, 225, 0.25) 91.80328%, rgba(100, 100, 225, 0.25) 98.36066%, rgba(0, 0, 0, 0) 98.36066%, rgba(0, 0, 0, 0) 100%);
+  background-image: linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), linear-gradient(left, rgba(0, 0, 0, 0) 1.63934%, rgba(100, 100, 225, 0.25) 1.63934%, rgba(100, 100, 225, 0.25) 8.19672%, rgba(0, 0, 0, 0) 8.19672%, rgba(0, 0, 0, 0) 9.83607%, rgba(100, 100, 225, 0.25) 9.83607%, rgba(100, 100, 225, 0.25) 16.39344%, rgba(0, 0, 0, 0) 16.39344%, rgba(0, 0, 0, 0) 18.03279%, rgba(100, 100, 225, 0.25) 18.03279%, rgba(100, 100, 225, 0.25) 24.59016%, rgba(0, 0, 0, 0) 24.59016%, rgba(0, 0, 0, 0) 26.22951%, rgba(100, 100, 225, 0.25) 26.22951%, rgba(100, 100, 225, 0.25) 32.78689%, rgba(0, 0, 0, 0) 32.78689%, rgba(0, 0, 0, 0) 34.42623%, rgba(100, 100, 225, 0.25) 34.42623%, rgba(100, 100, 225, 0.25) 40.98361%, rgba(0, 0, 0, 0) 40.98361%, rgba(0, 0, 0, 0) 42.62295%, rgba(100, 100, 225, 0.25) 42.62295%, rgba(100, 100, 225, 0.25) 49.18033%, rgba(0, 0, 0, 0) 49.18033%, rgba(0, 0, 0, 0) 50.81967%, rgba(100, 100, 225, 0.25) 50.81967%, rgba(100, 100, 225, 0.25) 57.37705%, rgba(0, 0, 0, 0) 57.37705%, rgba(0, 0, 0, 0) 59.01639%, rgba(100, 100, 225, 0.25) 59.01639%, rgba(100, 100, 225, 0.25) 65.57377%, rgba(0, 0, 0, 0) 65.57377%, rgba(0, 0, 0, 0) 67.21311%, rgba(100, 100, 225, 0.25) 67.21311%, rgba(100, 100, 225, 0.25) 73.77049%, rgba(0, 0, 0, 0) 73.77049%, rgba(0, 0, 0, 0) 75.40984%, rgba(100, 100, 225, 0.25) 75.40984%, rgba(100, 100, 225, 0.25) 81.96721%, rgba(0, 0, 0, 0) 81.96721%, rgba(0, 0, 0, 0) 83.60656%, rgba(100, 100, 225, 0.25) 83.60656%, rgba(100, 100, 225, 0.25) 90.16393%, rgba(0, 0, 0, 0) 90.16393%, rgba(0, 0, 0, 0) 91.80328%, rgba(100, 100, 225, 0.25) 91.80328%, rgba(100, 100, 225, 0.25) 98.36066%, rgba(0, 0, 0, 0) 98.36066%, rgba(0, 0, 0, 0) 100%);
   -webkit-background-size: 100% 24px, auto;
   -moz-background-size: 100% 24px, auto;
   -o-background-size: 100% 24px, auto;
@@ -109,7 +110,7 @@ html {
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\0000383}}
 a:focus {
-  outline: thin dotted;
+  outline: 0;
 }
 
 /*
@@ -414,26 +415,7 @@ ul, ol {
   margin-bottom: 1.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000347}}
-.btn {
-  background: #5b80ab;
-  color: white;
-  display: inline-block;
-  padding: .25em 2em;
-  border: 0;
-  cursor: pointer;
-  -webkit-border-radius: 1em;
-  -moz-border-radius: 1em;
-  -ms-border-radius: 1em;
-  -o-border-radius: 1em;
-  border-radius: 1em;
-  margin-top: 0.375em;
-  padding-top: 0.375em;
-  padding-bottom: 0.375em;
-  margin-bottom: 0.375em;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000352}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000348}}
 .container {
   *zoom: 1;
   max-width: 59em;
@@ -449,7 +431,7 @@ ul, ol {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000357}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000353}}
 #logo {
   font-size: 1.5em;
   line-height: 2em;
@@ -466,14 +448,14 @@ ul, ol {
   height: 2em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000368}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000364}}
 #header {
   background: #5b80ab;
   overflow: hidden;
   *zoom: 1;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000372}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000368}}
 #content {
   background: white;
   overflow: hidden;
@@ -482,13 +464,13 @@ ul, ol {
   padding-bottom: 1.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000383}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000379}}
 #login-nav {
   float: right;
   text-align: right;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000383}}
 #login-nav ul {
   margin: 0;
   padding: 0;
@@ -522,13 +504,13 @@ ul, ol {
   padding-right: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000388}}
 #login-nav a {
   color: white;
   text-decoration: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000398}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000394}}
 .breadcrumbs,
 #footer {
   padding-top: 0.75em;
@@ -536,7 +518,7 @@ ul, ol {
   background: #e9eff4;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003103}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000399}}
 .breadcrumbs ul {
   margin: 0;
   padding: 0;
@@ -568,7 +550,7 @@ ul, ol {
   padding-right: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003108}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003104}}
 #meta-nav ul {
   margin: 0;
   padding: 0;
@@ -600,26 +582,26 @@ ul, ol {
   padding-right: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003113}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003109}}
 #header-search-form {
   border-left: 1px solid white;
   margin-left: .5em;
   padding-left: 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003118}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003114}}
 #header-search-form label {
   font: 0/0 serif;
   text-shadow: none;
   color: transparent;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003122}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003118}}
 #header-search-field {
   float: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003133}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003129}}
 .copyright {
   float: left;
   color: #245E8C;
@@ -634,8 +616,8 @@ ul, ol {
     text-decoration: none;
     padding-left: 2.75em;
     margin-top: 0em;
-    padding-top: 0.188em;
-    padding-bottom: 0.188em;
+    padding-top: 0.1875em;
+    padding-bottom: 0.1875em;
     margin-bottom: 0em;
     background: #5b80ab;
     position: relative;
@@ -708,8 +690,8 @@ input[type="text"], input[type="password"] {
   font-size: 0.875em;
   line-height: 0em;
   border-style: solid;
-  border-width: 0.071em;
-  padding: -0.071em;
+  border-width: 0.07143em;
+  padding: -0.07143em;
   padding: 3px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -732,12 +714,56 @@ input[type="text"]:focus, input[type="password"]:focus {
 .helptext {
   display: block;
   font-size: 0.875em;
-  line-height: 1.714em;
+  line-height: 1.71429em;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000339}}
 .form-error {
   color: #ff1d25;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\000031}}
+.btn, .btn-add, .btn-next {
+  background: #5b80ab;
+  color: white;
+  display: inline-block;
+  padding: .25em 1em;
+  border: 0;
+  cursor: pointer;
+  border-radius: 1em;
+  margin-top: 0.375em;
+  padding-top: 0.375em;
+  padding-bottom: 0.375em;
+  margin-bottom: 0.375em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\000035}}
+.btn:hover, .btn-add:hover, .btn-next:hover {
+  text-decoration: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\0000311}}
+.btn-add:before {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  margin-right: .5em;
+  content: "\f067";
+  text-decoration: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\0000318}}
+.btn-next:after {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  margin-left: .5em;
+  content: "\f061";
+  text-decoration: none;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_interactive\.scss}line{font-family:\000031}}
@@ -790,7 +816,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 a [class^="icon-"],
 a [class*=" icon-"] {
   display: inline-block;
-  text-decoration: inherit;
+  text-decoration: none;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\0000343}}
@@ -871,5 +897,5 @@ a [class*=" icon-"] {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\0000371}}
 .searchsubmit:focus:after {
-  outline: thin dotted;
+  outline: 0;
 }

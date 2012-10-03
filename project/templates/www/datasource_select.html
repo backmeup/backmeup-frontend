@@ -2,12 +2,9 @@
 
 {% load i18n %}
 
-{% block body_class %}class="home"{% endblock %}
-
 {% block content %}
-  <h1>create backup</h1>
-  
-  <h2>{% trans "Select datasource" %}</h2>
+  <h1>{% trans "neues Backup anlegen" %}</h1> 
+  <h2>{% trans "Daten-Quelle" %}</h2>
   
   <form action="." method="POST">{% csrf_token %}
     {{ form.non_field_errors }}
@@ -15,7 +12,7 @@
       <label>{{ form.profile_name.label }}
       {{ form.profile_name }}</label>
       {% if form.profile_name.errors %}
-        <span class="form-error">{{ form.profile_name.errors }}</span>
+        {{ form.profile_name.errors }}
       {% endif %}
     </div>
     
@@ -24,7 +21,7 @@
          <label>{{ item.tag }} {{ item.choice_label }}</label>
       {% endfor %}
       {% if form.datasource.errors %}
-        <span class="form-error">{{ form.datasource.errors }}</span>
+        {{ form.datasource.errors }}
       {% endif %}
     </div>
     
@@ -32,11 +29,11 @@
       <label>{{ form.key_ring.label }}
       {{ form.key_ring }}</label>
       {% if form.key_ring.errors %}
-        <span class="form-error">{{ form.key_ring.errors }}</span>
+        {{ form.key_ring.errors }}
       {% endif %}
     </div>
     
-    <p><input type="submit" value="Continue &rarr;" class="btn"></p>
+    <p><button type="submit" class="btn-next">{% trans "weiter" %}</button></p>
   </form>
   
   {# <ul> #}

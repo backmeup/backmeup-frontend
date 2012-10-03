@@ -1,16 +1,50 @@
-<h1>Welcome to BackMeUp, {{ user }}!</h1>
+{% load i18n %}
 
-<p><a href="{% url datasource-select %}">create new backup</a></p>
+<h1>{% trans "Hello" %} {{ user }}!</h1>
 
+<p><a href="{% url datasource-select %}" class="btn-add">{% trans "new Backup" %}</a></p>
 
-<h2>Backup Jobs<h2>
+<h2>{% trans "Backups" %}</h2>
 
 {% if jobs %}
-  <ul>
-
+  <ul class="backup-list">
   {% for item in jobs %}
-    <li>id: {{ item.backupJobId }}</li>
+    {% include "www/includes/backup_jobs/backup_list_item.html" %}
   {% endfor %}
-
+    
+    {# DUMMY BACKUP-ITEM START #}
+    <li>
+      <header>
+        <h3>Dummy Backup 1</h3>
+        <a href="#link-to-backup-edit-page">{% trans "Edit" %}</a>
+      </header>
+      <div>
+        <span class="key">{% trans "Daten-Quelle" %}</span>
+        <ul class="value">
+          <li>Facebook</li>
+          <li>John Doe</li>
+          <li>Backup-Data Info</li>
+        </ul>
+      </div>
+      <div>
+        <span class="key">{% trans "Speicher-Ziel" %}</span>
+        <ul class="value">
+          <li>Dropbox</li>
+          <li>John Doe</li>
+          <li>Verfügbar: 600 MB von 35 GB</li>
+        </ul>
+      </div>
+      <div>
+        <span class="key">{% trans "Backup-Status" %}</span>
+        <ul class="value">
+          <li>
+            <span>{% trans "OK" %}</span>
+            <span>nächstes Backup: 22.4.2012 9:00</span>
+          </li>
+        </ul>
+      </div>
+    </li>
+    {# DUMMY BACKUP-ITEM END #}
+    
   </ul>
 {% endif %}

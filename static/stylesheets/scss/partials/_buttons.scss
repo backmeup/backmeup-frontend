@@ -1,0 +1,21 @@
+.btn {
+  background: $bg-clr1;
+  @include standard-button;
+}
+.btn:hover {
+  text-decoration: none;
+}
+.btn-add {
+  @extend .btn;
+}
+.btn-add:before {
+  @include icon_before('\f067');
+  text-decoration:none;
+}
+.btn-next {
+  @extend .btn;
+}
+.btn-next:after {
+  @include icon_after('\f061');
+  text-decoration:none;
+}

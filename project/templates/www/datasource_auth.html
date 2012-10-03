@@ -2,18 +2,15 @@
 
 {% load i18n %}
 
-{% block body_class %}class="home"{% endblock %}
-
 {% block content %}
-  <h1>create backup</h1>
-  
-  <h2>{% trans "Auth datasource" %}</h2>
+  <h1>{% trans "neues Backup anlegen" %}</h1>  
+  <h2>{% trans "Inhalt der Sicherung" %}</h2>
   
   <form action="." method="POST">{% csrf_token %}
     
     {{ form.as_p }}
     
-    <p><input type="submit" value="Continue &rarr;" class="btn"></p>
+    <p><button type="submit" class="btn-next">{% trans "weiter" %}</button></p>
   </form>
   
   {# <ul> #}

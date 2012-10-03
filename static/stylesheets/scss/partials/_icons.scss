@@ -37,7 +37,7 @@
 a [class^="icon-"],
 a [class*=" icon-"] {
   display: inline-block;
-  text-decoration: inherit;
+  text-decoration: none;
 }
 
 .icon-after-caret-down:after            { content: "\f0d7"; }
@@ -69,7 +69,7 @@ a [class*=" icon-"] {
   @include adjust-font-size-to(20px);
 }
 .searchsubmit:focus:after {
-  outline: thin dotted;
+  outline: 0;
 }
 
 

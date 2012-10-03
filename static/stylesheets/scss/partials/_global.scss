@@ -44,10 +44,6 @@ ul, ol {
 #content p, #content ul, #content ol {
   @include margin-trailer(1);
 }
-.btn {
-  background: $bg-clr1;
-  @include standard-button;
-}
 
 .container {
   @include container;
