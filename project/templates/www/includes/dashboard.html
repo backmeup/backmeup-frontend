@@ -2,7 +2,7 @@
 
 <h1>{% trans "Hello" %} {{ user }}!</h1>
 
-<p><a href="{% url datasource-select %}" class="btn-add">{% trans "new Backup" %}</a></p>
+<p><a href="{% url datasource-select %}" class="btn-add">{% trans "Backup erstellen" %}</a></p>
 
 <h2>{% trans "Backups" %}</h2>
 
@@ -14,11 +14,11 @@
     
     {# DUMMY BACKUP-ITEM START #}
     <li>
-      <header>
+      <header class="header">
         <h3>Dummy Backup 1</h3>
         <a href="#link-to-backup-edit-page">{% trans "Edit" %}</a>
       </header>
-      <div>
+      <div class="bli-section">
         <span class="key">{% trans "Daten-Quelle" %}</span>
         <ul class="value">
           <li>Facebook</li>
@@ -26,7 +26,7 @@
           <li>Backup-Data Info</li>
         </ul>
       </div>
-      <div>
+      <div class="bli-section">
         <span class="key">{% trans "Speicher-Ziel" %}</span>
         <ul class="value">
           <li>Dropbox</li>
@@ -34,7 +34,7 @@
           <li>Verfügbar: 600 MB von 35 GB</li>
         </ul>
       </div>
-      <div>
+      <div class="bli-section">
         <span class="key">{% trans "Backup-Status" %}</span>
         <ul class="value">
           <li>

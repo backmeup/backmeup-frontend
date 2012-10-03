@@ -23,6 +23,9 @@ h2 {
 h3 {
   @include adjust-font-size-to(20px);
 }
+h4 {
+  @include adjust-font-size-to($base-font-size);
+}
 a {
   color: $clr-link;
   text-decoration: none;
@@ -33,10 +36,10 @@ a:hover {
 ul, ol {
   list-style: none outside;
 }
-#content ul, {
-  padding-left: 1em;
-  list-style-type: circle;
-}
+//#content ul, {
+//  padding-left: 1em;
+//  list-style-type: circle;
+//}
 #content ol {
   padding-left: 1em;
   list-style-type: decimal;
@@ -142,5 +145,38 @@ ul, ol {
 //  width: 19px;
 //  height: 16px;
 //}
+
+
+// Dashboard
+.backup-list {
+  > li{
+    @include margin-leader(1);
+  }
+  > li:first-child{
+    margin-top: 0;
+  }
+  .header{
+    @extend .clearfix;
+    background: $bg-clr1;
+    padding: .5em;
+    h3{
+      float: left;
+      color: $clr-text2;
+      @include adjust-font-size-to($base-font-size);
+      font-weight: normal;
+    }
+    a{
+      float: right;
+      color: $clr-text2;
+    }
+  }
+  .bli-section{
+    padding:.5em .5em;
+    ul{
+      @include horizontal-list();
+    }
+  }
+}
+
 
 
