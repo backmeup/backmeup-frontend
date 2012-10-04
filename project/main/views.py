@@ -79,6 +79,8 @@ def datasource_options(request):
 
     if form.is_valid():
         del request.session['auth_data']
+        form.rest_save()
+        
     return render_to_response(
         "www/datasource_options.html",
         {

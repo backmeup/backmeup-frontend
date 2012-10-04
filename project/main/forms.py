@@ -115,6 +115,7 @@ class DatasourceOptionsForm(forms.Form):
         #        data[self.cleaned_data[key]] = value
         #return rest_datasource_profile.auth_post(profile_id=self.auth_data['profileId'], data=data)
 
+
 class DatasinkSelectForm(forms.Form):
 
     #datasink = forms.ChoiceField(label=_("Datasink"), widget=forms.RadioSelect)
