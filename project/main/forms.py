@@ -100,7 +100,7 @@ class DatasourceOptionsForm(forms.Form):
         
         if result and 'sourceOptions' in result:
             for i, item in enumerate(result['sourceOptions']):
-                self.fields['input_value_%s' % i] = forms.BooleanField(label=item)
+                self.fields['input_value_%s' % i] = forms.BooleanField(label=item, required=False)
                 self.fields['input_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=item)
 
     def rest_save(self):
