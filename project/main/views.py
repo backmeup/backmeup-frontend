@@ -76,9 +76,9 @@ def datasource_auth(request):
 def datasource_options(request):
     
     form = DatasourceOptionsForm(request.POST or None, username=request.user.username, auth_data=request.session['auth_data'], key_ring=request.session['key_ring'])
-    
-    #if form.is_valid():
-    del request.session['auth_data']
+
+    if form.is_valid():
+        del request.session['auth_data']
     return render_to_response(
         "www/datasource_options.html",
         {
