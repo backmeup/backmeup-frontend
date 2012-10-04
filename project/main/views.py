@@ -63,7 +63,7 @@ def datasource_auth(request):
         if not result == False:
             request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
             del request.session['auth_data']
-            return redirect('datasink-options')
+            return redirect('datasource-options')
 
     return render_to_response(
         "www/datasource_auth.html",
