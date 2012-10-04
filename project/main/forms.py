@@ -53,7 +53,6 @@ class DatasourceAuthForm(forms.Form):
     def __init__(self, *args, **kwargs):
         self.auth_data = kwargs.pop('auth_data')
         self.username = kwargs.pop('username')
-        self.key_ring = kwargs.pop('key_ring')
         super(DatasourceAuthForm, self).__init__(*args, **kwargs)
         
         # add authentication form fields
@@ -72,14 +71,11 @@ class DatasourceAuthForm(forms.Form):
                     field_kwargs['widget'] = forms.PasswordInput
 
                 self.fields['input_value_%s' % i] = forms.CharField(**field_kwargs)
-        # add "profile options" form field(s)
-        rest_datasource_profile = RestDatasourceProfile(username=self.username)
-        print "#####################asdf", rest_datasource_profile.options(profile_id=self.auth_data['profileId'], data={'key_ring': self.key_ring})
         
-    def rest_save(self, username):
+    def rest_save(self, username, key_ring):
         rest_datasource_profile = RestDatasourceProfile(username=username)
         data = {
-            "keyRing": self.key_ring,
+            "keyRing": key_ring,
         }
         if self.auth_data['type'] == 'Input':
             for key in self.cleaned_data:
@@ -89,6 +85,18 @@ class DatasourceAuthForm(forms.Form):
         elif self.auth_data['type'] == 'OAuth':
             data.update(self.auth_data['oauth_data'])
         return rest_datasource_profile.auth_post(profile_id=self.auth_data['profileId'], data=data)
+
+
+class DatasourceOptionsForm(forms.Form):
+    
+    def __init__(self, *args, **kwargs):
+        self.auth_data = kwargs.pop('auth_data')
+        self.username = kwargs.pop('username')
+        self.key_ring = kwargs.pop('key_ring')
+        super(DatasourceOptionsForm, self).__init__(*args, **kwargs)
+        
+        rest_datasource_profile = RestDatasourceProfile(username=self.username)
+        rest_datasource_profile.options(profile_id=self.auth_data['profileId'], data={'key_ring': self.key_ring})
 
 
 class DatasinkSelectForm(forms.Form):
