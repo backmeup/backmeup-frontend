@@ -96,8 +96,24 @@ class DatasourceOptionsForm(forms.Form):
         super(DatasourceOptionsForm, self).__init__(*args, **kwargs)
         
         rest_datasource_profile = RestDatasourceProfile(username=self.username)
-        rest_datasource_profile.options(profile_id=self.auth_data['profileId'], data={'key_ring': self.key_ring})
+        result = rest_datasource_profile.options(profile_id=self.auth_data['profileId'], data={'key_ring': self.key_ring})
+        
+        if result and 'sourceOptions' in reslut:
+            for i, item in enumerate(result['sourceOptions']):
+                self.fields['input_value_%s' % i] = forms.BooleanField(label=item)
+                self.fields['input_key_%s' %s] = forms.CharField(widget=forms.HiddenInput, initial=item)
 
+    def rest_save(self):
+        rest_datasource_profile = RestDatasourceProfile(username=self.username)
+        data = {
+            "keyRing": self.key_ring,
+        }
+        print "##################################self.cleaned_data", self.cleaned_data
+        #for key in self.cleaned_data:
+        #    if key.startswith('input_value_'):
+        #        value = self.cleaned_data[key.replace('input_key_', 'input_value_')]
+        #        data[self.cleaned_data[key]] = value
+        #return rest_datasource_profile.auth_post(profile_id=self.auth_data['profileId'], data=data)
 
 class DatasinkSelectForm(forms.Form):
 
