@@ -11,7 +11,18 @@
   
   <form action="." method="POST">{% csrf_token %}
     
-    {{ form.as_p }}
+    {% for hidden in form.hidden_fields %}
+      {{ hidden }}
+    {% endfor %}
+    
+    {% for field in form.visible_fields %}
+        <div class="fieldWrapper">
+          <label>{{ field }} {{ field.label_tag }}</label>
+          {% if field.errors %}
+            <span class="form-error">{{ field.errors }}</span>
+          {% endif %}
+        </div>
+    {% endfor %}
     
     <p><input type="submit" value="Continue &rarr;" class="btn"></p>
   </form>
