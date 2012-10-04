@@ -17,7 +17,7 @@
     
     {% for field in form.visible_fields %}
         <div class="fieldWrapper">
-          <label>{{ field }} {{ field.label_tag }}</label>
+          <label>{{ field }} {{ field.label }}</label>
           {% if field.errors %}
             <span class="form-error">{{ field.errors }}</span>
           {% endif %}
