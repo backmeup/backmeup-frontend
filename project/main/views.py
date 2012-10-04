@@ -62,7 +62,6 @@ def datasource_auth(request):
         result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
         if not result == False:
             request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
-            del request.session['auth_data']
             return redirect('datasource-options')
 
     return render_to_response(
@@ -79,7 +78,7 @@ def datasource_options(request):
     form = DatasourceOptionsForm(request.POST or None, username=request.user.username, auth_data=request.session['auth_data'], key_ring=request.session['key_ring'])
     
     #if form.is_valid():
-    
+    del request.session['auth_data']
     return render_to_response(
         "www/datasource_options.html",
         {
