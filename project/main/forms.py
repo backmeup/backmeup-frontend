@@ -98,7 +98,7 @@ class DatasourceOptionsForm(forms.Form):
         rest_datasource_profile = RestDatasourceProfile(username=self.username)
         result = rest_datasource_profile.options(profile_id=self.auth_data['profileId'], data={'key_ring': self.key_ring})
         
-        if result and 'sourceOptions' in reslut:
+        if result and 'sourceOptions' in result:
             for i, item in enumerate(result['sourceOptions']):
                 self.fields['input_value_%s' % i] = forms.BooleanField(label=item)
                 self.fields['input_key_%s' %s] = forms.CharField(widget=forms.HiddenInput, initial=item)
