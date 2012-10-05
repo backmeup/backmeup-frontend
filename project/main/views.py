@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 from remote_api.rest import RestJobs
-from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, CreateJobForm, DatasourceOptionsForm
+from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, JobCreateForm, DatasourceOptionsForm
 
 
 def index(request):
@@ -62,7 +62,8 @@ def datasource_auth(request):
         result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
         if not result == False:
             request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
-            return redirect('datasource-options')
+            del request.session['auth_data']
+            return redirect('datasink-select')
 
     return render_to_response(
         "www/datasource_auth.html",
@@ -78,7 +79,7 @@ def datasource_options(request):
     form = DatasourceOptionsForm(request.POST or None, username=request.user.username, auth_data=request.session['auth_data'], key_ring=request.session['key_ring'])
 
     if form.is_valid():
-        del request.session['auth_data']
+        
         form.rest_save()
         
     return render_to_response(
@@ -122,7 +123,7 @@ def datasink_auth(request):
         result = form.rest_save(username=request.user.username)
         request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
         del request.session['auth_data']
-        return redirect('create-job')
+        return redirect('job-create')
 
     return render_to_response(
         "www/datasink_auth.html",
@@ -132,9 +133,9 @@ def datasink_auth(request):
         context_instance=RequestContext(request))
 
 
-@login_required
-def datasink_options(request):
-    pass
+#@login_required
+#def job_options(request):
+#    pass
 
 
 @login_required
@@ -154,8 +155,16 @@ def oauth_callback(request):
 
 
 @login_required
-def create_job(request):
-    form = CreateJobForm(request.POST or None, username=request.user.username)
+def job_create(request):
+    
+    extra_data = {
+        'datasource_profile_id': request.session['datasource_profile_id'],
+        'datasink_profile_id': request.session['datasink_profile_id'],
+        'username': request.user.username,
+        'key_ring': request.session['key_ring'],
+    }
+    
+    form = JobCreateForm(request.POST or None, extra_data=extra_data)
 
     if form.is_valid():
         result = form.rest_save()
@@ -163,7 +172,7 @@ def create_job(request):
             return redirect('index')
 
     return render_to_response(
-        "www/create_job.html",
+        "www/job_create.html",
         {
             'form': form,
         },

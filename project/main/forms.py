@@ -109,11 +109,19 @@ class DatasourceOptionsForm(forms.Form):
             "keyRing": self.key_ring,
         }
         print "##################################self.cleaned_data", self.cleaned_data
-        #for key in self.cleaned_data:
-        #    if key.startswith('input_value_'):
-        #        value = self.cleaned_data[key.replace('input_key_', 'input_value_')]
-        #        data[self.cleaned_data[key]] = value
-        #return rest_datasource_profile.auth_post(profile_id=self.auth_data['profileId'], data=data)
+        
+        source_options = ''
+        
+        for key in self.cleaned_data:
+            if key.startswith('input_value_'):
+                if self.cleaned_data[key]:
+                    value = self.cleaned_data[key.replace('input_value_', 'input_key_')]
+                    source_options = '%s%s,' % (source_options, value)
+        return rest_datasource_profile.put(profile_id, job_id, source_options)
+        
+        
+        
+        #profile_id=self.auth_data['profileId'], data=data)
 
 
 class DatasinkSelectForm(forms.Form):
@@ -186,45 +194,80 @@ class DatasinkAuthForm(forms.Form):
         return rest_datasink_profile.auth_post(profile_id=self.auth_data['profileId'], data=data)
 
 
-class CreateJobForm(forms.Form):
+class JobCreateForm(forms.Form):
 
-    key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
+    #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
 
     time_expression = forms.ChoiceField(choices=BACKUP_JOB_TIME_EXPRESSION, initial='realtime')
 
     def __init__(self, *args, **kwargs):
-        self.username = kwargs.pop('username')
-        super(CreateJobForm, self).__init__(*args, **kwargs)
-
-
+        self.extra_data = kwargs.pop('extra_data')
+        super(JobCreateForm, self).__init__(*args, **kwargs)
+        
+        # rest_datasource_profile = RestDatasourceProfile(username=self.username)
+        #         datasource_profiles = rest_datasource_profile.get_all()
+        # 
+        #         datasource_profile_choices = []
+        # 
+        #         for item in datasource_profiles:
+        #             datasource_profile_choices.append((str(item['datasourceProfileId']), item['title']))
+        # 
+        #         self.fields['datasource_profile'] = forms.MultipleChoiceField(label=_("Datasource Profile"), widget=CheckboxSelectMultiple, choices=datasource_profile_choices)
+        # 
+        # 
+        #         rest_datasink_profile = RestDatasinkProfile(username=self.username)
+        #         datasink_profiles = rest_datasink_profile.get_all()
+        # 
+        #         datasink_profile_choices = []
+        # 
+        #         for item in datasink_profiles:
+        #             datasink_profile_choices.append((str(item['datasinkProfileId']), item['title']))
+        # 
+        #         self.fields['datasink_profile'] = forms.MultipleChoiceField(label=_("Datasink Profile"), widget=CheckboxSelectMultiple, choices=datasink_profile_choices)
+        
         rest_datasource_profile = RestDatasourceProfile(username=self.username)
-        datasource_profiles = rest_datasource_profile.get_all()
-
-        datasource_profile_choices = []
-
-        for item in datasource_profiles:
-            datasource_profile_choices.append((str(item['datasourceProfileId']), item['title']))
-
-        self.fields['datasource_profile'] = forms.MultipleChoiceField(label=_("Datasource Profile"), widget=CheckboxSelectMultiple, choices=datasource_profile_choices)
-
-
-        rest_datasink_profile = RestDatasinkProfile(username=self.username)
-        datasink_profiles = rest_datasink_profile.get_all()
-
-        datasink_profile_choices = []
-
-        for item in datasink_profiles:
-            datasink_profile_choices.append((str(item['datasinkProfileId']), item['title']))
-
-        self.fields['datasink_profile'] = forms.MultipleChoiceField(label=_("Datasink Profile"), widget=CheckboxSelectMultiple, choices=datasink_profile_choices)
+        result = rest_datasource_profile.options(profile_id=self.extra_data['datasource_profile_id'], 
+            data={'key_ring': self.extra_data['key_ring']})
+        
+        if result and 'sourceOptions' in result:
+            for i, item in enumerate(result['sourceOptions']):
+                self.fields['datasource_options_value_%s' % i] = forms.BooleanField(label=item, required=False)
+                self.fields['datasource_options_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=item)
+        
+        #
+        # actions!
+        #
 
     def rest_save(self):
         rest_jobs = RestJobs(username=self.username)
         data = {
-            "key_ring": self.cleaned_data['key_ring'],
+            "key_ring": self.key_ring,
             'time_expression': self.cleaned_data['time_expression'],
             'source_profile_ids': self.cleaned_data['datasource_profile'],
             'sink_profile_ids': self.cleaned_data['datasink_profile'],
             #'required_action_ids': '',
         }
-        return rest_jobs.post(data=data)
+        job_result = rest_jobs.post(data=data)
+        
+        rest_datasource_profile = RestDatasourceProfile(username=self.extra_data['username'])
+        data = {
+            "keyRing": self.extra_data['key_ring'],
+        }
+        
+        source_options = ''
+        
+        for key in self.cleaned_data:
+            if key.startswith('datasource_options_value_'):
+                if self.cleaned_data[key]:
+                    value = self.cleaned_data[key.replace('_value_', '_key_')]
+                    source_options = '%s"%s",' % (source_options, value)
+        datasource_options_result = rest_datasource_profile.put(self.extra_data['datasource_profile_id', job_result['jobId'], source_options)
+        
+        #
+        # actions!!!
+        #
+        
+        return {
+            'job': job_result,
+            'datasource_options': datasource_options_result,
+        }
