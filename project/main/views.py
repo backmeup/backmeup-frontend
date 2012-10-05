@@ -102,7 +102,7 @@ def datasink_auth(request):
 
     form = DatasinkAuthForm(request.POST or None, auth_data=request.session['auth_data'])
 
-    if form.is_valid() or request.session['auth_data']['type'] == 'Input':
+    if form.is_valid() or request.session['auth_data']['type'] != 'Input':
         result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
         request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
         del request.session['auth_data']
