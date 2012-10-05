@@ -8,20 +8,46 @@ from django.template import RequestContext
 from django.utils.translation import ugettext_lazy as _
 
 
-from remote_api.rest import RestJobs
-from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, JobCreateForm, DatasourceOptionsForm
+from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile
+from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, JobCreateForm
 
+def get_sink_title(sinks, sink_id):
+    sink_id = int(sink_id)
+    for sink in sinks:
+        if sink['datasinkProfileId'] == sink_id:
+            return sink['title']
+
+def get_source_title(sources, source_id):
+    source_id = int(source_id)
+    for source in sources:
+        if source['datasourceProfileId'] == source_id:
+            return source['title']
+    return None
 
 def index(request):
     context = {}
     if request.user.is_authenticated():
         rest_jobs = RestJobs(username=request.user.username)
-        result = rest_jobs.get_all()
+        jobs = rest_jobs.get_all()
 
-        if result and 'errorType' in result:
-            messages.error(request, _(result['errorType']))
+        if jobs and 'errorType' in jobs:
+            messages.error(request, _(jobs['errorType']))
         else:
-            context['jobs'] = result
+            rest_datasource_profile = RestDatasourceProfile(username=request.user.username)
+            datasource_profiles = rest_datasource_profile.get_all()
+            
+            rest_datasink_profile = RestDatasinkProfile(username=request.user.username)
+            datasink_profiles = rest_datasink_profile.get_all()
+            
+            for job in jobs:
+                job['datasinkTitle'] = get_sink_title(datasink_profiles, job['datasinkId'])
+                job['datasources'] = []
+                for source_id in job['datasourceIds']:
+                    job['datasources'].append({
+                        'id': source_id,
+                        'title': get_source_title(datasource_profiles, source_id)
+                    })
+            context['jobs'] = jobs
 
     return render_to_response(
         "www/index.html",
