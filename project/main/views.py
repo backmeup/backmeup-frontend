@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 from remote_api.rest import RestJobs
-from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, JobCreateForm, DatasourceOptionsForm
+from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, JobCreateForm
 
 
 def index(request):

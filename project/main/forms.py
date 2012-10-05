@@ -18,9 +18,7 @@ BACKUP_JOB_TIME_EXPRESSION = (
 class DatasourceSelectForm(forms.Form):
 
     #datasource = forms.ChoiceField(label=_("Datasource"), widget=forms.RadioSelect)
-
     #profile_name = forms.CharField(label=_("Backup Name"))
-
     #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
 
     def __init__(self, *args, **kwargs):
@@ -87,49 +85,10 @@ class DatasourceAuthForm(forms.Form):
         return rest_datasource_profile.auth_post(profile_id=self.auth_data['profileId'], data=data)
 
 
-class DatasourceOptionsForm(forms.Form):
-    
-    def __init__(self, *args, **kwargs):
-        self.auth_data = kwargs.pop('auth_data')
-        self.username = kwargs.pop('username')
-        self.key_ring = kwargs.pop('key_ring')
-        super(DatasourceOptionsForm, self).__init__(*args, **kwargs)
-        
-        rest_datasource_profile = RestDatasourceProfile(username=self.username)
-        result = rest_datasource_profile.options(profile_id=self.auth_data['profileId'], data={'key_ring': self.key_ring})
-        
-        if result and 'sourceOptions' in result:
-            for i, item in enumerate(result['sourceOptions']):
-                self.fields['input_value_%s' % i] = forms.BooleanField(label=item, required=False)
-                self.fields['input_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=item)
-
-    def rest_save(self):
-        rest_datasource_profile = RestDatasourceProfile(username=self.username)
-        data = {
-            "keyRing": self.key_ring,
-        }
-        print "##################################self.cleaned_data", self.cleaned_data
-        
-        source_options = ''
-        
-        for key in self.cleaned_data:
-            if key.startswith('input_value_'):
-                if self.cleaned_data[key]:
-                    value = self.cleaned_data[key.replace('input_value_', 'input_key_')]
-                    source_options = '%s%s,' % (source_options, value)
-        return rest_datasource_profile.put(profile_id, job_id, source_options)
-        
-        
-        
-        #profile_id=self.auth_data['profileId'], data=data)
-
-
 class DatasinkSelectForm(forms.Form):
 
     #datasink = forms.ChoiceField(label=_("Datasink"), widget=forms.RadioSelect)
-
     #profile_name = forms.CharField(label=_("Backup Name"))
-
     #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
 
     def __init__(self, *args, **kwargs):
