@@ -12,11 +12,11 @@
     {% include "www/includes/backup_jobs/backup_list_item.html" %}
   {% endfor %}
     
-    {# DUMMY BACKUP-ITEM START #}
+    {# DUMMY BACKUP-ITEMS START #}
     <li>
       <header class="header">
         <h3>Dummy Backup 1</h3>
-        <a href="#link-to-backup-edit-page">{% trans "Edit" %}</a>
+        <a href="#link-to-backup-edit-page" class="edit-link">{% trans "Edit" %}</a>
       </header>
       <div class="bli-section">
         <span class="key">{% trans "Daten-Quelle" %}</span>
@@ -31,20 +31,81 @@
         <ul class="value">
           <li>Dropbox</li>
           <li>John Doe</li>
-          <li>Verfügbar: 600 MB von 35 GB</li>
+          <li>Verfügbar: 600 MB von 5 GB</li>
         </ul>
       </div>
-      <div class="bli-section">
+      {# TODO: pass backup-state as classname, eg: "ok", "inactive" #}
+      <div class="bli-section backupstate-ok">
         <span class="key">{% trans "Backup-Status" %}</span>
         <ul class="value">
-          <li>
-            <span>{% trans "OK" %}</span>
-            <span>nächstes Backup: 22.4.2012 9:00</span>
-          </li>
+          <li><span class="backupstate-icon">OK</span></li>
+          <li>nächstes Backup: 22.4.2012 9:00</li>
         </ul>
       </div>
     </li>
-    {# DUMMY BACKUP-ITEM END #}
+    
+    <li>
+      <header class="header">
+        <h3>Dummy Backup 2</h3>
+        <a href="#link-to-backup-edit-page" class="edit-link">{% trans "Edit" %}</a>
+      </header>
+      <div class="bli-section">
+        <span class="key">{% trans "Daten-Quelle" %}</span>
+        <ul class="value">
+          <li>Facebook</li>
+          <li>John Doe</li>
+          <li>Backup-Data Info</li>
+        </ul>
+      </div>
+      <div class="bli-section">
+        <span class="key">{% trans "Speicher-Ziel" %}</span>
+        <ul class="value">
+          <li>Dropbox</li>
+          <li>John Doe</li>
+          <li>Verfügbar: 10 MB von 5 GB</li>
+        </ul>
+      </div>
+      {# TODO: pass backup-state as classname, eg: "ok", "inactive" #}
+      <div class="bli-section backupstate-warning">
+        <span class="key">{% trans "Backup-Status" %}</span>
+        <ul class="value">
+          <li><span class="backupstate-icon">Achtung:</span> nur noch 10 MB Speicherplatz verfügbar</li>
+          <li>nächstes Backup: 22.4.2012 9:00</li>
+        </ul>
+      </div>
+    </li>
+    
+    <li>
+      <header class="header">
+        <h3>Dummy Backup 1</h3>
+        <a href="#link-to-backup-edit-page" class="edit-link">{% trans "Edit" %}</a>
+      </header>
+      <div class="bli-section">
+        <span class="key">{% trans "Daten-Quelle" %}</span>
+        <ul class="value">
+          <li>Facebook</li>
+          <li>John Doe</li>
+          <li>Backup-Data Info</li>
+        </ul>
+      </div>
+      <div class="bli-section">
+        <span class="key">{% trans "Speicher-Ziel" %}</span>
+        <ul class="value">
+          <li>Dropbox</li>
+          <li>John Doe</li>
+          <li>Verfügbar: 10 MB von 5 GB</li>
+        </ul>
+      </div>
+      {# TODO: pass backup-state as classname, eg: "ok", "inactive" #}
+      <div class="bli-section backupstate-error">
+        <span class="key">{% trans "Backup-Status" %}</span>
+        <ul class="value">
+          <li><span class="backupstate-icon">Fehler:</span> Keine Verbindung zum Speicher-Ziel!</li>
+          <li>nächstes Backup: derzeit nicht möglich</li>
+        </ul>
+      </div>
+    </li>
+    {# DUMMY BACKUP-ITEMS END #}
     
   </ul>
 {% endif %}

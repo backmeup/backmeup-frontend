@@ -18,8 +18,10 @@ $clr-text2: white;
 $clr-link: #3a6395;
 $clr-headline: #000;
 $clr-ok: #589406;
-$clr-highlight: #ff931e;
+$clr-warning: #F89406;
 $clr-error: #ff1d25;
+$clr-highlight: #ff931e;
+$clr-grey-light: #ccc;
 
 $fontAwesomePath: "/static/fonts/fontawesome/fontawesome-webfont" !default;
 
@@ -67,7 +69,7 @@ $default-border-radius: 5px;
   font-weight: normal;
   font-style: normal;
   display: inline-block;
-  text-decoration: inherit;
+  text-decoration: none;
   margin-right: .5em;
   content:$icon;
 }
@@ -76,7 +78,7 @@ $default-border-radius: 5px;
   font-weight: normal;
   font-style: normal;
   display: inline-block;
-  text-decoration: inherit;
+  text-decoration: none;
   margin-left: .5em;
   content:$icon;
 }
@@ -85,7 +87,7 @@ $default-border-radius: 5px;
   font-weight: normal;
   font-style: normal;
   display: inline-block;
-  text-decoration: inherit;
+  text-decoration: none;
   content:$icon;
 }
 

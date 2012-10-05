@@ -40,12 +40,15 @@ ul, ol {
 //  padding-left: 1em;
 //  list-style-type: circle;
 //}
-#content ol {
+ol {
   padding-left: 1em;
   list-style-type: decimal;
 }
-#content p, #content ul, #content ol {
+p, ul, ol {
   @include margin-trailer(1);
+}
+.nav ul {
+  margin: 0;
 }
 
 .container {
@@ -158,6 +161,9 @@ ul, ol {
   .header{
     @extend .clearfix;
     background: $bg-clr1;
+    border: 1px solid $bg-clr1;
+    border-bottom-width: 0;
+    border-radius: $default-border-radius $default-border-radius 0 0;
     padding: .5em;
     h3{
       float: left;
@@ -165,18 +171,71 @@ ul, ol {
       @include adjust-font-size-to($base-font-size);
       font-weight: normal;
     }
-    a{
+    .edit-link{
       float: right;
       color: $clr-text2;
+      &:after{
+        @include icon_after('\f040');
+      }
     }
   }
   .bli-section{
     padding:.5em .5em;
-    ul{
+    border: 1px solid $clr-grey-light;
+    border-top-width: 0;
+    &:last-child{
+      border-radius: 0 0 $default-border-radius $default-border-radius;
+    }
+    ul.value{
       @include horizontal-list();
+      li{
+        &:before{
+          content: '\2022';
+          display: inline-block;
+          margin-right: .5em;
+        }
+        &:first-child:before{
+          content:"";
+          display:none;
+          margin-right:0;
+        }
+      }
+    }
+    .key{
+      font-weight: bold;
     }
   }
+  
+  .backupstate-ok .backupstate-icon{
+    color: $clr-ok;
+    &:before{
+      @include icon_before('\f00c');
+    }
+  }
+  .backupstate-warning .backupstate-icon{
+    color: $clr-warning;
+    &:before{
+      @include icon_before('\f071');
+    }
+  }
+  .backupstate-error .backupstate-icon{
+    color: $clr-error;
+    &:before{
+      @include icon_before('\f071');
+    }
+  }
+  
 }
 
+
+.dot_list li:before {
+content:"\2022";
+float:left;
+padding:0 .307692308em;
+}
+.dot_list li:first-child:before {
+content:"";
+padding:0;
+}
 
 
