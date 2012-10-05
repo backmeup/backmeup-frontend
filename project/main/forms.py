@@ -157,7 +157,7 @@ class DatasinkSelectForm(forms.Form):
 
 class DatasinkAuthForm(forms.Form):
 
-    key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
+    #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
 
     def __init__(self, *args, **kwargs):
         self.auth_data = kwargs.pop('auth_data')
@@ -179,10 +179,10 @@ class DatasinkAuthForm(forms.Form):
 
                 self.fields['input_value_%s' % i] = forms.CharField(**field_kwargs)
 
-    def rest_save(self, username):
+    def rest_save(self, username, key_ring):
         rest_datasink_profile = RestDatasinkProfile(username=username)
         data = {
-            "keyRing": self.cleaned_data['key_ring'],
+            "keyRing": key_ring,
         }
         if self.auth_data['type'] == 'Input':
             for key in self.cleaned_data:

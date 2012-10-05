@@ -58,7 +58,7 @@ def datasource_auth(request):
 
     form = DatasourceAuthForm(request.POST or None, username=request.user.username, auth_data=request.session['auth_data'])
 
-    if form.is_valid():
+    if form.is_valid() or request.session['auth_data']['type'] != 'Input':
         result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
         if not result == False:
             request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
@@ -67,23 +67,6 @@ def datasource_auth(request):
 
     return render_to_response(
         "www/datasource_auth.html",
-        {
-            'form': form,
-        },
-        context_instance=RequestContext(request))
-
-
-@login_required
-def datasource_options(request):
-    
-    form = DatasourceOptionsForm(request.POST or None, username=request.user.username, auth_data=request.session['auth_data'], key_ring=request.session['key_ring'])
-
-    if form.is_valid():
-        
-        form.rest_save()
-        
-    return render_to_response(
-        "www/datasource_options.html",
         {
             'form': form,
         },
@@ -118,9 +101,9 @@ def datasink_auth(request):
     #    redirect('datasink-select')
 
     form = DatasinkAuthForm(request.POST or None, auth_data=request.session['auth_data'])
-
-    if form.is_valid():
-        result = form.rest_save(username=request.user.username)
+    
+    if form.is_valid() or request.session['auth_data']['type'] != 'Input':
+        result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
         request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
         del request.session['auth_data']
         return redirect('job-create')
@@ -131,11 +114,6 @@ def datasink_auth(request):
             'form': form,
         },
         context_instance=RequestContext(request))
-
-
-#@login_required
-#def job_options(request):
-#    pass
 
 
 @login_required
