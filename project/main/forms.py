@@ -225,7 +225,7 @@ class JobCreateForm(forms.Form):
         # 
         #         self.fields['datasink_profile'] = forms.MultipleChoiceField(label=_("Datasink Profile"), widget=CheckboxSelectMultiple, choices=datasink_profile_choices)
         
-        rest_datasource_profile = RestDatasourceProfile(username=self.username)
+        rest_datasource_profile = RestDatasourceProfile(username=self.extra_data['username'])
         result = rest_datasource_profile.options(profile_id=self.extra_data['datasource_profile_id'], 
             data={'key_ring': self.extra_data['key_ring']})
         
@@ -239,12 +239,12 @@ class JobCreateForm(forms.Form):
         #
 
     def rest_save(self):
-        rest_jobs = RestJobs(username=self.username)
+        rest_jobs = RestJobs(username=self.extra_data['username'])
         data = {
-            "key_ring": self.key_ring,
+            "key_ring": self.extra_data['key_ring'],
             'time_expression': self.cleaned_data['time_expression'],
-            'source_profile_ids': self.cleaned_data['datasource_profile'],
-            'sink_profile_ids': self.cleaned_data['datasink_profile'],
+            'source_profile_ids': self.extra_data['datasource_profile_id'],
+            'sink_profile_ids': self.extra_data['datasink_profile_id'],
             #'required_action_ids': '',
         }
         job_result = rest_jobs.post(data=data)
