@@ -261,7 +261,7 @@ class JobCreateForm(forms.Form):
                 if self.cleaned_data[key]:
                     value = self.cleaned_data[key.replace('_value_', '_key_')]
                     source_options = '%s"%s",' % (source_options, value)
-        datasource_options_result = rest_datasource_profile.put(self.extra_data['datasource_profile_id', job_result['jobId'], source_options)
+        datasource_options_result = rest_datasource_profile.put(self.extra_data['datasource_profile_id'], job_result['jobId'], source_options)
         
         #
         # actions!!!
