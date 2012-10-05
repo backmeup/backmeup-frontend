@@ -74,23 +74,6 @@ def datasource_auth(request):
 
 
 @login_required
-def datasource_options(request):
-    
-    form = DatasourceOptionsForm(request.POST or None, username=request.user.username, auth_data=request.session['auth_data'], key_ring=request.session['key_ring'])
-
-    if form.is_valid():
-        
-        form.rest_save()
-        
-    return render_to_response(
-        "www/datasource_options.html",
-        {
-            'form': form,
-        },
-        context_instance=RequestContext(request))
-
-
-@login_required
 def datasink_select(request):
     form = DatasinkSelectForm(request.POST or None)
     if form.is_valid():
@@ -131,11 +114,6 @@ def datasink_auth(request):
             'form': form,
         },
         context_instance=RequestContext(request))
-
-
-#@login_required
-#def job_options(request):
-#    pass
 
 
 @login_required
