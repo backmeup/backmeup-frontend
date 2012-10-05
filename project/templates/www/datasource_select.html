@@ -4,37 +4,59 @@
 
 {% block content %}
   <h1>{% trans "neues Backup anlegen" %}</h1> 
-  <h2>{% trans "Daten-Quelle" %}</h2>
+  <h2>{% trans "Daten-Quelle wählen" %}</h2>
   
-  <form action="." method="POST">{% csrf_token %}
-    {{ form.non_field_errors }}
-    <div>
-      <label>{{ form.profile_name.label }}
-      {{ form.profile_name }}</label>
-      {% if form.profile_name.errors %}
-        {{ form.profile_name.errors }}
-      {% endif %}
-    </div>
-    
-    <div>
-      {% for item in form.datasource %}
-         <label>{{ item.tag }} {{ item.choice_label }}</label>
-      {% endfor %}
-      {% if form.datasource.errors %}
-        {{ form.datasource.errors }}
-      {% endif %}
-    </div>
-    
-    <div>
-      <label>{{ form.key_ring.label }}
-      {{ form.key_ring }}</label>
-      {% if form.key_ring.errors %}
-        {{ form.key_ring.errors }}
-      {% endif %}
-    </div>
-    
-    <p><button type="submit" class="btn-next">{% trans "weiter" %}</button></p>
-  </form>
+  <ul class="add-backup-list">
+    <li class="active-backup-step">
+      <h3>{% trans "Daten-Quelle" %}</h3>
+      <div class="add-backup-content">
+        <h4>{% trans "1. Schritt: Daten-Quelle wählen" %}</h4>
+        <form action="." method="POST">{% csrf_token %}
+          {{ form.non_field_errors }}
+          <div>
+            <label>{{ form.profile_name.label }}
+            {{ form.profile_name }}</label>
+            {% if form.profile_name.errors %}
+              {{ form.profile_name.errors }}
+            {% endif %}
+          </div>
+
+          <div>
+            {% for item in form.datasource %}
+               <label>{{ item.tag }} {{ item.choice_label }}</label>
+            {% endfor %}
+            {% if form.datasource.errors %}
+              {{ form.datasource.errors }}
+            {% endif %}
+          </div>
+
+          <div>
+            <label>{{ form.key_ring.label }}
+            {{ form.key_ring }}</label>
+            {% if form.key_ring.errors %}
+              {{ form.key_ring.errors }}
+            {% endif %}
+          </div>
+          
+          <button type="submit" class="btn-next">{% trans "weiter" %}</button>
+        </form>
+      </div>
+    </li>
+    <li>
+      <h3>{% trans "Speicher-Ziel" %}</h3>
+      <div class="add-backup-content">
+        <h4>{% trans "2. Schritt: Speicher-Ziel wählen" %}</h4>        
+      </div>
+    </li>
+    <li>
+      <h3>{% trans "Backup-Optionen" %}</h3>
+      <div class="add-backup-content">
+        <h4>{% trans "3. Schritt: Backup-Option festlegen" %}</h4>
+      </div>
+    </li>
+  </ul>
+  
+
   
   {# <ul> #}
   {#     {% for item in datasources %} #}

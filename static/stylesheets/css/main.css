@@ -752,17 +752,48 @@ p, ul, ol {
   content: "\f071";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003231}}
-.dot_list li:before {
-  content: "\2022";
-  float: left;
-  padding: 0 .307692308em;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003235}}
+.add-backup-list li h3 {
+  font-size: 1em;
+  line-height: 1.5em;
+  border: 1px solid #cccccc;
+  border-bottom-width: 0;
+  border-top-width: 0;
+  padding: .5em .5em 0;
 }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003236}}
-.dot_list li:first-child:before {
-  content: "";
-  padding: 0;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003243}}
+.add-backup-list li:first-child h3 {
+  border-radius: 5px 5px 0 0;
+  border-top-width: 1px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003247}}
+.add-backup-list li:last-child .add-backup-content {
+  border-radius: 0 0 5px 5px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003250}}
+.add-backup-list li .add-backup-content {
+  border: 1px solid #cccccc;
+  border-top-width: 0;
+  padding: 0 .5em .5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003255}}
+.add-backup-list li h4 {
+  font-weight: normal;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003260}}
+.add-backup-list li.active-backup-step h3 {
+  background: #5b80ab;
+  border-color: #5b80ab;
+  color: white;
+  padding-bottom: .5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003266}}
+.add-backup-list li.active-backup-step .add-backup-content {
+  padding-top: .5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003269}}
+.add-backup-list li.active-backup-step h4 {
+  margin-bottom: 1.5em;
 }
 
 @media only screen and (min-width: 768px) {
@@ -884,14 +915,10 @@ input[type="text"]:focus, input[type="password"]:focus {
   background: #5b80ab;
   color: white;
   display: inline-block;
-  padding: .25em 1em;
+  padding: .4em 1em;
   border: 0;
   cursor: pointer;
   border-radius: 1em;
-  margin-top: 0.375em;
-  padding-top: 0.375em;
-  padding-bottom: 0.375em;
-  margin-bottom: 0.375em;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\000035}}

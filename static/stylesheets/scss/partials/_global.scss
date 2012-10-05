@@ -150,7 +150,7 @@ p, ul, ol {
 //}
 
 
-// Dashboard
+// --- Dashboard
 .backup-list {
   > li{
     @include margin-leader(1);
@@ -226,16 +226,49 @@ p, ul, ol {
   }
   
 }
+// --- Dashboard END
 
 
-.dot_list li:before {
-content:"\2022";
-float:left;
-padding:0 .307692308em;
+// --- New Backup
+.add-backup-list{
+  li{
+    h3{
+      @include adjust-font-size-to($base-font-size);
+//      font-weight: normal;
+      border: 1px solid $clr-grey-light;
+      border-bottom-width:0;
+      border-top-width:0;
+      padding: .5em .5em 0;
+    }
+    &:first-child h3{
+      border-radius: $default-border-radius $default-border-radius 0 0;
+      border-top-width:1px;
+    }
+    &:last-child .add-backup-content{
+      border-radius: 0 0 $default-border-radius $default-border-radius;
+    }
+    .add-backup-content{
+      border: 1px solid $clr-grey-light;
+      border-top-width: 0;
+      padding: 0 .5em .5em;
+    }
+    h4{
+      font-weight: normal;
+    }
+  }
+  li.active-backup-step{
+    h3{
+      background: $bg-clr1;
+      border-color: $bg-clr1;
+      color: $clr-text2;
+      padding-bottom: .5em;
+    }
+    .add-backup-content{
+      padding-top:.5em;
+    }
+    h4{
+      @include margin-trailer(1);
+    }
+  }
 }
-.dot_list li:first-child:before {
-content:"";
-padding:0;
-}
-
 

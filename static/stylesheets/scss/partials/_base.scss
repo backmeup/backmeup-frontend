@@ -57,11 +57,11 @@ $default-border-radius: 5px;
 @mixin standard-button {
   color: white;
   display: inline-block;
-  padding: .25em 1em;
+  padding: .4em 1em;
   border: 0;
   cursor: pointer;
   border-radius:1em;
-  @include rhythm($leader: 0.25, $padding-leader: 0.25, $padding-trailer: 0.25, $trailer: 0.25, $font-size: $base-font-size);
+//  @include rhythm($leader: 0.25, $padding-leader: 0.25, $padding-trailer: 0.25, $trailer: 0.25, $font-size: $base-font-size);
 }
 /* --- Icon Mixins --- */
 @mixin icon_before($icon){
