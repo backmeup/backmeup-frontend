@@ -3,14 +3,16 @@
 {% load i18n %}
 
 {% block content %}
-  <h1>{% trans "neues Backup anlegen" %}</h1> 
-  <h2>{% trans "Daten-Quelle wählen" %}</h2>
+  <hgroup class="hgroup">
+    <h1>{% trans "Neues Backup anlegen" %}</h1> 
+    <h2>{% trans "Daten-Quelle wählen" %}</h2>
+  </hgroup>
   
   <ul class="add-backup-list">
     <li class="active-backup-step">
-      <h3>{% trans "Daten-Quelle" %}</h3>
+      <h3>{% trans "1. Daten-Quelle" %}</h3>
       <div class="add-backup-content">
-        <h4>{% trans "1. Schritt: Daten-Quelle wählen" %}</h4>
+        <h4>{% trans "Schritt 1: Daten-Quelle wählen" %}</h4>
         <form action="." method="POST">{% csrf_token %}
           {{ form.non_field_errors }}
           <div>
@@ -38,20 +40,20 @@
             {% endif %}
           </div>
           
-          <button type="submit" class="btn-next">{% trans "weiter" %}</button>
+          <div><button type="submit" class="btn-next">{% trans "weiter" %}</button></div>
         </form>
       </div>
     </li>
     <li>
-      <h3>{% trans "Speicher-Ziel" %}</h3>
+      <h3>{% trans "2. Speicher-Ziel" %}</h3>
       <div class="add-backup-content">
-        <h4>{% trans "2. Schritt: Speicher-Ziel wählen" %}</h4>        
+        <h4>{% trans "Schritt 2: Speicher-Ziel wählen" %}</h4>        
       </div>
     </li>
     <li>
-      <h3>{% trans "Backup-Optionen" %}</h3>
+      <h3>{% trans "3. Backup-Optionen" %}</h3>
       <div class="add-backup-content">
-        <h4>{% trans "3. Schritt: Backup-Option festlegen" %}</h4>
+        <h4>{% trans "Schritt 3: Backup-Option festlegen" %}</h4>
       </div>
     </li>
   </ul>

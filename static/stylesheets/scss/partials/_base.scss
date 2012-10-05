@@ -16,12 +16,19 @@ $bg-clr2: #e9eff4;
 $clr-text: #5c5c5c;
 $clr-text2: white;
 $clr-link: #3a6395;
-$clr-headline: #000;
-$clr-ok: #589406;
+$clr-headline: #333;
+$clr-ok: #468847;
 $clr-warning: #F89406;
 $clr-error: #ff1d25;
 $clr-highlight: #ff931e;
 $clr-grey-light: #ccc;
+
+// Icon-Font-Values
+$icon-ok: '\f00c';
+$icon-warning: '\f071';
+$icon-error: '\f071';
+
+
 
 $fontAwesomePath: "/static/fonts/fontawesome/fontawesome-webfont" !default;
 

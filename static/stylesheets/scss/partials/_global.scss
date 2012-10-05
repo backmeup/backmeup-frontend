@@ -12,19 +12,24 @@ body {
 }
 h1,h2,h3,h4,h5,h6 {
   color: $clr-headline;
-  font-weight:bold;
+  font-weight: normal;
 }
 h1 {
-  @include adjust-font-size-to(32px);
+  @include adjust-font-size-to(28px);
 }
 h2 {
   @include adjust-font-size-to(24px);
 }
 h3 {
-  @include adjust-font-size-to(20px);
+  @include adjust-font-size-to(18px);
 }
 h4 {
   @include adjust-font-size-to($base-font-size);
+}
+.hgroup{
+  h1{
+    line-height: 1em;
+  }
 }
 a {
   color: $clr-link;
@@ -209,19 +214,19 @@ p, ul, ol {
   .backupstate-ok .backupstate-icon{
     color: $clr-ok;
     &:before{
-      @include icon_before('\f00c');
+      @include icon_before($icon-ok);
     }
   }
   .backupstate-warning .backupstate-icon{
     color: $clr-warning;
     &:before{
-      @include icon_before('\f071');
+      @include icon_before($icon-warning);
     }
   }
   .backupstate-error .backupstate-icon{
     color: $clr-error;
     &:before{
-      @include icon_before('\f071');
+      @include icon_before($icon-error);
     }
   }
   
@@ -231,14 +236,15 @@ p, ul, ol {
 
 // --- New Backup
 .add-backup-list{
+  @include margin-leader(1);
   li{
     h3{
-      @include adjust-font-size-to($base-font-size);
-//      font-weight: normal;
+//      @include adjust-font-size-to($base-font-size);
       border: 1px solid $clr-grey-light;
       border-bottom-width:0;
       border-top-width:0;
-      padding: .5em .5em 0;
+      padding: .5em;
+      background: $bg-clr2;
     }
     &:first-child h3{
       border-radius: $default-border-radius $default-border-radius 0 0;
@@ -250,10 +256,11 @@ p, ul, ol {
     .add-backup-content{
       border: 1px solid $clr-grey-light;
       border-top-width: 0;
-      padding: 0 .5em .5em;
+      padding: .5em;
     }
     h4{
       font-weight: normal;
+      @include margin-trailer(1);
     }
   }
   li.active-backup-step{
@@ -261,13 +268,14 @@ p, ul, ol {
       background: $bg-clr1;
       border-color: $bg-clr1;
       color: $clr-text2;
-      padding-bottom: .5em;
     }
-    .add-backup-content{
-      padding-top:.5em;
-    }
-    h4{
-      @include margin-trailer(1);
+  }
+  li.finished-backup-step{
+    h3{
+//      color: $clr-ok;
+      &:after{
+        @include icon_after($icon-ok);
+      }
     }
   }
 }
