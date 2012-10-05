@@ -23,6 +23,8 @@ $clr-error: #ff1d25;
 $clr-highlight: #ff931e;
 $clr-grey-light: #ccc;
 
+$button-gradient: #ABC9EE #5b80ab;
+
 // Icon-Font-Values
 $icon-ok: '\f00c';
 $icon-warning: '\f071';
@@ -64,7 +66,7 @@ $default-border-radius: 5px;
 @mixin standard-button {
   color: white;
   display: inline-block;
-  padding: .4em 1em;
+  padding: .3em .9em;
   border: 0;
   cursor: pointer;
   border-radius:1em;

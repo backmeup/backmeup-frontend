@@ -1,9 +1,15 @@
 .btn {
-  background: $bg-clr1;
   @include standard-button;
+  background-color: $bg-clr1;
+  @include background-image(linear-gradient($button-gradient));
+  background-repeat: repeat-x;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 .btn:hover {
   text-decoration: none;
+  background-color: $bg-clr1;
+  background-position: 0 -.9em;
+  @include transition(background-position 0.1s linear);
 }
 .btn-add {
   @extend .btn;

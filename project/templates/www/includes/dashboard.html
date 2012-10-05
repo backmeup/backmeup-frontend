@@ -1,10 +1,10 @@
 {% load i18n %}
 
-<h1>{% trans "Hello" %} {{ user }}!</h1>
+{# <h1>{% trans "Hallo" %} {{ user }}!</h1> #}
+<h1 class="hidden">BackMeUp</h1>
+<a href="{% url datasource-select %}" class="btn-add">{% trans "Backup erstellen" %}</a>
 
-<p><a href="{% url datasource-select %}" class="btn-add">{% trans "Backup erstellen" %}</a></p>
-
-<h2>{% trans "Backups" %}</h2>
+<h2>{% trans "Meine Backups" %}</h2>
 
 {% if jobs %}
   <ul class="backup-list">
@@ -108,4 +108,6 @@
     {# DUMMY BACKUP-ITEMS END #}
     
   </ul>
+{% else %}
+  <p>{% trans "Noch keine Backups erstellt." %}</p>
 {% endif %}
