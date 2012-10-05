@@ -156,6 +156,9 @@ p, ul, ol {
 
 
 // --- Dashboard
+.home .btn-add 
+    float:right;
+}
 .backup-list {
   @include margin-leader(1);
   > li{

@@ -1,10 +1,8 @@
 {% load i18n %}
 
 {# <h1>{% trans "Hallo" %} {{ user }}!</h1> #}
-<h1 class="hidden">BackMeUp</h1>
+<h1 class="inline">{% trans "Meine Backups" %}</h1>
 <a href="{% url datasource-select %}" class="btn-add">{% trans "Backup erstellen" %}</a>
-
-<h2>{% trans "Meine Backups" %}</h2>
 
 {% if jobs %}
   <ul class="backup-list">
