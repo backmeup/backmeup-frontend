@@ -202,7 +202,7 @@ class RestDatasourceProfile(RestBase):
         data = {
             "sourceOptions": source_options,
         }
-        return self._put(path="profiles/" + profile_id + "/" + job_id, data=data)
+        return self._put(path="profiles/" + profile_id + "/" + str(job_id), data=data)
 
     def auth(self, datasource_id, data):
         if not "profile_name" in data:
