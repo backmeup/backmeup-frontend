@@ -182,13 +182,18 @@ class RestDatasourceProfile(RestBase):
             raise ValueError('argument "profile_id" is missing.')
         return self._delete(path="profiles/" + profile_id)
 
-    def options(self, profile_id):
+    def options(self, profile_id, data):
         if not profile_id:
             raise ValueError('argument "profile_id" is missing.')
+        if not "key_ring" in data:
+            raise ValueError('key "key_ring is missing in argument "data".')
+        
+        params = {
+            "keyRing": data['key_ring'],
+        }
+        return self._post(path="profiles/" + profile_id + "/options", data=params)
 
-        return self._get(path="profiles/" + profile_id + "/options")
-
-    def put(self, profile_id, source_options):
+    def put(self, profile_id, job_id, source_options):
         if not profile_id:
             raise ValueError('argument "profile_id" is missing.')
         if not source_options:
@@ -197,7 +202,7 @@ class RestDatasourceProfile(RestBase):
         data = {
             "sourceOptions": source_options,
         }
-        return self._put(path="profiles/" + profile_id, data=data)
+        return self._put(path="profiles/" + profile_id + "/" + str(job_id), data=data)
 
     def auth(self, datasource_id, data):
         if not "profile_name" in data:

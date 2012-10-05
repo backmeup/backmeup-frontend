@@ -36,13 +36,14 @@ urlpatterns = patterns('',
     
     url(r'^datasource/select/$', 'main.views.datasource_select', name="datasource-select"),
     url(r'^datasource/auth/$', 'main.views.datasource_auth', name="datasource-auth"),
+    url(r'^datasource/options/$', 'main.views.datasource_options', name="datasource-options"),
     
     url(r'^datasink/select/$', 'main.views.datasink_select', name="datasink-select"),
     url(r'^datasink/auth/$', 'main.views.datasink_auth', name="datasink-auth"),
     
     url(r'^oauth_callback/$', 'main.views.oauth_callback', name="oauth-callback"),
     
-    url(r'^create_job/$', 'main.views.create_job', name="create-job"),
+    url(r'^job/create/$', 'main.views.job_create', name="job-create"),
     
     # styleguide
     (r'^styleguide$', TemplateView.as_view(template_name='www/styleguide/styleguide.html')),
