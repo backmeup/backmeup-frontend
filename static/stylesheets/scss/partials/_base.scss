@@ -109,6 +109,6 @@ $default-border-radius: 5px;
 // extend this class to show your grid.
 .grid {
   @include susy-grid-background;
-//@include baseline-grid-background($base-rhythm-unit);
+//  @include baseline-grid-background($base-rhythm-unit);
 }
 
