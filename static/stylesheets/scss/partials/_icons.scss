@@ -53,9 +53,6 @@ a [class*=" icon-"] {
 .icon-after-exclamation-sign:after      { content: "\f06a"; }
 .icon-before-home:before                { content: "\f015"; }
 
-
-
-
 // search icon in header search
 .searchsubmit {
   background: none;
@@ -72,4 +69,20 @@ a [class*=" icon-"] {
   outline: 0;
 }
 
+
+// feedback-icons
+.feedback {
+  padding: .5em;
+  border-width: 1px;
+  border-style: solid;
+}
+.feedback-warning {
+  @extend .feedback;
+  border-color: $border-clr-warning;
+//  background: $bg-clr-warning;
+  color: $clr-warning;
+}
+.feedback-warning:before {
+  @include icon_before($icon-warning);
+}
 

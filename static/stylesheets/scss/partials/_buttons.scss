@@ -25,3 +25,25 @@
   @include icon_after('\f061');
   text-decoration:none;
 }
+.btn-delete {
+  @include standard-button;
+  background-color: $clr-error;
+  @include background-image(linear-gradient($delete-button-gradient));
+  background-repeat: repeat-x;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+.btn-delete:hover {
+  text-decoration: none;
+  background-color: $clr-error;
+  background-position: 0 -.9em;
+  @include transition(background-position 0.1s linear);
+}
+button.close {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+button.close:before {
+  @include icon_before('\f00d');
+}

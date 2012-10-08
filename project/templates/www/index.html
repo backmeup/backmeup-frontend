@@ -2,7 +2,15 @@
 
 {% load i18n %}
 
-{% block body_class %}class="home"{% endblock %}
+{% block body_class %}
+  {% if user.is_authenticated %}
+    class="dashboard"
+  {% else %}
+    class="home"
+  {% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
 
 {% block content %}
   {% if user.is_authenticated %}

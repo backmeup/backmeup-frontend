@@ -18,12 +18,17 @@ $clr-text2: white;
 $clr-link: #3a6395;
 $clr-headline: #333;
 $clr-ok: #468847;
-$clr-warning: #F89406;
+
 $clr-error: #ff1d25;
 $clr-highlight: #ff931e;
 $clr-grey-light: #ccc;
 
+$clr-warning: #F89406;
+$bg-clr-warning: #FCF8E3;
+$border-clr-warning: #F89406;
+
 $button-gradient: #ABC9EE #5b80ab;
+$delete-button-gradient: #FF8386 #ff1d25;
 
 // Icon-Font-Values
 $icon-ok: '\f00c';
