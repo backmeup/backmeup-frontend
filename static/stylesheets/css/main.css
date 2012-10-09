@@ -1080,7 +1080,7 @@ input[type="checkbox"] {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000344}}
-.form-error {
+.errorlist {
   color: #ff1d25;
 }
 

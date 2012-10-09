@@ -2,10 +2,38 @@
 {% load i18n %}
 
 {% block content %}
+
+<h1>{% trans "Konto-Einstellungen" %}</h1>
+
 <form action="." method="POST">{% csrf_token %}
-  
-  {{ form.as_p }}
-  
-  <p><input type="submit" value="{% trans "Speichern" %}" class="btn"></p>
+  <div>
+    {{ form.email.label }}
+    {{ form.email }}
+    {% if form.email.errors %}
+      {{ form.email.errors }}
+    {% endif %}
+  </div>
+  <div>
+    {{ form.new_password1.label }}
+    {{ form.new_password1 }}
+    {% if form.new_password1.errors %}
+      {{ form.new_password1.errors }}
+    {% endif %}
+  </div>
+  <div>
+    {{ form.new_password2.label }}
+    {{ form.new_password2 }}
+    {% if form.new_password2.errors %}
+      {{ form.new_password2.errors }}
+    {% endif %}
+  </div>
+  <div>
+    {{ form.old_password.label }}
+    {{ form.old_password }}
+    {% if form.old_password.errors %}
+      {{ form.old_password.errors }}
+    {% endif %}
+  </div>
+  <div><input type="submit" value="{% trans "Speichern" %}" class="btn"></div>
 </form>
 {% endblock content %}
