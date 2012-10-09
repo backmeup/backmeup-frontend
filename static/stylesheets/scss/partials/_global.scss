@@ -281,7 +281,20 @@ p, ul, ol {
   .key{
     font-weight: bold;
   }
-  
+  .backupstate-in-progress .backupstate-icon,
+  .icon-backupstate-in-progress{
+    color: $clr-text;
+    &:before{
+      content: '';
+      background: url(/static/img/loading.gif) no-repeat;
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      margin-right: .5em;
+      position: relative;
+      top: 3px;
+    }
+  }
   .backupstate-ok .backupstate-icon,
   .icon-backupstate-ok{
     color: $clr-ok;
@@ -303,6 +316,7 @@ p, ul, ol {
       @include icon_before($icon-error);
     }
   }
+  .icon-backupstate-in-progress:before,
   .icon-backupstate-ok:before,
   .icon-backupstate-warning:before,
   .icon-backupstate-error:before{

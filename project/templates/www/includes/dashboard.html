@@ -66,9 +66,12 @@
                 </div>
                 <form action="." method="post">
                 <div class="modal-body">
-                  <p class="feedback-warning">{% trans "Achtung: Sie können diese Aktion nicht rückgängig machen!" %}</p>
+                  {# <p class="feedback-warning">{% trans "Achtung: Sie können diese Aktion nicht rückgängig machen!" %}</p> #}
                   <p>{% trans "Wollen Sie das ausgewählte Backup wirklich löschen?" %}</p>
-                  <label><input type="checkbox"> {% trans "Ja, ich will das Backup löschen" %}</label>
+                  <p class="note">
+                    {% trans "Durch das Löschen eines Backups werden keine neuen Backups dieses Typs angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten und müssen (bei Bedarf) manuell von Ihnen gelöscht werden." %}
+                  </p>
+                  {# <label><input type="checkbox"> {% trans "Ja, ich will das Backup löschen" %}</label> #}
                 </div>
                 <div class="modal-footer">
                   <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "abbrechen" %}</button>
@@ -213,6 +216,72 @@
         </div>
       </div>
     </li>
+    
+     <li>
+        <header class="header">
+          <h3>Dummy Backup 4</h3>
+          <a href="#" class="backup-details-handler">{% trans "Details" %}</a>
+        </header>
+        <div class="backup-summary">
+          <ul>
+            <li><span class="key">{% trans "Daten-Quelle" %}: </span>Facebook</li>
+            <li><span class="key">{% trans "Speicher-Ziel" %}: </span>Dropbox</li>
+            <li><span class="key">{% trans "Backup-Status" %}: </span><span class="icon-backupstate-in-progress">Backup wird ausgeführt</span></li>
+          </ul>
+        </div>
+        <div class="backup-details">
+          <div class="bli-section">
+            <span class="key">{% trans "Daten-Quelle" %}</span>
+            <ul class="value">
+              <li>Facebook</li>
+              <li>John Doe</li>
+              <li>Backup-Data Info</li>
+            </ul>
+          </div>
+          <div class="bli-section">
+            <span class="key">{% trans "Speicher-Ziel" %}</span>
+            <ul class="value">
+              <li>Dropbox</li>
+              <li>John Doe</li>
+              <li>Verfügbar: 600 MB von 5 GB</li>
+            </ul>
+          </div>
+          {# TODO: pass backup-state as classname, eg: "ok", "inactive" #}
+          <div class="bli-section backupstate-in-progress">
+            <span class="key">{% trans "Backup-Status" %}</span>
+            <ul class="value">
+              <li><span class="backupstate-icon">Backup wird ausgeführt</span></li>
+              <li>nächstes Backup: derzeit nicht möglich</li>
+            </ul>
+          </div>
+          <div class="bli-section-options">
+            <ul>
+              <li><a href="#link-to-backup-edit-page" class="edit-link">{% trans "Backup bearbeiten" %}</a></li>
+              <li>
+                {# TODO: replace 'delete-modal3' with 'delete-modal{{ item.backupJobId }} for actual backup-jobs #}
+                <a href="#delete-modal3" class="delete-backup-handler" data-toggle="modal">{% trans "Backup löschen" %}</a>
+                <div id="delete-modal3" class="modal hide" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h3>{% trans "Backup löschen" %}</h3>
+                  </div>
+                  <form action="." method="post">
+                  <div class="modal-body">
+                    <p class="feedback-warning">{% trans "Achtung: Sie können diese Aktion nicht rückgängig machen!" %}</p>
+                    <p>{% trans "Wollen Sie das ausgewählte Backup wirklich löschen?" %}</p>
+                    <label><input type="checkbox"> {% trans "Ja, ich will das Backup löschen" %}</label>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "abbrechen" %}</button>
+                    <input type="submit" class="btn-delete" value="{% trans "Backup löschen" %}">
+                  </div>
+                  </form>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
     {# DUMMY BACKUP-ITEMS END #}
     
   </ul>

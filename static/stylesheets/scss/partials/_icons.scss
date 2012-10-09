@@ -89,3 +89,16 @@ a [class*=" icon-"] {
   @include icon_before($icon-warning);
 }
 
+.note {
+  @extend .feedback;
+  border-color: $border-clr-note;
+  background: $bg-clr-note;
+  color: $clr-text;
+  @include adjust-font-size-to(14px);
+}
+.note:before {
+  @include icon_before($icon-info-sign);
+}
+
+
+
