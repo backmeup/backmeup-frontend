@@ -18,9 +18,9 @@ class UserCreationForm(forms.ModelForm):
     #    error_messages={'invalid': _("This value may contain only letters, numbers and @/./+/-/_ characters.")})
     email = forms.EmailField(label=_('Email'), max_length=254)
 
-    password1 = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
-    password2 = forms.CharField(label=_("Password confirmation"), widget=forms.PasswordInput,
-        help_text=_("Enter the same password as above, for verification."))
+    password1 = forms.CharField(label=_("Passwort"), widget=forms.PasswordInput)
+    password2 = forms.CharField(label=_("Passwort wiederholen"), widget=forms.PasswordInput,
+        help_text=_("Bitte geben Sie das selbe Passwort wie oben ein."))
 
     #key_ring1 = forms.CharField(label=_("KeyRing Password"), widget=forms.PasswordInput)
     #key_ring2 = forms.CharField(label=_("KeyRing Password confirmation"), widget=forms.PasswordInput,
@@ -46,13 +46,13 @@ class UserCreationForm(forms.ModelForm):
         except User.DoesNotExist:
             return email
         
-        raise forms.ValidationError(_("A user with that email already exists."))
+        raise forms.ValidationError(_("Ein Benutzer mit dieser Email-Adresse existiert bereits."))
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1", "")
         password2 = self.cleaned_data["password2"]
         if password1 != password2:
-            raise forms.ValidationError(_("The two password fields didn't match."))
+            raise forms.ValidationError(_("Die eingebenen Passwörter stimmen nicht überein."))
         return password2
 
     #def clean(self):
@@ -87,16 +87,16 @@ class DebugUserCreationForm(forms.ModelForm):
     """
     username = forms.RegexField(label=_("Username"), max_length=30, regex=r'^[\w.@+-]+$',
         help_text=_("Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."),
-        error_messages={'invalid': _("This value may contain only letters, numbers and @/./+/-/_ characters.")})
+        error_messages={'invalid': _("Es sind nur Buchstaben, Zahlen und die Zeichen @/./+/-/_ erlaubt.")})
     email = forms.EmailField(label=_('Email'), max_length=254)
 
-    password1 = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
-    password2 = forms.CharField(label=_("Password confirmation"), widget=forms.PasswordInput,
-        help_text=_("Enter the same password as above, for verification."))
+    password1 = forms.CharField(label=_("Passwort"), widget=forms.PasswordInput)
+    password2 = forms.CharField(label=_("Passwort wiederholen"), widget=forms.PasswordInput,
+        help_text=_("Bitte geben Sie das selbe Passwort wie oben ein."))
 
-    key_ring1 = forms.CharField(label=_("KeyRing Password"), widget=forms.PasswordInput)
-    key_ring2 = forms.CharField(label=_("KeyRing Password confirmation"), widget=forms.PasswordInput,
-        help_text=_("Enter the same KeyRing Password as above, for verification."))
+    key_ring1 = forms.CharField(label=_("KeyRing Passwort"), widget=forms.PasswordInput)
+    key_ring2 = forms.CharField(label=_("KeyRing Passwort wiederholen"), widget=forms.PasswordInput,
+        help_text=_("Bitte geben Sie den selben Keyring wie oben ein."))
 
     class Meta:
         model = User
@@ -115,20 +115,20 @@ class DebugUserCreationForm(forms.ModelForm):
         except User.DoesNotExist:
             return username
 
-        raise forms.ValidationError(_("A user with that username already exists."))
+        raise forms.ValidationError(_("Dieser Benutzername ist bereits vergeben."))
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1", "")
         password2 = self.cleaned_data["password2"]
         if password1 != password2:
-            raise forms.ValidationError(_("The two password fields didn't match."))
+            raise forms.ValidationError(_("Die beiden Passwortfelder stimmen nicht überein."))
         return password2
 
     def clean_key_ring2(self):
         key_ring1 = self.cleaned_data.get("key_ring1", "")
         key_ring2 = self.cleaned_data["key_ring2"]
         if key_ring1 != key_ring2:
-            raise forms.ValidationError(_("The two KeyRing Password fields didn't match."))
+            raise forms.ValidationError(_("Die beiden KeyRing-Felder stimmen nicht überein."))
         return key_ring2
 
     def save(self, commit=True):
@@ -153,7 +153,7 @@ class DebugUserCreationForm(forms.ModelForm):
 
 class UserEmailVerificationForm(forms.Form):
 
-    verify_hash = forms.CharField(label=_("Verification Key"))
+    verify_hash = forms.CharField(label=_("Bestätigungs-Code"))
 
     def save(self):
         rest_api = RestEmailVerification()
@@ -169,16 +169,16 @@ class UserSettingsForm(forms.Form):
 
     email = forms.EmailField(label=_('Email'), max_length=254, required=False)
 
-    new_password1 = forms.CharField(label=_("New Password"), widget=forms.PasswordInput, required=False)
-    new_password2 = forms.CharField(label=_("New Password confirmation"), widget=forms.PasswordInput,
-        help_text=_("Enter the same password as above, for verification."), required=False)
+    new_password1 = forms.CharField(label=_("Neues Passwort"), widget=forms.PasswordInput, required=False)
+    new_password2 = forms.CharField(label=_("Neues Passwort wiederholen"), widget=forms.PasswordInput,
+        help_text=_("Bitte geben Sie das selbe Passwort wie oben ein."), required=False)
 
     #new_key_ring1 = forms.CharField(label=_("New KeyRing Password"), widget=forms.PasswordInput, required=False)
     #new_key_ring2 = forms.CharField(label=_("New KeyRing Password confirmation"), widget=forms.PasswordInput,
     #    help_text=_("Enter the same KeyRing Password as above, for verification."), required=False)
     
-    old_password = forms.CharField(label=_("Current Password"), widget=forms.PasswordInput,
-        help_text=_("Enter your current password for verification."))
+    old_password = forms.CharField(label=_("Altes Passwort"), widget=forms.PasswordInput,
+        help_text=_("Bitte geben Sie Ihr altes Passwort."))
     
     def __init__(self, user, *args, **kwargs):
         self.user = user
@@ -194,7 +194,7 @@ class UserSettingsForm(forms.Form):
         old_password = self.cleaned_data["old_password"]
         remote_user = RestUser(self.user.username)
         if not remote_user.check_login(old_password):
-            raise forms.ValidationError(_("Your old password was entered incorrectly. Please enter it again."))
+            raise forms.ValidationError(_("Die Eingabe Ihres alten Passworts ist falsch. Bitte versuchen Sie es erneut."))
         return old_password
 
     def clean_new_password2(self):
@@ -203,7 +203,7 @@ class UserSettingsForm(forms.Form):
         if new_password1 == "" and new_password2 == "":
             return new_password2
         if new_password1 != new_password2:
-            raise forms.ValidationError(_("The two password fields didn't match."))
+            raise forms.ValidationError(_("Die Passwort-Felder stimmen nicht überein."))
         return new_password2
 
     def save(self):
@@ -231,16 +231,16 @@ class DebugUserSettingsForm(forms.Form):
 
     email = forms.EmailField(label=_('Email'), max_length=254, required=False)
 
-    new_password1 = forms.CharField(label=_("New Password"), widget=forms.PasswordInput, required=False)
-    new_password2 = forms.CharField(label=_("New Password confirmation"), widget=forms.PasswordInput,
-        help_text=_("Enter the same password as above, for verification."), required=False)
+    new_password1 = forms.CharField(label=_("Neues Passwort"), widget=forms.PasswordInput, required=False)
+    new_password2 = forms.CharField(label=_("Neues Passwort wiederholen"), widget=forms.PasswordInput,
+        help_text=_("Bitte geben Sie das selbe Passwort wie oben ein."), required=False)
 
-    new_key_ring1 = forms.CharField(label=_("New KeyRing Password"), widget=forms.PasswordInput, required=False)
-    new_key_ring2 = forms.CharField(label=_("New KeyRing Password confirmation"), widget=forms.PasswordInput,
-        help_text=_("Enter the same KeyRing Password as above, for verification."), required=False)
+    new_key_ring1 = forms.CharField(label=_("Neues KeyRing Passwort"), widget=forms.PasswordInput, required=False)
+    new_key_ring2 = forms.CharField(label=_("Neues KeyRing Passwort wiederholen"), widget=forms.PasswordInput,
+        help_text=_("Bitte geben Sie das selbe KeyRing-Passwort wie oben ein."), required=False)
     
-    old_password = forms.CharField(label=_("Current Password"), widget=forms.PasswordInput,
-        help_text=_("Enter your current password for verification."))
+    old_password = forms.CharField(label=_("Altes Passwort"), widget=forms.PasswordInput,
+        help_text=_("Bitte geben Sie Ihr altes Passwort ein."))
     
     def __init__(self, user, *args, **kwargs):
         self.user = user
@@ -256,7 +256,7 @@ class DebugUserSettingsForm(forms.Form):
         old_password = self.cleaned_data["old_password"]
         remote_user = RestUser(self.user.username)
         if not remote_user.check_login(old_password):
-            raise forms.ValidationError(_("Your old password was entered incorrectly. Please enter it again."))
+            raise forms.ValidationError(_("Die Eingabe Ihres alten Passworts ist falsch. Bitte versuchen Sie es erneut."))
         return old_password
 
     def clean_new_password2(self):
@@ -265,7 +265,7 @@ class DebugUserSettingsForm(forms.Form):
         if new_password1 == "" and new_password2 == "":
             return new_password2
         if new_password1 != new_password2:
-            raise forms.ValidationError(_("The two password fields didn't match."))
+            raise forms.ValidationError(_("Die beiden Passwort-Felder stimmen nicht überein."))
         return new_password2
 
     def clean_new_key_ring2(self):
@@ -274,7 +274,7 @@ class DebugUserSettingsForm(forms.Form):
         if new_key_ring1 == "" and new_key_ring2 == "":
             return new_key_ring2
         if new_key_ring1 != new_key_ring2:
-            raise forms.ValidationError(_("The two KeyRing Password fields didn't match."))
+            raise forms.ValidationError(_("Die beiden KeyRing-Felder stimmen nicht überein."))
         return new_key_ring2
 
     def save(self):
