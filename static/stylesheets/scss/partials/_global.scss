@@ -74,11 +74,11 @@ p, ul, ol {
 // header
 #header {
   background: $bg-clr1;
-  @include clearfix;
+  @extend .clearfix;
 }
 #content {
   background: white;
-  @include clearfix;
+  @extend .clearfix;
   @include padding-leader(1);
   @include padding-trailer(1);
 }
@@ -87,19 +87,26 @@ p, ul, ol {
 //  @extend .grid;
 }
 // login-nav
-#login-nav {
+.user-nav {
   float: right;
   text-align: right;
 }
-#login-nav ul {
-  @include horizontal-list;
+.user-nav {
   @include padding-leader(.5);
   @include padding-trailer(.5);
+  > li{
+    @include horizontal-list-item;
+  }
+
 }
-#login-nav a {
+.user-nav .dropdown-toggle {
   color: white;
   text-decoration: none;
 }
+.user-nav .dropdown-toggle:after {
+  @include icon_after('\f0d7');
+}
+
 // breadcrumbs
 .breadcrumbs,
 .sub-header,

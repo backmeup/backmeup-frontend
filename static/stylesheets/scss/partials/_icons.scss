@@ -52,6 +52,9 @@ a [class*=" icon-"] {
 .icon-before-exclamation-sign:before    { content: "\f06a"; }
 .icon-after-exclamation-sign:after      { content: "\f06a"; }
 .icon-before-home:before                { content: "\f015"; }
+.icon-after-cogs:after                  { content: "\f085"; }
+.icon-after-signout:after               { content: "\f08b"; }
+
 
 // search icon in header search
 .searchsubmit {
