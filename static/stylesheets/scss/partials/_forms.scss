@@ -41,6 +41,7 @@ input[type="checkbox"] {
 }
 
 // Form Feedback Styles
-.errorlist {
+.errorlist,
+.form-error {
   color: $clr-error;
 }

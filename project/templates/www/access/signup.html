@@ -20,11 +20,10 @@
   <div>
     {{ form.password2.label }}
     {{ form.password2 }}
-    <span class="helptext">{{ form.password2.help_text }}</span>
     {% if form.password2.errors %}
       <span class="form-error">{{ form.password2.errors }}</span>
     {% endif %}
   </div>
-  <p><input type="submit" value="{% trans "Neuen Zugang erstellen" %}" class="btn"></p>
+  <div><input type="submit" value="{% trans "Neuen Zugang erstellen" %}" class="btn"></div>
 </form>
 {% endblock content %}

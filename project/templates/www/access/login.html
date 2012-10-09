@@ -10,15 +10,22 @@
 
 <form method="post" action="{% url django.contrib.auth.views.login %}">
 {% csrf_token %}
-  <p>
+  <div>
     <label for="id_username">Email</label>
+    {# {{ form.username.label }} #}
     {{ form.username }}
-  </p>
-  <p>
+    {% if form.username.errors %}
+      {{ form.username.errors }}
+    {% endif %}
+  </div>
+  <div>
     {{ form.password.label_tag }}
     {{ form.password }}
-  </p>
-  <input type="submit" value="{% trans "Einloggen" %}" class="btn" />
+    {% if form.password.errors %}
+      {{ form.password.errors }}
+    {% endif %}
+  </div>
+  <div><input type="submit" value="{% trans "Einloggen" %}" class="btn" /></div>
   <input type="hidden" name="next" value="/" />
 </form>
 
