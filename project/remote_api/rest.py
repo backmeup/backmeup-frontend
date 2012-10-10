@@ -343,7 +343,7 @@ class RestJobs(RestBase):
         return self._post(data=params)
 
     def delete(self, job_id):
-        return self._delete(path=job_id + "/status/")
+        return self._delete(path=job_id)
 
     def get_all(self):
         response = self._get()

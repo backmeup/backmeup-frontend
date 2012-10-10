@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile
-from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, JobCreateForm
+from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, JobCreateForm, JobDeleteForm
 
 def get_sink_title(sinks, sink_id):
     sink_id = int(sink_id)
@@ -27,6 +27,18 @@ def get_source_title(sources, source_id):
 def index(request):
     context = {}
     if request.user.is_authenticated():
+        
+        job_delete_form = JobDeleteForm(request.POST or None)
+        
+        if job_delete_form.is_valid():
+            result = job_delete_form.rest_save(username=request.user.username)
+            if result:
+                messages.add_message(request, messages.SUCCESS, _(u'Backup wurde gelöscht.'))
+            else:
+                messages.add_message(request, messages.ERROR, _(u'Backup konnte nicht gelöscht werden.'))
+        context['job_delete_form'] = job_delete_form
+        
+        
         rest_jobs = RestJobs(username=request.user.username)
         jobs = rest_jobs.get_all()
 
@@ -48,6 +60,7 @@ def index(request):
                         'title': get_source_title(datasource_profiles, source_id)
                     })
             context['jobs'] = jobs
+            
 
     return render_to_response(
         "www/index.html",

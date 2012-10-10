@@ -153,6 +153,17 @@ class DatasinkAuthForm(forms.Form):
         return rest_datasink_profile.auth_post(profile_id=self.auth_data['profileId'], data=data)
 
 
+class JobDeleteForm(forms.Form):
+    
+    confirm = forms.BooleanField(label=_("Ja, ich will das Backup löschen"), required=True)
+    job_id = forms.CharField(label=_("Backup Name"), widget=forms.HiddenInput, required=True)
+    
+    def rest_save(self, username):
+        rest_jobs = RestJobs(username=username)
+        
+        return rest_jobs.delete(job_id=self.cleaned_data['job_id'])
+
+
 class JobCreateForm(forms.Form):
 
     #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
