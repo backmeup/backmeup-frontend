@@ -315,6 +315,11 @@ p, ul, ol {
     .delete-backup-handler:after{
       @include icon_after('\f014');
     }
+    .log-item{
+      a:after{
+        @include icon_after('\f0ae');
+      }
+    }
   }
   
   .key{
