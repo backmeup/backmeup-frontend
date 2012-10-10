@@ -1417,6 +1417,67 @@ a [class*=" icon-"] {
   content: "\f05a";
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_messages\.scss}line{font-family:\000035}}
+.messages li {
+  padding: .5em;
+  border-radius: 5px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background: #d9edf7;
+  border: 1px solid #bce8f1;
+  color: #3a87ad;
+  margin-top: 0.75em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_messages\.scss}line{font-family:\0000314}}
+.messages li:first-child {
+  margin-top: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_messages\.scss}line{font-family:\0000317}}
+.messages li:before {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: none;
+  margin-right: .5em;
+  content: "\f05a";
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_messages\.scss}line{font-family:\0000321}}
+.messages li.success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_messages\.scss}line{font-family:\0000325}}
+.messages li.success:before {
+  content: "\f00c";
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_messages\.scss}line{font-family:\0000329}}
+.messages li.warning {
+  background-color: #fcf8e3;
+  border-color: #fbeed5;
+  color: #c09853;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_messages\.scss}line{font-family:\0000333}}
+.messages li.warning:before {
+  content: "\f071";
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_messages\.scss}line{font-family:\0000337}}
+.messages li.error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_messages\.scss}line{font-family:\0000341}}
+.messages li.error:before {
+  content: "\f071";
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_messages\.scss}line{font-family:\0000345}}
+.messages .close {
+  float: right;
+  line-height: inherit;
+  color: inherit;
+}
+
 /*
  * Bootstrap v2.1.1
  *

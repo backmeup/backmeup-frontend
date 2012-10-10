@@ -388,5 +388,3 @@
   })
 
 }(window.jQuery);
-
-

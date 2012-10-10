@@ -1,0 +1,50 @@
+// --- django-messages in combination with bootstrap alerts --- //
+
+.messages {
+  //  setting "info" as default:
+  li {
+    padding: .5em;
+    border-radius: $default-border-radius;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background: #d9edf7;
+    border: 1px solid #bce8f1;
+    color: #3a87ad;
+    
+    @include margin-leader(.5);
+    &:first-child {
+      margin-top: 0;
+    }
+    &:before {
+      @include icon_before($icon-info-sign);
+    }
+  }
+  li.success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    &:before {
+      content: $icon-ok;
+    }
+  }
+  li.warning {
+    background-color: #fcf8e3;
+    border-color: #fbeed5;
+    color: #c09853;
+    &:before {
+      content: $icon-warning;
+    }
+  }
+  li.error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    &:before {
+      content: $icon-error;
+    }
+  }
+  .close {
+    float: right;
+    line-height: inherit;
+    color: inherit;
+  }
+}
