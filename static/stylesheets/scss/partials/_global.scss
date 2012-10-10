@@ -162,6 +162,45 @@ p, ul, ol {
 //  height: 16px;
 //}
 
+// --- Home START
+#teaser-nav{
+  li{
+    float: left;
+    width: 30%;
+    margin-left: 5%;
+    
+    &:first-child{
+      margin-left:0; 
+    }
+    > a{
+      color: $clr-text;
+      text-decoration: none;
+      display: block;
+    }
+    > a:hover .teaser-content{
+      background: $bg-clr2;
+    }
+    h3{
+      padding: .5em;
+      background: $bg-clr1;
+      border: 1px solid $bg-clr1;
+      color: #fff;
+      border-radius: $default-border-radius $default-border-radius 0 0;
+      text-align: center;
+    }
+    .teaser-content{
+      padding: .5em;
+      border-radius: 0 0 $default-border-radius $default-border-radius;
+      border: 1px solid $clr-grey-light;
+    }
+  }
+  
+}
+
+
+
+// --- Home END
+
 
 // --- Dashboard
 .dashboard h1{
