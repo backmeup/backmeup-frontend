@@ -5,20 +5,36 @@
 {% block body_class %}class="home"{% endblock %}
 
 {% block content %}
-  <h1>create backup</h1>
+  <hgroup class="hgroup">
+    <h1>{% trans "Neues Backup anlegen" %}</h1> 
+    <h2>{% trans "Backup-Option festlegen" %}</h2>
+  </hgroup>
   
-  <h2>{% trans "create backup job" %}</h2>
-  
-  <form action="." method="POST">{% csrf_token %}
-    
-    {{ form.as_p }}
-    
-    <p><input type="submit" value="Continue &rarr;" class="btn"></p>
-  </form>
-  
-  {# <ul> #}
-  {#     {% for item in datasources %} #}
-  {#       <li><img src="{{ item.imageURL }}" width="48">{{ item.title }}</li> #}
-  {#     {% endfor %} #}
-  {#   </ul> #}
+  <ul class="add-backup-list">
+    <li>
+      <h3>{% trans "1. Daten-Quelle" %}</h3>
+      <div class="add-backup-content">
+        <h4>{% trans "Schritt 1: Daten-Quelle wählen" %}</h4>
+      </div>
+    </li>
+    <li>
+      <h3>{% trans "2. Speicher-Ziel" %}</h3>
+      <div class="add-backup-content">
+        <h4>{% trans "Schritt 2: Speicher-Ziel wählen" %}</h4>        
+      </div>
+    </li>
+    <li class="active-backup-step">
+      <h3>{% trans "3. Backup-Optionen" %}</h3>
+      <div class="add-backup-content">
+        <h4>{% trans "Schritt 3: Backup-Option festlegen" %}</h4>
+        <form action="." method="POST">{% csrf_token %}
+
+          {{ form.as_p }}
+
+          <p><input type="submit" value="{% trans "Backup anlegen" %}" class="btn"></p>
+        </form>
+      </div>
+    </li>
+  </ul>
 {% endblock content %}
+
