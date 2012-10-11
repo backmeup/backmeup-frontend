@@ -31,11 +31,17 @@
         <h4>{% trans "Step 3: select backup-options" %}</h4>
         <form action="." method="POST">{% csrf_token %}
 
-          {% for field in form %}
-              <div class="fieldWrapper">
-                  {{ field.errors }}
-                  {{ field.label_tag }}: {{ field }}
-              </div>
+          {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+          {% endfor %}
+
+          {% for field in form.visible_fields %}
+          <div>
+            <label>{{ field }}{{ field.label }}</label>
+            {% if field.errors %}
+              {{ field.errors }}
+            {% endif %}
+          </div>
           {% endfor %}
           
           <p><input type="submit" value="{% trans "Create Backup" %}" class="btn"></p>

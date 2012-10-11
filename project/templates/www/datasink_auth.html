@@ -24,11 +24,18 @@
         <h4>{% trans "Step 2: select data-target - authenticate" %}</h4>
         <form action="." method="POST">{% csrf_token %}
 
-          {% for field in form %}
-              <div class="fieldWrapper">
-                  {{ field.errors }}
-                  {{ field.label_tag }}: {{ field }}
-              </div>
+          {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+          {% endfor %}
+
+          {% for field in form.visible_fields %}
+          <div>
+            <label>{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+              {{ field.errors }}
+            {% endif %}
+          </div>
           {% endfor %}
 
           <p><button type="submit" class="btn-next">{% trans "next" %}</button></p>
