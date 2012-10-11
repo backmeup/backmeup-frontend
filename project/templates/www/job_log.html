@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block body_class %}class="home"{% endblock %}
+
+{% block content %}
+  <ul>
+    {% for item in log %}
+      <li>
+        {{ item.message }}<br>
+        {{ item.type }}<br>
+        {{ item.timeStamp }}<br>
+        {{ item.category }}<br>
+        {{ item.jobId }}<br>
+        {# <ul> #}
+        {#           {% for file in item.files %} #}
+        {#             <li>{{ file }}<li> #}
+        {#           {% endfor %} #}
+        {#         </ul> #}
+      </li>
+      <hr />
+    {% endfor %}
+  </ul>
+{% endblock content %}
+

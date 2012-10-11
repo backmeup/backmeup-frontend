@@ -43,6 +43,8 @@ urlpatterns = patterns('',
     url(r'^oauth_callback/$', 'main.views.oauth_callback', name="oauth-callback"),
     
     url(r'^job/create/$', 'main.views.job_create', name="job-create"),
+    url(r'^job/(?P<job_id>\d+)/log$', 'main.views.job_log', name="job-log"),
+    
     
     # styleguide
     (r'^styleguide$', TemplateView.as_view(template_name='www/styleguide/styleguide.html')),

@@ -18,7 +18,10 @@ class RestBase(object):
         self.base_url = url
 
     def _delete(self, path="", data=None):
-        response = requests.delete(self.base_url + path, data=data)
+        try:
+            response = requests.delete(self.base_url + path, data=data)
+        except Exception as e:
+            return False
         if settings.DEBUG:
             print "#######################_delete url:", self.base_url + path
             print "#######################_delete data:", data
@@ -27,7 +30,10 @@ class RestBase(object):
         return response
 
     def _get(self, path="", data=None):
-        response = requests.get(self.base_url + path, data=data)
+        try:
+            response = requests.get(self.base_url + path, data=data)
+        except Exception as e:
+            return False
         if settings.DEBUG:
             print "##########################_get url:", self.base_url + path
             print "##########################_get data:", data
@@ -39,7 +45,10 @@ class RestBase(object):
             return response.json
 
     def _post(self, path="", data=None):
-        response = requests.post(self.base_url + path, data=data)
+        try:
+            response = requests.post(self.base_url + path, data=data)
+        except Exception as e:
+            return False
         if settings.DEBUG:
             print "#########################_post url:", self.base_url + path
             print "#########################_post data:", data
@@ -52,7 +61,10 @@ class RestBase(object):
         return response.json
 
     def _put(self, path="", data=None):
-        response = requests.put(self.base_url + path, data=data)
+        try:
+            response = requests.put(self.base_url + path, data=data)
+        except Exception as e:
+            return False
         if settings.DEBUG:
             print "##########################_put url:", self.base_url + path
             print "##########################_put data:", data
