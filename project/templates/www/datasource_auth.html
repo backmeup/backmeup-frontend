@@ -3,7 +3,6 @@
 {% load i18n %}
 
 {% block content %}
-  
   <hgroup class="hgroup">
     <h1>{% trans "Create new Backup" %}</h1> 
     <h2>{% trans "Select Data-Source - Authentication" %}</h2>
@@ -17,7 +16,12 @@
         <h4>{% trans "Step 1: select data-source - authenticate" %}</h4>
         <form action="." method="POST">{% csrf_token %}
 
-          {{ form.as_p }}
+          {% for field in form %}
+              <div class="fieldWrapper">
+                  {{ field.errors }}
+                  {{ field.label_tag }}: {{ field }}
+              </div>
+          {% endfor %}
 
           <p><button type="submit" class="btn-next">{% trans "next" %}</button></p>
         </form>
@@ -36,5 +40,4 @@
       </div>
     </li>
   </ul>
-  
 {% endblock content %}

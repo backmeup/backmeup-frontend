@@ -31,8 +31,13 @@
         <h4>{% trans "Step 3: select backup-options" %}</h4>
         <form action="." method="POST">{% csrf_token %}
 
-          {{ form.as_p }}
-
+          {% for field in form %}
+              <div class="fieldWrapper">
+                  {{ field.errors }}
+                  {{ field.label_tag }}: {{ field }}
+              </div>
+          {% endfor %}
+          
           <p><input type="submit" value="{% trans "Create Backup" %}" class="btn"></p>
         </form>
       </div>
