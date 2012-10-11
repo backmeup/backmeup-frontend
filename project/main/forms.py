@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.forms.widgets import CheckboxSelectMultiple
 
 #from access.models import User
-from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile, RestJobs
+from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile, RestJobs, RestAction
 
 BACKUP_JOB_TIME_EXPRESSION = (
     ('realtime', _('now')),
@@ -204,10 +204,19 @@ class JobCreateForm(forms.Form):
                 self.fields['datasource_options_value_%s' % i] = forms.BooleanField(label=item, required=False)
                 self.fields['datasource_options_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=item)
         
-        #
-        # actions!
-        #
-
+        rest_actions = RestAction()
+        actions = rest_actions.get_all()
+        
+        for i, action in enumerate(actions):
+            action['options'] = rest_actions.options(action_id=action['actionId'])
+            
+            self.fields['actions_value_%s' % i] = forms.BooleanField(label=_(action['title']), required=False, help_text=_(action['description']))
+            self.fields['actions_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=action['actionId'])
+            
+            for j, option in enumerate(action['options']):
+                self.fields['action_options_value_%s_%s' % (i, j)] = forms.BooleanField(label=_(option), required=False)
+                self.fields['action_options_key_%s_%s' % (i, j)] = forms.CharField(widget=forms.HiddenInput, initial=option)
+        
     def rest_save(self):
         rest_jobs = RestJobs(username=self.extra_data['username'])
         data = {

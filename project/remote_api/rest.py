@@ -303,10 +303,10 @@ class RestAction(RestBase):
         self.base_url = self.base_url + path
 
     def get_all(self):
-        return self._get()
+        return self._get()['actions']
 
     def options(self, action_id):
-        return self._get(path=action_id + "/options/")
+        return self._get(path=action_id + "/options/")['actionOptions']
 
     def post(self, data):
         if not "name" in data:
