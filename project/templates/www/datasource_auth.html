@@ -3,13 +3,38 @@
 {% load i18n %}
 
 {% block content %}
-  <h1>{% trans "Create new Backup" %}</h1>  
-  <h2>{% trans "Contents of backup" %}</h2>
   
-  <form action="." method="POST">{% csrf_token %}
-    
-    {{ form.as_p }}
-    
-    <p><button type="submit" class="btn-next">{% trans "next" %}</button></p>
-  </form>
+  <hgroup class="hgroup">
+    <h1>{% trans "Create new Backup" %}</h1> 
+    <h2>{% trans "Select Data-Source - Authentication" %}</h2>
+  </hgroup>
+  
+  <ul class="add-backup-list">
+    <li class="active-backup-step">
+      <h3>{% trans "1. Data-Source" %}</h3>
+      <div class="add-backup-content">
+        {# TODO: display name of selected data-source #}
+        <h4>{% trans "Step 1: select data-source - authenticate" %}</h4>
+        <form action="." method="POST">{% csrf_token %}
+
+          {{ form.as_p }}
+
+          <p><button type="submit" class="btn-next">{% trans "next" %}</button></p>
+        </form>
+      </div>
+    </li>
+    <li>
+      <h3>{% trans "2. Data-Target" %}</h3>
+      <div class="add-backup-content">
+        <h4>{% trans "Step 2: select data-target" %}</h4>        
+      </div>
+    </li>
+    <li>
+      <h3>{% trans "3. Backup-Options" %}</h3>
+      <div class="add-backup-content">
+        <h4>{% trans "Step 3: select backup-options" %}</h4>
+      </div>
+    </li>
+  </ul>
+  
 {% endblock content %}

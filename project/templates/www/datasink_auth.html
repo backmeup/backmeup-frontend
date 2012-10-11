@@ -5,19 +5,36 @@
 {% block body_class %}class="home"{% endblock %}
 
 {% block content %}
-  <h1>{% trans "Create new Backup" %}</h1> 
-  <h2>{% trans "Data-Target Options" %}</h2>
-  
-  <form action="." method="POST">{% csrf_token %}
-    
-    {{ form.as_p }}
-    
-    <p><button type="submit" class="btn-next">{% trans "next" %}</button></p>
-  </form>
-  
-  {# <ul> #}
-  {#   {% for item in datasources %} #}
-  {#     <li><img src="{{ item.imageURL }}" width="48">{{ item.title }}</li> #}
-  {#   {% endfor %} #}
-  {# </ul> #}
+  <hgroup class="hgroup">
+    <h1>{% trans "Create new Backup" %}</h1> 
+    <h2>{% trans "Select Data-Target" %}</h2>
+  </hgroup>
+  <ul class="add-backup-list">
+    <li class="finished-backup-step">
+      <h3>{% trans "1. Data-Source" %}</h3>
+      <div class="add-backup-content">
+        {# TODO: display selected data-source #}
+        <h4>{% trans "selected data-source" %}: Dummy-Facebook</h4>
+      </div>
+    </li>
+    <li class="active-backup-step">
+      <h3>{% trans "2. Data-Target" %}</h3>
+      <div class="add-backup-content">
+        {# TODO: display name of selected data-source #}
+        <h4>{% trans "Step 2: select data-target - authenticate" %}</h4>
+        <form action="." method="POST">{% csrf_token %}
+
+          {{ form.as_p }}
+
+          <p><button type="submit" class="btn-next">{% trans "next" %}</button></p>
+        </form>
+      </div>
+    </li>
+    <li>
+      <h3>{% trans "3. Backup-Options" %}</h3>
+      <div class="add-backup-content">
+        <h4>{% trans "Step 3: select Backup-Options" %}</h4>
+      </div>
+    </li>
+  </ul>
 {% endblock content %}
