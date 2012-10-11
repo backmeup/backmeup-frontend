@@ -23,10 +23,13 @@ class RestBase(object):
         except Exception as e:
             return False
         if settings.DEBUG:
-            print "#######################_delete url:", self.base_url + path
-            print "#######################_delete data:", data
-            print "#######################_delete", response
-            print "#######################_delete", response.json
+            print "... DELETE ..."
+            print "####### url:", self.base_url + path
+            print "###### data:", data
+            print "########### response"
+            print "#### status:", response.status_code
+            print "###### json:", response.json
+            print "............................."
         return response
 
     def _get(self, path="", data=None):
@@ -35,10 +38,13 @@ class RestBase(object):
         except Exception as e:
             return False
         if settings.DEBUG:
-            print "##########################_get url:", self.base_url + path
-            print "##########################_get data:", data
-            print "##########################_get", response
-            print "##########################_get", response.json
+            print "... GET ..."
+            print "####### url:", self.base_url + path
+            print "###### data:", data
+            print "########### response"
+            print "#### status:", response.status_code
+            print "###### json:", response.json
+            print "............................."
         if response.status_code == 204:
             return True
         else:
@@ -50,10 +56,13 @@ class RestBase(object):
         except Exception as e:
             return False
         if settings.DEBUG:
-            print "#########################_post url:", self.base_url + path
-            print "#########################_post data:", data
-            print "#########################_post", response
-            print "#########################_post", response.json
+            print "... POST ..."
+            print "####### url:", self.base_url + path
+            print "###### data:", data
+            print "########### response"
+            print "#### status:", response.status_code
+            print "###### json:", response.json
+            print "............................."
         if response.status_code == 204:
             return True
         elif response.status_code == 400 or response.status_code == 404 or response.status_code == 401:
@@ -66,10 +75,13 @@ class RestBase(object):
         except Exception as e:
             return False
         if settings.DEBUG:
-            print "##########################_put url:", self.base_url + path
-            print "##########################_put data:", data
-            print "##########################_put", response
-            print "##########################_put", response.json
+            print "... PUT ..."
+            print "####### url:", self.base_url + path
+            print "###### data:", data
+            print "########### response"
+            print "#### status:", response.status_code
+            print "###### json:", response.json
+            print "............................."
         return response
 
 
@@ -131,6 +143,8 @@ class RestUser(RestBase):
             req_params['keyRing'] = data['keyRing']
         if 'email' in data:
             req_params['email'] = data['email']
+        if 'username' in data:
+            req_params['username'] = data['username']
 
         return self._put(data=req_params)
 
