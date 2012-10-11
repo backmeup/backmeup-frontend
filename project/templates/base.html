@@ -1,8 +1,9 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{% block html_title %}BackMeUp{% endblock html_title %}</title>
+  <title>{% block html_title %}{% endblock html_title %} | {% trans "BackMeUp" %}</title>
   <link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/css/main.css" />
   <script src="{{ STATIC_URL }}js/libs/html5shiv-printshiv.js"></script>
   
@@ -14,8 +15,19 @@
     {% endblock header %}
       
     {% block breadcrumbs %}
-      {#  TODO: make breadcrumbs dynamic #}
-      {% include "www/includes/breadcrumbs.html" %}
+      {# <div class="breadcrumbs"> #}
+      {#   <div class="container"> #}
+      {#     <ul> #}
+      {#       {% if user.is_authenticated %} #}
+      {#       <li><a href="/">{% trans "Dashboard" %}</a></li> #}
+      {#       {% else %} #}
+      {#       <li><a href="/">{% trans "Home" %}</a></li> #}
+      {#       {% endif %} #}
+            {# <li><span>{{ page.title }}</span></li> #}
+      {#       {% block current_breadcrumbs %}{% endblock %} #}
+      {#     </ul> #}
+      {#   </div> #}
+      {# </div> #}
     {% endblock %}
     
     <div id="content">

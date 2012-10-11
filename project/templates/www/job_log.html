@@ -1,16 +1,19 @@
 {% extends "base.html" %}
-
 {% load i18n %}
 
-{% block content %}
+{% block html_title %}Dummy Backup-Name{% endblock %}
 
-  {# <h1>Dummy Backup 4</h1> #}
-  {# <ul class="backup-summary-list"> #}
-  {#   <li><strong>{% trans "Data-Source" %}</strong>: Facebook, John Doe</li> #}
-  {#   <li><strong>{% trans "Data-Target" %}</strong>: Dropbox, John Doe</li> #}
-  {#   {# TODO: pass backup-state as classname, eg: "ok", "inactive" #} #}
-  {#   <li><span class="icon-backupstate-in-progress"><strong>{% trans "Backup-State" %}</strong>: Backup wird ausgeführt</span></li> #}
-  {# </ul> #}
+{% block content %}
+  {# TODO: replace job.id with job.name #}
+  <h1>Backup #{{ job.backupJobId }}</h1>
+  <ul class="backup-summary-list">
+    {% for source in job.datasources %}
+    <li><strong>{% trans "Data-Source" %}</strong>: {{ source.title }}</li>
+    {% endfor %}
+    <li><strong>{% trans "Data-Target" %}</strong>: {{ job.datasinkTitle }}</li>
+    {# TODO: pass backup-state as classname, eg: "ok", "inactive" #}
+    <li><strong>{% trans "Backup-State" %}</strong>: <span class="icon-backupstate-in-progress"><strike>Backup wird ausgeführt</strike></span></li>
+  </ul>
   <ul>
     {% for item in log %}
       <li>

@@ -162,6 +162,54 @@ p, ul, ol {
 //  height: 16px;
 //}
 
+// --- Backupstate-Icons
+.backupstate-in-progress .backupstate-icon,
+.icon-backupstate-in-progress{
+  color: $clr-text;
+  &:before{
+    content: '';
+    background: url(/static/img/loading.gif) no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-right: .5em;
+    position: relative;
+    top: 3px;
+  }
+}
+.backupstate-ok .backupstate-icon,
+.icon-backupstate-ok{
+  color: $clr-ok;
+  &:before{
+    @include icon_before($icon-ok);
+  }
+}
+.backupstate-warning .backupstate-icon,
+.icon-backupstate-warning{
+  color: $clr-warning;
+  &:before{
+    @include icon_before($icon-warning);
+  }
+}
+.backupstate-error .backupstate-icon,
+.icon-backupstate-error{
+  color: $clr-error;
+  &:before{
+    @include icon_before($icon-error);
+  }
+}
+.icon-backupstate-in-progress:before,
+.icon-backupstate-ok:before,
+.icon-backupstate-warning:before,
+.icon-backupstate-error:before{
+  margin-left: .25em;
+}
+// --- Backupstate-Icons END
+
+
+
+
+
 // --- Home START
 #teaser-nav{
   li{
@@ -341,47 +389,6 @@ p, ul, ol {
   
   .key{
     font-weight: bold;
-  }
-  .backupstate-in-progress .backupstate-icon,
-  .icon-backupstate-in-progress{
-    color: $clr-text;
-    &:before{
-      content: '';
-      background: url(/static/img/loading.gif) no-repeat;
-      width: 16px;
-      height: 16px;
-      display: inline-block;
-      margin-right: .5em;
-      position: relative;
-      top: 3px;
-    }
-  }
-  .backupstate-ok .backupstate-icon,
-  .icon-backupstate-ok{
-    color: $clr-ok;
-    &:before{
-      @include icon_before($icon-ok);
-    }
-  }
-  .backupstate-warning .backupstate-icon,
-  .icon-backupstate-warning{
-    color: $clr-warning;
-    &:before{
-      @include icon_before($icon-warning);
-    }
-  }
-  .backupstate-error .backupstate-icon,
-  .icon-backupstate-error{
-    color: $clr-error;
-    &:before{
-      @include icon_before($icon-error);
-    }
-  }
-  .icon-backupstate-in-progress:before,
-  .icon-backupstate-ok:before,
-  .icon-backupstate-warning:before,
-  .icon-backupstate-error:before{
-    margin-left: .25em;
   }
   .delete-backup-overlay{
     display: none;
