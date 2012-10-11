@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.forms.widgets import CheckboxSelectMultiple
 
 #from access.models import User
-from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile, RestJobs, RestActions
+from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile, RestJobs, RestAction
 
 BACKUP_JOB_TIME_EXPRESSION = (
     ('realtime', _('now')),
@@ -204,7 +204,7 @@ class JobCreateForm(forms.Form):
                 self.fields['datasource_options_value_%s' % i] = forms.BooleanField(label=item, required=False)
                 self.fields['datasource_options_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=item)
         
-        rest_actions = RestActions()
+        rest_actions = RestAction()
         actions = rest_actions.get_all()
         
         for i, action in enumerate(actions):
