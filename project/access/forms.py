@@ -222,8 +222,15 @@ class UserSettingsForm(forms.Form):
             data['keyRing'] = new_key_ring
         if not new_email == self.user.email:
             data['email'] = new_email
-
-        return rest_api.put(data)
+            data['username'] = new_email
+        
+        result_rest = rest_api.put(data)
+        
+        if result_rest and not new_email == self.user.email:
+            self.user.username = new_email
+            self.user.save()
+        
+        return result_rest
 
 
 class DebugUserSettingsForm(forms.Form):
