@@ -5,14 +5,14 @@
 {% block body_class %}class="home"{% endblock %}
 
 {% block content %}
-  <h1>{% trans "neues Backup anlegen" %}</h1> 
-  <h2>{% trans "Speicheroptionen" %}</h2>
+  <h1>{% trans "Create new Backup" %}</h1> 
+  <h2>{% trans "Datasink-Options" %}</h2>
   
   <form action="." method="POST">{% csrf_token %}
     
     {{ form.as_p }}
     
-    <p><button type="submit" class="btn-next">{% trans "weiter" %}</button></p>
+    <p><button type="submit" class="btn-next">{% trans "next" %}</button></p>
   </form>
   
   {# <ul> #}

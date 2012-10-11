@@ -3,6 +3,8 @@
 
 {% block content %}
 
+<h1>{% trans "Verify Email-Address" %}</h1>
+
 <p>{% trans "An email with a verification key was send to your email-address. Please insert the verification key or click the link in the email to verify your email address." %}</p>
 
 <form action="." method="post">{% csrf_token %}
@@ -15,7 +17,7 @@
     {% endif %}
   </div>
   
-  <p><input type="submit" value="{% trans "Verify" %}" class="btn"></p>
+  <p><input type="submit" value="{% trans "Verify Email" %}" class="btn"></p>
 </form>
 
 <a href="{% url datasource-select %}">{% trans "next" %}</a>

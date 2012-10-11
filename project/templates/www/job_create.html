@@ -6,32 +6,34 @@
 
 {% block content %}
   <hgroup class="hgroup">
-    <h1>{% trans "Neues Backup anlegen" %}</h1> 
-    <h2>{% trans "Backup-Option festlegen" %}</h2>
+    <h1>{% trans "Create new Backup" %}</h1> 
+    <h2>{% trans "Select Backup-Options" %}</h2>
   </hgroup>
   
   <ul class="add-backup-list">
-    <li>
-      <h3>{% trans "1. Daten-Quelle" %}</h3>
+    <li class="finished-backup-step">
+      <h3>{% trans "1. Data-Source" %}</h3>
       <div class="add-backup-content">
-        <h4>{% trans "Schritt 1: Daten-Quelle wählen" %}</h4>
+        {# TODO: display selected data-source #}
+        <h4>{% trans "selected data-source" %}: Dummy-Facebook</h4>
       </div>
     </li>
-    <li>
-      <h3>{% trans "2. Speicher-Ziel" %}</h3>
+    <li class="finished-backup-step">
+      <h3>{% trans "2. Data-Target" %}</h3>
       <div class="add-backup-content">
-        <h4>{% trans "Schritt 2: Speicher-Ziel wählen" %}</h4>        
+        {# TODO: display selected data-source #}
+        <h4>{% trans "selected data-target" %}: Dummy-Dropbox</h4>
       </div>
     </li>
     <li class="active-backup-step">
-      <h3>{% trans "3. Backup-Optionen" %}</h3>
+      <h3>{% trans "3. Backup-Options" %}</h3>
       <div class="add-backup-content">
-        <h4>{% trans "Schritt 3: Backup-Option festlegen" %}</h4>
+        <h4>{% trans "Step 3: select backup-options" %}</h4>
         <form action="." method="POST">{% csrf_token %}
 
           {{ form.as_p }}
 
-          <p><input type="submit" value="{% trans "Backup anlegen" %}" class="btn"></p>
+          <p><input type="submit" value="{% trans "Create Backup" %}" class="btn"></p>
         </form>
       </div>
     </li>

@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<h1>{% trans "Konto-Einstellungen" %}</h1>
+<h1>{% trans "Account Settings" %}</h1>
 
 <form action="." method="POST">{% csrf_token %}
   <div>
@@ -34,6 +34,6 @@
       {{ form.old_password.errors }}
     {% endif %}
   </div>
-  <div><input type="submit" value="{% trans "Speichern" %}" class="btn"></div>
+  <div><input type="submit" value="{% trans "Save" %}" class="btn"></div>
 </form>
 {% endblock content %}

@@ -1,8 +1,8 @@
 {% load i18n %}
 
 <header>
-  <h1>{% trans "Meine Backups" %}</h1>
-  <a href="{% url datasource-select %}" class="btn-add">{% trans "Backup erstellen" %}</a>
+  <h1>{% trans "My Backups" %}</h1>
+  <a href="{% url datasource-select %}" class="btn-add">{% trans "Create Backup" %}</a>
 </header>
 
 {% if jobs %}
@@ -23,14 +23,14 @@
       </header>
       <div class="backup-summary">
         <ul>
-          <li><span class="key">{% trans "Daten-Quelle" %}: </span>Facebook</li>
-          <li><span class="key">{% trans "Speicher-Ziel" %}: </span>Dropbox</li>
-          <li><span class="key">{% trans "Backup-Status" %}: </span><span class="icon-backupstate-ok">OK</span></li>
+          <li><span class="key">{% trans "Data-Source" %}: </span>Facebook</li>
+          <li><span class="key">{% trans "Data-target" %}: </span>Dropbox</li>
+          <li><span class="key">{% trans "Backup-State" %}: </span><span class="icon-backupstate-ok">OK</span></li>
         </ul>
       </div>
       <div class="backup-details">
         <div class="bli-section">
-          <span class="key">{% trans "Daten-Quelle" %}</span>
+          <span class="key">{% trans "Data-Source" %}</span>
           <ul class="value">
             <li>Facebook</li>
             <li>John Doe</li>
@@ -38,7 +38,7 @@
           </ul>
         </div>
         <div class="bli-section">
-          <span class="key">{% trans "Speicher-Ziel" %}</span>
+          <span class="key">{% trans "Data-Target" %}</span>
           <ul class="value">
             <li>Dropbox</li>
             <li>John Doe</li>
@@ -47,7 +47,7 @@
         </div>
         {# TODO: pass backup-state as classname, eg: "ok", "inactive" #}
         <div class="bli-section backupstate-ok">
-          <span class="key">{% trans "Backup-Status" %}</span>
+          <span class="key">{% trans "Backup-State" %}</span>
           <ul class="value">
             <li><span class="backupstate-icon">OK</span></li>
             <li>nächstes Backup: 22.4.2012 9:00</li>
@@ -55,27 +55,27 @@
         </div>
         <div class="bli-section-options">
           <ul>
-            <li><a href="#link-to-backup-edit-page" class="edit-link">{% trans "Backup bearbeiten" %}</a></li>
+            <li><a href="#link-to-backup-edit-page" class="edit-link">{% trans "Edit Backup-Job" %}</a></li>
             <li>
               {# TODO: replace 'delete-modal1' with 'delete-modal{{ item.backupJobId }} for actual backup-jobs #}
-              <a href="#delete-modal1" class="delete-backup-handler" data-toggle="modal">{% trans "Backup löschen" %}</a>
+              <a href="#delete-modal1" class="delete-backup-handler" data-toggle="modal">{% trans "Delete Backup-Job" %}</a>
               <div id="delete-modal1" class="modal hide" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                  <h3>{% trans "Backup löschen" %}</h3>
+                  <h3>{% trans "Delete Backup-Job" %}</h3>
                 </div>
                 <form action="." method="post">
                 <div class="modal-body">
                   {# <p class="feedback-warning">{% trans "Achtung: Sie können diese Aktion nicht rückgängig machen!" %}</p> #}
-                  <p>{% trans "Wollen Sie das ausgewählte Backup wirklich löschen?" %}</p>
+                  <p>{% trans "Do really want to delete the selected Backup-Job?" %}</p>
                   <p class="note">
-                    {% trans "Durch das Löschen eines Backups werden keine neuen Backups dieses Typs angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten und müssen (bei Bedarf) manuell von Ihnen gelöscht werden." %}
+                    {% trans "By deleting a Backup-Job no further Backups will be created. Backups that have already been created will however remain on the data-target and need to be deleted manually." %}
                   </p>
                   {# <label><input type="checkbox"> {% trans "Ja, ich will das Backup löschen" %}</label> #}
                 </div>
                 <div class="modal-footer">
-                  <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "abbrechen" %}</button>
-                  <input type="submit" class="btn-delete" value="{% trans "Backup löschen" %}">
+                  <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "cancel" %}</button>
+                  <input type="submit" class="btn-delete" value="{% trans "Delete Backup" %}">
                 </div>
                 </form>
               </div>
@@ -287,5 +287,5 @@
     
   </ul>
 {% else %}
-  <p>{% trans "Noch keine Backups erstellt." %}</p>
+  <p>{% trans "No backups yet." %}</p>
 {% endif %}

@@ -28,16 +28,16 @@
         {#  TODO: decide whether to use bootstrap-library or not #}
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user }}</a>
         <ul id="user-dropdown" class="dropdown-menu">
-          <li><a href="{% url user-settings %}" class="icon-after-cogs">{% trans "Konto-Einstellungen" %}</a></li>
-          <li><a href="{% url django.contrib.auth.views.logout %}" class="icon-after-signout">{% trans "Abmelden" %}</a></li>
+          <li><a href="{% url user-settings %}" class="icon-after-cogs">{% trans "Account-Settings" %}</a></li>
+          <li><a href="{% url django.contrib.auth.views.logout %}" class="icon-after-signout">{% trans "Sign out" %}</a></li>
         </ul>
       </li>
       <li>
         {% include "www/includes/header_search.html" %}
       </li>
     {% else %}
-      <li><a href="{% url django.contrib.auth.views.login %}">{% trans "Einloggen" %}</a></li>
-      <li><a href="{% url signup %}">{% trans "Registrieren" %}</a></li>
+      <li><a href="{% url django.contrib.auth.views.login %}">{% trans "Sign In" %}</a></li>
+      <li><a href="{% url signup %}">{% trans "Sign Up" %}</a></li>
     {% endif %}
   </ul>
 </nav>
