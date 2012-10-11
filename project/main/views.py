@@ -11,11 +11,13 @@ from django.utils.translation import ugettext_lazy as _
 from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile
 from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, JobCreateForm, JobDeleteForm
 
+
 def get_sink_title(sinks, sink_id):
     sink_id = int(sink_id)
     for sink in sinks:
         if sink['datasinkProfileId'] == sink_id:
             return sink['title']
+
 
 def get_source_title(sources, source_id):
     source_id = int(source_id)
@@ -24,11 +26,13 @@ def get_source_title(sources, source_id):
             return source['title']
     return None
 
+
 def get_job(jobs, job_id):
     job_id = int(job_id)
     for job in jobs:
         if int(job['backupJobId']) == job_id:
             return job
+
 
 def index(request):
     context = {}
@@ -179,7 +183,6 @@ def oauth_callback(request):
 
 @login_required
 def job_create(request):
-    
     extra_data = {
         'datasource_profile_id': request.session['datasource_profile_id'],
         'datasink_profile_id': request.session['datasink_profile_id'],
@@ -204,7 +207,6 @@ def job_create(request):
 
 @login_required
 def job_log(request, job_id):
-    
     rest_jobs = RestJobs(username=request.user.username)
     job_status = rest_jobs.get_job_status(job_id=job_id)
     
@@ -226,7 +228,6 @@ def job_log(request, job_id):
             'id': source_id,
             'title': get_source_title(datasource_profiles, source_id)
         })
-    
     
     return render_to_response(
         "www/job_log.html",
