@@ -38,7 +38,6 @@ def index(request):
                 messages.add_message(request, messages.ERROR, _(u'Backup konnte nicht gelöscht werden.'))
         context['job_delete_form'] = job_delete_form
         
-        
         rest_jobs = RestJobs(username=request.user.username)
         jobs = rest_jobs.get_all()
 
@@ -192,5 +191,19 @@ def job_create(request):
         "www/job_create.html",
         {
             'form': form,
+        },
+        context_instance=RequestContext(request))
+
+
+@login_required
+def job_log(request, job_id):
+    
+    rest_jobs = RestJobs(username=request.user.username)
+    job_status = rest_jobs.get_job_status(job_id=job_id)
+    
+    return render_to_response(
+        "www/job_log.html",
+        {
+            'log': job_status['backupStatus'],
         },
         context_instance=RequestContext(request))
