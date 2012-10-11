@@ -391,7 +391,7 @@ p, ul, ol {
 // --- Dashboard END
 
 
-// --- New Backup
+// --- Create New Backup
 .add-backup-list{
   @include margin-leader(1);
   li{
@@ -436,3 +436,12 @@ p, ul, ol {
     }
   }
 }
+// --- Create New Backup END
+
+// --- Backup-Job Log
+.backup-summary-list{
+  
+  
+}
+
+

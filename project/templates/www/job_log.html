@@ -2,9 +2,15 @@
 
 {% load i18n %}
 
-{% block body_class %}class="home"{% endblock %}
-
 {% block content %}
+
+  {# <h1>Dummy Backup 4</h1> #}
+  {# <ul class="backup-summary-list"> #}
+  {#   <li><strong>{% trans "Data-Source" %}</strong>: Facebook, John Doe</li> #}
+  {#   <li><strong>{% trans "Data-Target" %}</strong>: Dropbox, John Doe</li> #}
+  {#   {# TODO: pass backup-state as classname, eg: "ok", "inactive" #} #}
+  {#   <li><span class="icon-backupstate-in-progress"><strong>{% trans "Backup-State" %}</strong>: Backup wird ausgeführt</span></li> #}
+  {# </ul> #}
   <ul>
     {% for item in log %}
       <li>
