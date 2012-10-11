@@ -208,7 +208,7 @@ class JobCreateForm(forms.Form):
         actions = rest_actions.get_all()
         
         for i, action in enumerate(actions):
-            action['options'] = rest_actions.options(action_id=action['actionId'])['actionOptions']
+            action['options'] = rest_actions.options(action_id=action['actionId'])
             
             self.fields['actions_value_%s' % i] = forms.BooleanField(label=_(action['title']), required=False, help_text=_(action['description']))
             self.fields['actions_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=action['actionId'])
