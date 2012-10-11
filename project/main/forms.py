@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.forms.widgets import CheckboxSelectMultiple
 
 #from access.models import User
-from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile, RestJobs
+from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile, RestJobs, RestActions
 
 BACKUP_JOB_TIME_EXPRESSION = (
     ('realtime', _('now')),
