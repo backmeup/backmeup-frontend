@@ -24,12 +24,18 @@ def get_source_title(sources, source_id):
             return source['title']
     return None
 
+def get_job(jobs, job_id):
+    job_id = int(job_id)
+    for job in jobs:
+        if int(job['backupJobId']) == job_id:
+            return job
+
 def index(request):
     context = {}
     if request.user.is_authenticated():
         
+        ### delete job form start
         job_delete_form = JobDeleteForm(request.POST or None)
-        
         if job_delete_form.is_valid():
             result = job_delete_form.rest_save(username=request.user.username)
             if result:
@@ -40,6 +46,7 @@ def index(request):
         
         rest_jobs = RestJobs(username=request.user.username)
         jobs = rest_jobs.get_all()
+        #### delete job form end
 
         if jobs and 'errorType' in jobs:
             messages.error(request, _(jobs['errorType']))
@@ -201,9 +208,30 @@ def job_log(request, job_id):
     rest_jobs = RestJobs(username=request.user.username)
     job_status = rest_jobs.get_job_status(job_id=job_id)
     
+    rest_jobs = RestJobs(username=request.user.username)
+    jobs = rest_jobs.get_all()
+    
+    job = get_job(jobs, job_id=job_id)
+    
+    rest_datasource_profile = RestDatasourceProfile(username=request.user.username)
+    datasource_profiles = rest_datasource_profile.get_all()
+    
+    rest_datasink_profile = RestDatasinkProfile(username=request.user.username)
+    datasink_profiles = rest_datasink_profile.get_all()
+    
+    job['datasinkTitle'] = get_sink_title(datasink_profiles, job['datasinkId'])
+    job['datasources'] = []
+    for source_id in job['datasourceIds']:
+        job['datasources'].append({
+            'id': source_id,
+            'title': get_source_title(datasource_profiles, source_id)
+        })
+    
+    
     return render_to_response(
         "www/job_log.html",
         {
+            'job': job,
             'log': job_status['backupStatus'],
         },
         context_instance=RequestContext(request))
