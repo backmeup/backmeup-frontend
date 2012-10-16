@@ -28,6 +28,7 @@
         {#  TODO: decide whether to use bootstrap-library or not #}
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user }}</a>
         <ul id="user-dropdown" class="dropdown-menu">
+          <li><a href="/" class="icon-after-inbox">{% trans "My Backups" %}</a></li>
           <li><a href="{% url user-settings %}" class="icon-after-cogs">{% trans "Account-Settings" %}</a></li>
           <li><a href="{% url django.contrib.auth.views.logout %}" class="icon-after-signout">{% trans "Sign out" %}</a></li>
         </ul>
