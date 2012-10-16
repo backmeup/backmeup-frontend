@@ -14,7 +14,7 @@ input {
       @include adjust-font-size-to(14px);
       @include rhythm-borders($width: 1px, $lines: 0, $font-size: 14px, $border-style: solid);
 //      font-size: 14px;
-      padding: 3px;
+      padding: 0 3px;
       @include box-sizing(border-box);
       height: $base-line-height;
       display: block;
