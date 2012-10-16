@@ -1150,7 +1150,7 @@ label {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\000038}}
 input[type="text"], input[type="password"] {
   font-size: 0.875em;
-  line-height: 0em;
+  line-height: 1.71429em;
   border-style: solid;
   border-width: 0.07143em;
   padding: -0.07143em;
