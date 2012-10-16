@@ -1064,6 +1064,12 @@ p, ul, ol {
   content: "\f00c";
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_flatpage\.scss}line{font-family:\000032}}
+.metapage-article ul {
+  padding-left: 1em;
+  list-style: disc outside;
+}
+
 @media only screen and (min-width: 768px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/layout\/_768\.scss}line{font-family:\000034}}
   .breadcrumbs a,

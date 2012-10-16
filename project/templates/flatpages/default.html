@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block html_title %}{{ flatpage.title }}{% endblock %}
 
-<h1>{{ flatpage.title }}</h1>
-<article class="article">
+{% block content %}
+<article class="metapage-article">
+  <h1>{{ flatpage.title }}</h1>
   {{ flatpage.content }}
 </article>
 {% endblock %}
