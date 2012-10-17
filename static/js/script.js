@@ -36,13 +36,21 @@ $(function(){
   //   $('.header-search-wrap').toggle();
   // })
   
+  
+  // --- LAYOUT --- //
   if ($(window).width() > 480) {
     $('.header-search-wrap').removeClass('dropdown-menu');
     $('.header-search-handler').hide();
   
   }
   
-  console.log($(window).width());
+  
+  
+  // --- HACKS --- //
+  // fixes bug where dropdown-links aren't fired on touch devices
+  $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { e.stopPropagation(); });
+  
+  
 
 
 })
