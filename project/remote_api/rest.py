@@ -220,10 +220,10 @@ class RestDatasourceProfile(RestBase):
         return self._post(path="profiles/" + profile_id + "/options", data=params)
 
     def put(self, profile_id, job_id, source_options):
-        if not profile_id:
-            raise ValueError('argument "profile_id" is missing.')
-        if not source_options:
-            raise ValueError('argument "source_options" is missing.')
+        #if not profile_id:
+        #    raise ValueError('argument "profile_id" is missing.')
+        #if not source_options:
+        #    raise ValueError('argument "source_options" is missing.')
 
         data = {
             "sourceOptions": source_options,

@@ -213,9 +213,10 @@ class JobCreateForm(forms.Form):
             self.fields['actions_value_%s' % i] = forms.BooleanField(label=_(action['title']), required=False, help_text=_(action['description']))
             self.fields['actions_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=action['actionId'])
             
-            for j, option in enumerate(action['options']):
-                self.fields['action_options_value_%s_%s' % (i, j)] = forms.BooleanField(label=_(option), required=False)
-                self.fields['action_options_key_%s_%s' % (i, j)] = forms.CharField(widget=forms.HiddenInput, initial=option)
+            # action options are just dummy yet
+            #for j, option in enumerate(action['options']):
+            #    self.fields['action_options_value_%s_%s' % (i, j)] = forms.BooleanField(label=_(option), required=False)
+            #    self.fields['action_options_key_%s_%s' % (i, j)] = forms.CharField(widget=forms.HiddenInput, initial=option)
         
     def rest_save(self):
         rest_jobs = RestJobs(username=self.extra_data['username'])
@@ -246,7 +247,8 @@ class JobCreateForm(forms.Form):
                 value = self.cleaned_data[key.replace('_value_', '_key_')]
                 actions.append(value)
             
-        datasource_options_result = rest_datasource_profile.put(self.extra_data['datasource_profile_id'], job_result['jobId'], source_options)
+        datasource_options_result = rest_datasource_profile.put(profile_id=self.extra_data['datasource_profile_id'], 
+            job_id=job_result['jobId'], source_options=source_options)
         
         #for key in self.cleaned_data
         
