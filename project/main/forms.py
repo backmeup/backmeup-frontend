@@ -234,13 +234,21 @@ class JobCreateForm(forms.Form):
         }
         
         source_options = ''
+        actions = []
         
         for key in self.cleaned_data:
-            if key.startswith('datasource_options_value_'):
-                if self.cleaned_data[key]:
-                    value = self.cleaned_data[key.replace('_value_', '_key_')]
-                    source_options = '%s"%s",' % (source_options, value)
+            
+            if key.startswith('datasource_options_value_') and self.cleaned_data[key]:
+                value = self.cleaned_data[key.replace('_value_', '_key_')]
+                source_options = '%s"%s",' % (source_options, value)
+            
+            if key.startswith('actions_value_') and self.cleaned_data[key]:
+                value = self.cleaned_data[key.replace('_value_', '_key_')]
+                actions.append(value)
+            
         datasource_options_result = rest_datasource_profile.put(self.extra_data['datasource_profile_id'], job_result['jobId'], source_options)
+        
+        #for key in self.cleaned_data
         
         #
         # actions!!!
