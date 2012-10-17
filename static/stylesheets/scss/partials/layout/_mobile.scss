@@ -1,0 +1,24 @@
+// "mobile" (small screens) exclusive styles
+@media only screen and (max-width: 767px) {
+  
+  //--- User-Navigation ---
+  #header-search-form label:before {
+    @include icon_before('\f002'); 
+  }
+  
+  .user-nav .dropdown-toggle{
+    @include adjust-font-size-to(20px);
+    line-height: 1em;
+    &:before {
+      @include icon_after('\f007');
+    }
+    span {
+      @include ir();
+      float: left;
+    }
+  }
+
+  //--- User-Navigation END ---
+  
+  
+}

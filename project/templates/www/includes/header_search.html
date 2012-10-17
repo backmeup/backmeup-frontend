@@ -1,8 +1,10 @@
 {% load i18n %}
 
 <form id="header-search-form" class="search" autocomplete="off" method="get" action=".">
-  <label class="hide_visual" for="header-search-field">{% trans "Search" %}</label>
-  <input id="header-search-field" type="text">
-  <button class="searchsubmit" type="submit" title="{% trans "search" %}"></button>
-  <span class="reset-search"></span>
+  <label class="header-search-handler dropdown-toggle" data-toggle="dropdown" for="header-search-field"><span>{% trans "Search" %}</span></label>
+  <div class="header-search-wrap dropdown-menu">
+    <input id="header-search-field" type="text">
+    <button class="searchsubmit" type="submit" title="{% trans "search" %}"></button>
+    <span class="reset-search"></span>
+  </div>
 </form>

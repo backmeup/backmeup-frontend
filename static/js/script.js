@@ -29,7 +29,20 @@ $(function(){
     }
   })
   
-
+  
+  // --- header search form --- //
+  // $('.header-search-handler').on('click', function(){
+  //   $('.user-nav').find('li.dropdown').removeClass('open');
+  //   $('.header-search-wrap').toggle();
+  // })
+  
+  if ($(window).width() > 480) {
+    $('.header-search-wrap').removeClass('dropdown-menu');
+    $('.header-search-handler').hide();
+  
+  }
+  
+  console.log($(window).width());
 
 
 })

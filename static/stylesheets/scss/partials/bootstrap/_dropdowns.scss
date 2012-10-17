@@ -161,6 +161,9 @@
   color: #fff;
   text-decoration: none;
 }
+.user-nav .user-item .dropdown-toggle:after {
+  @include icon_after('\f0d7');
+}
 .user-nav .dropdown-menu a {
   color: $clr-link;
 }
@@ -182,5 +185,38 @@
   right: .5em;
   left: auto;
 }
+
+// search-dropdown
+.user-nav{
+  .search-item{
+    .dropdown-menu{
+      padding: 5px;
+      right: 0;
+    }
+    .open {
+      .searchsubmit {
+        position: absolute;
+        right: 10px;
+        top: 7px;
+        &:after {
+          color: $clr-link;
+        }
+      }
+    }
+    #header-search-form.open label:before{
+      content: '\f00d';
+    }
+    #header-search-field {
+      padding-right: 2em;
+    }
+  }
+}
+
+// search-dropdown END
+
+
+
+
+
 
 

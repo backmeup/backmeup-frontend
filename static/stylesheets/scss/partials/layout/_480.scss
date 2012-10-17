@@ -1,0 +1,22 @@
+@media only screen and (min-width: 480px) {
+  // --- Dashboard --- //
+  .dashboard h1{
+    display:inline;
+  }
+  .dashboard .btn-add {
+    float:right;
+    @include margin-leader(.25);
+  }
+  // --- Dashboard END --- //
+  
+  
+  .modal {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    margin: 0;
+  }
+  
+}

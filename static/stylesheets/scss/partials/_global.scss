@@ -99,13 +99,6 @@ p, ul, ol {
   }
 
 }
-.user-nav .dropdown-toggle {
-  color: white;
-  text-decoration: none;
-}
-.user-nav .dropdown-toggle:after {
-  @include icon_after('\f0d7');
-}
 
 // breadcrumbs
 .breadcrumbs,
@@ -128,11 +121,23 @@ p, ul, ol {
 #header-search-form {
   border-left: 1px solid $clr-text2;
   margin-left: .5em;
-  padding-left: 1em;
+  padding-left: .5em;
+  label {
+    color: #fff;
+    @include adjust-font-size-to(20px);
+    line-height: 1em;
+    display: inline-block;
+    &:hover {
+      cursor: pointer;
+    }
+    span {
+      @include ir();
+      float: left;
+    }
+  }
 }
-#header-search-form label {
-//  TODO: compare to standard hide-visual technique
-  @include squish-text();
+.header-search-wrap {
+  margin: 0;
 }
 #header-search-field {
   float: left;
@@ -268,13 +273,6 @@ p, ul, ol {
 
 
 // --- Dashboard
-.dashboard h1{
-  display:inline;
-}
-.dashboard .btn-add {
-  float:right;
-  @include margin-leader(.25);
-}
 .backup-list {
   @include margin-leader(1);
   > li{
@@ -314,19 +312,20 @@ p, ul, ol {
     border-top-width: 0;
     border-radius: 0 0 $default-border-radius $default-border-radius;
     ul{
-      @include horizontal-list();
-      li{
-        &:before{
-          content: '\2022';
-          display: inline-block;
-          margin-right: .5em;
-        }
-        &:first-child:before{
-          content:"";
-          display:none;
-          margin-right:0;
-        }
-      }
+      margin-bottom: 0;
+//      @include horizontal-list();
+//      li{
+//        &:before{
+//          content: '\2022';
+//          display: inline-block;
+//          margin-right: .5em;
+//        }
+//        &:first-child:before{
+//          content:"";
+//          display:none;
+//          margin-right:0;
+//        }
+//      }
     }
   }
   .backup-details{
@@ -360,19 +359,20 @@ p, ul, ol {
     border-radius: 0 0 $default-border-radius $default-border-radius;
     background: $bg-clr2;
     > ul{
-      @include horizontal-list();
-      li{
-        &:before{
-          content: '\2022';
-          display: inline-block;
-          margin-right: .5em;
-        }
-        &:first-child:before{
-          content:"";
-          display:none;
-          margin-right:0;
-        }
-      }
+        margin-bottom: 0;
+//      @include horizontal-list();
+//      li{
+//        &:before{
+//          content: '\2022';
+//          display: inline-block;
+//          margin-right: .5em;
+//        }
+//        &:first-child:before{
+//          content:"";
+//          display:none;
+//          margin-right:0;
+//        }
+//      }
     }
     .edit-link:after{
       @include icon_after('\f040');
@@ -450,5 +450,5 @@ p, ul, ol {
   
   
 }
-
+// --- Backup-Job Log END
 

@@ -109,6 +109,8 @@ $default-border-radius: 5px;
   text-decoration: none;
   content:$icon;
 }
+// use mixin "ir" instead of extending the class "ir" from inside media-queries
+@mixin ir() { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 
 // ---------------------------------------------------------------------------
 // Includes
