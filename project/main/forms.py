@@ -246,7 +246,9 @@ class JobCreateForm(forms.Form):
             if key.startswith('actions_value_') and self.cleaned_data[key]:
                 value = self.cleaned_data[key.replace('_value_', '_key_')]
                 actions.append(value)
-            
+        
+        print "####actions:", actions
+        
         datasource_options_result = rest_datasource_profile.put(profile_id=self.extra_data['datasource_profile_id'], 
             job_id=job_result['jobId'], source_options=source_options)
         
