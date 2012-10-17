@@ -1922,6 +1922,11 @@ a [class*=" icon-"] {
     width: auto;
     margin: 0;
   }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/layout\/_480\.scss}line{font-family:\0000322}}
+  #header-search-form {
+    padding-left: 1em;
+  }
 }
 @media only screen and (min-width: 768px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/layout\/_768\.scss}line{font-family:\000039}}
