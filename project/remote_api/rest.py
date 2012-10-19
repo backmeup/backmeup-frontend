@@ -360,10 +360,11 @@ class RestJobs(RestBase):
 
         params = {
             'sourceProfileIds': data['source_profile_ids'],
-            #'requiredActionIds': data['required_action_ids'],
+            'requiredActionIds': data['actions'],
             'sinkProfileId': data['sink_profile_ids'],
             'timeExpression': data['time_expression'],
             'keyRing': data['key_ring'],
+            'jobTitle': data['title'],
         }
 
         return self._post(data=params)

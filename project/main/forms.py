@@ -167,7 +167,8 @@ class JobDeleteForm(forms.Form):
 class JobCreateForm(forms.Form):
 
     #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
-
+    
+    title = forms.CharField(label=_("Title"), required=True)
     time_expression = forms.ChoiceField(choices=BACKUP_JOB_TIME_EXPRESSION, initial='realtime')
 
     def __init__(self, *args, **kwargs):
@@ -217,23 +218,8 @@ class JobCreateForm(forms.Form):
             #for j, option in enumerate(action['options']):
             #    self.fields['action_options_value_%s_%s' % (i, j)] = forms.BooleanField(label=_(option), required=False)
             #    self.fields['action_options_key_%s_%s' % (i, j)] = forms.CharField(widget=forms.HiddenInput, initial=option)
-        
+            
     def rest_save(self):
-        rest_jobs = RestJobs(username=self.extra_data['username'])
-        data = {
-            "key_ring": self.extra_data['key_ring'],
-            'time_expression': self.cleaned_data['time_expression'],
-            'source_profile_ids': self.extra_data['datasource_profile_id'],
-            'sink_profile_ids': self.extra_data['datasink_profile_id'],
-            #'required_action_ids': '',
-        }
-        job_result = rest_jobs.post(data=data)
-        
-        rest_datasource_profile = RestDatasourceProfile(username=self.extra_data['username'])
-        data = {
-            "keyRing": self.extra_data['key_ring'],
-        }
-        
         source_options = ''
         actions = []
         
@@ -246,6 +232,23 @@ class JobCreateForm(forms.Form):
             if key.startswith('actions_value_') and self.cleaned_data[key]:
                 value = self.cleaned_data[key.replace('_value_', '_key_')]
                 actions.append(value)
+        
+        rest_jobs = RestJobs(username=self.extra_data['username'])
+        data = {
+            "key_ring": self.extra_data['key_ring'],
+            'time_expression': self.cleaned_data['time_expression'],
+            'source_profile_ids': self.extra_data['datasource_profile_id'],
+            'sink_profile_ids': self.extra_data['datasink_profile_id'],
+            'title': self.extra_data['title'],
+            'actions': actions,
+        }
+        job_result = rest_jobs.post(data=data)
+        
+        rest_datasource_profile = RestDatasourceProfile(username=self.extra_data['username'])
+        data = {
+            "keyRing": self.extra_data['key_ring'],
+        }
+        
         
         print "####actions:", actions
         
