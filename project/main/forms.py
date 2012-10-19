@@ -239,7 +239,7 @@ class JobCreateForm(forms.Form):
             'time_expression': self.cleaned_data['time_expression'],
             'source_profile_ids': self.extra_data['datasource_profile_id'],
             'sink_profile_ids': self.extra_data['datasink_profile_id'],
-            'title': self.extra_data['title'],
+            'title': self.cleaned_data['title'],
             'actions': actions,
         }
         job_result = rest_jobs.post(data=data)
