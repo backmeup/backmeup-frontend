@@ -1004,30 +1004,32 @@ input[type="text"], input[type="password"] {
   background-color: white;
   border-color: #87888A;
   border-radius: 3px;
+  min-width: 220px;
+  max-width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000325}}
 input[type="text"]:focus, input[type="password"]:focus {
   border-color: rgba(82, 168, 236, 0.8);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
   outline: 0 none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000333}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000330}}
 input[type="checkbox"], input[type="radio"] {
   height: 24px;
   float: left;
   margin-right: 0.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000335}}
 .helptext {
   display: block;
   font-size: 0.875em;
   line-height: 1.71429em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000342}}
 .errorlist,
 .form-error {
   color: #ff1d25;

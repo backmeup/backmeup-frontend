@@ -18,7 +18,8 @@ class UserCreationForm(forms.ModelForm):
     #    error_messages={'invalid': _("This value may contain only letters, numbers and @/./+/-/_ characters.")})
     email = forms.EmailField(label=_('Email'), max_length=254)
 
-    password1 = forms.CharField(label=_("Password"), widget=forms.PasswordInput)
+    password1 = forms.CharField(label=_("Password"), widget=forms.PasswordInput, 
+        help_text=_("Your password needs to be at least 9 characters long."))
     password2 = forms.CharField(label=_("Password confirmation"), widget=forms.PasswordInput,
         help_text=_("Enter the same password as above, for verification."))
 
