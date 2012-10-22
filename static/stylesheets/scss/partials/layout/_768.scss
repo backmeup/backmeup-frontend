@@ -58,6 +58,19 @@
   border-left: 0;
 }
 
+// --- Home START
+#teaser-nav{
+  li{
+    float: left;
+    width: 30%;
+    margin-left: 5%;    
+    &:first-child{
+      margin-left:0; 
+    }
+  }
+}
+// --- Home END
+
 
 // --- Dashboard
 .backup-list {
