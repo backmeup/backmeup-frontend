@@ -8,4 +8,4 @@ PIL==1.1.7
 django_compressor
 South
 requests
-django-rosetta==
+django-rosetta==0.6.3
