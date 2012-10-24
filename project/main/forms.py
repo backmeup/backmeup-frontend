@@ -32,8 +32,6 @@ class DatasourceSelectForm(forms.Form):
         for item in datasources:
             choices.append((item['datasourceId'], item['title']))
         
-        print "@@@@@@@@@@@@@@@@@@@@choices", choices
-        
         self.fields['datasource'] = forms.ChoiceField(label=_("Datasource"), widget=forms.RadioSelect, choices=choices)
 
     def rest_save(self, username, key_ring):

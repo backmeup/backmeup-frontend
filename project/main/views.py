@@ -105,10 +105,9 @@ def datasource_select(request):
                 return redirect(auth_data['redirectURL'])
             return redirect('datasource-auth')
     
-    context = additional_context(request).update({
-        'form': form,
-    })
-    print "##############################context", context
+    context = additional_context(request)
+    context['form'] = form
+    
     return render_to_response(
         "www/datasource_select.html",
         context,
@@ -131,11 +130,12 @@ def datasource_auth(request):
             del request.session['auth_data']
             return redirect('datasink-select')
     
+    context = additional_context(request)
+    context['form'] = form
+    
     return render_to_response(
         "www/datasource_auth.html",
-        additional_context(request).update({
-            'form': form,
-        }),
+        context,
         context_instance=RequestContext(request))
 
 
@@ -151,11 +151,13 @@ def datasink_select(request):
                 request.session['next_step'] = 'datasink-auth'
                 return redirect(auth_data['redirectURL'])
             return redirect('datasink-auth')
+    
+    context = additional_context(request)
+    context['form'] = form
+    
     return render_to_response(
         "www/datasink_select.html",
-        additional_context(request).update({
-            'form': form,
-        }),
+        context,
         context_instance=RequestContext(request))
 
 
@@ -174,11 +176,12 @@ def datasink_auth(request):
         del request.session['auth_data']
         return redirect('job-create')
     
+    context = additional_context(request)
+    context['form'] = form
+    
     return render_to_response(
         "www/datasink_auth.html",
-        additional_context(request).update({
-            'form': form,
-        }),
+        context,
         context_instance=RequestContext(request))
 
 
@@ -214,11 +217,11 @@ def job_create(request):
         if result:
             return redirect('index')
 
+    context = additional_context(request)
+    context['form'] = form
     return render_to_response(
         "www/job_create.html",
-        additional_context(request).update({
-            'form': form,
-        }),
+        context,
         context_instance=RequestContext(request))
 
 
