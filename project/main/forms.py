@@ -30,7 +30,7 @@ class DatasourceSelectForm(forms.Form):
         choices = []
 
         for item in datasources:
-            choices.append((item['datasourceId'], item['title']))
+            choices.append((item['datasourceId'], _(item['title'])))
         
         self.fields['datasource'] = forms.ChoiceField(label=_("Datasource"), widget=forms.RadioSelect, choices=choices)
 
