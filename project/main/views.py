@@ -105,11 +105,13 @@ def datasource_select(request):
                 return redirect(auth_data['redirectURL'])
             return redirect('datasource-auth')
     
+    context = additional_context(request).update({
+        'form': form,
+    })
+    print "##############################context", context
     return render_to_response(
         "www/datasource_select.html",
-        additional_context(request).update({
-            'form': form,
-        }),
+        context,
         context_instance=RequestContext(request))
 
 
