@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.conf import settings
-from django.conf.urls import patterns, include, url
+from django.conf.urls.defaults import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from django.views.generic import TemplateView
@@ -51,11 +51,16 @@ urlpatterns = patterns('',
 
 )
 
+if 'rosetta' in settings.INSTALLED_APPS:
+    urlpatterns += patterns('',
+        url(r'^rosetta/', include('rosetta.urls')),
+    )
+
+# static files
+urlpatterns += staticfiles_urlpatterns()
 
 ### DEBUG urls
 if settings.DEBUG:
-    # static files
-    urlpatterns += staticfiles_urlpatterns()
     
     # media
     urlpatterns += patterns('',
