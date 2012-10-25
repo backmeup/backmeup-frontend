@@ -227,8 +227,8 @@ class JobCreateForm(forms.Form):
     
     def field_group_datasource_options(self):
         return [self[name] for name in filter(lambda x: x.startswith('datasource_options_value_')]
-    
-    def field_group_datasource_options(self):
+
+    def field_group_actions(self):
         return [self[name] for name in filter(lambda x: x.startswith('actions_value_')]
     
     def rest_save(self):
