@@ -37,7 +37,19 @@
             {{ hidden }}
           {% endfor %}
 
-          {% for field in form.visible_fields %}
+          {# {% for field in form.visible_fields %} #}
+          {#           <div> #}
+          {#             <label>{{ field }}{{ field.label }}</label> #}
+          {#             {% if field.errors %} #}
+          {#               {{ field.errors }} #}
+          {#             {% endif %} #}
+          {#           </div> #}
+          {#           {% endfor %} #}
+          {#            #}
+          {#           <hr/> #}
+          
+          <h1>field group job</h1>
+          {% for field in form.field_group_job %}
           <div>
             <label>{{ field }}{{ field.label }}</label>
             {% if field.errors %}
@@ -45,7 +57,28 @@
             {% endif %}
           </div>
           {% endfor %}
-
+          
+          
+          <h1>field group datasource options</h1>
+          {% for field in form.field_group_datasource_options %}
+          <div>
+            <label>{{ field }}{{ field.label }}</label>
+            {% if field.errors %}
+              {{ field.errors }}
+            {% endif %}
+          </div>
+          {% endfor %}
+          
+          <h1>field group actions</h1>
+          {% for field in form.field_group_actions %}
+          <div>
+            <label>{{ field }}{{ field.label }}</label>
+            {% if field.errors %}
+              {{ field.errors }}
+            {% endif %}
+          </div>
+          {% endfor %}
+          
           <p><input type="submit" value="{% trans "Create Backup" %}" class="btn"></p>
         </form>
       </div>

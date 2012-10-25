@@ -221,24 +221,16 @@ class JobCreateForm(forms.Form):
     
     def field_group_job(self):
         return [
-            self.fields['title'],
-            self.fields['time_expression'],
+            self.title,
+            self.time_expression,
         ]
-    
+
     def field_group_datasource_options(self):
-        stuff = []
-        for name in self.fields:
-            if name.startswith('datasource_options_value_'):
-                stuff.append(self.fields[name])
-        return stuff
+        return [field for field in self if field.name.startswith('datasource_options_value_')]
 
     def field_group_actions(self):
-        stuff = []
-        for name in self.fields:
-            if name.startswith('actions_value_'):
-                stuff.append(self.fields[name])
-        return stuff
-    
+        return [field for field in self if field.name.startswith('actions_value_')]
+
     def rest_save(self):
         source_options = ''
         actions = []
