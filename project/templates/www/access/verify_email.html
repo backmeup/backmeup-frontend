@@ -11,6 +11,9 @@
 
 <form action="." method="post">{% csrf_token %}
   <div>
+    {{ form.non_field_errors }}
+  </div>
+  <div>
     {{ form.verify_hash.label }}
     {{ form.verify_hash }}
     <span class="helptext">{{ form.verify_hash.help_text }}</span>

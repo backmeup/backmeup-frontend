@@ -161,17 +161,17 @@ class UserEmailVerificationForm(forms.Form):
 
     verify_hash = forms.CharField(label=_("Verification Key"))
 
-    def save(self):
+    def clean(self):
         rest_api = RestEmailVerification()
 
-        if rest_api.verify(self.cleaned_data["verify_hash"]):
-            return True
+        result = rest_api.verify(self.cleaned_data["verify_hash"])
+        if "errorMessage" in result:
+            raise forms.ValidationError(_(result['errorMessage']))
         else:
-            return False
+            return True
 
 
 class UserSettingsForm(forms.Form):
-
 
     email = forms.EmailField(label=_('Email'), max_length=254, required=False)
 
