@@ -218,7 +218,19 @@ class JobCreateForm(forms.Form):
             #for j, option in enumerate(action['options']):
             #    self.fields['action_options_value_%s_%s' % (i, j)] = forms.BooleanField(label=_(option), required=False)
             #    self.fields['action_options_key_%s_%s' % (i, j)] = forms.CharField(widget=forms.HiddenInput, initial=option)
-            
+    
+    def field_group_job(self):
+        return [
+            self.fields['title'],
+            self.fields['time_expression'],
+        ]
+    
+    def field_group_datasource_options(self):
+        return [self[name] for name in filter(lambda x: x.startswith('datasource_options_value_')]
+    
+    def field_group_datasource_options(self):
+        return [self[name] for name in filter(lambda x: x.startswith('actions_value_')]
+    
     def rest_save(self):
         source_options = ''
         actions = []
