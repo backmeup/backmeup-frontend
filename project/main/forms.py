@@ -220,11 +220,11 @@ class JobCreateForm(forms.Form):
             #    self.fields['action_options_key_%s_%s' % (i, j)] = forms.CharField(widget=forms.HiddenInput, initial=option)
     
     def field_group_job(self):
-        return [
-            self.title,
-            self.time_expression,
+        return return [
+            self['title'],
+            self['time_expression'],
         ]
-
+    
     def field_group_datasource_options(self):
         return [field for field in self if field.name.startswith('datasource_options_value_')]
 
