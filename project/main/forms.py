@@ -2,7 +2,7 @@
 
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from django.forms.widgets import CheckboxSelectMultiple
+#from django.forms.widgets import CheckboxSelectMultiple
 
 #from access.models import User
 from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile, RestJobs, RestAction
@@ -226,13 +226,17 @@ class JobCreateForm(forms.Form):
         ]
     
     def field_group_datasource_options(self):
-        stuff = [self[name] for name in filter(lambda x: x.startswith('datasource_options_value_'), self.fields.values()]
-        print "###########################field_group_datasource_options", stuff
+        stuff = []
+        for name in self.fields:
+            if name.startswith('datasource_options_value_'):
+                stuff.append(self.fields[name])
         return stuff
 
     def field_group_actions(self):
-        stuff = [self[name] for name in filter(lambda x: x.startswith('actions_value_'), self.fields.values()]
-        print "###########################field_group_actions", stuff
+        stuff = []
+        for name in self.fields:
+            if name.startswith('actions_value_'):
+                stuff.append(self.fields[name])
         return stuff
     
     def rest_save(self):
