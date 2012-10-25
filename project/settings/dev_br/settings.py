@@ -136,6 +136,7 @@ INSTALLED_APPS = (
     # backend
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'rosetta',
     
     # utils
     'compressor',
