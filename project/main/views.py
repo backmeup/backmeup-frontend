@@ -42,7 +42,7 @@ def additional_context(request):
         context['datasource_profile'] = rest_datasource.get(request.session['datasource_profile_id'])
     
     if 'datasink_profile_id' in request.session:
-        rest_datasink = RestDataskinProfile(username=request.user.username)
+        rest_datasink = RestDatasinkProfile(username=request.user.username)
         context['datasource_profile'] = rest_datasink.get(request.session['datasink_profile_id'])
     
     return context
