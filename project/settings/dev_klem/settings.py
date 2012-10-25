@@ -77,12 +77,6 @@ STATIC_ROOT = os.path.join(BASE_ROOT, 'static_collect')
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
-# URL prefix for admin media -- CSS, JavaScript and images.
-# Make sure to use a trailing slash.
-# Examples: "http://foo.com/static/admin/", "/static/admin/".
-# DEPRECATED
-ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
-
 # Additional locations of static files
 STATICFILES_DIRS = (
     os.path.join(BASE_ROOT, 'static'),
@@ -142,10 +136,6 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     
     # backend
-    #'grappelli.dashboard',
-    'grappellifit',
-    'grappelli',
-    'filebrowser',
     'django.contrib.admin',
     'django.contrib.admindocs',
     'rosetta',
@@ -184,12 +174,6 @@ LOGGING = {
         },
     }
 }
-
-
-#
-# django-grappelli
-#
-GRAPPELLI_ADMIN_TITLE = "backmeup"
 
 AUTH_PROFILE_MODULE = 'access.UserProfile'
 

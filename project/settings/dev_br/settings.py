@@ -134,9 +134,6 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     
     # backend
-    #'grappelli.dashboard',
-    'grappelli',
-    'filebrowser',
     'django.contrib.admin',
     'django.contrib.admindocs',
     
@@ -180,13 +177,5 @@ LOGGING = {
     }
 }
 
-
-#
-# django-grappelli
-#
-GRAPPELLI_ADMIN_TITLE = "backmeup"
-
-
-AUTH_PROFILE_MODULE = 'access.UserProfile'
 
 REST_API_BASE_URL = "http://bmu-dev01.x:8080/"

@@ -1,3 +1,0 @@
-include LICENSE
-recursive-include grappellifit/static *
-recursive-include grappellifit/templates *

@@ -6,8 +6,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from django.views.generic import TemplateView
 
-from filebrowser.sites import site
-
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -18,8 +16,6 @@ urlpatterns = patterns('',
     # url(r'^project/', include('project.foo.urls')),
     
     # admin
-    url(r'^grappelli/', include('grappelli.urls')),
-    url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     
