@@ -4,8 +4,6 @@
 
 {% block html_title %}{% trans "Create new Backup" %}{% endblock %}
 
-{% block body_class %}class="home"{% endblock %}
-
 {% block content %}
   <hgroup class="hgroup">
     <h1>{% trans "Create new Backup" %}</h1> 
@@ -16,14 +14,12 @@
     <li class="finished-backup-step">
       <h3>{% trans "1. Data-Source" %}</h3>
       <div class="add-backup-content">
-        {# TODO: display selected data-source #}
         <h4>{% trans "selected data-source" %}: {{ datasource_profile.title }}</h4>
       </div>
     </li>
     <li class="finished-backup-step">
       <h3>{% trans "2. Data-Target" %}</h3>
       <div class="add-backup-content">
-        {# TODO: display selected data-source #}
         <h4>{% trans "selected data-target" %}: {{ datasink_profile.title }}</h4>
       </div>
     </li>
@@ -36,30 +32,19 @@
           {% for hidden in form.hidden_fields %}
             {{ hidden }}
           {% endfor %}
-
-          {# {% for field in form.visible_fields %} #}
-          {#           <div> #}
-          {#             <label>{{ field }}{{ field.label }}</label> #}
-          {#             {% if field.errors %} #}
-          {#               {{ field.errors }} #}
-          {#             {% endif %} #}
-          {#           </div> #}
-          {#           {% endfor %} #}
-          {#            #}
-          {#           <hr/> #}
           
-          <h1>field group job</h1>
+          <h5>{% trans "Backup settings" %}</h5>
           {% for field in form.field_group_job %}
           <div>
-            <label>{{ field }}{{ field.label }}</label>
+            <label>{{ field.label }}</label>
+            {{ field }}
             {% if field.errors %}
               {{ field.errors }}
             {% endif %}
           </div>
           {% endfor %}
           
-          
-          <h1>field group datasource options</h1>
+          <h5>{% trans "Datasource options" %}</h5>
           {% for field in form.field_group_datasource_options %}
           <div>
             <label>{{ field }}{{ field.label }}</label>
@@ -69,7 +54,7 @@
           </div>
           {% endfor %}
           
-          <h1>field group actions</h1>
+          <h5>{% trans "Backup actions" %}</h5>
           {% for field in form.field_group_actions %}
           <div>
             <label>{{ field }}{{ field.label }}</label>

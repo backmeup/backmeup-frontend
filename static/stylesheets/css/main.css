@@ -383,7 +383,7 @@ h3 {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\0000326}}
-h4 {
+h4, h5, h6 {
   font-size: 1em;
   line-height: 1.5em;
 }
