@@ -42,3 +42,13 @@ input[type="checkbox"], input[type="radio"] {
 .form-error {
   color: $clr-error;
 }
+
+
+
+.form-job-create {
+  fieldset {
+    @include margin-trailer(1);
+    background: $bg-clr-note;
+  }
+  
+}

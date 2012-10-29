@@ -27,42 +27,48 @@
       <h3>{% trans "3. Backup-Options" %}</h3>
       <div class="add-backup-content">
         <h4>{% trans "Step 3: select backup-options" %}</h4>
-        <form action="." method="POST">{% csrf_token %}
+        <form action="." method="POST" class="form-job-create">{% csrf_token %}
 
           {% for hidden in form.hidden_fields %}
             {{ hidden }}
           {% endfor %}
           
-          <h5>{% trans "Backup settings" %}</h5>
-          {% for field in form.field_group_job %}
-          <div>
-            <label>{{ field.label }}</label>
-            {{ field }}
-            {% if field.errors %}
-              {{ field.errors }}
-            {% endif %}
-          </div>
-          {% endfor %}
+          <fieldset>
+            <legend>{% trans "Backup settings" %}</legend>
+            {% for field in form.field_group_job %}
+            <div>
+              <label>{{ field.label }}</label>
+              {{ field }}
+              {% if field.errors %}
+                {{ field.errors }}
+              {% endif %}
+            </div>
+            {% endfor %}
+          </fieldset>
           
-          <h5>{% trans "Datasource options" %}</h5>
-          {% for field in form.field_group_datasource_options %}
-          <div>
-            <label>{{ field }}{{ field.label }}</label>
-            {% if field.errors %}
-              {{ field.errors }}
-            {% endif %}
-          </div>
-          {% endfor %}
+          <fieldset>
+            <legend>{% trans "Datasource options" %}</legend>
+            {% for field in form.field_group_datasource_options %}
+            <div>
+              <label>{{ field }}{{ field.label }}</label>
+              {% if field.errors %}
+                {{ field.errors }}
+              {% endif %}
+            </div>
+            {% endfor %}
+          </fieldset>
           
-          <h5>{% trans "Backup actions" %}</h5>
-          {% for field in form.field_group_actions %}
-          <div>
-            <label>{{ field }}{{ field.label }}</label>
-            {% if field.errors %}
-              {{ field.errors }}
-            {% endif %}
-          </div>
-          {% endfor %}
+          <fieldset>
+            <legend>{% trans "Backup actions" %}</legend>
+            {% for field in form.field_group_actions %}
+            <div>
+              <label>{{ field }}{{ field.label }}</label>
+              {% if field.errors %}
+                {{ field.errors }}
+              {% endif %}
+            </div>
+            {% endfor %}
+          </fieldset>
           
           <p><input type="submit" value="{% trans "Create Backup" %}" class="btn"></p>
         </form>
