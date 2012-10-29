@@ -1,5 +1,10 @@
-form div {
-  @include margin-trailer(1);
+form {
+  div {
+    @include margin-trailer(1);
+  }
+  .checkbox-group div {
+    @include margin-trailer(.25);
+  }
 }
 label {
   display: block;
@@ -31,6 +36,15 @@ input[type="checkbox"], input[type="radio"] {
   height: $base-line-height;
   float: left;
   margin-right: 0.5em;
+}
+select {
+  min-width: 220px;
+  max-width: 100%;
+  option:hover {
+    cursor: pointer;
+    color: #ffffff;
+    background-color: $bg-clr1;
+  }
 }
 .helptext {
   display: block;

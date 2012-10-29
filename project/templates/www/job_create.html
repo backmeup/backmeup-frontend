@@ -48,26 +48,30 @@
           
           <fieldset>
             <legend>{% trans "Datasource options" %}</legend>
-            {% for field in form.field_group_datasource_options %}
-            <div>
-              <label>{{ field }}{{ field.label }}</label>
-              {% if field.errors %}
-                {{ field.errors }}
-              {% endif %}
+            <div class="checkbox-group">
+              {% for field in form.field_group_datasource_options %}
+              <div>
+                <label>{{ field }}{{ field.label }}</label>
+                {% if field.errors %}
+                  {{ field.errors }}
+                {% endif %}
+              </div>
+              {% endfor %}
             </div>
-            {% endfor %}
           </fieldset>
           
           <fieldset>
             <legend>{% trans "Backup actions" %}</legend>
-            {% for field in form.field_group_actions %}
-            <div>
-              <label>{{ field }}{{ field.label }}</label>
-              {% if field.errors %}
-                {{ field.errors }}
-              {% endif %}
+            <div class="checkbox-group">
+              {% for field in form.field_group_actions %}
+              <div>
+                <label>{{ field }}{{ field.label }}</label>
+                {% if field.errors %}
+                  {{ field.errors }}
+                {% endif %}
+              </div>
+              {% endfor %}
             </div>
-            {% endfor %}
           </fieldset>
           
           <p><input type="submit" value="{% trans "Create Backup" %}" class="btn"></p>
