@@ -48,7 +48,11 @@ input[type="checkbox"], input[type="radio"] {
 .form-job-create {
   fieldset {
     @include margin-trailer(1);
-    background: $bg-clr-note;
+    border-width: 0;
+    border-bottom-width: 1px;
+  }
+  legend {
+    font-weight: bold;
   }
   
 }

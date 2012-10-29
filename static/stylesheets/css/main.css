@@ -1038,7 +1038,12 @@ input[type="checkbox"], input[type="radio"] {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000349}}
 .form-job-create fieldset {
   margin-bottom: 1.5em;
-  background: whitesmoke;
+  border-width: 0;
+  border-bottom-width: 1px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000354}}
+.form-job-create legend {
+  font-weight: bold;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\000031}}
