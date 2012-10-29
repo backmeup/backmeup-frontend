@@ -38,6 +38,17 @@ TIME_ZONE = 'Europe/Vienna'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'de'
 
+gettext = lambda s: s
+
+LANGUAGES = (
+    ('de', gettext('German')),
+)
+
+LOCALE_PATHS = (
+    os.path.join(PROJECT_ROOT, 'locale'),
+)
+
+
 SITE_ID = 3
 
 # If you set this to False, Django will make some optimizations so as not
