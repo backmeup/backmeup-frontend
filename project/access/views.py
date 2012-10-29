@@ -160,7 +160,7 @@ def verify_email(request, verify_hash=None):
 
 
 def user_settings(request):
-    form = UserSettingsForm(request.user, request.POST or None)
+    form = UserSettingsForm(request.user, request.POST or None, initial={'email': request.user.username})
     if form.is_valid():
         form.save()
         return redirect('user-settings')
