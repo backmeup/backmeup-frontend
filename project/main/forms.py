@@ -155,7 +155,7 @@ class DatasinkAuthForm(forms.Form):
 
 class JobDeleteForm(forms.Form):
     
-    confirm = forms.BooleanField(label=_("Ja, ich will das Backup löschen"), required=True)
+    #confirm = forms.BooleanField(label=_("Ja, ich will das Backup löschen"), required=True)
     job_id = forms.CharField(label=_("Backup Name"), widget=forms.HiddenInput, required=True)
     
     def rest_save(self, username):
