@@ -1,11 +1,23 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block html_title %}Dummy Backup-Name{% endblock %}
+{% block html_title %}
+  {% if job.jobTitle %}
+    {{ job.jobTitle }}
+  {% else %}
+    Backup #{{ job.backupJobId }}
+  {% endif %}
+{% endblock %}
 
 {% block content %}
   {# TODO: replace job.id with job.name #}
-  <h1>Backup #{{ job.backupJobId }}</h1>
+  <h1>
+    {% if job.jobTitle %}
+      {{ job.jobTitle }}
+    {% else %}
+      Backup #{{ job.backupJobId }}
+    {% endif %}
+  </h1>
   <ul class="backup-summary-list">
     {% for source in job.datasources %}
     <li><strong>{% trans "Data-Source" %}</strong>: {{ source.title }}</li>
