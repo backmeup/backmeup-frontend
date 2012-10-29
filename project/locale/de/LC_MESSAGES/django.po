@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-29 09:15+0100\n"
+"POT-Creation-Date: 2012-10-29 14:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,13 +147,6 @@ msgstr ""
 msgid "Datasink"
 msgstr ""
 
-#: main/forms.py:158 templates/www/includes/dashboard.html:141
-#: templates/www/includes/dashboard.html:207
-#: templates/www/includes/dashboard.html:273
-#: templates/www/includes/backup_jobs/backup_list_item.html:62
-msgid "Ja, ich will das Backup löschen"
-msgstr ""
-
 #: main/forms.py:159 main/forms_debug.py:15
 msgid "Backup Name"
 msgstr ""
@@ -167,11 +160,11 @@ msgid "Key Ring"
 msgstr ""
 
 #: main/views.py:60
-msgid "Backup wurde gelöscht."
+msgid "Backup was successfully deleted."
 msgstr ""
 
 #: main/views.py:62
-msgid "Backup konnte nicht gelöscht werden."
+msgid "Backup couldn't be deleted."
 msgstr ""
 
 #: settings/settings.py:44 settings/dev_br/settings.py:44
@@ -194,7 +187,7 @@ msgid "BackMeUp"
 msgstr ""
 
 #: templates/flatpages/features.html:10
-msgid "jetzt Registrieren"
+msgid "Sign Up now"
 msgstr ""
 
 #: templates/www/datasink_auth.html:5 templates/www/datasink_auth.html:11
@@ -202,7 +195,7 @@ msgstr ""
 #: templates/www/datasource_auth.html:5 templates/www/datasource_auth.html:9
 #: templates/www/datasource_select.html:5
 #: templates/www/datasource_select.html:9 templates/www/job_create.html:5
-#: templates/www/job_create.html.py:11
+#: templates/www/job_create.html.py:9
 msgid "Create new Backup"
 msgstr ""
 
@@ -212,18 +205,18 @@ msgstr ""
 
 #: templates/www/datasink_auth.html:16 templates/www/datasink_select.html:16
 #: templates/www/datasource_auth.html:15
-#: templates/www/datasource_select.html:15 templates/www/job_create.html:17
+#: templates/www/datasource_select.html:15 templates/www/job_create.html:15
 msgid "1. Data-Source"
 msgstr ""
 
-#: templates/www/datasink_auth.html:19 templates/www/datasink_select.html:19
-#: templates/www/job_create.html:20
+#: templates/www/datasink_auth.html:19 templates/www/datasink_select.html:18
+#: templates/www/job_create.html:17
 msgid "selected data-source"
 msgstr ""
 
-#: templates/www/datasink_auth.html:23 templates/www/datasink_select.html:23
-#: templates/www/datasource_auth.html:40
-#: templates/www/datasource_select.html:50 templates/www/job_create.html:24
+#: templates/www/datasink_auth.html:23 templates/www/datasink_select.html:22
+#: templates/www/datasource_auth.html:39
+#: templates/www/datasource_select.html:50 templates/www/job_create.html:21
 msgid "2. Data-Target"
 msgstr ""
 
@@ -231,24 +224,24 @@ msgstr ""
 msgid "Step 2: select data-target - authenticate"
 msgstr ""
 
-#: templates/www/datasink_auth.html:43 templates/www/datasink_select.html:53
-#: templates/www/datasource_auth.html:35
+#: templates/www/datasink_auth.html:43 templates/www/datasink_select.html:52
+#: templates/www/datasource_auth.html:34
 #: templates/www/datasource_options.html:27
 #: templates/www/datasource_select.html:45
 msgid "next"
 msgstr ""
 
-#: templates/www/datasink_auth.html:48 templates/www/datasink_select.html:58
-#: templates/www/datasource_auth.html:46
-#: templates/www/datasource_select.html:56 templates/www/job_create.html:31
+#: templates/www/datasink_auth.html:48 templates/www/datasink_select.html:57
+#: templates/www/datasource_auth.html:45
+#: templates/www/datasource_select.html:56 templates/www/job_create.html:27
 msgid "3. Backup-Options"
 msgstr ""
 
-#: templates/www/datasink_auth.html:50 templates/www/datasink_select.html:60
+#: templates/www/datasink_auth.html:50 templates/www/datasink_select.html:59
 msgid "Step 3: select Backup-Options"
 msgstr ""
 
-#: templates/www/datasink_select.html:25 templates/www/datasource_auth.html:42
+#: templates/www/datasink_select.html:24 templates/www/datasource_auth.html:41
 #: templates/www/datasource_select.html:52
 msgid "Step 2: select data-target"
 msgstr ""
@@ -257,12 +250,12 @@ msgstr ""
 msgid "Select Data-Source - Authentication"
 msgstr ""
 
-#: templates/www/datasource_auth.html:18
+#: templates/www/datasource_auth.html:17
 msgid "Step 1: select data-source - authenticate"
 msgstr ""
 
-#: templates/www/datasource_auth.html:48
-#: templates/www/datasource_select.html:58 templates/www/job_create.html:33
+#: templates/www/datasource_auth.html:47
+#: templates/www/datasource_select.html:58 templates/www/job_create.html:29
 msgid "Step 3: select backup-options"
 msgstr ""
 
@@ -287,34 +280,53 @@ msgstr ""
 msgid "Welcome"
 msgstr ""
 
-#: templates/www/job_create.html:12
+#: templates/www/job_create.html:10
 msgid "Select Backup-Options"
 msgstr ""
 
-#: templates/www/job_create.html:27
+#: templates/www/job_create.html:23
 msgid "selected data-target"
 msgstr ""
 
-#: templates/www/job_create.html:82 templates/www/includes/dashboard.html:5
+#: templates/www/job_create.html:37
+msgid "Backup settings"
+msgstr ""
+
+#: templates/www/job_create.html:50
+msgid "Datasource options"
+msgstr ""
+
+#: templates/www/job_create.html:64
+msgid "Backup actions"
+msgstr ""
+
+#: templates/www/job_create.html:77 templates/www/includes/dashboard.html:5
 msgid "Create Backup"
 msgstr ""
 
 #: templates/www/job_log.html:11 templates/www/includes/dashboard.html:26
 #: templates/www/includes/dashboard.html:33
+#: templates/www/includes/backup_jobs/backup_list_item.html:16
+#: templates/www/includes/backup_jobs/backup_list_item.html:24
 msgid "Data-Source"
 msgstr ""
 
-#: templates/www/job_log.html:13 templates/www/includes/dashboard.html:41
+#: templates/www/job_log.html:13 templates/www/includes/dashboard.html:27
+#: templates/www/includes/dashboard.html:41
+#: templates/www/includes/backup_jobs/backup_list_item.html:17
+#: templates/www/includes/backup_jobs/backup_list_item.html:34
 msgid "Data-Target"
 msgstr ""
 
 #: templates/www/job_log.html:15 templates/www/includes/dashboard.html:28
 #: templates/www/includes/dashboard.html:50
+#: templates/www/includes/backup_jobs/backup_list_item.html:18
+#: templates/www/includes/backup_jobs/backup_list_item.html:43
 msgid "Backup-State"
 msgstr ""
 
 #: templates/www/access/debug_signup.html:51
-msgid "Neuen Zugang erstellen"
+msgid "Create Account"
 msgstr ""
 
 #: templates/www/access/login.html:5 templates/www/access/login.html.py:9
@@ -365,15 +377,8 @@ msgid "Verify Email"
 msgstr ""
 
 #: templates/www/includes/dashboard.html:22
-#: templates/www/includes/dashboard.html:92
-#: templates/www/includes/dashboard.html:158
-#: templates/www/includes/dashboard.html:224
-#: templates/www/includes/backup_jobs/backup_list_item.html:10
+#: templates/www/includes/backup_jobs/backup_list_item.html:12
 msgid "Details"
-msgstr ""
-
-#: templates/www/includes/dashboard.html:27
-msgid "Data-target"
 msgstr ""
 
 #: templates/www/includes/dashboard.html:58
@@ -385,107 +390,37 @@ msgstr ""
 msgid "Delete Backup-Job"
 msgstr ""
 
-#: templates/www/includes/dashboard.html:70
-msgid "Do really want to delete the selected Backup-Job?"
+#: templates/www/includes/dashboard.html:69
+#: templates/www/includes/backup_jobs/backup_list_item.html:62
+msgid "Do you really want to delete the selected Backup-Job?"
 msgstr ""
 
-#: templates/www/includes/dashboard.html:72
+#: templates/www/includes/dashboard.html:71
+#: templates/www/includes/backup_jobs/backup_list_item.html:64
 msgid ""
 "By deleting a Backup-Job no further Backups will be created. Backups that "
 "have already been created will however remain on the data-target and need to "
 "be deleted manually."
 msgstr ""
 
-#: templates/www/includes/dashboard.html:77
+#: templates/www/includes/dashboard.html:76
+#: templates/www/includes/backup_jobs/backup_list_item.html:70
 msgid "cancel"
 msgstr ""
 
-#: templates/www/includes/dashboard.html:78
+#: templates/www/includes/dashboard.html:77
+#: templates/www/includes/backup_jobs/backup_list_item.html:54
+#: templates/www/includes/backup_jobs/backup_list_item.html:58
+#: templates/www/includes/backup_jobs/backup_list_item.html:71
 msgid "Delete Backup"
 msgstr ""
 
-#: templates/www/includes/dashboard.html:83
-#: templates/www/includes/backup_jobs/backup_list_item.html:72
+#: templates/www/includes/dashboard.html:82
+#: templates/www/includes/backup_jobs/backup_list_item.html:76
 msgid "Backup-Log"
 msgstr ""
 
-#: templates/www/includes/dashboard.html:96
-#: templates/www/includes/dashboard.html:103
-#: templates/www/includes/dashboard.html:162
-#: templates/www/includes/dashboard.html:169
-#: templates/www/includes/dashboard.html:228
-#: templates/www/includes/dashboard.html:235
-#: templates/www/includes/backup_jobs/backup_list_item.html:14
-#: templates/www/includes/backup_jobs/backup_list_item.html:22
-msgid "Daten-Quelle"
-msgstr ""
-
-#: templates/www/includes/dashboard.html:97
-#: templates/www/includes/dashboard.html:111
-#: templates/www/includes/dashboard.html:163
-#: templates/www/includes/dashboard.html:177
-#: templates/www/includes/dashboard.html:229
-#: templates/www/includes/dashboard.html:243
-#: templates/www/includes/backup_jobs/backup_list_item.html:15
-#: templates/www/includes/backup_jobs/backup_list_item.html:32
-msgid "Speicher-Ziel"
-msgstr ""
-
-#: templates/www/includes/dashboard.html:98
-#: templates/www/includes/dashboard.html:120
-#: templates/www/includes/dashboard.html:164
-#: templates/www/includes/dashboard.html:186
-#: templates/www/includes/dashboard.html:230
-#: templates/www/includes/dashboard.html:252
-#: templates/www/includes/backup_jobs/backup_list_item.html:16
-#: templates/www/includes/backup_jobs/backup_list_item.html:41
-msgid "Backup-Status"
-msgstr ""
-
-#: templates/www/includes/dashboard.html:128
-#: templates/www/includes/dashboard.html:194
-#: templates/www/includes/dashboard.html:260
-#: templates/www/includes/backup_jobs/backup_list_item.html:49
-msgid "Backup bearbeiten"
-msgstr ""
-
-#: templates/www/includes/dashboard.html:131
-#: templates/www/includes/dashboard.html:135
-#: templates/www/includes/dashboard.html:145
-#: templates/www/includes/dashboard.html:197
-#: templates/www/includes/dashboard.html:201
-#: templates/www/includes/dashboard.html:211
-#: templates/www/includes/dashboard.html:263
-#: templates/www/includes/dashboard.html:267
-#: templates/www/includes/dashboard.html:277
-#: templates/www/includes/backup_jobs/backup_list_item.html:52
-#: templates/www/includes/backup_jobs/backup_list_item.html:56
-#: templates/www/includes/backup_jobs/backup_list_item.html:67
-msgid "Backup löschen"
-msgstr ""
-
-#: templates/www/includes/dashboard.html:139
-#: templates/www/includes/dashboard.html:205
-#: templates/www/includes/dashboard.html:271
-#: templates/www/includes/backup_jobs/backup_list_item.html:60
-msgid "Achtung: Sie können diese Aktion nicht rückgängig machen!"
-msgstr ""
-
-#: templates/www/includes/dashboard.html:140
-#: templates/www/includes/dashboard.html:206
-#: templates/www/includes/dashboard.html:272
-#: templates/www/includes/backup_jobs/backup_list_item.html:61
-msgid "Wollen Sie das ausgewählte Backup wirklich löschen?"
-msgstr ""
-
-#: templates/www/includes/dashboard.html:144
-#: templates/www/includes/dashboard.html:210
-#: templates/www/includes/dashboard.html:276
-#: templates/www/includes/backup_jobs/backup_list_item.html:66
-msgid "abbrechen"
-msgstr ""
-
-#: templates/www/includes/dashboard.html:290
+#: templates/www/includes/dashboard.html:91
 msgid "No backups yet."
 msgstr ""
 
@@ -499,6 +434,10 @@ msgstr ""
 
 #: templates/www/includes/homepage.html:4
 msgid "Registrieren"
+msgstr ""
+
+#: templates/www/includes/backup_jobs/backup_list_item.html:51
+msgid "Edit Backup"
 msgstr ""
 
 #: templates/www/includes/navigation/user_nav.html:31
