@@ -168,7 +168,9 @@ class UserEmailVerificationForm(forms.Form):
         if "errorMessage" in result:
             raise forms.ValidationError(_(result['errorMessage']))
         else:
-            return True
+            return {
+                'email': result['username'],
+            }
 
 
 class UserSettingsForm(forms.Form):
