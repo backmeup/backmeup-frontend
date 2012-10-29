@@ -6,7 +6,13 @@
 <li>
   <header class="header">
     {# TODO: display backupjob-title instead of id #}
-    <h3>Backup #{{ item.backupJobId }}</h3>
+    <h3>
+      {% if item.jobTitle %}
+        Backup: {{ item.jobTitle }}
+      {% else %}
+        Backup #{{ item.backupJobId }}
+      {% endif %}
+    </h3>
     <a href="#" class="backup-details-handler">{% trans "Details" %}</a>
   </header>
   <div class="backup-summary">
