@@ -57,9 +57,9 @@ def index(request):
         if job_delete_form.is_valid():
             result = job_delete_form.rest_save(username=request.user.username)
             if result:
-                messages.add_message(request, messages.SUCCESS, _(u'Backup wurde gelöscht.'))
+                messages.add_message(request, messages.SUCCESS, _(u'Backup was successfully deleted.'))
             else:
-                messages.add_message(request, messages.ERROR, _(u'Backup konnte nicht gelöscht werden.'))
+                messages.add_message(request, messages.ERROR, _(u'Backup couldn\'t be deleted.'))
         context['job_delete_form'] = job_delete_form
         
         rest_jobs = RestJobs(username=request.user.username)
