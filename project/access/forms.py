@@ -2,6 +2,7 @@
 
 # django
 from django import forms
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 # project
@@ -52,8 +53,12 @@ class UserCreationForm(forms.ModelForm):
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1", "")
         password2 = self.cleaned_data["password2"]
+        
+        if len(password1) < settings.ACCESS_MIN_PASSWORD_LENGTH:
+            raise forms.ValidationError(_("Password must be at least %d chars." % settings.ACCESS_MIN_PASSWORD_LENGTH))
         if password1 != password2:
             raise forms.ValidationError(_("The two password fields didn't match."))
+        
         return password2
 
     #def clean(self):
@@ -156,17 +161,17 @@ class UserEmailVerificationForm(forms.Form):
 
     verify_hash = forms.CharField(label=_("Verification Key"))
 
-    def save(self):
+    def clean(self):
         rest_api = RestEmailVerification()
 
-        if rest_api.verify(self.cleaned_data["verify_hash"]):
-            return True
+        result = rest_api.verify(self.cleaned_data["verify_hash"])
+        if "errorMessage" in result:
+            raise forms.ValidationError(_(result['errorMessage']))
         else:
-            return False
+            return True
 
 
 class UserSettingsForm(forms.Form):
-
 
     email = forms.EmailField(label=_('Email'), max_length=254, required=False)
 

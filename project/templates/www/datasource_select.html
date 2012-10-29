@@ -17,14 +17,14 @@
         <h4>{% trans "Step 1: select data-source" %}</h4>
         <form action="." method="POST">{% csrf_token %}
           {{ form.non_field_errors }}
-          <div>
-            <label>{{ form.profile_name.label }}
-            {{ form.profile_name }}</label>
-            {% if form.profile_name.errors %}
-              {{ form.profile_name.errors }}
-            {% endif %}
-          </div>
-
+          {# <div> #}
+          {#             <label>{{ form.profile_name.label }} #}
+          {#             {{ form.profile_name }}</label> #}
+          {#             {% if form.profile_name.errors %} #}
+          {#               {{ form.profile_name.errors }} #}
+          {#             {% endif %} #}
+          {#           </div> #}
+          
           <div>
             {% for item in form.datasource %}
                <label>{{ item.tag }} {{ item.choice_label }}</label>
@@ -34,13 +34,13 @@
             {% endif %}
           </div>
 
-          <div>
-            <label>{{ form.key_ring.label }}
-            {{ form.key_ring }}</label>
-            {% if form.key_ring.errors %}
-              {{ form.key_ring.errors }}
-            {% endif %}
-          </div>
+          {# <div> #}
+          {#             <label>{{ form.key_ring.label }} #}
+          {#             {{ form.key_ring }}</label> #}
+          {#             {% if form.key_ring.errors %} #}
+          {#               {{ form.key_ring.errors }} #}
+          {#             {% endif %} #}
+          {#           </div> #}
           
           <div><button type="submit" class="btn-next">{% trans "next" %}</button></div>
         </form>

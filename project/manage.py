@@ -2,6 +2,12 @@
 import os
 import sys
 
+BASE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../'))
+
+sys.path = [
+    os.path.join(BASE_ROOT, 'lib'),
+] + sys.path
+
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.settings")
 

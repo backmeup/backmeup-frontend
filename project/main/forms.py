@@ -2,7 +2,7 @@
 
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from django.forms.widgets import CheckboxSelectMultiple
+#from django.forms.widgets import CheckboxSelectMultiple
 
 #from access.models import User
 from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile, RestJobs, RestAction
@@ -30,8 +30,8 @@ class DatasourceSelectForm(forms.Form):
         choices = []
 
         for item in datasources:
-            choices.append((item['datasourceId'], item['title']))
-
+            choices.append((item['datasourceId'], _(item['title'])))
+        
         self.fields['datasource'] = forms.ChoiceField(label=_("Datasource"), widget=forms.RadioSelect, choices=choices)
 
     def rest_save(self, username, key_ring):
@@ -218,7 +218,19 @@ class JobCreateForm(forms.Form):
             #for j, option in enumerate(action['options']):
             #    self.fields['action_options_value_%s_%s' % (i, j)] = forms.BooleanField(label=_(option), required=False)
             #    self.fields['action_options_key_%s_%s' % (i, j)] = forms.CharField(widget=forms.HiddenInput, initial=option)
-            
+    
+    def field_group_job(self):
+        return [
+            self['title'],
+            self['time_expression'],
+        ]
+    
+    def field_group_datasource_options(self):
+        return [field for field in self if field.name.startswith('datasource_options_value_')]
+
+    def field_group_actions(self):
+        return [field for field in self if field.name.startswith('actions_value_')]
+
     def rest_save(self):
         source_options = ''
         actions = []

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-
+"""
+# no grappelli => no need for this
 from django.contrib import admin
 
 from django.contrib.flatpages.models import FlatPage
@@ -15,3 +16,4 @@ class FlatPageAdmin(FlatPageAdmin):
 
 admin.site.unregister(FlatPage)
 admin.site.register(FlatPage, FlatPageAdmin)
+"""

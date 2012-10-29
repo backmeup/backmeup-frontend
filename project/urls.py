@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from django.conf import settings
-from django.conf.urls import patterns, include, url
+from django.conf.urls.defaults import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from django.views.generic import TemplateView
-
-from filebrowser.sites import site
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -18,8 +16,6 @@ urlpatterns = patterns('',
     # url(r'^project/', include('project.foo.urls')),
     
     # admin
-    url(r'^grappelli/', include('grappelli.urls')),
-    url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     
@@ -51,11 +47,16 @@ urlpatterns = patterns('',
 
 )
 
+if 'rosetta' in settings.INSTALLED_APPS:
+    urlpatterns += patterns('',
+        url(r'^rosetta/', include('rosetta.urls')),
+    )
+
+# static files
+urlpatterns += staticfiles_urlpatterns()
 
 ### DEBUG urls
 if settings.DEBUG:
-    # static files
-    urlpatterns += staticfiles_urlpatterns()
     
     # media
     urlpatterns += patterns('',

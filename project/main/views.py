@@ -34,6 +34,20 @@ def get_job(jobs, job_id):
             return job
 
 
+def additional_context(request):
+    context = {}
+    
+    if 'datasource_profile_id' in request.session:
+        rest_datasource = RestDatasourceProfile(username=request.user.username)
+        context['datasource_profile'] = rest_datasource.get(request.session['datasource_profile_id'])
+    
+    if 'datasink_profile_id' in request.session:
+        rest_datasink = RestDatasinkProfile(username=request.user.username)
+        context['datasource_profile'] = rest_datasink.get(request.session['datasink_profile_id'])
+    
+    return context
+
+
 def index(request):
     context = {}
     if request.user.is_authenticated():
@@ -90,11 +104,13 @@ def datasource_select(request):
                 request.session['next_step'] = 'datasource-auth'
                 return redirect(auth_data['redirectURL'])
             return redirect('datasource-auth')
+    
+    context = additional_context(request)
+    context['form'] = form
+    
     return render_to_response(
         "www/datasource_select.html",
-        {
-            'form': form,
-        },
+        context,
         context_instance=RequestContext(request))
 
 
@@ -113,12 +129,13 @@ def datasource_auth(request):
             request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
             del request.session['auth_data']
             return redirect('datasink-select')
-
+    
+    context = additional_context(request)
+    context['form'] = form
+    
     return render_to_response(
         "www/datasource_auth.html",
-        {
-            'form': form,
-        },
+        context,
         context_instance=RequestContext(request))
 
 
@@ -134,11 +151,13 @@ def datasink_select(request):
                 request.session['next_step'] = 'datasink-auth'
                 return redirect(auth_data['redirectURL'])
             return redirect('datasink-auth')
+    
+    context = additional_context(request)
+    context['form'] = form
+    
     return render_to_response(
         "www/datasink_select.html",
-        {
-            'form': form,
-        },
+        context,
         context_instance=RequestContext(request))
 
 
@@ -156,12 +175,13 @@ def datasink_auth(request):
         request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
         del request.session['auth_data']
         return redirect('job-create')
-
+    
+    context = additional_context(request)
+    context['form'] = form
+    
     return render_to_response(
         "www/datasink_auth.html",
-        {
-            'form': form,
-        },
+        context,
         context_instance=RequestContext(request))
 
 
@@ -197,11 +217,11 @@ def job_create(request):
         if result:
             return redirect('index')
 
+    context = additional_context(request)
+    context['form'] = form
     return render_to_response(
         "www/job_create.html",
-        {
-            'form': form,
-        },
+        context,
         context_instance=RequestContext(request))
 
 

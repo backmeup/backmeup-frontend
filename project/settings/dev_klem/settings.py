@@ -38,6 +38,16 @@ TIME_ZONE = 'Europe/Vienna'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'de'
 
+gettext = lambda s: s
+
+LANGUAGES = (
+    ('de', gettext('German')),
+)
+
+LOCALE_PATHS = (
+    os.path.join(PROJECT_ROOT, 'locale'),
+)
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -47,9 +57,6 @@ USE_I18N = True
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale.
 USE_L10N = True
-
-# If you set this to False, Django will not use timezone-aware datetimes.
-USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
@@ -91,7 +98,7 @@ SECRET_KEY = '$yh0#fq=@2sdq^x7d%g69#7a8i947^ez$0*6(o26we&amp;9z-9*u3'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+#    'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -101,8 +108,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
@@ -112,9 +117,6 @@ AUTHENTICATION_BACKENDS = (
 )
 
 ROOT_URLCONF = 'urls'
-
-# Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -134,11 +136,9 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     
     # backend
-    #'grappelli.dashboard',
-    'grappelli',
-    'filebrowser',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'rosetta',
     
     # utils
     'compressor',
@@ -154,21 +154,15 @@ INSTALLED_APPS = (
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
+# the site admins on every HTTP 500 error.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
-            'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
         }
     },
@@ -181,12 +175,9 @@ LOGGING = {
     }
 }
 
-
-#
-# django-grappelli
-#
-GRAPPELLI_ADMIN_TITLE = "backmeup"
-
 AUTH_PROFILE_MODULE = 'access.UserProfile'
 
 REST_API_BASE_URL = "http://bmu-dev01.x:8080/"
+
+ACCESS_MIN_PASSWORD_LENGTH = 8
+

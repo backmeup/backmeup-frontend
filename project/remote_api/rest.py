@@ -199,7 +199,13 @@ class RestDatasourceProfile(RestBase):
 
         super(RestDatasourceProfile, self).__init__()
         self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
-
+    
+    def get(self, profile_id):
+        profile_id = int(profile_id)
+        for profile in self.get_all():
+            if profile['datasourceProfileId'] == profile_id:
+                return profile
+    
     def get_all(self):
         return self._get(path="profiles/")['sourceProfiles']
 
@@ -272,7 +278,13 @@ class RestDatasinkProfile(RestBase):
 
         super(RestDatasinkProfile, self).__init__()
         self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
-
+    
+    def get(self, profile_id):
+        profile_id = int(profile_id)
+        for profile in self.get_all():
+            if profile['datasinkProfileId'] == profile_id:
+                return profile
+    
     def get_all(self):
         return self._get(path="profiles/")['sinkProfiles']
 
