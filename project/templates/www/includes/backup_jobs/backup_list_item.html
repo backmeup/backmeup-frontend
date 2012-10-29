@@ -1,14 +1,10 @@
 {% load i18n %}
 
-{# <li>Backup {{ item.backupJobId }}</li> #}
-
-
 <li>
   <header class="header">
-    {# TODO: display backupjob-title instead of id #}
     <h3>
       {% if item.jobTitle %}
-        Backup: {{ item.jobTitle }}
+        {{ item.jobTitle }}
       {% else %}
         Backup #{{ item.backupJobId }}
       {% endif %}
@@ -17,15 +13,15 @@
   </header>
   <div class="backup-summary">
     <ul>
-      <li><span class="key">{% trans "Daten-Quelle" %}: </span>{{ item.datasources.0.title }}</li>
-      <li><span class="key">{% trans "Speicher-Ziel" %}: </span>{{ item.datasinkTitle }}</li>
-      <li><strike><span class="key">{% trans "Backup-Status" %}: </span><span class="icon-backupstate-ok">OK</span></strike></li>
+      <li><span class="key">{% trans "Data-Source" %}: </span>{{ item.datasources.0.title }}</li>
+      <li><span class="key">{% trans "Data-Target" %}: </span>{{ item.datasinkTitle }}</li>
+      <li><strike><span class="key">{% trans "Backup-State" %}: </span><span class="icon-backupstate-ok">OK</span></strike></li>
     </ul>
   </div>
   
   <div class="backup-details">
     <div class="bli-section">
-      <span class="key">{% trans "Daten-Quelle" %}</span>
+      <span class="key">{% trans "Data-Source" %}</span>
       {% for source in item.datasources %}
         <ul class="value">
           <li>{{ source.title }}</li>
@@ -35,7 +31,7 @@
       {% endfor %}
     </div>
     <div class="bli-section">
-      <span class="key">{% trans "Speicher-Ziel" %}</span>
+      <span class="key">{% trans "Data-Target" %}</span>
       <ul class="value">
         <li>{{ item.datasinkTitle }}</li>
         <li><strike>John Doe</strike></li>
@@ -44,7 +40,7 @@
     </div>
     {# TODO: pass backup-state as classname, eg: "ok", "inactive" #}
     <div class="bli-section backupstate-ok">
-      <strike><span class="key">{% trans "Backup-Status" %}</span></strike>
+      <strike><span class="key">{% trans "Backup-State" %}</span></strike>
       <ul class="value">
         <li><strike><span class="backupstate-icon">OK</span></strike></li>
         <li><strike>nächstes Backup: 22.4.2012 9:00</strike></li>
@@ -52,25 +48,27 @@
     </div>
     <div class="bli-section-options">
       <ul>
-        <li><strike><a href="#link-to-backup-edit-page" class="edit-link">{% trans "Backup bearbeiten" %}</a></strike></li>
+        <li><strike><a href="#link-to-backup-edit-page" class="edit-link">{% trans "Edit Backup" %}</a></strike></li>
         <li>
           {# TODO: replace 'delete-modal1' with 'delete-modal{{ item.backupJobId }} for actual backup-jobs #}
-          <a href="#delete-modal{{ item.backupJobId }}" class="delete-backup-handler" data-toggle="modal">{% trans "Backup löschen" %}</a>
+          <a href="#delete-modal{{ item.backupJobId }}" class="delete-backup-handler" data-toggle="modal">{% trans "Delete Backup" %}</a>
           <div id="delete-modal{{ item.backupJobId }}" class="modal hide" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-              <h3>{% trans "Backup löschen" %}</h3>
+              <h3>{% trans "Delete Backup" %}</h3>
             </div>
             <form action="." method="post">{% csrf_token %}
               <div class="modal-body">
-                <p class="feedback-warning">{% trans "Achtung: Sie können diese Aktion nicht rückgängig machen!" %}</p>
-                <p>{% trans "Wollen Sie das ausgewählte Backup wirklich löschen?" %}</p>
+                <p>{% trans "Do you really want to delete the selected Backup-Job?" %}</p>
+                <p class="note">
+                  {% trans "By deleting a Backup-Job no further Backups will be created. Backups that have already been created will however remain on the data-target and need to be deleted manually." %}
+                </p>
                 {# <label>{{ job_delete_form.confirm }} {% trans "Ja, ich will das Backup löschen" %}</label> #}
                 <input type="hidden" name="job_id" value="{{ item.backupJobId }}" id="job_id">
               </div>
               <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "abbrechen" %}</button>
-                <input type="submit" class="btn-delete" value="{% trans "Backup löschen" %}">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans "cancel" %}</button>
+                <input type="submit" class="btn-delete" value="{% trans "Delete Backup" %}">
               </div>
             </form>
           </div>
