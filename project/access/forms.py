@@ -20,7 +20,7 @@ class UserCreationForm(forms.ModelForm):
     email = forms.EmailField(label=_('Email'), max_length=254)
 
     password1 = forms.CharField(label=_("Password"), widget=forms.PasswordInput, 
-        help_text=_("Your password needs to be at least 9 characters long."))
+        help_text=_("Your password needs to be at least %s characters long." % settings.ACCESS_MIN_PASSWORD_LENGTH))
     password2 = forms.CharField(label=_("Password confirmation"), widget=forms.PasswordInput,
         help_text=_("Enter the same password as above, for verification."))
 
