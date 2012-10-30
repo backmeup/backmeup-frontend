@@ -10,9 +10,9 @@
 <p>{% trans "An email with a verification key was send to your email-address. Please insert the verification key or click the link in the email to verify your email address." %}</p>
 
 <form action="." method="post">{% csrf_token %}
-  <div>
-    {{ form.non_field_errors }}
-  </div>
+  {% if form.non_field_errors %}
+    {{ form.non_field_errors }}    
+  {% endif %}
   <div>
     {{ form.verify_hash.label }}
     {{ form.verify_hash }}
