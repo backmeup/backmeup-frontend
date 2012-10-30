@@ -29,7 +29,7 @@
           <ul id="user-dropdown" class="dropdown-menu">
             <li><a href="/" class="icon-after-inbox">{% trans "My Backups" %}</a></li>
             <li><a href="{% url user-settings %}" class="icon-after-cogs">{% trans "Account-Settings" %}</a></li>
-            <li><a href="{% url django.contrib.auth.views.logout %}" class="icon-after-signout">{% trans "Sign out" %}</a></li>
+            <li><a href="{% url access.views.logout %}" class="icon-after-signout">{% trans "Sign out" %}</a></li>
           </ul>
         </li>
         <li class="dropdown search-item">{% include "www/includes/header_search.html" %}</li>
@@ -38,7 +38,7 @@
 {% else %}
   <nav class="nav">
     <ul class="user-nav">
-      <li><a href="{% url django.contrib.auth.views.login %}">{% trans "Sign In" %}</a></li>
+      <li><a href="{% url access.views.login %}">{% trans "Sign In" %}</a></li>
       <li><a href="{% url signup %}">{% trans "Sign Up" %}</a></li>
     </ul>
   </nav>
