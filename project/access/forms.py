@@ -44,7 +44,11 @@ class UserCreationForm(forms.ModelForm):
         
             if 'errorType' in result and result['errorType'] == 'org.backmeup.model.exceptions.UnknownUserException':
                 # remote api doesn't know user, thus check with local db
-                User.objects.get(username=email)
+                old_user = User.objects.get(username=email)
+                # seems like the user exists (no exception) in "our" db, but not
+                # according to the rest api. thus the user is deleted.
+                old_user.delete()
+                return email
         except User.DoesNotExist:
             return email
         
