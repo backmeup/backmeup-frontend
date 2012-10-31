@@ -145,8 +145,9 @@ class DatasinkAuthForm(forms.Form):
     def __init__(self, *args, **kwargs):
         self.auth_data = kwargs.pop('auth_data')
         super(DatasinkAuthForm, self).__init__(*args, **kwargs)
-
-        #if self.auth_data['type'] == 'Input':
+        
+        # add authentication form fields
+        if self.auth_data['type'] == 'Input':
         #    for i, item in enumerate(self.auth_data['typeMapping']):
         #        self.fields['input_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=item)
         #
@@ -162,28 +163,28 @@ class DatasinkAuthForm(forms.Form):
         #
         #        self.fields['input_value_%s' % i] = forms.CharField(**field_kwargs)
         
-        # make sure 'requiredInputs' (= list of dicts) is sorted by 'order' dict value(s)
-        self.auth_data['requiredInputs'] = sorted(self.auth_data['requiredInputs'], key=lambda k: k['order']) 
+            # make sure 'requiredInputs' (= list of dicts) is sorted by 'order' dict value(s)
+            self.auth_data['requiredInputs'] = sorted(self.auth_data['requiredInputs'], key=lambda k: k['order']) 
         
-        for item in self.auth_data['requiredInputs']:
-            self.fields['input_key_%d' % item['order']] = forms.CharField(widget=forms.HiddenInput, initial=item['label'])
+            for item in self.auth_data['requiredInputs']:
+                self.fields['input_key_%d' % item['order']] = forms.CharField(widget=forms.HiddenInput, initial=item['label'])
             
-            field_kwargs = {
-                'label': _(item['label']),
-            }
+                field_kwargs = {
+                    'label': _(item['label']),
+                }
             
-            if 'required' in item:
-                field_kwargs['required'] = item['required']
-            else:
-                field_kwargs['required'] = False
+                if 'required' in item:
+                    field_kwargs['required'] = item['required']
+                else:
+                    field_kwargs['required'] = False
             
-            if item['type'] == 'Password':
-                field_kwargs['widget'] = forms.PasswordInput
+                if item['type'] == 'Password':
+                    field_kwargs['widget'] = forms.PasswordInput
             
-            if 'description' in item:
-                field_kwargs['help_text'] = _(item['description'])
+                if 'description' in item:
+                    field_kwargs['help_text'] = _(item['description'])
             
-            self.fields['input_value_%s' % item['order']] = forms.CharField(**field_kwargs)
+                self.fields['input_value_%s' % item['order']] = forms.CharField(**field_kwargs)
         
 
     def rest_save(self, username, key_ring):
