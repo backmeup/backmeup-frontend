@@ -76,11 +76,11 @@ def index(request):
             datasink_profiles = rest_datasink_profile.get_all()
             
             for job in jobs:
-                job['datasinkTitle'] = get_sink_title(datasink_profiles, job['datasinkId'])
+                job['datasinkTitle'] = get_sink_title(datasink_profiles, job['datasink']['datasinkId'])
                 job['datasources'] = []
-                for source_id in job['datasourceIds']:
+                for datasource in job['datasources']:
                     job['datasources'].append({
-                        'id': source_id,
+                        'id': datasource['datasourceId'],
                         'title': get_source_title(datasource_profiles, source_id)
                     })
             context['jobs'] = jobs
