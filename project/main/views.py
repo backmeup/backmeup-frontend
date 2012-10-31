@@ -129,6 +129,10 @@ def datasource_auth(request):
             request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
             del request.session['auth_data']
             return redirect('datasink-select')
+        else:
+            del request.session['auth_data']
+            messages.add_message(request, messages.ERROR, 'Some error occured.')
+            return redirect(datasource_select)
     
     context = additional_context(request)
     context['form'] = form
@@ -172,9 +176,14 @@ def datasink_auth(request):
     
     if form.is_valid() or request.session['auth_data']['type'] != 'Input':
         result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
-        request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
-        del request.session['auth_data']
-        return redirect('job-create')
+        if not result == False:
+            request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
+            del request.session['auth_data']
+            return redirect('job-create')
+        else:
+            del request.session['auth_data']
+            messages.add_message(request, messages.ERROR, 'Some error occured.')
+            return redirect(datasink_select)
     
     context = additional_context(request)
     context['form'] = form
