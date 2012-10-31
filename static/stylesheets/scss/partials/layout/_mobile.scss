@@ -17,8 +17,19 @@
       float: left;
     }
   }
-
   //--- User-Navigation END ---
   
+  //--- Search START ---
+  .js {
+    .sr-filter-handler {
+      display: block;
+    }
+    .sr-filter-container {
+      display: none;
+    }
+  }
+  
+  
+  //--- Search END ---
   
 }

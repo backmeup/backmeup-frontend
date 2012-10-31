@@ -44,7 +44,11 @@ urlpatterns = patterns('',
     
     # styleguide
     (r'^styleguide$', TemplateView.as_view(template_name='www/styleguide/styleguide.html')),
-
+    
+    # dummy-templates
+    (r'^search-result$', TemplateView.as_view(template_name='www/search_result.html')),
+    (r'^search-result-detail$', TemplateView.as_view(template_name='www/search_result_detail.html')),
+    
 )
 
 if 'rosetta' in settings.INSTALLED_APPS:

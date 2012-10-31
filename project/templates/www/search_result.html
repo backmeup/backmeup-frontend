@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block html_title %}{% trans "Search Results" %}{% endblock %}
+
+{% block breadcrumbs %}
+  <div class="breadcrumbs">
+    <div class="container">
+      <ul>
+        <li><a href="/search">{% trans "Search" %}</a></li>
+        <li><span>666 results</span></li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <h1>{% trans "Search results" %}: 666</h1>
+  {# <ul class="sr-filter-list"> #}
+  {#   <li class="sr-filter-section"> #}
+  {#     <h2></h2> #}
+  {#     <ul></ul> #}
+  {#   </li> #}
+  {# </ul> #}
+  <button type="button" class="sr-filter-handler">{% trans "Filter search results" %}</button>
+  <aside class="sr-filter-container">
+    <h2>{% trans "Limit search results" %}</h2>
+    <form action="/search" method="get">
+      <div>
+        <label>{% trans "Data-Source" %}</label>
+        <select name="data-source" id="data-source">
+          <option value="1">Facebook</option>
+          <option value="2">Moodle</option>
+          <option value="3">Dropbox</option>
+          <option value="4">Mail</option>
+        </select>
+      </div>
+      <div>
+        <label>{% trans "Data-Type" %}</label>
+        <select name="data-type" id="data-type">
+          <option value="1">Picture</option>
+          <option value="2">Video</option>
+          <option value="3">PDF</option>
+          <option value="4">Text-File</option>
+        </select>
+      </div>
+      <p><input type="submit" value="{% trans "send" %}" class=" btn" /></p>
+    </form>
+  </aside>
+  
+  <ul class="sr-list">
+    {# Dummy search-results START #}
+    <li>
+      <a href="/search-result-details" class="search-item-link">
+        <header class="search-item-header">
+          <h4>Dummy Dropbox</h4>
+        </header>
+        <div class="search-item-content">
+          <div class="search-item-thumb">
+            <img src="http://lorempixel.com/128/96/people" />
+          </div>
+          <div class="search-item-text">
+            <h4>Dummy Titel</h4>
+          </div>
+        </div>
+        <footer class="search-item-footer">
+          <date>11.11.2011</date>
+          <span class="file-type">.jpg</span>
+        </footer>
+      </a>
+    </li>
+    
+    <li>
+      <a href="/search-result-details" class="search-item-link">
+        <header class="search-item-header">
+          <h4>Dummy Dropbox</h4>
+        </header>
+        <div class="search-item-content">
+          <div class="search-item-thumb">
+            <img src="http://lorempixel.com/128/96/people" />
+          </div>
+          <div class="search-item-text">
+            <h4>Dummy Titel</h4>
+          </div>
+        </div>
+        <footer class="search-item-footer">
+          <date>11.11.2011</date>
+          <span class="file-type">.jpg</span>
+        </footer>
+      </a>
+    </li>
+    
+    <li>
+      <a href="/search-result-details" class="search-item-link">
+        <header class="search-item-header">
+          <h4>Dummy Dropbox</h4>
+        </header>
+        <div class="search-item-content">
+          <div class="search-item-text">
+            <h4>Dummy Titel</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+          </div>
+        </div>
+        <footer class="search-item-footer">
+          <date>11.11.2011</date>
+          <span class="file-type">.txt</span>
+        </footer>
+      </a>
+    </li>
+    
+    {# Dummy search-results START #}
+  </ul>
+{% endblock content %}
+

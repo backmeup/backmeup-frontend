@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block html_title %}{% trans "Search result details" %}{% endblock %}
+
+{% block breadcrumbs %}
+  <div class="breadcrumbs">
+    <div class="container">
+      <ul>
+        <li><a href="/search">{% trans "Search" %}</a></li>
+        <li><a href="/search-result">666 results</a></li>
+        <li><span>Dummy Facebook: 16 results</span></li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <h1 class="visuallyhidden">{% trans "Search result details" %}</h1>
+  <div class="sr-detail-container">
+    <img src="http://lorempixel.com/660/495/people" />
+    <p>ADDITIONAL INFOS Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <aside class="sr-backup-details">
+    <h2 class="visuallyhidden">{% trans "Backup-Details" %}</h2>
+    
+    <h3>{% trans "Data-source" %}</h3>
+    <ul>
+      <li>
+        <span class="key">{% trans "Data-source" %}:</span>
+        <span class="value">Dummy Facebook, John Doe</span>
+      </li>
+      <li>
+        <span class="key">{% trans "creation-date" %}:</span>
+        <span class="value">11.11.2011</span>
+      </li>
+      <li>
+        <span class="key">{% trans "title" %}:</span>
+        <span class="value">dummy.jpg</span>
+      </li>
+    </ul>
+    
+    <h3>{% trans "Data-targets" %}</h3>
+    <ul>
+      <li>
+        <ul>
+          <li>
+            <span>Disc Mailing</span>
+          </li>
+          <li>
+            <span class="key">{% trans "versendet" %}:</span>
+            <span class="value">22.22.2012</span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>
+            <span>Dropbox</span>
+          </li>
+          <li>
+            <span class="key">{% trans "gespeichert" %}:</span>
+            <span class="value">22.22.2012</span>
+          </li>
+          <li>
+            <span class="key">{% trans "file-path" %}:</span>
+            <span class="value">/documents/pictures/dummy.jpg</span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
+  
+  
+  
+  
+  
+  
+{% endblock content %}

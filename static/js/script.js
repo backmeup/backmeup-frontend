@@ -36,6 +36,13 @@ $(function(){
   //   $('.header-search-wrap').toggle();
   // })
   
+  // --- LAYOUT --- //
+  $('.sr-filter-handler').on('click', function(){
+    $('.sr-filter-container').slideToggle(300);
+  })
+  
+  
+  
   
   // --- LAYOUT --- //
   if ($(window).width() > 480) {
@@ -43,8 +50,6 @@ $(function(){
     $('.header-search-handler').hide();
   
   }
-  
-  
   
   // --- HACKS --- //
   // fixes bug where dropdown-links aren't fired on touch devices

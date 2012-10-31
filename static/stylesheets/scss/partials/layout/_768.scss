@@ -119,4 +119,43 @@
 }
 
 
+
+//--- Search START ---
+.sr-filter-container {
+  display: block;
+  float: right;
+}
+.sr-filter-handler {
+  display: none;
+}
+.sr-list {
+  float: left;
+  width: 70%;
+  > li {
+    float: left;
+    width: 45%;
+    margin-right: 5%;
+//    border: 1px solid $clr-grey-light;
+    
+  }
+}
+
+// --- search detail page
+.sr-detail-container {
+  float: left;
+  width: 65%;
+  margin-right: 5%;
+}
+.sr-backup-details {
+  float: right;
+  width: 30%;
+}
+
+
+//--- Search END ---
+
+
+
+
+
 } //media_query end

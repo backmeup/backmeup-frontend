@@ -146,12 +146,13 @@ img {
   /* 1 */
   -ms-interpolation-mode: bicubic;
   /* 2 */
+  max-width: 100%;
 }
 
 /*
  * Corrects overflow displayed oddly in IE9.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003125}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003126}}
 svg:not(:root) {
   overflow: hidden;
 }
@@ -162,7 +163,7 @@ svg:not(:root) {
 /*
  * Addresses margin not present in IE6/7/8/9, S5, O11.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003137}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003138}}
 figure {
   margin: 0;
 }
@@ -173,7 +174,7 @@ figure {
 /*
  * Corrects margin displayed oddly in IE6/7.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003149}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003150}}
 form {
   margin: 0;
 }
@@ -181,7 +182,7 @@ form {
 /*
  * Define consistent border, margin, and padding.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003157}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003158}}
 fieldset {
   border: 1px solid #cccccc;
   margin: 0;
@@ -193,7 +194,7 @@ fieldset {
  * 2. Corrects text not wrapping in FF3.
  * 3. Corrects alignment displayed oddly in IE6/7.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003169}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003170}}
 legend {
   border: 0;
   /* 1 */
@@ -209,7 +210,7 @@ legend {
  * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome.
  * 3. Improves appearance and consistency in all browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003185}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003186}}
 button,
 input,
 select,
@@ -228,7 +229,7 @@ textarea {
  * Addresses FF3/4 setting `line-height` on `input` using `!important` in the
  * UA stylesheet.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003198}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003199}}
 button,
 input {
   line-height: normal;
@@ -243,7 +244,7 @@ input {
  * 4. Removes inner spacing in IE7 without affecting normal text inputs.
  *    Known issue: inner spacing remains in IE6.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003215}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003216}}
 button,
 html input[type="button"],
 input[type="reset"],
@@ -259,7 +260,7 @@ input[type="submit"] {
 /*
  * Re-set default cursor for disabled elements.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003226}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003227}}
 button[disabled],
 input[disabled] {
   cursor: default;
@@ -271,7 +272,7 @@ input[disabled] {
  * 3. Removes excess padding in IE7.
  *    Known issue: excess padding remains in IE6.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003238}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003239}}
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -289,7 +290,7 @@ input[type="radio"] {
  * 2. Addresses `box-sizing` set to `border-box` in S5, Chrome (include `-moz`
  *    to future-proof).
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003251}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003252}}
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -302,7 +303,7 @@ input[type="search"] {
 /*
  * Removes inner padding and search cancel button in S5, Chrome on OS X.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003263}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003264}}
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -311,7 +312,7 @@ input[type="search"]::-webkit-search-decoration {
 /*
  * Removes inner padding and border in FF3+.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003272}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003273}}
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -322,7 +323,7 @@ input::-moz-focus-inner {
  * 1. Removes default vertical scrollbar in IE6/7/8/9.
  * 2. Improves readability and alignment in all browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003282}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003283}}
 textarea {
   overflow: auto;
   /* 1 */
@@ -336,7 +337,7 @@ textarea {
 /*
  * Remove most spacing between table cells.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003295}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_normalize\.scss}line{font-family:\00003296}}
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -972,6 +973,90 @@ p, ul, ol {
   content: "\f00c";
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003442}}
+.sr-filter-handler {
+  display: block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003445}}
+.sr-filter-handler:after {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: none;
+  margin-left: .5em;
+  content: "\f0d7";
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003449}}
+.sr-filter-container {
+  display: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003452}}
+.sr-list {
+  margin-top: 1.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003454}}
+.sr-list > li {
+  margin-bottom: 1.5em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003459}}
+.sr-list p {
+  margin: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003463}}
+a.search-item-link {
+  display: block;
+  text-decoration: none;
+  color: #5c5c5c;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003468}}
+a.search-item-link:hover .search-item-header {
+  background: #5b80ab;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003470}}
+a.search-item-link:hover .search-item-header h4 {
+  color: #fff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003476}}
+.search-item-header {
+  background: #e9eff4;
+  padding: 0 .375em;
+  margin-top: 0em;
+  padding-top: 0.1875em;
+  padding-bottom: 0.1875em;
+  margin-bottom: 0.75em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003487}}
+.search-item-thumb {
+  float: left;
+  margin-right: 1em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003490}}
+.search-item-thumb img {
+  display: block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003494}}
+.search-item-footer {
+  clear: both;
+  margin-top: 0.375em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003498}}
+.search-item-footer .file-type {
+  float: right;
+  padding: 0 3px;
+  background: #5b80ab;
+  color: #fff;
+}
+
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_flatpage\.scss}line{font-family:\000032}}
 .metapage-article ul {
   padding-left: 1em;
@@ -1063,7 +1148,7 @@ select option:hover {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\000031}}
-.btn, .btn-add, .btn-next {
+.btn, .sr-filter-handler, .btn-add, .btn-next {
   color: white;
   display: inline-block;
   padding: .3em .9em;
@@ -1081,7 +1166,7 @@ select option:hover {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\000038}}
-.btn:hover, .btn-add:hover, .btn-next:hover {
+.btn:hover, .sr-filter-handler:hover, .btn-add:hover, .btn-next:hover {
   text-decoration: none;
   background-color: #5b80ab;
   background-position: 0 -0.9em;
@@ -1555,13 +1640,13 @@ a [class*=" icon-"] {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_modal\.scss}line{font-family:\00003115}}
-.modal-footer .btn + .btn, .modal-footer .btn-add + .btn, .modal-footer .btn-next + .btn, .modal-footer .btn + .btn-add, .modal-footer .btn-add + .btn-add, .modal-footer .btn-next + .btn-add, .modal-footer .btn + .btn-next, .modal-footer .btn-add + .btn-next, .modal-footer .btn-next + .btn-next {
+.modal-footer .btn + .btn, .modal-footer .sr-filter-handler + .btn, .modal-footer .btn-add + .btn, .modal-footer .btn-next + .btn, .modal-footer .btn + .sr-filter-handler, .modal-footer .sr-filter-handler + .sr-filter-handler, .modal-footer .btn-add + .sr-filter-handler, .modal-footer .btn-next + .sr-filter-handler, .modal-footer .btn + .btn-add, .modal-footer .sr-filter-handler + .btn-add, .modal-footer .btn-add + .btn-add, .modal-footer .btn-next + .btn-add, .modal-footer .btn + .btn-next, .modal-footer .sr-filter-handler + .btn-next, .modal-footer .btn-add + .btn-next, .modal-footer .btn-next + .btn-next {
   margin-left: .5em;
   margin-bottom: 0;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_modal\.scss}line{font-family:\00003119}}
-.modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .btn-add + .btn, .modal-footer .btn-group .btn-next + .btn, .modal-footer .btn-group .btn + .btn-add, .modal-footer .btn-group .btn-add + .btn-add, .modal-footer .btn-group .btn-next + .btn-add, .modal-footer .btn-group .btn + .btn-next, .modal-footer .btn-group .btn-add + .btn-next, .modal-footer .btn-group .btn-next + .btn-next {
+.modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .sr-filter-handler + .btn, .modal-footer .btn-group .btn-add + .btn, .modal-footer .btn-group .btn-next + .btn, .modal-footer .btn-group .btn + .sr-filter-handler, .modal-footer .btn-group .sr-filter-handler + .sr-filter-handler, .modal-footer .btn-group .btn-add + .sr-filter-handler, .modal-footer .btn-group .btn-next + .sr-filter-handler, .modal-footer .btn-group .btn + .btn-add, .modal-footer .btn-group .sr-filter-handler + .btn-add, .modal-footer .btn-group .btn-add + .btn-add, .modal-footer .btn-group .btn-next + .btn-add, .modal-footer .btn-group .btn + .btn-next, .modal-footer .btn-group .sr-filter-handler + .btn-next, .modal-footer .btn-group .btn-add + .btn-next, .modal-footer .btn-group .btn-next + .btn-next {
   margin-left: -1px;
 }
 
@@ -1841,12 +1926,12 @@ a [class*=" icon-"] {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_helper\.scss}line{font-family:\000033}}
-.clearfix:before, #header:before, #content:before, .backup-list .header:before, .clearfix:after, #header:after, #content:after, .backup-list .header:after {
+.clearfix:before, #header:before, #content:before, .backup-list .header:before, .sr-list > li:before, .search-item-content:before, .clearfix:after, #header:after, #content:after, .backup-list .header:after, .sr-list > li:after, .search-item-content:after {
   content: " ";
   display: table;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_helper\.scss}line{font-family:\000037}}
-.clearfix:after, #header:after, #content:after, .backup-list .header:after {
+.clearfix:after, #header:after, #content:after, .backup-list .header:after, .sr-list > li:after, .search-item-content:after {
   clear: both;
 }
 
@@ -1922,6 +2007,15 @@ a [class*=" icon-"] {
     text-align: left;
     direction: ltr;
     float: left;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/layout\/_mobile\.scss}line{font-family:\0000324}}
+  .js .sr-filter-handler {
+    display: block;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/layout\/_mobile\.scss}line{font-family:\0000327}}
+  .js .sr-filter-container {
+    display: none;
   }
 }
 @media only screen and (min-width: 480px) {
@@ -2122,5 +2216,41 @@ a [class*=" icon-"] {
     left: 50%;
     width: 560px;
     margin: -250px 0 0 -280px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/layout\/_768\.scss}line{font-family:\00003124}}
+  .sr-filter-container {
+    display: block;
+    float: right;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/layout\/_768\.scss}line{font-family:\00003128}}
+  .sr-filter-handler {
+    display: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/layout\/_768\.scss}line{font-family:\00003131}}
+  .sr-list {
+    float: left;
+    width: 70%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/layout\/_768\.scss}line{font-family:\00003134}}
+  .sr-list > li {
+    float: left;
+    width: 45%;
+    margin-right: 5%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/layout\/_768\.scss}line{font-family:\00003144}}
+  .sr-detail-container {
+    float: left;
+    width: 65%;
+    margin-right: 5%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/layout\/_768\.scss}line{font-family:\00003149}}
+  .sr-backup-details {
+    float: right;
+    width: 30%;
   }
 }

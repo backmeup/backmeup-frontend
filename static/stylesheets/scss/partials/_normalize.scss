@@ -116,6 +116,7 @@ strong {
 img {
     border: 0; /* 1 */
     -ms-interpolation-mode: bicubic; /* 2 */
+    max-width: 100%;
 }
 
 /*
