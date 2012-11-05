@@ -238,7 +238,7 @@ class UserSettingsForm(forms.Form):
         
         result_rest = rest_api.put(data)
         
-        if result_rest and not new_email == self.user.email:
+        if not 'errorType' in result_rest and not new_email == self.user.email:
             self.user.username = new_email
             self.user.save()
         

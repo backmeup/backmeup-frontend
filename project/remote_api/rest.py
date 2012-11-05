@@ -82,7 +82,7 @@ class RestBase(object):
             print "#### status:", response.status_code
             print "###### json:", response.json
             print "............................."
-        return response
+        return response.json
 
 
 class RestUser(RestBase):

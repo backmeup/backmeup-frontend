@@ -162,7 +162,10 @@ def verify_email(request, verify_hash=None):
 def user_settings(request):
     form = UserSettingsForm(request.user, request.POST or None)
     if form.is_valid():
-        form.save()
+        result = form.save()
+        
+        if result and 'errorMessage' in result:
+            messages.add_message(request, messages.ERROR, result['errorMessage'])
         return redirect('user-settings')
     
     return render_to_response(
