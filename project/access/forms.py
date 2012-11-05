@@ -195,7 +195,7 @@ class UserSettingsForm(forms.Form):
     def __init__(self, user, *args, **kwargs):
         self.user = user
         kwargs['initial'] = {
-            'email': self.user.email,
+            'email': self.user.username,
         }
         super(UserSettingsForm, self).__init__(*args, **kwargs)
 
