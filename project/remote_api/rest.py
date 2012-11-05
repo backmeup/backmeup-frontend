@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import json
+#import json
 import requests
 
 from django.conf import settings
@@ -181,7 +181,12 @@ class RestDatasource(RestBase):
         self.base_url = self.base_url + path
 
     def get_all(self):
-        return self._get()['sources']
+        result = self._get()
+        
+        if result and 'sources' in result:
+            return result['sources']
+        else:
+            return result
 
     def post(self, data):
         return self._post(data=data)
@@ -207,7 +212,12 @@ class RestDatasourceProfile(RestBase):
                 return profile
     
     def get_all(self):
-        return self._get(path="profiles/")['sourceProfiles']
+        result = self._get(path="profiles/")
+        
+        if result and 'sourceProfiles' in result:
+            return result['sourceProfiles']
+        else:
+            return result
 
     def delete(self, profile_id):
         if not profile_id:
@@ -260,7 +270,12 @@ class RestDatasink(RestBase):
         self.base_url = self.base_url + path
 
     def get_all(self):
-        return self._get()['sinks']
+        result = self._get()
+        
+        if result and 'sinks' in result:
+            return result['sinks']
+        else:
+            return
 
     def post(self, data):
         return self._post(data)
@@ -286,8 +301,13 @@ class RestDatasinkProfile(RestBase):
                 return profile
     
     def get_all(self):
-        return self._get(path="profiles/")['sinkProfiles']
-
+        result = self._get(path="profiles/")
+        
+        if result and 'sinkProfiles' in result:
+            return result['sinkProfiles']
+        else:
+            return result
+        
     def delete(self, profile_id):
         return self._delete(path="profiles/" + profile_id)
 
@@ -315,11 +335,21 @@ class RestAction(RestBase):
         self.base_url = self.base_url + path
 
     def get_all(self):
-        return self._get()['actions']
-
+        result = self._get()
+        
+        if result and 'actions' in result:
+            return result['actions']
+        else:
+            return result
+    
     def options(self, action_id):
-        return self._get(path=action_id + "/options/")['actionOptions']
-
+        result = self._get(path=action_id + "/options/")
+        
+        if result and 'actionOptions' in result:
+            return result['actionOptions']
+        else:
+            return result
+    
     def post(self, data):
         if not "name" in data:
             raise ValueError('key "name" is missing in argument "data".')
@@ -331,7 +361,7 @@ class RestAction(RestBase):
             'filename': data['filename'],
         }
 
-        return self._post(data=data)
+        return self._post(data=params)
 
     def delete(self, action_id):
         return self._delete(path=action_id + "/")
