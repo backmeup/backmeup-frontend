@@ -22,9 +22,9 @@
     {% for source in job.datasources %}
     <li><strong>{% trans "Data-Source" %}</strong>: {{ source.title }}</li>
     {% endfor %}
-    <li><strong>{% trans "Data-Target" %}</strong>: {{ job.datasinkTitle }}</li>
+    <li><strong>{% trans "Data-Target" %}</strong>: {{ job.datasink.title }}</li>
     {# TODO: pass backup-state as classname, eg: "ok", "inactive" #}
-    <li><strong>{% trans "Backup-State" %}</strong>: <span class="icon-backupstate-in-progress"><strike>Backup wird ausgeführt</strike></span></li>
+    <li><strong>{% trans "Backup-State" %}</strong>: {{ current_status }}{# <span class="icon-backupstate-in-progress">Backup wird ausgeführt</span> #}</li>
   </ul>
   <ul>
     {% for item in log %}

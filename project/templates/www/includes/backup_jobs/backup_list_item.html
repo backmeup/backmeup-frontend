@@ -4,9 +4,11 @@
   <header class="header">
     <h3>
       {% if item.jobTitle %}
-        {{ item.jobTitle }}
+        {{ item.jobTitle }} ({{ item.createDate|date:"SHORT_DATETIME_FORMAT" }})
       {% else %}
-        Backup #{{ item.backupJobId }}
+        Backup #{{ item.backupJobId }} ({{ item.createDate|date:"SHORT_DATETIME_FORMAT" }})
+        
+        {# {{ item.datasources.0.title }} &rarr; {{ item.datasink.title }} ({{ item.createDate|date:"SHORT_DATETIME_FORMAT" }}) #}
       {% endif %}
     </h3>
     <a href="#" class="backup-details-handler">{% trans "Details" %}</a>
@@ -14,7 +16,7 @@
   <div class="backup-summary">
     <ul>
       <li><span class="key">{% trans "Data-Source" %}: </span>{{ item.datasources.0.title }}</li>
-      <li><span class="key">{% trans "Data-Target" %}: </span>{{ item.datasinkTitle }}</li>
+      <li><span class="key">{% trans "Data-Target" %}: </span>{{ item.datasink.title }}</li>
       <li><strike><span class="key">{% trans "Backup-State" %}: </span><span class="icon-backupstate-ok">OK</span></strike></li>
     </ul>
   </div>
@@ -25,17 +27,17 @@
       {% for source in item.datasources %}
         <ul class="value">
           <li>{{ source.title }}</li>
-          <li><strike>John Doe</strike></li>
-          <li><strike>Backup-Data Info</strike></li>
+          {# <li>John Doe</li> #}
+          {# <li><strike>Backup-Data Info</strike></li> #}
         </ul>
       {% endfor %}
     </div>
     <div class="bli-section">
       <span class="key">{% trans "Data-Target" %}</span>
       <ul class="value">
-        <li>{{ item.datasinkTitle }}</li>
-        <li><strike>John Doe</strike></li>
-        <li><strike>Verfügbar: 600 MB von 5 GB</strike></li>
+        <li>{{ item.datasink.title }}</li>
+        {# <li><strike>John Doe</strike></li> #}
+        {# <li><strike>Verfügbar: 600 MB von 5 GB</strike></li> #}
       </ul>
     </div>
     {# TODO: pass backup-state as classname, eg: "ok", "inactive" #}
@@ -43,7 +45,7 @@
       <strike><span class="key">{% trans "Backup-State" %}</span></strike>
       <ul class="value">
         <li><strike><span class="backupstate-icon">OK</span></strike></li>
-        <li><strike>nächstes Backup: 22.4.2012 9:00</strike></li>
+        <li>{% trans "nächstes Backup" %}: {{ item.startDate|date:"SHORT_DATETIME_FORMAT" }}</li>
       </ul>
     </div>
     <div class="bli-section-options">
