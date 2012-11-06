@@ -14,9 +14,7 @@ class UserCreationForm(forms.ModelForm):
     """
     A form that creates a user, with no privileges, from the given username and password.
     """
-    #username = forms.RegexField(label=_("Username"), max_length=30, regex=r'^[\w.@+-]+$',
-    #    help_text=_("Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."),
-    #    error_messages={'invalid': _("This value may contain only letters, numbers and @/./+/-/_ characters.")})
+    # this will be username AND email becaus the email field is required
     email = forms.EmailField(label=_('Email'), max_length=254)
 
     password1 = forms.CharField(label=_("Password"), widget=forms.PasswordInput, 
@@ -75,7 +73,8 @@ class UserCreationForm(forms.ModelForm):
         user = super(UserCreationForm, self).save(commit=False)
         user.set_password("")
         user.username = self.cleaned_data['email']
-
+        user.email = self.cleaned_data['email']
+        
         remote_user = RestUser(user.username)
         response = remote_user.post({
             'password': self.cleaned_data["password1"],
@@ -217,7 +216,26 @@ class UserSettingsForm(forms.Form):
         if new_password1 != new_password2:
             raise forms.ValidationError(_("The two password fields didn't match."))
         return new_password2
-
+    
+    def clean_email(self):
+        email = self.cleaned_data["email"]
+        try:
+            # check if remote api knows user
+            remote_user = RestUser(email)
+            result = remote_user.get()
+        
+            if 'errorType' in result and result['errorType'] == 'org.backmeup.model.exceptions.UnknownUserException':
+                # remote api doesn't know user, thus check with local db
+                old_user = User.objects.get(username=email)
+                # seems like the user exists (no exception) in "our" db, but not
+                # according to the rest api. thus the user is deleted.
+                old_user.delete()
+                return email
+        except User.DoesNotExist:
+            return email
+        
+        raise forms.ValidationError(_("A user with that email already exists."))
+    
     def save(self):
         rest_api = RestUser(self.user.username)
         data = {}
@@ -225,21 +243,22 @@ class UserSettingsForm(forms.Form):
         old_password = self.cleaned_data['old_password']
         new_password = self.cleaned_data.get('new_password1', False)
         new_key_ring = self.cleaned_data.get('new_password1', False)
-        new_email = self.cleaned_data.get('email', self.user.email)
+        new_email = self.cleaned_data.get('email', self.user.username)
         
         data['old_password'] = old_password
         if new_password:
             data['password'] = new_password
         if new_key_ring:
             data['keyRing'] = new_key_ring
-        if not new_email == self.user.email:
+        if not new_email == self.user.username:
             data['email'] = new_email
             data['username'] = new_email
         
         result_rest = rest_api.put(data)
         
-        if result_rest == True and not new_email == self.user.email:
+        if result_rest == True and not new_email == self.user.username:
             self.user.username = new_email
+            self.user.email = new_email
             self.user.save()
         
         return result_rest
@@ -262,7 +281,7 @@ class DebugUserSettingsForm(forms.Form):
     def __init__(self, user, *args, **kwargs):
         self.user = user
         kwargs['initial'] = {
-            'email': self.user.email,
+            'email': self.user.username,
         }
         super(UserSettingsForm, self).__init__(*args, **kwargs)
 
@@ -301,14 +320,14 @@ class DebugUserSettingsForm(forms.Form):
         old_password = self.cleaned_data['old_password']
         new_password = self.cleaned_data.get('new_password1', False)
         new_key_ring = self.cleaned_data.get('new_key_ring1', False)
-        new_email = self.cleaned_data.get('email', self.user.email)
+        new_email = self.cleaned_data.get('email', self.user.username)
         
         data['old_password'] = old_password
         if new_password:
             data['password'] = new_password
         if new_key_ring:
             data['keyRing'] = new_key_ring
-        if not new_email == self.user.email:
+        if not new_email == self.user.username:
             data['email'] = new_email
 
         return rest_api.put(data)

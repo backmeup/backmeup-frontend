@@ -310,9 +310,6 @@ class JobCreateForm(forms.Form):
             "keyRing": self.extra_data['key_ring'],
         }
         
-        
-        print "####actions:", actions
-        
         datasource_options_result = rest_datasource_profile.put(profile_id=self.extra_data['datasource_profile_id'], 
             job_id=job_result['jobId'], source_options=source_options)
         
