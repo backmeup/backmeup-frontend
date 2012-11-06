@@ -74,7 +74,7 @@ class DatasourceAuthForm(forms.Form):
             self.auth_data['requiredInputs'] = sorted(self.auth_data['requiredInputs'], key=lambda k: k['order']) 
             
             for item in self.auth_data['requiredInputs']:
-                self.fields['input_key_%d' % item['order']] = forms.CharField(widget=forms.HiddenInput, initial=item['label'])
+                self.fields['input_key_%d' % item['order']] = forms.CharField(widget=forms.HiddenInput, initial=item['name'])
                 
                 field_kwargs = {
                     'label': _(item['label']),
@@ -167,7 +167,7 @@ class DatasinkAuthForm(forms.Form):
             self.auth_data['requiredInputs'] = sorted(self.auth_data['requiredInputs'], key=lambda k: k['order']) 
         
             for item in self.auth_data['requiredInputs']:
-                self.fields['input_key_%d' % item['order']] = forms.CharField(widget=forms.HiddenInput, initial=item['label'])
+                self.fields['input_key_%d' % item['order']] = forms.CharField(widget=forms.HiddenInput, initial=item['name'])
             
                 field_kwargs = {
                     'label': _(item['label']),
