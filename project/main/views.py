@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import datetime
+
+
 from django.contrib import messages
+from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 #from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render_to_response
@@ -16,14 +20,14 @@ def get_sink_title(sinks, sink_id):
     sink_id = int(sink_id)
     for sink in sinks:
         if sink['datasinkProfileId'] == sink_id:
-            return sink['title']
+            return _(sink['pluginName'] + " - %(account)s") % {'account': sink['identification']}
 
 
 def get_source_title(sources, source_id):
     source_id = int(source_id)
     for source in sources:
         if source['datasourceProfileId'] == source_id:
-            return source['title']
+            return _(source['pluginName'] + " - %(account)s") % {'account': source['identification']}
     return None
 
 
@@ -67,7 +71,11 @@ def index(request):
         #### delete job form end
 
         if jobs and 'errorType' in jobs:
-            messages.error(request, _(jobs['errorType']))
+            if jobs['errorType'] == 'org.backmeup.model.exceptions.UnknownUserException':
+                logout(request)
+                redirect('index')
+            else:
+                messages.error(request, _(jobs['errorType']))
         else:
             rest_datasource_profile = RestDatasourceProfile(username=request.user.username)
             datasource_profiles = rest_datasource_profile.get_all()
@@ -76,15 +84,14 @@ def index(request):
             datasink_profiles = rest_datasink_profile.get_all()
             
             for job in jobs:
-                job['datasinkTitle'] = get_sink_title(datasink_profiles, job['datasink']['datasinkId'])
-                job['datasources'] = []
+                # need to cut of first 3 numbers to get valid unix timestamp
+                job['createDate'] = datetime.datetime.fromtimestamp(job['createDate']/1000)
+                job['startDate'] = datetime.datetime.fromtimestamp(job['startDate']/1000)
+                job['datasink']['title'] = get_sink_title(datasink_profiles, job['datasink']['datasinkId'])
+                #job['datasources'] = []
                 for datasource in job['datasources']:
-                    job['datasources'].append({
-                        'id': datasource['datasourceId'],
-                        'title': get_source_title(datasource_profiles, source_id)
-                    })
+                    datasource['title'] = get_source_title(datasource_profiles, datasource['datasourceId'])
             context['jobs'] = jobs
-            
 
     return render_to_response(
         "www/index.html",
@@ -250,18 +257,16 @@ def job_log(request, job_id):
     rest_datasink_profile = RestDatasinkProfile(username=request.user.username)
     datasink_profiles = rest_datasink_profile.get_all()
     
-    job['datasinkTitle'] = get_sink_title(datasink_profiles, job['datasinkId'])
-    job['datasources'] = []
-    for source_id in job['datasourceIds']:
-        job['datasources'].append({
-            'id': source_id,
-            'title': get_source_title(datasource_profiles, source_id)
-        })
+    job['datasink']['title'] = get_sink_title(datasink_profiles, job['datasink']['datasinkId'])
+    #job['datasources'] = []
+    for datasource in job['datasources']:
+        datasource['title'] = get_source_title(datasource_profiles, datasource['datasourceId'])
     
     return render_to_response(
         "www/job_log.html",
         {
             'job': job,
             'log': job_status['backupStatus'],
+            'current_status': job_status['backupStatus'][0]['type']
         },
         context_instance=RequestContext(request))

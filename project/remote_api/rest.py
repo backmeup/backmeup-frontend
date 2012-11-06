@@ -82,6 +82,8 @@ class RestBase(object):
             print "#### status:", response.status_code
             print "###### json:", response.json
             print "............................."
+        if response.status_code == 204:
+            return True
         return response.json
 
 
