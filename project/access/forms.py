@@ -238,7 +238,7 @@ class UserSettingsForm(forms.Form):
         
         result_rest = rest_api.put(data)
         
-        if not 'errorType' in result_rest and not new_email == self.user.email:
+        if result_rest == True and not new_email == self.user.email:
             self.user.username = new_email
             self.user.save()
         
@@ -246,8 +246,6 @@ class UserSettingsForm(forms.Form):
 
 
 class DebugUserSettingsForm(forms.Form):
-
-
     email = forms.EmailField(label=_('Email'), max_length=254, required=False)
 
     new_password1 = forms.CharField(label=_("New Password"), widget=forms.PasswordInput, required=False)
