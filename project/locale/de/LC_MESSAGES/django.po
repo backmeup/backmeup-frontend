@@ -2,126 +2,131 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-29 14:46+0100\n"
+"POT-Creation-Date: 2012-11-05 18:01+0100\n"
 "PO-Revision-Date: 2012-10-29 16:22\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Translated-Using: django-rosetta 0.6.8\n"
 
-#: access/forms.py:20 access/forms.py:97 access/forms.py:176
-#: access/forms.py:245 templates/www/access/login.html:18
+#: access/forms.py:20 access/forms.py:101 access/forms.py:182
+#: access/forms.py:249 templates/www/access/login.html:18
 msgid "Email"
 msgstr "E-mail"
 
-#: access/forms.py:22 access/forms.py:99
+#: access/forms.py:22 access/forms.py:103
 msgid "Password"
 msgstr "Passwort"
 
 #: access/forms.py:23
-msgid "Your password needs to be at least 9 characters long."
+#, fuzzy, python-format
+msgid "Your password needs to be at least %s characters long."
 msgstr "Ihr Passwort muss mind. 9 Zeichen lang sein."
 
-#: access/forms.py:24 access/forms.py:100
+#: access/forms.py:24 access/forms.py:104
 msgid "Password confirmation"
 msgstr "Passwort bestätigen"
 
-#: access/forms.py:25 access/forms.py:101 access/forms.py:180
-#: access/forms.py:249
+#: access/forms.py:25 access/forms.py:105 access/forms.py:186
+#: access/forms.py:253
 msgid "Enter the same password as above, for verification."
 msgstr "Passwort wiederholen"
 
-#: access/forms.py:51
+#: access/forms.py:55
 msgid "A user with that email already exists."
 msgstr "Ein Benutzer mit dieser E-mail Adresse existiert bereits."
 
-#: access/forms.py:58
+#: access/forms.py:62
 #, python-format
 msgid "Password must be at least %d chars."
 msgstr "Ihr Passwort muss mind. %d Zeichen lang sein."
 
-#: access/forms.py:60 access/forms.py:130 access/forms.py:212
-#: access/forms.py:281
+#: access/forms.py:64 access/forms.py:134 access/forms.py:218
+#: access/forms.py:285
 msgid "The two password fields didn't match."
 msgstr "Die beiden Passwörter stimmen nicht überein."
 
-#: access/forms.py:94
+#: access/forms.py:98
 msgid "Username"
 msgstr "Benutzername"
 
-#: access/forms.py:95
+#: access/forms.py:99
 msgid "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."
 msgstr ""
 "Pflichtfeld. 30 Zeichen oder weniger. Erlaubt sind Buchstaben, Zahlen und "
 "@/./+/-/_"
 
-#: access/forms.py:96
+#: access/forms.py:100
 msgid "This value may contain only letters, numbers and @/./+/-/_ characters."
 msgstr "Es sind nur Buchstaben, Zahlen und @/./+/-/_ erlaubt."
 
-#: access/forms.py:103
+#: access/forms.py:107
 msgid "KeyRing Password"
 msgstr "KeyRing Passwort"
 
-#: access/forms.py:104
+#: access/forms.py:108
 msgid "KeyRing Password confirmation"
 msgstr "KeyRing Passwort wiederholen"
 
-#: access/forms.py:105 access/forms.py:253
+#: access/forms.py:109 access/forms.py:257
 msgid "Enter the same KeyRing Password as above, for verification."
 msgstr "Bitte geben Sie dasselbe KeyRing Passwort wie oben ein."
 
-#: access/forms.py:124
+#: access/forms.py:128
 msgid "A user with that username already exists."
 msgstr "Ein Benutzer mit diesem Namen existiert bereits."
 
-#: access/forms.py:137 access/forms.py:290
+#: access/forms.py:141 access/forms.py:294
 msgid "The two KeyRing Password fields didn't match."
 msgstr "Die beiden KeyRing Passwörter stimmen nicht überein."
 
-#: access/forms.py:162
+#: access/forms.py:166
 msgid "Verification Key"
 msgstr "Bestätigungs-Code"
 
-#: access/forms.py:178 access/forms.py:247
+#: access/forms.py:184 access/forms.py:251
 msgid "New Password"
 msgstr "Neues Passwort"
 
-#: access/forms.py:179 access/forms.py:248
+#: access/forms.py:185 access/forms.py:252
 msgid "New Password confirmation"
 msgstr "Neues Passwort wiederholen"
 
-#: access/forms.py:186 access/forms.py:255
+#: access/forms.py:192 access/forms.py:259
 msgid "Current Password"
 msgstr "Bestehendes Passwort"
 
-#: access/forms.py:187 access/forms.py:256
+#: access/forms.py:193 access/forms.py:260
 msgid "Enter your current password for verification."
 msgstr "Bestehendes Passwort eingeben"
 
-#: access/forms.py:203 access/forms.py:272
+#: access/forms.py:209 access/forms.py:276
 msgid "Your old password was entered incorrectly. Please enter it again."
 msgstr ""
 "Ihr bestehendes Passwort wurde falsch eingegeben. Bitte versuchen Sie es "
 "erneut."
 
-#: access/forms.py:251
+#: access/forms.py:255
 msgid "New KeyRing Password"
 msgstr "Neues KeyRing-Passwort"
 
-#: access/forms.py:252
+#: access/forms.py:256
 msgid "New KeyRing Password confirmation"
 msgstr "Neues KeyRing-Passwort wiederholen"
+
+#: access/views.py:109
+msgid "Logged out"
+msgstr ""
 
 #: main/forms.py:11
 msgid "now"
@@ -143,26 +148,31 @@ msgstr "monatlich"
 msgid "Datasource"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:39 main/forms.py:109
+#: main/forms.py:39 main/forms.py:133
 #, python-format
 msgid "%(plugin)s - profile"
 msgstr "%(plugin)s - Profil"
 
-#: main/forms.py:105
+#: main/forms.py:129
 msgid "Datasink"
 msgstr "Speicher-Ziel"
 
-#: main/forms.py:159 main/forms_debug.py:15
+#: main/forms.py:208 main/forms_debug.py:15
 msgid "Backup Name"
 msgstr "Backup-Name"
 
-#: main/forms.py:171
+#: main/forms.py:220
 msgid "Title"
 msgstr "Titel"
 
 #: main/forms_debug.py:17
 msgid "Key Ring"
 msgstr "KeyRing"
+
+#: main/views.py:19 main/views.py:26
+#, python-format
+msgid " - %(account)s"
+msgstr ""
 
 #: main/views.py:60
 msgid "Backup was successfully deleted."
@@ -183,8 +193,8 @@ msgstr "404 - Page Not Found"
 
 #: templates/404.html:9
 msgid ""
-"Sorry, the page you are looking does not exist. Please go to the homepage or"
-" use the search."
+"Sorry, the page you are looking does not exist. Please go to the homepage or "
+"use the search."
 msgstr ""
 "Die aufgerufene Seite existiert nicht oder nicht mehr. Bitte gehen Sie zur "
 "Startseite oder verwenden Sie die Suche."
@@ -192,6 +202,26 @@ msgstr ""
 #: templates/base.html:6
 msgid "BackMeUp"
 msgstr "BackMeUp"
+
+#: templates/dynamic_message_strings.html:3
+#, python-format
+msgid "org.backmeup.twitter - %(account)s"
+msgstr "twitter - %(account)s"
+
+#: templates/dynamic_message_strings.html:4
+#, python-format
+msgid "org.backmeup.dropbox - %(account)s"
+msgstr "dropbox - %(account)s"
+
+#: templates/dynamic_message_strings.html:5
+#, python-format
+msgid "org.backmeup.facebook - %(account)s"
+msgstr "facebook - %(account)s"
+
+#: templates/dynamic_message_strings.html:6
+#, python-format
+msgid "org.backmeup.moodle - %(account)s"
+msgstr "moodle - %(account)s"
 
 #: templates/flatpages/features.html:10
 msgid "Sign Up now"
@@ -311,26 +341,102 @@ msgstr "Backup-Aktionen"
 msgid "Create Backup"
 msgstr "Backup erstellen"
 
-#: templates/www/job_log.html:11 templates/www/includes/dashboard.html:26
+#: templates/www/job_log.html:23 templates/www/search_result.html:30
+#: templates/www/includes/dashboard.html:26
 #: templates/www/includes/dashboard.html:33
 #: templates/www/includes/backup_jobs/backup_list_item.html:16
 #: templates/www/includes/backup_jobs/backup_list_item.html:24
 msgid "Data-Source"
 msgstr "Daten-Quelle"
 
-#: templates/www/job_log.html:13 templates/www/includes/dashboard.html:27
+#: templates/www/job_log.html:25 templates/www/includes/dashboard.html:27
 #: templates/www/includes/dashboard.html:41
 #: templates/www/includes/backup_jobs/backup_list_item.html:17
 #: templates/www/includes/backup_jobs/backup_list_item.html:34
 msgid "Data-Target"
 msgstr "Speicher-Ziel"
 
-#: templates/www/job_log.html:15 templates/www/includes/dashboard.html:28
+#: templates/www/job_log.html:27 templates/www/includes/dashboard.html:28
 #: templates/www/includes/dashboard.html:50
 #: templates/www/includes/backup_jobs/backup_list_item.html:18
 #: templates/www/includes/backup_jobs/backup_list_item.html:43
 msgid "Backup-State"
 msgstr "Backup-Status"
+
+#: templates/www/search_result.html:4
+#, fuzzy
+msgid "Search Results"
+msgstr "Suche"
+
+#: templates/www/search_result.html:10
+#: templates/www/search_result_detail.html:10
+#: templates/www/includes/header_search.html:4
+msgid "Search"
+msgstr "Suche"
+
+#: templates/www/search_result.html:18
+#, fuzzy
+msgid "Search results"
+msgstr "Suche"
+
+#: templates/www/search_result.html:25
+msgid "Filter search results"
+msgstr ""
+
+#: templates/www/search_result.html:27
+msgid "Limit search results"
+msgstr ""
+
+#: templates/www/search_result.html:39
+#, fuzzy
+msgid "Data-Type"
+msgstr "Speicher-Ziel"
+
+#: templates/www/search_result.html:47
+msgid "send"
+msgstr ""
+
+#: templates/www/search_result_detail.html:4
+#: templates/www/search_result_detail.html:19
+msgid "Search result details"
+msgstr ""
+
+#: templates/www/search_result_detail.html:25
+#, fuzzy
+msgid "Backup-Details"
+msgstr "Backup-Status"
+
+#: templates/www/search_result_detail.html:27
+#: templates/www/search_result_detail.html:30
+#, fuzzy
+msgid "Data-source"
+msgstr "Daten-Quelle"
+
+#: templates/www/search_result_detail.html:34
+msgid "creation-date"
+msgstr ""
+
+#: templates/www/search_result_detail.html:38
+#, fuzzy
+msgid "title"
+msgstr "Titel"
+
+#: templates/www/search_result_detail.html:43
+#, fuzzy
+msgid "Data-targets"
+msgstr "Speicher-Ziel"
+
+#: templates/www/search_result_detail.html:51
+msgid "versendet"
+msgstr ""
+
+#: templates/www/search_result_detail.html:62
+msgid "gespeichert"
+msgstr ""
+
+#: templates/www/search_result_detail.html:66
+msgid "file-path"
+msgstr ""
 
 #: templates/www/access/debug_signup.html:51
 msgid "Create Account"
@@ -349,6 +455,7 @@ msgstr ""
 "erneut."
 
 #: templates/www/access/signup.html:4 templates/www/access/signup.html.py:8
+#: templates/www/includes/homepage.html:4
 #: templates/www/includes/navigation/user_nav.html:42
 msgid "Sign Up"
 msgstr "Registrieren"
@@ -411,12 +518,12 @@ msgstr "Wollen Sie das ausgewählte Backup wirklich löschen?"
 #: templates/www/includes/backup_jobs/backup_list_item.html:64
 msgid ""
 "By deleting a Backup-Job no further Backups will be created. Backups that "
-"have already been created will however remain on the data-target and need to"
-" be deleted manually."
+"have already been created will however remain on the data-target and need to "
+"be deleted manually."
 msgstr ""
 "Durch das Löschen eines Backups werden keine neuen Backups dieses Typs "
-"angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten"
-" und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
+"angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten "
+"und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
 
 #: templates/www/includes/dashboard.html:76
 #: templates/www/includes/backup_jobs/backup_list_item.html:70
@@ -439,17 +546,9 @@ msgstr "Backup-Log"
 msgid "No backups yet."
 msgstr "Noch keine Backups."
 
-#: templates/www/includes/header_search.html:4
-msgid "Search"
-msgstr "Suche"
-
 #: templates/www/includes/header_search.html:7
 msgid "search"
 msgstr "suchen"
-
-#: templates/www/includes/homepage.html:4
-msgid "Registrieren"
-msgstr "Registrieren"
 
 #: templates/www/includes/backup_jobs/backup_list_item.html:51
 msgid "Edit Backup"
@@ -462,3 +561,6 @@ msgstr "Einstellungen"
 #: templates/www/includes/navigation/user_nav.html:32
 msgid "Sign out"
 msgstr "Ausloggen"
+
+#~ msgid "Registrieren"
+#~ msgstr "Registrieren"
