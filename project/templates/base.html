@@ -1,13 +1,16 @@
 {% load i18n %}
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <title>{% block html_title %}{% endblock html_title %} | {% trans "BackMeUp" %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   <!-- TODO: Place favicon.ico and apple-touch-icon.png in the root directory -->
   <link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/css/main.css" />
-  <script src="{{ STATIC_URL }}js/libs/html5shiv-printshiv.js"></script>
+  <script src="{{ STATIC_URL }}js/libs/modernizr.custom.53194.js"></script>
   
 </head>
 <body {% block body_class %}{% endblock %}>

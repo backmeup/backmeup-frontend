@@ -10,3 +10,16 @@ Install
  * $ ./manage.py syncdb
  * $ ./manage.py migrate
 
+
+
+FRONTEND-DEVELOPMENT
+====================
+- Compass:
+   this project uses scss with the compass-framework.
+   DO NOT edit css-files directly. any changes will be overwritten.
+   for more information see: http://compass-style.org
+
+- Modernizr: 
+   this project uses a custom-build of modernizr for feature detection and enabling html5-elements for older browsers.
+   for additional feature-detection a new customized modernizr needs to be build.
+   for more information see: http://modernizr.com
