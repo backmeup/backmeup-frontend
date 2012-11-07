@@ -25,9 +25,9 @@
           {#             {% endif %} #}
           {#           </div> #}
           
-          <div>
+          <div class="datasource-group">
             {% for item in form.datasource %}
-               <label>{{ item.tag }} {{ item.choice_label }}</label>
+               <label class="icon-facebook">{{ item.tag }} {{ item.choice_label }}</label>
             {% endfor %}
             {% if form.datasource.errors %}
               {{ form.datasource.errors }}

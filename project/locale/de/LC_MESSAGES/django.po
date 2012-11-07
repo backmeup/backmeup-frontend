@@ -2,20 +2,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-11-05 18:01+0100\n"
-"PO-Revision-Date: 2012-10-29 16:22\n"
+"PO-Revision-Date: 2012-11-07 12:31\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Translated-Using: django-rosetta 0.6.8\n"
 
@@ -29,9 +29,9 @@ msgid "Password"
 msgstr "Passwort"
 
 #: access/forms.py:23
-#, fuzzy, python-format
+#, python-format
 msgid "Your password needs to be at least %s characters long."
-msgstr "Ihr Passwort muss mind. 9 Zeichen lang sein."
+msgstr "Ihr Passwort muss mind. %s Zeichen lang sein."
 
 #: access/forms.py:24 access/forms.py:104
 msgid "Password confirmation"
@@ -193,8 +193,8 @@ msgstr "404 - Page Not Found"
 
 #: templates/404.html:9
 msgid ""
-"Sorry, the page you are looking does not exist. Please go to the homepage or "
-"use the search."
+"Sorry, the page you are looking does not exist. Please go to the homepage or"
+" use the search."
 msgstr ""
 "Die aufgerufene Seite existiert nicht oder nicht mehr. Bitte gehen Sie zur "
 "Startseite oder verwenden Sie die Suche."
@@ -518,12 +518,12 @@ msgstr "Wollen Sie das ausgewählte Backup wirklich löschen?"
 #: templates/www/includes/backup_jobs/backup_list_item.html:64
 msgid ""
 "By deleting a Backup-Job no further Backups will be created. Backups that "
-"have already been created will however remain on the data-target and need to "
-"be deleted manually."
+"have already been created will however remain on the data-target and need to"
+" be deleted manually."
 msgstr ""
 "Durch das Löschen eines Backups werden keine neuen Backups dieses Typs "
-"angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten "
-"und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
+"angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten"
+" und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
 
 #: templates/www/includes/dashboard.html:76
 #: templates/www/includes/backup_jobs/backup_list_item.html:70

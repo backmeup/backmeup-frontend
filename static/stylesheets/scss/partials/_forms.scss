@@ -57,7 +57,36 @@ select {
   color: $clr-error;
 }
 
-
+.js {
+  .datasource-group {
+    label {
+      height: 32px;
+      line-height: 32px;
+      @include padding-leader(.25);
+      @include padding-trailer(.25);
+      padding-left: .375em;
+      &:hover {
+        cursor: pointer;
+        background: $bg-clr1;
+        color: #fff;
+      }
+    }
+    label:before {
+      width: 32px;
+      height: 32px;
+      display: block;
+      float: left;
+      margin-right: .5em;
+      content: "";
+      background: url($backupIconsPath) no-repeat 0 0;
+    }
+    input[type="radio"] {
+      position: absolute;
+      left: -99999px;
+    }
+  }
+  
+}
 
 .form-job-create {
   fieldset {
