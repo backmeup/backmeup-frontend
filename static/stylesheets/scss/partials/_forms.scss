@@ -58,6 +58,11 @@ select {
 }
 
 .js {
+  .form-datasource {
+    .btn-next {
+      display: none;
+    }
+  }
   .datasource-group {
     label {
       height: 32px;
@@ -78,7 +83,8 @@ select {
       float: left;
       margin-right: .5em;
       content: "";
-      background: url($backupIconsPath) no-repeat 0 0;
+      background-image: url($backupIconsPath);
+      background-repeat: no-repeat;
     }
     input[type="radio"] {
       position: absolute;

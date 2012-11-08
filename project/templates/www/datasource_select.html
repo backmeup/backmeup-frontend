@@ -15,7 +15,7 @@
       <h3>{% trans "1. Data-Source" %}</h3>
       <div class="add-backup-content">
         <h4>{% trans "Step 1: select data-source" %}</h4>
-        <form action="." method="POST">{% csrf_token %}
+        <form action="." method="POST" class="form-datasource">{% csrf_token %}
           {{ form.non_field_errors }}
           {# <div> #}
           {#             <label>{{ form.profile_name.label }} #}
@@ -27,7 +27,8 @@
           
           <div class="datasource-group">
             {% for item in form.datasource %}
-               <label class="icon-facebook">{{ item.tag }} {{ item.choice_label }}</label>
+              {# TODO: display css-class suffix #}
+              <label class="g32-icon-before-{{ item.css_class }}">{{ item.tag }} {{ item.choice_label }}</label>
             {% endfor %}
             {% if form.datasource.errors %}
               {{ form.datasource.errors }}
@@ -42,7 +43,7 @@
           {#             {% endif %} #}
           {#           </div> #}
           
-          <div><button type="submit" class="btn-next">{% trans "next" %}</button></div>
+          <button type="submit" class="btn-next">{% trans "next" %}</button>
         </form>
       </div>
     </li>
@@ -60,3 +61,15 @@
     </li>
   </ul>
 {% endblock content %}
+
+
+{% block additional_js %}
+<script>
+$(function(){
+  $('.form-datasource').on('click', 'label', function() {
+      $(this).find('input[type="radio"]').attr("checked", "checked");
+      $('.form-datasource').submit();
+  });
+})
+</script>
+{% endblock %}
