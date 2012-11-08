@@ -461,3 +461,21 @@ class RestMetadata(RestBase):
 
     def get(self, profile_id):
         return self._get(path=profile_id + "/")
+
+
+class RestSearch(RestBase):
+    
+    def __init__(self, username, path='backups/'):
+        self.username = username
+        super(RestSearch, self).__init__()
+        self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
+    
+    def get(self, search_id):
+        return self._get(path="%d/query/" % int(search_id))
+        
+    def post(self, data):
+        params = {
+            'keyRing': data['key_ring'],
+            'query': data['query']
+        }
+        return self._post(path="search/", data=params)

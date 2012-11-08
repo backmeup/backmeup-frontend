@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 #from django.forms.widgets import CheckboxSelectMultiple
 
 #from access.models import User
-from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile, RestJobs, RestAction
+from remote_api.rest import RestDatasource, RestDatasourceProfile, RestDatasink, RestDatasinkProfile, RestJobs, RestAction, RestSearch
 
 BACKUP_JOB_TIME_EXPRESSION = (
     ('realtime', _('now')),
@@ -323,3 +323,13 @@ class JobCreateForm(forms.Form):
             'job': job_result,
             'datasource_options': datasource_options_result,
         }
+
+
+class SearchForm(forms.Form):
+    
+    query = forms.CharField(label=_("Query"), required=True)
+    
+    def rest_save(self, username, key_ring):
+        rest_search = RestSearch(username=username)
+        result = rest_search.post({'query': self.cleaned_data['query'], 'key_ring': key_ring})
+        return result
