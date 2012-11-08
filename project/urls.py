@@ -41,6 +41,8 @@ urlpatterns = patterns('',
     url(r'^job/create/$', 'main.views.job_create', name="job-create"),
     url(r'^job/(?P<job_id>\d+)/log$', 'main.views.job_log', name="job-log"),
     
+    url(r'^search/$', 'main.views.search', name='search'),
+    url(r'^search/(?P<search_id>\d+)/$', 'main.views.search_result', name='search-result'),
     
     # styleguide
     (r'^styleguide$', TemplateView.as_view(template_name='www/styleguide/styleguide.html')),

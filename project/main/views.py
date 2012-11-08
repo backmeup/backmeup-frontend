@@ -12,8 +12,8 @@ from django.template import RequestContext
 from django.utils.translation import ugettext_lazy as _
 
 
-from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile
-from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, JobCreateForm, JobDeleteForm
+from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile, RestSearch
+from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, JobCreateForm, JobDeleteForm, SearchForm
 
 
 def get_sink_title(sinks, sink_id):
@@ -49,11 +49,13 @@ def additional_context(request):
         rest_datasink = RestDatasinkProfile(username=request.user.username)
         context['datasink_profile'] = rest_datasink.get(request.session['datasink_profile_id'])
     
+    context['search_form'] = SearchForm(request.POST or None)
+    
     return context
 
 
 def index(request):
-    context = {}
+    context = additional_context(request)
     if request.user.is_authenticated():
         
         ### delete job form start
@@ -92,7 +94,7 @@ def index(request):
                 for datasource in job['datasources']:
                     datasource['title'] = get_source_title(datasource_profiles, datasource['datasourceId'])
             context['jobs'] = jobs
-
+    
     return render_to_response(
         "www/index.html",
         context,
@@ -270,3 +272,29 @@ def job_log(request, job_id):
             'current_status': job_status['backupStatus'][0]['type']
         },
         context_instance=RequestContext(request))
+
+
+@login_required
+def search(request):
+    form = SearchForm(request.POST or None)
+    
+    if form.is_valid():
+        result = form.rest_save(request.user.username, request.session['key_ring'])
+        return redirect('search-result', search_id=result['searchId'])
+    
+    referer = request.META.get('HTTP_REFERER', 'index')
+    
+    return redirect(referer)
+
+
+@login_required
+def search_result(request, search_id):
+    
+    rest_search = RestSearch(username=request.user.username)
+    result = rest_search.get(search_id)
+    
+    return render_to_response('www/search_result.html', {
+        'result': result,
+    }, context_instance=RequestContext(request))
+    
+    
