@@ -427,26 +427,14 @@ class RestJobs(RestBase):
     def get_job_status(self, job_id):
         return self._get(path=job_id + "/status/")
 
-    def get_file_status(self, file_id):
-        return self._get(path=file_id + "/details/")
+    #def get_file_status(self, file_id):
+    #    return self._get(path=file_id + "/details/")
 
     def get_user_profile_status(self):
         return self._get(path="/status/overview/")
 
     def validate(self, job_id):
         return self._get(path="validate/%s/" % job_id)
-
-#
-#class RestSearch(RestBase):
-#
-#    def __init__(self, username, path="backups/"):
-#        if not username:
-#            raise ValueError('argument "username" is missing.')
-#        self.username = username
-#
-#        super(RestJobs, self).__init__()
-#        self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
-#
 
 
 class RestMetadata(RestBase):
@@ -479,3 +467,18 @@ class RestSearch(RestBase):
             'query': data['query']
         }
         return self._post(path="search/", data=params)
+
+
+class RestFile(RestBase):
+    
+    def __init__(self, username, path="jobs/"):
+        if not username:
+            raise ValueError('argument "username" is missing.')
+        self.username = username
+        
+        super(RestFile, self).__init__()
+        self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
+    
+    def get(self, file_id):
+        return self._get(path=file_id + "/details/")
+

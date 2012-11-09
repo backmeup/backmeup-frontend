@@ -48,7 +48,45 @@
     </form>
   </aside>
   
+  
+  
+  
+  
   <ul class="sr-list">
+    
+    {% for item in result.files %}
+      <li>
+        {# {{ item.type }} #}
+        {# {{ item.fileId }} #}
+        
+        <a href="{% url file-info search_id=search_id file_id=item.fileId %}" class="search-item-link">
+          <header class="search-item-header">
+            <h4>Dummy Dropbox</h4>
+          </header>
+          <div class="search-item-content">
+            <div class="search-item-text">
+              <h4>{{ item.title }}</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+          <footer class="search-item-footer">
+            <date>{{ item.timeStamp|date:"SHORT_DATE_FORMAT" }}</date>
+            <span class="file-type">{{ item.simple_type }}</span>
+          </footer>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  
+  
+    <ul class="sr-list">
+    <li>
+      <h1>DUMMY</h1>
+    </li>
+    <li>
+      <h1>DUMMY</h1>
+    </li>
+    
     {# Dummy search-results START #}
     <li>
       <a href="/search-result-details" class="search-item-link">

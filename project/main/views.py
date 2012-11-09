@@ -12,7 +12,7 @@ from django.template import RequestContext
 from django.utils.translation import ugettext_lazy as _
 
 
-from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile, RestSearch
+from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile, RestSearch, RestFile
 from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, JobCreateForm, JobDeleteForm, SearchForm
 
 
@@ -293,8 +293,28 @@ def search_result(request, search_id):
     rest_search = RestSearch(username=request.user.username)
     result = rest_search.get(search_id)
     
+    try:
+        for item in result['files']:
+            item['timeStamp'] = datetime.datetime.fromtimestamp(item['timeStamp']/1000)
+            item['simple_type'] = item['type'].split('/')[0]
+    except e:
+        pass
     return render_to_response('www/search_result.html', {
         'result': result,
+        'search_id': search_id,
     }, context_instance=RequestContext(request))
+
+
+@login_required
+def file_info(request, search_id, file_id):
     
+    rest_file = RestFile(username=request.user.username)
+    result = rest_file.get(file_id=file_id)
+    
+    result['details']['fileInfo']['timeStamp'] = datetime.datetime.fromtimestamp(int(result['details']['fileInfo']['timeStamp'])/1000)
+    result['details']['fileInfo']['filename'] = result['details']['fileInfo']['path'].split('/')[-1]
+    return render_to_response('www/search_result_detail.html', {
+        'file': result['details']['fileInfo'],
+        'search_id': search_id,
+    }, context_instance=RequestContext(request))
     

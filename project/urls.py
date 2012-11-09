@@ -43,6 +43,7 @@ urlpatterns = patterns('',
     
     url(r'^search/$', 'main.views.search', name='search'),
     url(r'^search/(?P<search_id>\d+)/$', 'main.views.search_result', name='search-result'),
+    url(r'^search/(?P<search_id>\d+)/(?P<file_id>[\w\d:]+)/$', 'main.views.file_info', name='file-info'),
     
     # styleguide
     (r'^styleguide$', TemplateView.as_view(template_name='www/styleguide/styleguide.html')),
