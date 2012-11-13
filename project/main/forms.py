@@ -311,7 +311,7 @@ class JobCreateForm(forms.Form):
         }
         
         datasource_options_result = rest_datasource_profile.put(profile_id=self.extra_data['datasource_profile_id'], 
-            job_id=job_result['jobId'], source_options=source_options)
+            job_id=job_result['job']['jobId'], source_options=source_options)
         
         #for key in self.cleaned_data
         
