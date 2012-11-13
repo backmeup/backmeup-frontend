@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#import json
+import json
 import requests
 
 from django.conf import settings
@@ -28,7 +28,7 @@ class RestBase(object):
             print "###### data:", data
             print "########### response"
             print "#### status:", response.status_code
-            print "###### json:", response.json
+            print "###### json:", json.dumps(response.json, indent=2)
             print "............................."
         return response
 
@@ -43,7 +43,7 @@ class RestBase(object):
             print "###### data:", data
             print "########### response"
             print "#### status:", response.status_code
-            print "###### json:", response.json
+            print "###### json:", json.dumps(response.json, indent=2)
             print "............................."
         if response.status_code == 204:
             return True
@@ -61,7 +61,7 @@ class RestBase(object):
             print "###### data:", data
             print "########### response"
             print "#### status:", response.status_code
-            print "###### json:", response.json
+            print "###### json:", json.dumps(response.json, indent=2)
             print "............................."
         if response.status_code == 204:
             return True
@@ -80,7 +80,7 @@ class RestBase(object):
             print "###### data:", data
             print "########### response"
             print "#### status:", response.status_code
-            print "###### json:", response.json
+            print "###### json:", json.dumps(response.json, indent=2)
             print "............................."
         if response.status_code == 204:
             return True
