@@ -17,32 +17,16 @@
         <h4>{% trans "Step 1: select data-source" %}</h4>
         <form action="." method="POST" class="form-datasource">{% csrf_token %}
           {{ form.non_field_errors }}
-          {# <div> #}
-          {#             <label>{{ form.profile_name.label }} #}
-          {#             {{ form.profile_name }}</label> #}
-          {#             {% if form.profile_name.errors %} #}
-          {#               {{ form.profile_name.errors }} #}
-          {#             {% endif %} #}
-          {#           </div> #}
-          
+
           <div class="datasource-group">
             {% for item in form.datasource %}
-              {# TODO: display css-class suffix #}
-              <label class="g32-icon-before-{{ item.css_class }}">{{ item.tag }} {{ item.choice_label }}</label>
+              <label class="g32-icon-before-{{ item.choice_value|slugify }}">{{ item.tag }} {{ item.choice_label }}</label>
             {% endfor %}
             {% if form.datasource.errors %}
               {{ form.datasource.errors }}
             {% endif %}
           </div>
 
-          {# <div> #}
-          {#             <label>{{ form.key_ring.label }} #}
-          {#             {{ form.key_ring }}</label> #}
-          {#             {% if form.key_ring.errors %} #}
-          {#               {{ form.key_ring.errors }} #}
-          {#             {% endif %} #}
-          {#           </div> #}
-          
           <button type="submit" class="btn-next">{% trans "next" %}</button>
         </form>
       </div>

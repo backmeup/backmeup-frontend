@@ -34,7 +34,7 @@
 
           <div>
             {% for item in form.datasink %}
-               <label>{{ item.tag }} {{ item.choice_label }}</label>
+               <label class="g32-icon-before-{{ item.choice_value|slugify }}">{{ item.tag }} {{ item.choice_label }}</label>
             {% endfor %}
             {% if form.datasink.errors %}
               {{ form.datasink.errors }}
