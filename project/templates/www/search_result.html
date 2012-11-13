@@ -8,14 +8,26 @@
     <div class="container">
       <ul>
         <li><a href="/search">{% trans "Search" %}</a></li>
-        <li><span>666 results</span></li>
+        <li>
+          <span>
+            {% blocktrans count counter=result.files|length %}
+            {{ counter }} result
+            {% plural %}
+            {{ counter }} results
+            {% endblocktrans %}
+          </span>
+        </li>
       </ul>
     </div>
   </div>
 {% endblock %}
 
 {% block content %}
-  <h1>{% trans "Search results" %}: 666</h1>
+  <h1>
+    {% blocktrans with counter=result.files|length %}
+      Search results: {{ counter }}
+    {% endblocktrans %}
+  </h1>
   {# <ul class="sr-filter-list"> #}
   {#   <li class="sr-filter-section"> #}
   {#     <h2></h2> #}
