@@ -458,8 +458,15 @@ class RestSearch(RestBase):
         super(RestSearch, self).__init__()
         self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
     
-    def get(self, search_id):
-        return self._get(path="%d/query/" % int(search_id))
+    def get(self, search_id, data=None):
+        params = {}
+        if data:
+            if "type" in data:
+                params['type'] = data['type']
+            if "source" in data:
+                params['source'] = data['source']
+        
+        return self._get(path="%d/query/" % int(search_id), data=params)
         
     def post(self, data):
         params = {
