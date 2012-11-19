@@ -13,7 +13,10 @@ from django.utils.translation import ugettext_lazy as _
 
 
 from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile, RestSearch, RestFile
-from main.forms import DatasourceSelectForm, DatasourceAuthForm, DatasinkSelectForm, DatasinkAuthForm, JobCreateForm, JobDeleteForm, SearchForm
+from main.forms import DatasourceSelectForm, DatasourceAuthForm
+from main.forms import DatasinkSelectForm, DatasinkAuthForm
+from main.forms import JobCreateForm, JobDeleteForm
+from main.forms import SearchForm, SearchFilterForm
 
 
 def get_sink_title(sinks, sink_id):
@@ -89,6 +92,8 @@ def index(request):
                 # need to cut of first 3 numbers to get valid unix timestamp
                 job['createDate'] = datetime.datetime.fromtimestamp(job['createDate']/1000)
                 job['startDate'] = datetime.datetime.fromtimestamp(job['startDate']/1000)
+                job['lastBackup'] = datetime.datetime.fromtimestamp(job['lastBackup']/1000)
+                job['nextBackup'] = datetime.datetime.fromtimestamp(job['nextBackup']/1000)
                 job['datasink']['title'] = get_sink_title(datasink_profiles, job['datasink']['datasinkId'])
                 #job['datasources'] = []
                 for datasource in job['datasources']:
@@ -297,11 +302,19 @@ def search_result(request, search_id):
         for item in result['files']:
             item['timeStamp'] = datetime.datetime.fromtimestamp(item['timeStamp']/1000)
             item['simple_type'] = item['type'].split('/')[0]
-    except e:
+    except Exception:
         pass
+    
+    form = SearchFilterForm(request.POST or None, search_result=result)
+    
+    if form.is_valid():
+        new_result = form.rest_save(search_id=search_id, username=request.user.username)
+        result = new_result
+    
     return render_to_response('www/search_result.html', {
         'result': result,
         'search_id': search_id,
+        'form': form,
     }, context_instance=RequestContext(request))
 
 

@@ -333,3 +333,33 @@ class SearchForm(forms.Form):
         rest_search = RestSearch(username=username)
         result = rest_search.post({'query': self.cleaned_data['query'], 'key_ring': key_ring})
         return result
+
+
+class SearchFilterForm(forms.Form):
+    
+    def __init__(self, *args, **kwargs):
+        
+        self.search_result = kwargs.pop('search_result')
+        super(SearchFilterForm, self).__init__(*args, **kwargs)
+        
+        datasource_filter_choices = [("", "---"),]
+        for item in self.search_result['bySource']:
+            datasource_filter_choices.append((item['title'], _(item['title'])))
+        
+        self.fields['datasource_filter'] = forms.ChoiceField(label=_('Datasource Filter'), choices=datasource_filter_choices, required=False)
+        
+        type_filter_choices = [("", "---"),]
+        for item in self.search_result['byType']:
+            type_filter_choices.append((item['title'], _(item['title'])))
+        
+        self.fields['type_filter'] = forms.ChoiceField(label=_('Type Filter'), choices=type_filter_choices, required=False)
+    
+    def rest_save(self, search_id, username):
+        rest_search = RestSearch(username=username)
+        data = {}
+        if self.cleaned_data['datasource_filter']:
+            data['source'] = self.cleaned_data['datasource_filter']
+        if self.cleaned_data['type_filter']:
+            data['type'] = self.cleaned_data['type_filter']
+        result = rest_search.get(search_id=search_id, data=data)
+        return result

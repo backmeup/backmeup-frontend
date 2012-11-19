@@ -37,26 +37,46 @@
   <button type="button" class="sr-filter-handler">{% trans "Filter search results" %}</button>
   <aside class="sr-filter-container">
     <h2>{% trans "Limit search results" %}</h2>
-    <form action="/search" method="get">
+    <form action="." method="POST">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      
       <div>
-        <label>{% trans "Data-Source" %}</label>
-        <select name="data-source" id="data-source">
-          <option value="1">Facebook</option>
-          <option value="2">Moodle</option>
-          <option value="3">Dropbox</option>
-          <option value="4">Mail</option>
-        </select>
+        <label>{{ form.datasource_filter.label }}</label>
+        {{ form.datasource_filter }}
+        {{ field.datasource_filter.errors }}
       </div>
+      
       <div>
-        <label>{% trans "Data-Type" %}</label>
-        <select name="data-type" id="data-type">
-          <option value="1">Picture</option>
-          <option value="2">Video</option>
-          <option value="3">PDF</option>
-          <option value="4">Text-File</option>
-        </select>
+        <label>{{ form.type_filter.label }}</label>
+        {{ form.type_filter }}
+        {{ field.type_filter.errors }}
       </div>
+      
+      
+            {# <div> #}
+            {#   <label>{% trans "Data-Source" %}</label> #}
+            {#   <select name="data-source" id="data-source"> #}
+            {#     <option value="1">Facebook</option> #}
+            {#     <option value="2">Moodle</option> #}
+            {#     <option value="3">Dropbox</option> #}
+            {#     <option value="4">Mail</option> #}
+            {#   </select> #}
+            {# </div> #}
+            {# <div> #}
+            {#   <label>{% trans "Data-Type" %}</label> #}
+            {#   <select name="data-type" id="data-type"> #}
+            {#     <option value="1">Picture</option> #}
+            {#     <option value="2">Video</option> #}
+            {#     <option value="3">PDF</option> #}
+            {#     <option value="4">Text-File</option> #}
+            {#   </select> #}
+            {# </div> #}
+      
+      
       <p><input type="submit" value="{% trans "send" %}" class=" btn" /></p>
+      
+      
     </form>
   </aside>
   
