@@ -25,6 +25,13 @@
   @include icon_after('\f061');
   text-decoration:none;
 }
+.btn-back {
+  @extend .btn;
+}
+.btn-back:before {
+  @include icon_before('\f060');
+  text-decoration:none;
+}
 .btn-delete {
   @include standard-button;
   background-color: $clr-error;

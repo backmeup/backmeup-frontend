@@ -107,9 +107,33 @@ a [class*=" icon-"] {
 // sprite-positions for 32px*32px data-source and -sink icons
 $g32posX: 0;
 @each $service in datasource, datasink, facebook, moodle, twitter, dropbox, skydrive, mail, discmailing, zip {
-  .g32-icon-#{$service},
-  .g32-icon-before-#{$service}:before {
+  .g32-icon-before-orgbackmeup#{$service}:before {
     background-position: $g32posX 0;
     $g32posX: $g32posX - 32px;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    display: inline-block;
+    margin-right: .5em;
+    content: "";
+    background-image: url($backupIcons32Path);
+    background-repeat: no-repeat;
+  }
+}
+
+// sprite-positions for 16px*16px data-source and -sink icons
+$g16posX: 0;
+@each $service in datasource, datasink, facebook, moodle, twitter, dropbox, skydrive, mail, discmailing, zip {
+  .g16-icon-orgbackmeup#{$service},
+  .g16-icon-before-orgbackmeup#{$service}:before {
+    background-position: $g16posX 0;
+    $g16posX: $g16posX - 16px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-right: .5em;
+    content: "";
+    background-image: url($backupIcons16Path);
+    background-repeat: no-repeat;
   }
 }

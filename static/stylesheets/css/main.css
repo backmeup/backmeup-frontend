@@ -10,7 +10,7 @@ html {
   line-height: 1.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_base\.scss}line{font-family:\00003122}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_base\.scss}line{font-family:\00003123}}
 .grid {
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 0, 0, 0.5)), color-stop(5%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(1.63934%, rgba(0, 0, 0, 0)), color-stop(1.63934%, rgba(100, 100, 225, 0.25)), color-stop(8.19672%, rgba(100, 100, 225, 0.25)), color-stop(8.19672%, rgba(0, 0, 0, 0)), color-stop(9.83607%, rgba(0, 0, 0, 0)), color-stop(9.83607%, rgba(100, 100, 225, 0.25)), color-stop(16.39344%, rgba(100, 100, 225, 0.25)), color-stop(16.39344%, rgba(0, 0, 0, 0)), color-stop(18.03279%, rgba(0, 0, 0, 0)), color-stop(18.03279%, rgba(100, 100, 225, 0.25)), color-stop(24.59016%, rgba(100, 100, 225, 0.25)), color-stop(24.59016%, rgba(0, 0, 0, 0)), color-stop(26.22951%, rgba(0, 0, 0, 0)), color-stop(26.22951%, rgba(100, 100, 225, 0.25)), color-stop(32.78689%, rgba(100, 100, 225, 0.25)), color-stop(32.78689%, rgba(0, 0, 0, 0)), color-stop(34.42623%, rgba(0, 0, 0, 0)), color-stop(34.42623%, rgba(100, 100, 225, 0.25)), color-stop(40.98361%, rgba(100, 100, 225, 0.25)), color-stop(40.98361%, rgba(0, 0, 0, 0)), color-stop(42.62295%, rgba(0, 0, 0, 0)), color-stop(42.62295%, rgba(100, 100, 225, 0.25)), color-stop(49.18033%, rgba(100, 100, 225, 0.25)), color-stop(49.18033%, rgba(0, 0, 0, 0)), color-stop(50.81967%, rgba(0, 0, 0, 0)), color-stop(50.81967%, rgba(100, 100, 225, 0.25)), color-stop(57.37705%, rgba(100, 100, 225, 0.25)), color-stop(57.37705%, rgba(0, 0, 0, 0)), color-stop(59.01639%, rgba(0, 0, 0, 0)), color-stop(59.01639%, rgba(100, 100, 225, 0.25)), color-stop(65.57377%, rgba(100, 100, 225, 0.25)), color-stop(65.57377%, rgba(0, 0, 0, 0)), color-stop(67.21311%, rgba(0, 0, 0, 0)), color-stop(67.21311%, rgba(100, 100, 225, 0.25)), color-stop(73.77049%, rgba(100, 100, 225, 0.25)), color-stop(73.77049%, rgba(0, 0, 0, 0)), color-stop(75.40984%, rgba(0, 0, 0, 0)), color-stop(75.40984%, rgba(100, 100, 225, 0.25)), color-stop(81.96721%, rgba(100, 100, 225, 0.25)), color-stop(81.96721%, rgba(0, 0, 0, 0)), color-stop(83.60656%, rgba(0, 0, 0, 0)), color-stop(83.60656%, rgba(100, 100, 225, 0.25)), color-stop(90.16393%, rgba(100, 100, 225, 0.25)), color-stop(90.16393%, rgba(0, 0, 0, 0)), color-stop(91.80328%, rgba(0, 0, 0, 0)), color-stop(91.80328%, rgba(100, 100, 225, 0.25)), color-stop(98.36066%, rgba(100, 100, 225, 0.25)), color-stop(98.36066%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
   background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 1.63934%, rgba(100, 100, 225, 0.25) 1.63934%, rgba(100, 100, 225, 0.25) 8.19672%, rgba(0, 0, 0, 0) 8.19672%, rgba(0, 0, 0, 0) 9.83607%, rgba(100, 100, 225, 0.25) 9.83607%, rgba(100, 100, 225, 0.25) 16.39344%, rgba(0, 0, 0, 0) 16.39344%, rgba(0, 0, 0, 0) 18.03279%, rgba(100, 100, 225, 0.25) 18.03279%, rgba(100, 100, 225, 0.25) 24.59016%, rgba(0, 0, 0, 0) 24.59016%, rgba(0, 0, 0, 0) 26.22951%, rgba(100, 100, 225, 0.25) 26.22951%, rgba(100, 100, 225, 0.25) 32.78689%, rgba(0, 0, 0, 0) 32.78689%, rgba(0, 0, 0, 0) 34.42623%, rgba(100, 100, 225, 0.25) 34.42623%, rgba(100, 100, 225, 0.25) 40.98361%, rgba(0, 0, 0, 0) 40.98361%, rgba(0, 0, 0, 0) 42.62295%, rgba(100, 100, 225, 0.25) 42.62295%, rgba(100, 100, 225, 0.25) 49.18033%, rgba(0, 0, 0, 0) 49.18033%, rgba(0, 0, 0, 0) 50.81967%, rgba(100, 100, 225, 0.25) 50.81967%, rgba(100, 100, 225, 0.25) 57.37705%, rgba(0, 0, 0, 0) 57.37705%, rgba(0, 0, 0, 0) 59.01639%, rgba(100, 100, 225, 0.25) 59.01639%, rgba(100, 100, 225, 0.25) 65.57377%, rgba(0, 0, 0, 0) 65.57377%, rgba(0, 0, 0, 0) 67.21311%, rgba(100, 100, 225, 0.25) 67.21311%, rgba(100, 100, 225, 0.25) 73.77049%, rgba(0, 0, 0, 0) 73.77049%, rgba(0, 0, 0, 0) 75.40984%, rgba(100, 100, 225, 0.25) 75.40984%, rgba(100, 100, 225, 0.25) 81.96721%, rgba(0, 0, 0, 0) 81.96721%, rgba(0, 0, 0, 0) 83.60656%, rgba(100, 100, 225, 0.25) 83.60656%, rgba(100, 100, 225, 0.25) 90.16393%, rgba(0, 0, 0, 0) 90.16393%, rgba(0, 0, 0, 0) 91.80328%, rgba(100, 100, 225, 0.25) 91.80328%, rgba(100, 100, 225, 0.25) 98.36066%, rgba(0, 0, 0, 0) 98.36066%, rgba(0, 0, 0, 0) 100%);
@@ -951,18 +951,17 @@ p, ul, ol {
   border-top-width: 0;
   padding: .5em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003411}}
-.add-backup-list li h4 {
-  font-weight: normal;
-  margin-bottom: 1.5em;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003417}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003413}}
 .add-backup-list li.active-backup-step h3 {
   background: #5b80ab;
   border-color: #5b80ab;
   color: white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003426}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003418}}
+.add-backup-list li.active-backup-step h4 {
+  margin-bottom: 1.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003424}}
 .add-backup-list li.finished-backup-step h3:after {
   font-family: FontAwesome;
   font-weight: normal;
@@ -971,13 +970,18 @@ p, ul, ol {
   text-decoration: none;
   margin-left: .5em;
   content: "\f00c";
+  color: #468847;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003429}}
+.add-backup-list li.finished-backup-step .add-backup-content {
+  padding-bottom: 1.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003442}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003444}}
 .sr-filter-handler {
   display: block;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003445}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003447}}
 .sr-filter-handler:after {
   font-family: FontAwesome;
   font-weight: normal;
@@ -988,43 +992,43 @@ p, ul, ol {
   content: "\f0d7";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003449}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003451}}
 .sr-filter-container {
   display: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003452}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003454}}
 .sr-list {
   margin-top: 1.5em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003454}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003456}}
 .sr-list > li {
   margin-bottom: 1.5em;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003459}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003461}}
 .sr-list p {
   margin: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003463}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003465}}
 a.search-item-link {
   display: block;
   text-decoration: none;
   color: #5c5c5c;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003468}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003470}}
 a.search-item-link:hover .search-item-header {
   background: #5b80ab;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003470}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003472}}
 a.search-item-link:hover .search-item-header h4 {
   color: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003476}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003478}}
 .search-item-header {
   background: #e9eff4;
   padding: 0 .375em;
@@ -1034,22 +1038,22 @@ a.search-item-link:hover .search-item-header h4 {
   margin-bottom: 0.75em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003487}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003489}}
 .search-item-thumb {
   float: left;
   margin-right: 1em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003490}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003492}}
 .search-item-thumb img {
   display: block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003494}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003496}}
 .search-item-footer {
   clear: both;
   margin-top: 0.375em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003498}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_global\.scss}line{font-family:\00003500}}
 .search-item-footer .file-type {
   float: right;
   padding: 0 3px;
@@ -1137,11 +1141,11 @@ select option:hover {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000362}}
-.js .form-datasource .btn-next {
+.js .form-datasource .btn-next, .js .form-datasink .btn-next {
   display: none;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000367}}
-.js .datasource-group label {
+.js .datasource-group label, .js .datasink-group label {
   height: 32px;
   line-height: 32px;
   padding-top: 0.375em;
@@ -1149,13 +1153,13 @@ select option:hover {
   padding-left: .375em;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000373}}
-.js .datasource-group label:hover {
+.js .datasource-group label:hover, .js .datasink-group label:hover {
   cursor: pointer;
   background: #5b80ab;
   color: #fff;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000379}}
-.js .datasource-group label:before {
+.js .datasource-group label:before, .js .datasink-group label:before {
   width: 32px;
   height: 32px;
   display: block;
@@ -1165,25 +1169,69 @@ select option:hover {
   background-image: url("/static/img/backup-icons-32x32.png");
   background-repeat: no-repeat;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000389}}
-.js .datasource-group input[type="radio"] {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000391}}
+.js .datasource-group .icon-orgbackmeupdatasource:before, .js .datasink-group .icon-orgbackmeupdatasource:before {
+  background-position: 0 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000391}}
+.js .datasource-group .icon-orgbackmeupdatasink:before, .js .datasink-group .icon-orgbackmeupdatasink:before {
+  background-position: -32px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000391}}
+.js .datasource-group .icon-orgbackmeupfacebook:before, .js .datasink-group .icon-orgbackmeupfacebook:before {
+  background-position: -64px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000391}}
+.js .datasource-group .icon-orgbackmeupmoodle:before, .js .datasink-group .icon-orgbackmeupmoodle:before {
+  background-position: -96px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000391}}
+.js .datasource-group .icon-orgbackmeuptwitter:before, .js .datasink-group .icon-orgbackmeuptwitter:before {
+  background-position: -128px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000391}}
+.js .datasource-group .icon-orgbackmeupdropbox:before, .js .datasink-group .icon-orgbackmeupdropbox:before {
+  background-position: -160px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000391}}
+.js .datasource-group .icon-orgbackmeupskydrive:before, .js .datasink-group .icon-orgbackmeupskydrive:before {
+  background-position: -192px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000391}}
+.js .datasource-group .icon-orgbackmeupmail:before, .js .datasink-group .icon-orgbackmeupmail:before {
+  background-position: -224px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000391}}
+.js .datasource-group .icon-orgbackmeupdiscmailing:before, .js .datasink-group .icon-orgbackmeupdiscmailing:before {
+  background-position: -256px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000391}}
+.js .datasource-group .icon-orgbackmeupzip:before, .js .datasink-group .icon-orgbackmeupzip:before {
+  background-position: -288px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000396}}
+.js .datasource-group input[type="radio"], .js .datasink-group input[type="radio"] {
   position: absolute;
   left: -99999px;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\00003102}}
+.js .datasink-group label:before {
+  background-position: -32px 0;
+}
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\0000398}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\00003110}}
 .form-job-create fieldset {
   margin-bottom: 1.5em;
   border-width: 0;
   border-bottom-width: 1px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\00003103}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\00003115}}
 .form-job-create legend {
   font-weight: bold;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\000031}}
-.btn, .sr-filter-handler, .btn-add, .btn-next {
+.btn, .sr-filter-handler, .btn-add, .btn-next, .btn-back {
   color: white;
   display: inline-block;
   padding: .3em .9em;
@@ -1201,7 +1249,7 @@ select option:hover {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\000038}}
-.btn:hover, .sr-filter-handler:hover, .btn-add:hover, .btn-next:hover {
+.btn:hover, .sr-filter-handler:hover, .btn-add:hover, .btn-next:hover, .btn-back:hover {
   text-decoration: none;
   background-color: #5b80ab;
   background-position: 0 -0.9em;
@@ -1235,7 +1283,19 @@ select option:hover {
   text-decoration: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\0000331}}
+.btn-back:before {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: none;
+  margin-right: .5em;
+  content: "\f060";
+  text-decoration: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\0000335}}
 .btn-delete {
   color: white;
   display: inline-block;
@@ -1253,7 +1313,7 @@ select option:hover {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\0000342}}
 .btn-delete:hover {
   text-decoration: none;
   background-color: #ff1d25;
@@ -1264,7 +1324,7 @@ select option:hover {
   transition: background-position 0.1s linear;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\0000348}}
 button.close {
   background: none;
   border: 0;
@@ -1272,7 +1332,7 @@ button.close {
   padding: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\0000347}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\0000354}}
 button.close:before {
   font-family: FontAwesome;
   font-weight: normal;
@@ -1465,64 +1525,264 @@ a [class*=" icon-"] {
   content: "\f05a";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003111}}
-.g32-icon-datasource,
-.g32-icon-before-datasource:before {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
+.g32-icon-before-orgbackmeupdatasource:before {
   background-position: 0 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-32x32.png");
+  background-repeat: no-repeat;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003111}}
-.g32-icon-datasink,
-.g32-icon-before-datasink:before {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
+.g32-icon-before-orgbackmeupdatasink:before {
   background-position: -32px 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-32x32.png");
+  background-repeat: no-repeat;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003111}}
-.g32-icon-facebook,
-.g32-icon-before-facebook:before {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
+.g32-icon-before-orgbackmeupfacebook:before {
   background-position: -64px 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-32x32.png");
+  background-repeat: no-repeat;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003111}}
-.g32-icon-moodle,
-.g32-icon-before-moodle:before {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
+.g32-icon-before-orgbackmeupmoodle:before {
   background-position: -96px 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-32x32.png");
+  background-repeat: no-repeat;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003111}}
-.g32-icon-twitter,
-.g32-icon-before-twitter:before {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
+.g32-icon-before-orgbackmeuptwitter:before {
   background-position: -128px 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-32x32.png");
+  background-repeat: no-repeat;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003111}}
-.g32-icon-dropbox,
-.g32-icon-before-dropbox:before {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
+.g32-icon-before-orgbackmeupdropbox:before {
   background-position: -160px 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-32x32.png");
+  background-repeat: no-repeat;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003111}}
-.g32-icon-skydrive,
-.g32-icon-before-skydrive:before {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
+.g32-icon-before-orgbackmeupskydrive:before {
   background-position: -192px 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-32x32.png");
+  background-repeat: no-repeat;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003111}}
-.g32-icon-mail,
-.g32-icon-before-mail:before {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
+.g32-icon-before-orgbackmeupmail:before {
   background-position: -224px 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-32x32.png");
+  background-repeat: no-repeat;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003111}}
-.g32-icon-discmailing,
-.g32-icon-before-discmailing:before {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
+.g32-icon-before-orgbackmeupdiscmailing:before {
   background-position: -256px 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-32x32.png");
+  background-repeat: no-repeat;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003111}}
-.g32-icon-zip,
-.g32-icon-before-zip:before {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
+.g32-icon-before-orgbackmeupzip:before {
   background-position: -288px 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-32x32.png");
+  background-repeat: no-repeat;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g16-icon-orgbackmeupdatasource,
+.g16-icon-before-orgbackmeupdatasource:before {
+  background-position: 0 0;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-16x16.png");
+  background-repeat: no-repeat;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g16-icon-orgbackmeupdatasink,
+.g16-icon-before-orgbackmeupdatasink:before {
+  background-position: -16px 0;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-16x16.png");
+  background-repeat: no-repeat;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g16-icon-orgbackmeupfacebook,
+.g16-icon-before-orgbackmeupfacebook:before {
+  background-position: -32px 0;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-16x16.png");
+  background-repeat: no-repeat;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g16-icon-orgbackmeupmoodle,
+.g16-icon-before-orgbackmeupmoodle:before {
+  background-position: -48px 0;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-16x16.png");
+  background-repeat: no-repeat;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g16-icon-orgbackmeuptwitter,
+.g16-icon-before-orgbackmeuptwitter:before {
+  background-position: -64px 0;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-16x16.png");
+  background-repeat: no-repeat;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g16-icon-orgbackmeupdropbox,
+.g16-icon-before-orgbackmeupdropbox:before {
+  background-position: -80px 0;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-16x16.png");
+  background-repeat: no-repeat;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g16-icon-orgbackmeupskydrive,
+.g16-icon-before-orgbackmeupskydrive:before {
+  background-position: -96px 0;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-16x16.png");
+  background-repeat: no-repeat;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g16-icon-orgbackmeupmail,
+.g16-icon-before-orgbackmeupmail:before {
+  background-position: -112px 0;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-16x16.png");
+  background-repeat: no-repeat;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g16-icon-orgbackmeupdiscmailing,
+.g16-icon-before-orgbackmeupdiscmailing:before {
+  background-position: -128px 0;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-16x16.png");
+  background-repeat: no-repeat;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g16-icon-orgbackmeupzip,
+.g16-icon-before-orgbackmeupzip:before {
+  background-position: -144px 0;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-16x16.png");
+  background-repeat: no-repeat;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_messages\.scss}line{font-family:\000035}}
@@ -1735,13 +1995,13 @@ a [class*=" icon-"] {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_modal\.scss}line{font-family:\00003115}}
-.modal-footer .btn + .btn, .modal-footer .sr-filter-handler + .btn, .modal-footer .btn-add + .btn, .modal-footer .btn-next + .btn, .modal-footer .btn + .sr-filter-handler, .modal-footer .sr-filter-handler + .sr-filter-handler, .modal-footer .btn-add + .sr-filter-handler, .modal-footer .btn-next + .sr-filter-handler, .modal-footer .btn + .btn-add, .modal-footer .sr-filter-handler + .btn-add, .modal-footer .btn-add + .btn-add, .modal-footer .btn-next + .btn-add, .modal-footer .btn + .btn-next, .modal-footer .sr-filter-handler + .btn-next, .modal-footer .btn-add + .btn-next, .modal-footer .btn-next + .btn-next {
+.modal-footer .btn + .btn, .modal-footer .sr-filter-handler + .btn, .modal-footer .btn-add + .btn, .modal-footer .btn-next + .btn, .modal-footer .btn-back + .btn, .modal-footer .btn + .sr-filter-handler, .modal-footer .sr-filter-handler + .sr-filter-handler, .modal-footer .btn-add + .sr-filter-handler, .modal-footer .btn-next + .sr-filter-handler, .modal-footer .btn-back + .sr-filter-handler, .modal-footer .btn + .btn-add, .modal-footer .sr-filter-handler + .btn-add, .modal-footer .btn-add + .btn-add, .modal-footer .btn-next + .btn-add, .modal-footer .btn-back + .btn-add, .modal-footer .btn + .btn-next, .modal-footer .sr-filter-handler + .btn-next, .modal-footer .btn-add + .btn-next, .modal-footer .btn-next + .btn-next, .modal-footer .btn-back + .btn-next, .modal-footer .btn + .btn-back, .modal-footer .sr-filter-handler + .btn-back, .modal-footer .btn-add + .btn-back, .modal-footer .btn-next + .btn-back, .modal-footer .btn-back + .btn-back {
   margin-left: .5em;
   margin-bottom: 0;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_modal\.scss}line{font-family:\00003119}}
-.modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .sr-filter-handler + .btn, .modal-footer .btn-group .btn-add + .btn, .modal-footer .btn-group .btn-next + .btn, .modal-footer .btn-group .btn + .sr-filter-handler, .modal-footer .btn-group .sr-filter-handler + .sr-filter-handler, .modal-footer .btn-group .btn-add + .sr-filter-handler, .modal-footer .btn-group .btn-next + .sr-filter-handler, .modal-footer .btn-group .btn + .btn-add, .modal-footer .btn-group .sr-filter-handler + .btn-add, .modal-footer .btn-group .btn-add + .btn-add, .modal-footer .btn-group .btn-next + .btn-add, .modal-footer .btn-group .btn + .btn-next, .modal-footer .btn-group .sr-filter-handler + .btn-next, .modal-footer .btn-group .btn-add + .btn-next, .modal-footer .btn-group .btn-next + .btn-next {
+.modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .sr-filter-handler + .btn, .modal-footer .btn-group .btn-add + .btn, .modal-footer .btn-group .btn-next + .btn, .modal-footer .btn-group .btn-back + .btn, .modal-footer .btn-group .btn + .sr-filter-handler, .modal-footer .btn-group .sr-filter-handler + .sr-filter-handler, .modal-footer .btn-group .btn-add + .sr-filter-handler, .modal-footer .btn-group .btn-next + .sr-filter-handler, .modal-footer .btn-group .btn-back + .sr-filter-handler, .modal-footer .btn-group .btn + .btn-add, .modal-footer .btn-group .sr-filter-handler + .btn-add, .modal-footer .btn-group .btn-add + .btn-add, .modal-footer .btn-group .btn-next + .btn-add, .modal-footer .btn-group .btn-back + .btn-add, .modal-footer .btn-group .btn + .btn-next, .modal-footer .btn-group .sr-filter-handler + .btn-next, .modal-footer .btn-group .btn-add + .btn-next, .modal-footer .btn-group .btn-next + .btn-next, .modal-footer .btn-group .btn-back + .btn-next, .modal-footer .btn-group .btn + .btn-back, .modal-footer .btn-group .sr-filter-handler + .btn-back, .modal-footer .btn-group .btn-add + .btn-back, .modal-footer .btn-group .btn-next + .btn-back, .modal-footer .btn-group .btn-back + .btn-back {
   margin-left: -1px;
 }
 

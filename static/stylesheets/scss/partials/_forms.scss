@@ -58,12 +58,12 @@ select {
 }
 
 .js {
-  .form-datasource {
+  .form-datasource, .form-datasink {
     .btn-next {
       display: none;
     }
   }
-  .datasource-group {
+  .datasource-group, .datasink-group {
     label {
       height: 32px;
       line-height: 32px;
@@ -83,12 +83,24 @@ select {
       float: left;
       margin-right: .5em;
       content: "";
-      background-image: url($backupIconsPath);
+      background-image: url($backupIcons32Path);
       background-repeat: no-repeat;
+    }
+    $g32posX: 0;
+    @each $service in datasource, datasink, facebook, moodle, twitter, dropbox, skydrive, mail, discmailing, zip {
+      .icon-orgbackmeup#{$service}:before {
+        background-position: $g32posX 0;
+        $g32posX: $g32posX - 32px;
+      }
     }
     input[type="radio"] {
       position: absolute;
       left: -99999px;
+    }
+  }
+  .datasink-group {
+    label:before {
+      background-position: -32px 0;
     }
   }
   

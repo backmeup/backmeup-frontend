@@ -15,15 +15,15 @@
     <li class="finished-backup-step">
       <h3>{% trans "1. Data-Source" %}</h3>
       <div class="add-backup-content">
-        {# TODO: display selected data-source #}
         <h4>{% trans "selected data-source" %}: {{ datasource_profile.title }}</h4>
+        <a href="{% url datasource-select %}">{% trans "select a different data-source" %}</a>
       </div>
     </li>
     <li class="active-backup-step">
       <h3>{% trans "2. Data-Target" %}</h3>
       <div class="add-backup-content">
         {# TODO: display name of selected data-source #}
-        <h4>{% trans "Step 2: select data-target - authenticate" %}</h4>
+        <h4>{% blocktrans with datasink=datasink_profile.title %}Step 2: select data-target - authenticate {{ datasink }}{% endblocktrans %}</h4>
         <form action="." method="POST">{% csrf_token %}
 
           {% for hidden in form.hidden_fields %}
@@ -39,8 +39,10 @@
             {% endif %}
           </div>
           {% endfor %}
-
-          <p><button type="submit" class="btn-next">{% trans "next" %}</button></p>
+          <div>
+            <button type="submit" class="btn">{% trans "next" %}</button>
+            or <a href="{% url datasink-select %}">{% trans "select a different data-sink" %}</a>
+          </div>
         </form>
       </div>
     </li>

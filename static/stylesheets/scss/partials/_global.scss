@@ -408,10 +408,6 @@ p, ul, ol {
       border-top-width: 0;
       padding: .5em;
     }
-    h4{
-      font-weight: normal;
-      @include margin-trailer(1);
-    }
   }
   li.active-backup-step{
     h3{
@@ -419,13 +415,19 @@ p, ul, ol {
       border-color: $bg-clr1;
       color: $clr-text2;
     }
+    h4{
+      @include margin-trailer(1);
+    }
   }
   li.finished-backup-step{
     h3{
-//      color: $clr-ok;
       &:after{
         @include icon_after($icon-ok);
+        color: $clr-ok;
       }
+    }
+    .add-backup-content {
+      @include padding-trailer(1);
     }
   }
 }

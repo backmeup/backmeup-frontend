@@ -16,13 +16,14 @@
       <h3>{% trans "1. Data-Source" %}</h3>
       <div class="add-backup-content">
         <h4>{% trans "selected data-source" %}: {{ datasource_profile.title }}</h4>
+        <a href="{% url datasource-select %}">{% trans "select a different data-source" %}</a>
       </div>
     </li>
     <li class="active-backup-step">
       <h3>{% trans "2. Data-Target" %}</h3>
       <div class="add-backup-content">
         <h4>{% trans "Step 2: select data-target" %}</h4>
-        <form action="." method="POST">{% csrf_token %}
+        <form action="." method="POST" class="form-datasink">{% csrf_token %}
           {{ form.non_field_errors }}
           {# <div> #}
           {#             <label>{{ form.profile_name.label }} #}
@@ -32,9 +33,9 @@
           {#             {% endif %} #}
           {#           </div> #}
 
-          <div>
+          <div class="datasink-group">
             {% for item in form.datasink %}
-               <label class="g32-icon-before-{{ item.choice_value|slugify }}">{{ item.tag }} {{ item.choice_label }}</label>
+               <label class="icon-{{ item.choice_value|slugify }}">{{ item.tag }} {{ item.choice_label }}</label>
             {% endfor %}
             {% if form.datasink.errors %}
               {{ form.datasink.errors }}
@@ -49,7 +50,9 @@
           {#             {% endif %} #}
           {#           </div> #}
 
-          <div><button type="submit" class="btn-next">{% trans "next" %}</button></div>
+          <div>
+            <button type="submit" class="btn-next">{% trans "next" %}</button>
+          </div>
         </form>        
       </div>
     </li>
@@ -61,3 +64,14 @@
     </li>
   </ul>
 {% endblock content %}
+
+{% block additional_js %}
+<script>
+$(function(){
+  $('.form-datasink').on('click', 'label', function() {
+      $(this).find('input[type="radio"]').attr("checked", "checked");
+      $('.form-datasink').submit();
+  });
+})
+</script>
+{% endblock %}
