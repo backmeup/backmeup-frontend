@@ -37,14 +37,28 @@
         </form>
       </div>
     </li>
+    {% if datasink_profile.title %}
+    <li class="finished-backup-step">
+      <h3><a href="{% url datasink-select %}">{% trans "2. Data-Target" %}</a></h3>
+      <div class="add-backup-content">
+        <h4>{% trans "selected data-target" %}: {{ datasink_profile.title }}</h4>
+        <a href="{% url datasink-select %}">{% trans "select a different data-sink" %}</a>
+      </div>
+    </li>
+    {% else %}
     <li>
       <h3>{% trans "2. Data-Target" %}</h3>
       <div class="add-backup-content">
         <h4>{% trans "Step 2: select data-target" %}</h4>        
       </div>
+    {% endif %}
     </li>
     <li>
-      <h3>{% trans "3. Backup-Options" %}</h3>
+      {% if datasource_profile.title and datasink_profile.title %}
+        <h3><a href="{% url job-create %}">{% trans "3. Backup-Options" %}</a></h3>
+      {% else %}
+        <h3>{% trans "3. Backup-Options" %}</h3>
+      {% endif %}
       <div class="add-backup-content">
         <h4>{% trans "Step 3: select backup-options" %}</h4>
       </div>

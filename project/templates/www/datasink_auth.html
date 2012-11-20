@@ -47,7 +47,11 @@
       </div>
     </li>
     <li>
-      <h3>{% trans "3. Backup-Options" %}</h3>
+      {% if datasource_profile.title and datasink_profile.title %}
+        <h3><a href="{% url job-create %}">{% trans "3. Backup-Options" %}</a></h3>
+      {% else %}
+        <h3>{% trans "3. Backup-Options" %}</h3>
+      {% endif %}
       <div class="add-backup-content">
         <h4>{% trans "Step 3: select Backup-Options" %}</h4>
       </div>

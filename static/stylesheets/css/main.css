@@ -1229,6 +1229,10 @@ select option:hover {
 .form-job-create legend {
   font-weight: bold;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\00003118}}
+.form-job-create .action-box {
+  text-align: center;
+}
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\000031}}
 .btn, .sr-filter-handler, .btn-add, .btn-next, .btn-back {

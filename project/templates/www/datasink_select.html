@@ -19,7 +19,7 @@
         <a href="{% url datasource-select %}">{% trans "select a different data-source" %}</a>
       </div>
     </li>
-    <li class="active-backup-step">
+    <li class="active-backup-step">      
       <h3>{% trans "2. Data-Target" %}</h3>
       <div class="add-backup-content">
         <h4>{% trans "Step 2: select data-target" %}</h4>
@@ -57,7 +57,11 @@
       </div>
     </li>
     <li>
-      <h3>{% trans "3. Backup-Options" %}</h3>
+      {% if datasource_profile.title and datasink_profile.title %}
+        <h3><a href="{% url job-create %}">{% trans "3. Backup-Options" %}</a></h3>
+      {% else %}
+        <h3>{% trans "3. Backup-Options" %}</h3>
+      {% endif %}
       <div class="add-backup-content">
         <h4>{% trans "Step 3: select Backup-Options" %}</h4>
       </div>
