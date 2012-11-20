@@ -114,14 +114,16 @@ class DatasourceAuthForm(forms.Form):
                 else:
                     field_kwargs['required'] = False
                 
-                if item['type'] == 'Password':
-                    field_kwargs['widget'] = forms.PasswordInput
-                
                 if 'description' in item:
                     field_kwargs['help_text'] = _(item['description'])
                 
-                self.fields['input_value_%s' % item['order']] = forms.CharField(**field_kwargs)
-                
+                if item['type'] == 'Password':
+                    field_kwargs['widget'] = forms.PasswordInput
+                    self.fields['input_value_%s' % item['order']] = forms.CharField(**field_kwargs)
+                elif item['type'] == 'Bool':
+                    self.fields['input_value_%s' % item['order']] = forms.BooleanField(**field_kwargs)
+                else:
+                    self.fields['input_value_%s' % item['order']] = forms.CharField(**field_kwargs)
                 
     def rest_save(self, username, key_ring):
         rest_datasource_profile = RestDatasourceProfile(username=username)
