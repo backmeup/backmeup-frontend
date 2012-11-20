@@ -17,7 +17,13 @@
         <h4>{% trans "Step 1: select data-source" %}</h4>
         <form action="." method="POST" class="form-datasource">{% csrf_token %}
           {{ form.non_field_errors }}
-
+          
+          <div>
+            <label>{{ form.datasource_profile.label }}</label>
+            {{ form.datasource_profile }}
+            {{ form.datasource_profile.errors }}
+          </div>
+          
           <div class="datasource-group">
             {% for item in form.datasource %}
               <label class="icon-{{ item.choice_value|slugify }}">{{ item.tag }} {{ item.choice_label }}</label>
@@ -68,6 +74,9 @@ $(function(){
   $('.form-datasource').on('click', 'label', function() {
       $(this).find('input[type="radio"]').attr("checked", "checked");
       $('.form-datasource').submit();
+  });
+  $('#id_datasource_profile').on('change', function() {
+    $('.form-datasource').submit();
   });
 })
 </script>

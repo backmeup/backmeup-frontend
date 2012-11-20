@@ -25,7 +25,23 @@
         <h4>{% trans "Step 2: select data-target" %}</h4>
         <form action="." method="POST" class="form-datasink">{% csrf_token %}
           {{ form.non_field_errors }}
+
+          {# <div> #}
+          {#             <label>{{ form.profile_name.label }} #}
+          {#             {{ form.profile_name }}</label> #}
+          {#             {% if form.profile_name.errors %} #}
+          {#               {{ form.profile_name.errors }} #}
+          {#             {% endif %} #}
+          {#           </div> #}
+          
+          <div>
+            <label>{{ form.datasink_profile.label }}</label>
+            {{ form.datasink_profile }}
+            {{ form.datasink_profile.errors }}
+          </div>
+          
           <div class="datasink-group">
+
             {% for item in form.datasink %}
                <label class="icon-{{ item.choice_value|slugify }}">{{ item.tag }} {{ item.choice_label }}</label>
             {% endfor %}
