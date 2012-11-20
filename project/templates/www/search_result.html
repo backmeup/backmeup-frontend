@@ -84,8 +84,7 @@
   
   
   
-  <ul class="sr-list">
-    
+  <ul class="sr-list">  
     {% for item in result.files %}
       <li>
         {# {{ item.type }} #}
@@ -93,7 +92,7 @@
         
         <a href="{% url file-info search_id=search_id file_id=item.fileId %}" class="search-item-link">
           <header class="search-item-header">
-            <h4>Dummy Dropbox</h4>
+            <h4 class="g24-icon-before-{{ item.datasource|slugify }}">John Doe</h4>
           </header>
           <div class="search-item-content">
             <div class="search-item-text">

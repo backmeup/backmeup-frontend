@@ -118,6 +118,25 @@ $g32posX: 0;
     content: "";
     background-image: url($backupIcons32Path);
     background-repeat: no-repeat;
+    vertical-align: middle;
+  }
+}
+
+// sprite-positions for 32px*32px data-source and -sink icons
+$g24posX: 0;
+@each $service in datasource, datasink, facebook, moodle, twitter, dropbox, skydrive, mail, discmailing, zip {
+  .g24-icon-before-orgbackmeup#{$service}:before {
+    background-position: $g24posX 0;
+    $g24posX: $g24posX - 24px;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    margin-right: .5em;
+    content: "";
+    background-image: url($backupIcons24Path);
+    background-repeat: no-repeat;
+    vertical-align: middle;
   }
 }
 
@@ -135,5 +154,6 @@ $g16posX: 0;
     content: "";
     background-image: url($backupIcons16Path);
     background-repeat: no-repeat;
+    vertical-align: middle;
   }
 }

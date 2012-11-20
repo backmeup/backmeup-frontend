@@ -10,7 +10,7 @@ html {
   line-height: 1.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_base\.scss}line{font-family:\00003123}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_base\.scss}line{font-family:\00003124}}
 .grid {
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 0, 0, 0.5)), color-stop(5%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(1.63934%, rgba(0, 0, 0, 0)), color-stop(1.63934%, rgba(100, 100, 225, 0.25)), color-stop(8.19672%, rgba(100, 100, 225, 0.25)), color-stop(8.19672%, rgba(0, 0, 0, 0)), color-stop(9.83607%, rgba(0, 0, 0, 0)), color-stop(9.83607%, rgba(100, 100, 225, 0.25)), color-stop(16.39344%, rgba(100, 100, 225, 0.25)), color-stop(16.39344%, rgba(0, 0, 0, 0)), color-stop(18.03279%, rgba(0, 0, 0, 0)), color-stop(18.03279%, rgba(100, 100, 225, 0.25)), color-stop(24.59016%, rgba(100, 100, 225, 0.25)), color-stop(24.59016%, rgba(0, 0, 0, 0)), color-stop(26.22951%, rgba(0, 0, 0, 0)), color-stop(26.22951%, rgba(100, 100, 225, 0.25)), color-stop(32.78689%, rgba(100, 100, 225, 0.25)), color-stop(32.78689%, rgba(0, 0, 0, 0)), color-stop(34.42623%, rgba(0, 0, 0, 0)), color-stop(34.42623%, rgba(100, 100, 225, 0.25)), color-stop(40.98361%, rgba(100, 100, 225, 0.25)), color-stop(40.98361%, rgba(0, 0, 0, 0)), color-stop(42.62295%, rgba(0, 0, 0, 0)), color-stop(42.62295%, rgba(100, 100, 225, 0.25)), color-stop(49.18033%, rgba(100, 100, 225, 0.25)), color-stop(49.18033%, rgba(0, 0, 0, 0)), color-stop(50.81967%, rgba(0, 0, 0, 0)), color-stop(50.81967%, rgba(100, 100, 225, 0.25)), color-stop(57.37705%, rgba(100, 100, 225, 0.25)), color-stop(57.37705%, rgba(0, 0, 0, 0)), color-stop(59.01639%, rgba(0, 0, 0, 0)), color-stop(59.01639%, rgba(100, 100, 225, 0.25)), color-stop(65.57377%, rgba(100, 100, 225, 0.25)), color-stop(65.57377%, rgba(0, 0, 0, 0)), color-stop(67.21311%, rgba(0, 0, 0, 0)), color-stop(67.21311%, rgba(100, 100, 225, 0.25)), color-stop(73.77049%, rgba(100, 100, 225, 0.25)), color-stop(73.77049%, rgba(0, 0, 0, 0)), color-stop(75.40984%, rgba(0, 0, 0, 0)), color-stop(75.40984%, rgba(100, 100, 225, 0.25)), color-stop(81.96721%, rgba(100, 100, 225, 0.25)), color-stop(81.96721%, rgba(0, 0, 0, 0)), color-stop(83.60656%, rgba(0, 0, 0, 0)), color-stop(83.60656%, rgba(100, 100, 225, 0.25)), color-stop(90.16393%, rgba(100, 100, 225, 0.25)), color-stop(90.16393%, rgba(0, 0, 0, 0)), color-stop(91.80328%, rgba(0, 0, 0, 0)), color-stop(91.80328%, rgba(100, 100, 225, 0.25)), color-stop(98.36066%, rgba(100, 100, 225, 0.25)), color-stop(98.36066%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
   background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 1.63934%, rgba(100, 100, 225, 0.25) 1.63934%, rgba(100, 100, 225, 0.25) 8.19672%, rgba(0, 0, 0, 0) 8.19672%, rgba(0, 0, 0, 0) 9.83607%, rgba(100, 100, 225, 0.25) 9.83607%, rgba(100, 100, 225, 0.25) 16.39344%, rgba(0, 0, 0, 0) 16.39344%, rgba(0, 0, 0, 0) 18.03279%, rgba(100, 100, 225, 0.25) 18.03279%, rgba(100, 100, 225, 0.25) 24.59016%, rgba(0, 0, 0, 0) 24.59016%, rgba(0, 0, 0, 0) 26.22951%, rgba(100, 100, 225, 0.25) 26.22951%, rgba(100, 100, 225, 0.25) 32.78689%, rgba(0, 0, 0, 0) 32.78689%, rgba(0, 0, 0, 0) 34.42623%, rgba(100, 100, 225, 0.25) 34.42623%, rgba(100, 100, 225, 0.25) 40.98361%, rgba(0, 0, 0, 0) 40.98361%, rgba(0, 0, 0, 0) 42.62295%, rgba(100, 100, 225, 0.25) 42.62295%, rgba(100, 100, 225, 0.25) 49.18033%, rgba(0, 0, 0, 0) 49.18033%, rgba(0, 0, 0, 0) 50.81967%, rgba(100, 100, 225, 0.25) 50.81967%, rgba(100, 100, 225, 0.25) 57.37705%, rgba(0, 0, 0, 0) 57.37705%, rgba(0, 0, 0, 0) 59.01639%, rgba(100, 100, 225, 0.25) 59.01639%, rgba(100, 100, 225, 0.25) 65.57377%, rgba(0, 0, 0, 0) 65.57377%, rgba(0, 0, 0, 0) 67.21311%, rgba(100, 100, 225, 0.25) 67.21311%, rgba(100, 100, 225, 0.25) 73.77049%, rgba(0, 0, 0, 0) 73.77049%, rgba(0, 0, 0, 0) 75.40984%, rgba(100, 100, 225, 0.25) 75.40984%, rgba(100, 100, 225, 0.25) 81.96721%, rgba(0, 0, 0, 0) 81.96721%, rgba(0, 0, 0, 0) 83.60656%, rgba(100, 100, 225, 0.25) 83.60656%, rgba(100, 100, 225, 0.25) 90.16393%, rgba(0, 0, 0, 0) 90.16393%, rgba(0, 0, 0, 0) 91.80328%, rgba(100, 100, 225, 0.25) 91.80328%, rgba(100, 100, 225, 0.25) 98.36066%, rgba(0, 0, 0, 0) 98.36066%, rgba(0, 0, 0, 0) 100%);
@@ -1563,6 +1563,7 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-32x32.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
@@ -1576,6 +1577,7 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-32x32.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
@@ -1589,6 +1591,7 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-32x32.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
@@ -1602,6 +1605,7 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-32x32.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
@@ -1615,6 +1619,7 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-32x32.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
@@ -1628,6 +1633,7 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-32x32.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
@@ -1641,6 +1647,7 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-32x32.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
@@ -1654,6 +1661,7 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-32x32.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
@@ -1667,6 +1675,7 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-32x32.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003110}}
@@ -1680,9 +1689,150 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-32x32.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g24-icon-before-orgbackmeupdatasource:before {
+  background-position: 0 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-24x24.png");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g24-icon-before-orgbackmeupdatasink:before {
+  background-position: -24px 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-24x24.png");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g24-icon-before-orgbackmeupfacebook:before {
+  background-position: -48px 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-24x24.png");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g24-icon-before-orgbackmeupmoodle:before {
+  background-position: -72px 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-24x24.png");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g24-icon-before-orgbackmeuptwitter:before {
+  background-position: -96px 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-24x24.png");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g24-icon-before-orgbackmeupdropbox:before {
+  background-position: -120px 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-24x24.png");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g24-icon-before-orgbackmeupskydrive:before {
+  background-position: -144px 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-24x24.png");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g24-icon-before-orgbackmeupmail:before {
+  background-position: -168px 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-24x24.png");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g24-icon-before-orgbackmeupdiscmailing:before {
+  background-position: -192px 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-24x24.png");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+.g24-icon-before-orgbackmeupzip:before {
+  background-position: -216px 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  margin-right: .5em;
+  content: "";
+  background-image: url("/static/img/backup-icons-24x24.png");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003147}}
 .g16-icon-orgbackmeupdatasource,
 .g16-icon-before-orgbackmeupdatasource:before {
   background-position: 0 0;
@@ -1693,9 +1843,10 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-16x16.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003147}}
 .g16-icon-orgbackmeupdatasink,
 .g16-icon-before-orgbackmeupdatasink:before {
   background-position: -16px 0;
@@ -1706,9 +1857,10 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-16x16.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003147}}
 .g16-icon-orgbackmeupfacebook,
 .g16-icon-before-orgbackmeupfacebook:before {
   background-position: -32px 0;
@@ -1719,9 +1871,10 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-16x16.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003147}}
 .g16-icon-orgbackmeupmoodle,
 .g16-icon-before-orgbackmeupmoodle:before {
   background-position: -48px 0;
@@ -1732,9 +1885,10 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-16x16.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003147}}
 .g16-icon-orgbackmeuptwitter,
 .g16-icon-before-orgbackmeuptwitter:before {
   background-position: -64px 0;
@@ -1745,9 +1899,10 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-16x16.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003147}}
 .g16-icon-orgbackmeupdropbox,
 .g16-icon-before-orgbackmeupdropbox:before {
   background-position: -80px 0;
@@ -1758,9 +1913,10 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-16x16.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003147}}
 .g16-icon-orgbackmeupskydrive,
 .g16-icon-before-orgbackmeupskydrive:before {
   background-position: -96px 0;
@@ -1771,9 +1927,10 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-16x16.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003147}}
 .g16-icon-orgbackmeupmail,
 .g16-icon-before-orgbackmeupmail:before {
   background-position: -112px 0;
@@ -1784,9 +1941,10 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-16x16.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003147}}
 .g16-icon-orgbackmeupdiscmailing,
 .g16-icon-before-orgbackmeupdiscmailing:before {
   background-position: -128px 0;
@@ -1797,9 +1955,10 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-16x16.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_icons\.scss}line{font-family:\00003147}}
 .g16-icon-orgbackmeupzip,
 .g16-icon-before-orgbackmeupzip:before {
   background-position: -144px 0;
@@ -1810,6 +1969,7 @@ a [class*=" icon-"] {
   content: "";
   background-image: url("/static/img/backup-icons-16x16.png");
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_messages\.scss}line{font-family:\000035}}
