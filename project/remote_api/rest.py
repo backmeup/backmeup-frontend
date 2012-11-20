@@ -235,6 +235,7 @@ class RestDatasourceProfile(RestBase):
         params = {
             "keyRing": data['key_ring'],
         }
+        profile_id = str(profile_id)
         return self._post(path="profiles/" + profile_id + "/options", data=params)
 
     def put(self, profile_id, job_id, source_options):
@@ -403,14 +404,18 @@ class RestJobs(RestBase):
             raise ValueError('key "key_ring" is missing in argument "data".')
 
         params = {
-            'sourceProfileIds': data['source_profile_ids'],
-            'requiredActionIds': data['actions'],
+            'sourceProfiles': data['source_profile_ids'],
+            'actions': data['actions'],
             'sinkProfileId': data['sink_profile_ids'],
             'timeExpression': data['time_expression'],
             'keyRing': data['key_ring'],
-            'jobTitle': data['title'],
+            'jobTitle': data['job_title'],
         }
-
+        
+        for item in data['source_options']:
+            params_key = str(params['sourceProfiles']) + "." + item
+            params[params_key] = "true"
+        
         return self._post(data=params)
 
     def delete(self, job_id):

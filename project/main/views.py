@@ -23,14 +23,22 @@ def get_sink_title(sinks, sink_id):
     sink_id = int(sink_id)
     for sink in sinks:
         if sink['datasinkProfileId'] == sink_id:
-            return _(sink['pluginName'] + " - %(account)s") % {'account': sink['identification']}
+            if 'identification' in sink:
+                title = _(sink['pluginName'] + " - %(account)s") % {'account': sink['identification']}
+            else:
+                title = sink['title']
+            return title
 
 
 def get_source_title(sources, source_id):
     source_id = int(source_id)
     for source in sources:
         if source['datasourceProfileId'] == source_id:
-            return _(source['pluginName'] + " - %(account)s") % {'account': source['identification']}
+            if 'identification' in source:
+                title = _(source['pluginName'] + " - %(account)s") % {'account': source['identification']}
+            else:
+                title = source['title']
+            return title
     return None
 
 
@@ -108,11 +116,18 @@ def index(request):
 
 @login_required
 def datasource_select(request):
-    form = DatasourceSelectForm(request.POST or None)
+    form = DatasourceSelectForm(request.POST or None, username=request.user.username)
     if form.is_valid():
         #request.session['key_ring'] = form.cleaned_data['key_ring']
         auth_data = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
-        if auth_data:
+        if isinstance(auth_data, int):
+            request.session['datasource_profile_id'] = auth_data
+            try:
+                del request.session['auth_data']
+            except Exception:
+                pass
+            return redirect('datasink-select')
+        else:
             request.session['auth_data'] = auth_data
             if auth_data['type'] == 'OAuth':
                 request.session['next_step'] = 'datasource-auth'
@@ -159,11 +174,18 @@ def datasource_auth(request):
 
 @login_required
 def datasink_select(request):
-    form = DatasinkSelectForm(request.POST or None)
+    form = DatasinkSelectForm(request.POST or None, username=request.user.username)
     if form.is_valid():
         #request.session['key_ring'] = form.cleaned_data['key_ring']
         auth_data = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
-        if auth_data:
+        if isinstance(auth_data, int):
+            request.session['datasink_profile_id'] = auth_data
+            try:
+                del request.session['auth_data']
+            except Exception:
+                pass
+            return redirect('job-create')
+        else:
             request.session['auth_data'] = auth_data
             if auth_data['type'] == 'OAuth':
                 request.session['next_step'] = 'datasink-auth'
@@ -192,7 +214,10 @@ def datasink_auth(request):
         result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
         if not result == False:
             request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
-            del request.session['auth_data']
+            try:
+                del request.session['auth_data']
+            except Exception:
+                pass
             return redirect('job-create')
         else:
             del request.session['auth_data']
