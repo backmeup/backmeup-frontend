@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-20 14:14+0100\n"
-"PO-Revision-Date: 2012-11-20 16:21\n"
+"POT-Creation-Date: 2012-11-20 17:26+0100\n"
+"PO-Revision-Date: 2012-11-20 17:27\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -144,36 +144,51 @@ msgstr "wöchentlich"
 msgid "monthly"
 msgstr "monatlich"
 
-#: main/forms.py:35 main/forms_debug.py:30
+#: main/forms.py:36 main/forms_debug.py:30
 msgid "Datasource"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:39 main/forms.py:133
+#: main/forms.py:45 main/forms.py:168 main/views.py:27 main/views.py:38
+#, python-format
+msgid " - %(account)s"
+msgstr ""
+
+#: main/forms.py:49
+#, fuzzy
+msgid "Datasource Profile"
+msgstr "Daten-Quelle"
+
+#: main/forms.py:64 main/forms.py:187
 #, python-format
 msgid "%(plugin)s - profile"
 msgstr "%(plugin)s - Profil"
 
-#: main/forms.py:129
+#: main/forms.py:159
 msgid "Datasink"
 msgstr "Speicher-Ziel"
 
-#: main/forms.py:208 main/forms_debug.py:15
+#: main/forms.py:172
+#, fuzzy
+msgid "Datasink Profile"
+msgstr "Speicher-Ziel"
+
+#: main/forms.py:266 main/forms_debug.py:15
 msgid "Backup Name"
 msgstr "Backup-Name"
 
-#: main/forms.py:220
+#: main/forms.py:278
 msgid "Title"
 msgstr "Titel"
 
-#: main/forms.py:330
+#: main/forms.py:385
 msgid "Query"
 msgstr "Parameter"
 
-#: main/forms.py:349
+#: main/forms.py:404
 msgid "Datasource Filter"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:355
+#: main/forms.py:410
 msgid "Type Filter"
 msgstr "Datei-Typ"
 
@@ -181,16 +196,11 @@ msgstr "Datei-Typ"
 msgid "Key Ring"
 msgstr "KeyRing"
 
-#: main/views.py:26 main/views.py:33
-#, python-format
-msgid " - %(account)s"
-msgstr ""
-
-#: main/views.py:69
+#: main/views.py:77
 msgid "Backup was successfully deleted."
 msgstr "Das Backup wurde gelöscht."
 
-#: main/views.py:71
+#: main/views.py:79
 msgid "Backup couldn't be deleted."
 msgstr "Löschen des Backups fehlgeschlagen"
 
@@ -270,8 +280,8 @@ msgstr "eine andere Daten-Quelle wählen"
 
 #: templates/www/datasink_auth.html:23 templates/www/datasink_select.html:23
 #: templates/www/datasource_auth.html:42 templates/www/datasource_auth.html:50
-#: templates/www/datasource_select.html:37
-#: templates/www/datasource_select.html:45 templates/www/job_create.html:22
+#: templates/www/datasource_select.html:43
+#: templates/www/datasource_select.html:51 templates/www/job_create.html:22
 msgid "2. Data-Target"
 msgstr "2. Speicher-Ziel"
 
@@ -281,32 +291,36 @@ msgid "Step 2: select data-target - authenticate %(datasink)s"
 msgstr ""
 "Schritt 2: Speicher-Ziel auswählen - Authentifizierung von %(datasink)s"
 
-#: templates/www/datasink_auth.html:42 templates/www/datasink_select.html:37
+#: templates/www/datasink_auth.html:42 templates/www/datasink_select.html:53
 #: templates/www/datasource_auth.html:34
 #: templates/www/datasource_options.html:27
-#: templates/www/datasource_select.html:30
+#: templates/www/datasource_select.html:36
 msgid "next"
 msgstr "weiter"
 
+#: templates/www/datasink_auth.html:43 templates/www/datasource_auth.html:35
+msgid "or"
+msgstr "oder"
+
 #: templates/www/datasink_auth.html:43 templates/www/datasource_auth.html:45
-#: templates/www/datasource_select.html:40 templates/www/job_create.html:25
+#: templates/www/datasource_select.html:46 templates/www/job_create.html:25
 msgid "select a different data-sink"
 msgstr "ein anderes Speicherziel wählen"
 
 #: templates/www/datasink_auth.html:50 templates/www/datasink_auth.html:52
-#: templates/www/datasink_select.html:44 templates/www/datasink_select.html:46
+#: templates/www/datasink_select.html:60 templates/www/datasink_select.html:62
 #: templates/www/datasource_auth.html:58 templates/www/datasource_auth.html:60
-#: templates/www/datasource_select.html:53
-#: templates/www/datasource_select.html:55 templates/www/job_create.html:29
+#: templates/www/datasource_select.html:59
+#: templates/www/datasource_select.html:61 templates/www/job_create.html:29
 msgid "3. Backup-Options"
 msgstr "3. Backup-Optionen"
 
-#: templates/www/datasink_auth.html:55 templates/www/datasink_select.html:49
+#: templates/www/datasink_auth.html:55 templates/www/datasink_select.html:65
 msgid "Step 3: select Backup-Options"
 msgstr "Schritt 3: Backup-Optionen auswählen"
 
 #: templates/www/datasink_select.html:25 templates/www/datasource_auth.html:52
-#: templates/www/datasource_select.html:47
+#: templates/www/datasource_select.html:53
 msgid "Step 2: select data-target"
 msgstr "Schritt 2: Speicher-Ziel auswählen"
 
@@ -321,12 +335,12 @@ msgstr ""
 "Schritt 2: Speicher-Ziel auswählen - Authentifizierung von %(datasource)s"
 
 #: templates/www/datasource_auth.html:44
-#: templates/www/datasource_select.html:39 templates/www/job_create.html:24
+#: templates/www/datasource_select.html:45 templates/www/job_create.html:24
 msgid "selected data-target"
 msgstr "ausgewähltes Speicher-Ziel"
 
 #: templates/www/datasource_auth.html:63
-#: templates/www/datasource_select.html:58 templates/www/job_create.html:31
+#: templates/www/datasource_select.html:64 templates/www/job_create.html:31
 msgid "Step 3: select backup-options"
 msgstr "Schritt 3: Backup-Optionen auswählen"
 
