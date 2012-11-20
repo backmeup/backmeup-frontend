@@ -119,3 +119,13 @@ select {
     text-align: center;
   }
 }
+.fieldset-datasource-options {
+  legend {
+    float: left;
+    margin-right: .5em;
+  }
+  .checkbox-handler {
+    @extend .link;
+    @include adjust-font-size-to(15px);
+  }
+}

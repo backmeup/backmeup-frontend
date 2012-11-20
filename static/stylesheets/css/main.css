@@ -1234,6 +1234,17 @@ select option:hover {
   text-align: center;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\00003123}}
+.fieldset-datasource-options legend {
+  float: left;
+  margin-right: .5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\00003127}}
+.fieldset-datasource-options .checkbox-handler {
+  font-size: 0.9375em;
+  line-height: 1.6em;
+}
+
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\000031}}
 .btn, .sr-filter-handler, .btn-add, .btn-next, .btn-back {
   color: white;
@@ -1345,6 +1356,18 @@ button.close:before {
   text-decoration: none;
   margin-right: .5em;
   content: "\f00d";
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\0000357}}
+.link, .fieldset-datasource-options .checkbox-handler {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #3a6395;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_buttons\.scss}line{font-family:\0000362}}
+.link:hover, .fieldset-datasource-options .checkbox-handler:hover {
+  text-decoration: underline;
 }
 
 /*  Font Awesome

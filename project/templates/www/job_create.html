@@ -48,8 +48,9 @@
             {% endfor %}
           </fieldset>
           
-          <fieldset>
+          <fieldset class="fieldset-datasource-options">
             <legend>{% trans "Datasource options" %}</legend>
+            (<button type="button" class="checkbox-handler">{% trans "toggle all" %}</button>)
             <div class="checkbox-group">
               {% for field in form.field_group_datasource_options %}
               <div>
@@ -83,3 +84,14 @@
   </ul>
 {% endblock content %}
 
+{% block additional_js %}
+<script>
+$(function(){
+  var toggled = false;
+  $('.fieldset-datasource-options').on('click', '.checkbox-handler', function() {
+      $('.fieldset-datasource-options').find('input[type="checkbox"]').attr("checked", !toggled);
+      toggled = !toggled;
+  });
+})
+</script>
+{% endblock %}

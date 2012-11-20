@@ -54,3 +54,12 @@ button.close {
 button.close:before {
   @include icon_before('\f00d');
 }
+.link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: $clr-link;
+  &:hover {
+    text-decoration: underline;
+  }
+}
