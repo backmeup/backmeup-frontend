@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-11-20 14:14+0100\n"
-"PO-Revision-Date: 2012-11-20 14:57\n"
+"PO-Revision-Date: 2012-11-20 16:21\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -418,10 +418,10 @@ msgid_plural ""
 "            "
 msgstr[0] ""
 "\n"
-"%(counter)s Suchergebnisse"
+"%(counter)s Suchergebnis"
 msgstr[1] ""
 "\n"
-"%(counter)s Suchergebnis"
+"%(counter)s Suchergebnisse"
 
 #: templates/www/search_result.html:27
 #, python-format
@@ -439,7 +439,7 @@ msgstr "Suchergebnisse filtern"
 
 #: templates/www/search_result.html:39
 msgid "Limit search results"
-msgstr "Suchergebnisse einschränken"
+msgstr "Suche verfeinern"
 
 #: templates/www/search_result.html:77
 msgid "send"
