@@ -22,7 +22,6 @@
     <li class="active-backup-step">
       <h3>{% trans "2. Data-Target" %}</h3>
       <div class="add-backup-content">
-        {# TODO: display name of selected data-source #}
         <h4>{% blocktrans with datasink=datasink_profile.title %}Step 2: select data-target - authenticate {{ datasink }}{% endblocktrans %}</h4>
         <form action="." method="POST">{% csrf_token %}
 

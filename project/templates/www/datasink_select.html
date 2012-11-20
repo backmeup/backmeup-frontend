@@ -25,14 +25,6 @@
         <h4>{% trans "Step 2: select data-target" %}</h4>
         <form action="." method="POST" class="form-datasink">{% csrf_token %}
           {{ form.non_field_errors }}
-          {# <div> #}
-          {#             <label>{{ form.profile_name.label }} #}
-          {#             {{ form.profile_name }}</label> #}
-          {#             {% if form.profile_name.errors %} #}
-          {#               {{ form.profile_name.errors }} #}
-          {#             {% endif %} #}
-          {#           </div> #}
-
           <div class="datasink-group">
             {% for item in form.datasink %}
                <label class="icon-{{ item.choice_value|slugify }}">{{ item.tag }} {{ item.choice_label }}</label>
@@ -41,15 +33,6 @@
               {{ form.datasink.errors }}
             {% endif %}
           </div>
-
-          {# <div> #}
-          {#             <label>{{ form.key_ring.label }} #}
-          {#             {{ form.key_ring }}</label> #}
-          {#             {% if form.key_ring.errors %} #}
-          {#               {{ form.key_ring.errors }} #}
-          {#             {% endif %} #}
-          {#           </div> #}
-
           <div>
             <button type="submit" class="btn-next">{% trans "next" %}</button>
           </div>
