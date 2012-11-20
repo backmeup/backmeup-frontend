@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-05 18:01+0100\n"
-"PO-Revision-Date: 2012-11-07 12:31\n"
+"POT-Creation-Date: 2012-11-20 13:54+0100\n"
+"PO-Revision-Date: 2012-11-20 14:10\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,108 +19,108 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Translated-Using: django-rosetta 0.6.8\n"
 
-#: access/forms.py:20 access/forms.py:101 access/forms.py:182
-#: access/forms.py:249 templates/www/access/login.html:18
+#: access/forms.py:18 access/forms.py:100 access/forms.py:181
+#: access/forms.py:268 templates/www/access/login.html:18
 msgid "Email"
 msgstr "E-mail"
 
-#: access/forms.py:22 access/forms.py:103
+#: access/forms.py:20 access/forms.py:102
 msgid "Password"
 msgstr "Passwort"
 
-#: access/forms.py:23
+#: access/forms.py:21
 #, python-format
 msgid "Your password needs to be at least %s characters long."
 msgstr "Ihr Passwort muss mind. %s Zeichen lang sein."
 
-#: access/forms.py:24 access/forms.py:104
+#: access/forms.py:22 access/forms.py:103
 msgid "Password confirmation"
 msgstr "Passwort bestätigen"
 
-#: access/forms.py:25 access/forms.py:105 access/forms.py:186
-#: access/forms.py:253
+#: access/forms.py:23 access/forms.py:104 access/forms.py:185
+#: access/forms.py:272
 msgid "Enter the same password as above, for verification."
 msgstr "Passwort wiederholen"
 
-#: access/forms.py:55
+#: access/forms.py:53 access/forms.py:237
 msgid "A user with that email already exists."
 msgstr "Ein Benutzer mit dieser E-mail Adresse existiert bereits."
 
-#: access/forms.py:62
+#: access/forms.py:60
 #, python-format
 msgid "Password must be at least %d chars."
 msgstr "Ihr Passwort muss mind. %d Zeichen lang sein."
 
-#: access/forms.py:64 access/forms.py:134 access/forms.py:218
-#: access/forms.py:285
+#: access/forms.py:62 access/forms.py:133 access/forms.py:217
+#: access/forms.py:304
 msgid "The two password fields didn't match."
 msgstr "Die beiden Passwörter stimmen nicht überein."
 
-#: access/forms.py:98
+#: access/forms.py:97
 msgid "Username"
 msgstr "Benutzername"
 
-#: access/forms.py:99
+#: access/forms.py:98
 msgid "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."
 msgstr ""
 "Pflichtfeld. 30 Zeichen oder weniger. Erlaubt sind Buchstaben, Zahlen und "
 "@/./+/-/_"
 
-#: access/forms.py:100
+#: access/forms.py:99
 msgid "This value may contain only letters, numbers and @/./+/-/_ characters."
 msgstr "Es sind nur Buchstaben, Zahlen und @/./+/-/_ erlaubt."
 
-#: access/forms.py:107
+#: access/forms.py:106
 msgid "KeyRing Password"
 msgstr "KeyRing Passwort"
 
-#: access/forms.py:108
+#: access/forms.py:107
 msgid "KeyRing Password confirmation"
 msgstr "KeyRing Passwort wiederholen"
 
-#: access/forms.py:109 access/forms.py:257
+#: access/forms.py:108 access/forms.py:276
 msgid "Enter the same KeyRing Password as above, for verification."
 msgstr "Bitte geben Sie dasselbe KeyRing Passwort wie oben ein."
 
-#: access/forms.py:128
+#: access/forms.py:127
 msgid "A user with that username already exists."
 msgstr "Ein Benutzer mit diesem Namen existiert bereits."
 
-#: access/forms.py:141 access/forms.py:294
+#: access/forms.py:140 access/forms.py:313
 msgid "The two KeyRing Password fields didn't match."
 msgstr "Die beiden KeyRing Passwörter stimmen nicht überein."
 
-#: access/forms.py:166
+#: access/forms.py:165
 msgid "Verification Key"
 msgstr "Bestätigungs-Code"
 
-#: access/forms.py:184 access/forms.py:251
+#: access/forms.py:183 access/forms.py:270
 msgid "New Password"
 msgstr "Neues Passwort"
 
-#: access/forms.py:185 access/forms.py:252
+#: access/forms.py:184 access/forms.py:271
 msgid "New Password confirmation"
 msgstr "Neues Passwort wiederholen"
 
-#: access/forms.py:192 access/forms.py:259
+#: access/forms.py:191 access/forms.py:278
 msgid "Current Password"
 msgstr "Bestehendes Passwort"
 
-#: access/forms.py:193 access/forms.py:260
+#: access/forms.py:192 access/forms.py:279
 msgid "Enter your current password for verification."
 msgstr "Bestehendes Passwort eingeben"
 
-#: access/forms.py:209 access/forms.py:276
+#: access/forms.py:208 access/forms.py:295
 msgid "Your old password was entered incorrectly. Please enter it again."
 msgstr ""
 "Ihr bestehendes Passwort wurde falsch eingegeben. Bitte versuchen Sie es "
 "erneut."
 
-#: access/forms.py:255
+#: access/forms.py:274
 msgid "New KeyRing Password"
 msgstr "Neues KeyRing-Passwort"
 
-#: access/forms.py:256
+#: access/forms.py:275
 msgid "New KeyRing Password confirmation"
 msgstr "Neues KeyRing-Passwort wiederholen"
 
@@ -165,20 +165,32 @@ msgstr "Backup-Name"
 msgid "Title"
 msgstr "Titel"
 
+#: main/forms.py:330
+msgid "Query"
+msgstr ""
+
+#: main/forms.py:349
+msgid "Datasource Filter"
+msgstr "Daten-Quelle"
+
+#: main/forms.py:355
+msgid "Type Filter"
+msgstr "Datei-Typ"
+
 #: main/forms_debug.py:17
 msgid "Key Ring"
 msgstr "KeyRing"
 
-#: main/views.py:19 main/views.py:26
+#: main/views.py:26 main/views.py:33
 #, python-format
 msgid " - %(account)s"
 msgstr ""
 
-#: main/views.py:60
+#: main/views.py:69
 msgid "Backup was successfully deleted."
 msgstr "Das Backup wurde gelöscht."
 
-#: main/views.py:62
+#: main/views.py:71
 msgid "Backup couldn't be deleted."
 msgstr "Löschen des Backups fehlgeschlagen"
 
@@ -199,7 +211,7 @@ msgstr ""
 "Die aufgerufene Seite existiert nicht oder nicht mehr. Bitte gehen Sie zur "
 "Startseite oder verwenden Sie die Suche."
 
-#: templates/base.html:6
+#: templates/base.html:9
 msgid "BackMeUp"
 msgstr "BackMeUp"
 
@@ -246,40 +258,55 @@ msgstr "Speicher-Ziel auswählen"
 msgid "1. Data-Source"
 msgstr "1. Daten-Quelle"
 
-#: templates/www/datasink_auth.html:19 templates/www/datasink_select.html:18
+#: templates/www/datasink_auth.html:18 templates/www/datasink_select.html:18
 #: templates/www/job_create.html:17
 msgid "selected data-source"
 msgstr "gewählte Daten-Quelle"
 
-#: templates/www/datasink_auth.html:23 templates/www/datasink_select.html:22
-#: templates/www/datasource_auth.html:39
-#: templates/www/datasource_select.html:50 templates/www/job_create.html:21
+#: templates/www/datasink_auth.html:19 templates/www/datasink_select.html:19
+#: templates/www/datasource_auth.html:35 templates/www/job_create.html:18
+#, fuzzy
+msgid "select a different data-source"
+msgstr "gewählte Daten-Quelle"
+
+#: templates/www/datasink_auth.html:23 templates/www/datasink_select.html:23
+#: templates/www/datasource_auth.html:42 templates/www/datasource_auth.html:50
+#: templates/www/datasource_select.html:37
+#: templates/www/datasource_select.html:45 templates/www/job_create.html:22
 msgid "2. Data-Target"
 msgstr "2. Speicher-Ziel"
 
-#: templates/www/datasink_auth.html:26
-msgid "Step 2: select data-target - authenticate"
+#: templates/www/datasink_auth.html:25
+#, fuzzy, python-format
+msgid "Step 2: select data-target - authenticate %(datasink)s"
 msgstr "Schritt 2: Speicher-Ziel auswählen - Authentifizierung"
 
-#: templates/www/datasink_auth.html:43 templates/www/datasink_select.html:52
+#: templates/www/datasink_auth.html:42 templates/www/datasink_select.html:37
 #: templates/www/datasource_auth.html:34
 #: templates/www/datasource_options.html:27
-#: templates/www/datasource_select.html:45
+#: templates/www/datasource_select.html:30
 msgid "next"
 msgstr "weiter"
 
-#: templates/www/datasink_auth.html:48 templates/www/datasink_select.html:57
-#: templates/www/datasource_auth.html:45
-#: templates/www/datasource_select.html:56 templates/www/job_create.html:27
+#: templates/www/datasink_auth.html:43 templates/www/datasource_auth.html:45
+#: templates/www/datasource_select.html:40 templates/www/job_create.html:25
+msgid "select a different data-sink"
+msgstr "ein anderes Speicherziel wählen"
+
+#: templates/www/datasink_auth.html:50 templates/www/datasink_auth.html:52
+#: templates/www/datasink_select.html:44 templates/www/datasink_select.html:46
+#: templates/www/datasource_auth.html:58 templates/www/datasource_auth.html:60
+#: templates/www/datasource_select.html:53
+#: templates/www/datasource_select.html:55 templates/www/job_create.html:29
 msgid "3. Backup-Options"
 msgstr "3. Backup-Optionen"
 
-#: templates/www/datasink_auth.html:50 templates/www/datasink_select.html:59
+#: templates/www/datasink_auth.html:55 templates/www/datasink_select.html:49
 msgid "Step 3: select Backup-Options"
 msgstr "Schritt 3: Backup-Optionen auswählen"
 
-#: templates/www/datasink_select.html:24 templates/www/datasource_auth.html:41
-#: templates/www/datasource_select.html:52
+#: templates/www/datasink_select.html:25 templates/www/datasource_auth.html:52
+#: templates/www/datasource_select.html:47
 msgid "Step 2: select data-target"
 msgstr "Schritt 2: Speicher-Ziel auswählen"
 
@@ -288,11 +315,18 @@ msgid "Select Data-Source - Authentication"
 msgstr "Daten-Quelle auswählen - Authentifizierung"
 
 #: templates/www/datasource_auth.html:17
-msgid "Step 1: select data-source - authenticate"
-msgstr "Schritt 1: Daten-Quelle auswählen - Authentifizierung"
+#, python-format
+msgid "Step 2: select data-target - authenticate %(datasource)s"
+msgstr ""
+"Schritt 2: Speicher-Ziel auswählen - Authentifizierung von %(datasource)s"
 
-#: templates/www/datasource_auth.html:47
-#: templates/www/datasource_select.html:58 templates/www/job_create.html:29
+#: templates/www/datasource_auth.html:44
+#: templates/www/datasource_select.html:39 templates/www/job_create.html:24
+msgid "selected data-target"
+msgstr "ausgewähltes Speicher-Ziel"
+
+#: templates/www/datasource_auth.html:63
+#: templates/www/datasource_select.html:58 templates/www/job_create.html:31
 msgid "Step 3: select backup-options"
 msgstr "Schritt 3: Backup-Optionen auswählen"
 
@@ -321,121 +355,124 @@ msgstr "Willkommen"
 msgid "Select Backup-Options"
 msgstr "Backup-Optionen auswählen"
 
-#: templates/www/job_create.html:23
-msgid "selected data-target"
-msgstr "ausgewähltes Speicher-Ziel"
-
-#: templates/www/job_create.html:37
+#: templates/www/job_create.html:39
 msgid "Backup settings"
 msgstr "Backup-Einstellungen"
 
-#: templates/www/job_create.html:50
+#: templates/www/job_create.html:52
 msgid "Datasource options"
 msgstr "Daten-Quelle Optionen"
 
-#: templates/www/job_create.html:64
+#: templates/www/job_create.html:53
+msgid "toggle all"
+msgstr "alle auswählen"
+
+#: templates/www/job_create.html:67
 msgid "Backup actions"
 msgstr "Backup-Aktionen"
 
-#: templates/www/job_create.html:77 templates/www/includes/dashboard.html:5
+#: templates/www/job_create.html:80 templates/www/includes/dashboard.html:5
 msgid "Create Backup"
 msgstr "Backup erstellen"
 
-#: templates/www/job_log.html:23 templates/www/search_result.html:30
-#: templates/www/includes/dashboard.html:26
+#: templates/www/job_log.html:23 templates/www/includes/dashboard.html:26
 #: templates/www/includes/dashboard.html:33
-#: templates/www/includes/backup_jobs/backup_list_item.html:16
-#: templates/www/includes/backup_jobs/backup_list_item.html:24
+#: templates/www/includes/backup_jobs/backup_list_item.html:18
+#: templates/www/includes/backup_jobs/backup_list_item.html:26
 msgid "Data-Source"
 msgstr "Daten-Quelle"
 
 #: templates/www/job_log.html:25 templates/www/includes/dashboard.html:27
 #: templates/www/includes/dashboard.html:41
-#: templates/www/includes/backup_jobs/backup_list_item.html:17
-#: templates/www/includes/backup_jobs/backup_list_item.html:34
+#: templates/www/includes/backup_jobs/backup_list_item.html:19
+#: templates/www/includes/backup_jobs/backup_list_item.html:36
 msgid "Data-Target"
 msgstr "Speicher-Ziel"
 
 #: templates/www/job_log.html:27 templates/www/includes/dashboard.html:28
 #: templates/www/includes/dashboard.html:50
-#: templates/www/includes/backup_jobs/backup_list_item.html:18
-#: templates/www/includes/backup_jobs/backup_list_item.html:43
+#: templates/www/includes/backup_jobs/backup_list_item.html:20
+#: templates/www/includes/backup_jobs/backup_list_item.html:45
 msgid "Backup-State"
 msgstr "Backup-Status"
 
 #: templates/www/search_result.html:4
-#, fuzzy
 msgid "Search Results"
-msgstr "Suche"
+msgstr "Suchergebnisse"
 
 #: templates/www/search_result.html:10
 #: templates/www/search_result_detail.html:10
-#: templates/www/includes/header_search.html:4
+#: templates/www/includes/header_search.html:6
 msgid "Search"
 msgstr "Suche"
 
-#: templates/www/search_result.html:18
-#, fuzzy
-msgid "Search results"
-msgstr "Suche"
-
-#: templates/www/search_result.html:25
-msgid "Filter search results"
-msgstr ""
+#: templates/www/search_result.html:13
+#, python-format
+msgid ""
+"\n"
+"            %(counter)s result\n"
+"            "
+msgid_plural ""
+"\n"
+"            %(counter)s results\n"
+"            "
+msgstr[0] ""
+"\n"
+"%(counter)s Suchergebnisse"
+msgstr[1] ""
+"\n"
+"%(counter)s Suchergebnis"
 
 #: templates/www/search_result.html:27
-msgid "Limit search results"
+#, python-format
+msgid ""
+"\n"
+"      Search results: %(counter)s\n"
+"    "
 msgstr ""
+"\n"
+"Suchergebnisse: %(counter)s"
+
+#: templates/www/search_result.html:37
+msgid "Filter search results"
+msgstr "Suchergebnisse filtern"
 
 #: templates/www/search_result.html:39
-#, fuzzy
-msgid "Data-Type"
-msgstr "Speicher-Ziel"
+msgid "Limit search results"
+msgstr "Suchergebnisse einschränken"
 
-#: templates/www/search_result.html:47
+#: templates/www/search_result.html:77
 msgid "send"
-msgstr ""
+msgstr "absenden"
 
 #: templates/www/search_result_detail.html:4
 #: templates/www/search_result_detail.html:19
 msgid "Search result details"
-msgstr ""
+msgstr "Suchergebnis-details"
 
 #: templates/www/search_result_detail.html:25
-#, fuzzy
 msgid "Backup-Details"
-msgstr "Backup-Status"
+msgstr "Backup-Details"
 
 #: templates/www/search_result_detail.html:27
 #: templates/www/search_result_detail.html:30
-#, fuzzy
 msgid "Data-source"
 msgstr "Daten-Quelle"
 
 #: templates/www/search_result_detail.html:34
 msgid "creation-date"
-msgstr ""
+msgstr "erstellt am"
 
 #: templates/www/search_result_detail.html:38
-#, fuzzy
 msgid "title"
 msgstr "Titel"
 
 #: templates/www/search_result_detail.html:43
-#, fuzzy
 msgid "Data-targets"
-msgstr "Speicher-Ziel"
+msgstr "Speicher-Ziele"
 
 #: templates/www/search_result_detail.html:51
-msgid "versendet"
-msgstr ""
-
-#: templates/www/search_result_detail.html:62
 msgid "gespeichert"
-msgstr ""
-
-#: templates/www/search_result_detail.html:66
-msgid "file-path"
 msgstr ""
 
 #: templates/www/access/debug_signup.html:51
@@ -496,7 +533,7 @@ msgid "Verify Email"
 msgstr "E-mail bestätigen"
 
 #: templates/www/includes/dashboard.html:22
-#: templates/www/includes/backup_jobs/backup_list_item.html:12
+#: templates/www/includes/backup_jobs/backup_list_item.html:14
 msgid "Details"
 msgstr "Details"
 
@@ -510,12 +547,12 @@ msgid "Delete Backup-Job"
 msgstr "Backup löschen"
 
 #: templates/www/includes/dashboard.html:69
-#: templates/www/includes/backup_jobs/backup_list_item.html:62
+#: templates/www/includes/backup_jobs/backup_list_item.html:64
 msgid "Do you really want to delete the selected Backup-Job?"
 msgstr "Wollen Sie das ausgewählte Backup wirklich löschen?"
 
 #: templates/www/includes/dashboard.html:71
-#: templates/www/includes/backup_jobs/backup_list_item.html:64
+#: templates/www/includes/backup_jobs/backup_list_item.html:66
 msgid ""
 "By deleting a Backup-Job no further Backups will be created. Backups that "
 "have already been created will however remain on the data-target and need to"
@@ -526,19 +563,19 @@ msgstr ""
 " und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
 
 #: templates/www/includes/dashboard.html:76
-#: templates/www/includes/backup_jobs/backup_list_item.html:70
+#: templates/www/includes/backup_jobs/backup_list_item.html:72
 msgid "cancel"
 msgstr "abbrechen"
 
 #: templates/www/includes/dashboard.html:77
-#: templates/www/includes/backup_jobs/backup_list_item.html:54
-#: templates/www/includes/backup_jobs/backup_list_item.html:58
-#: templates/www/includes/backup_jobs/backup_list_item.html:71
+#: templates/www/includes/backup_jobs/backup_list_item.html:56
+#: templates/www/includes/backup_jobs/backup_list_item.html:60
+#: templates/www/includes/backup_jobs/backup_list_item.html:73
 msgid "Delete Backup"
 msgstr "Backup löschen"
 
 #: templates/www/includes/dashboard.html:82
-#: templates/www/includes/backup_jobs/backup_list_item.html:76
+#: templates/www/includes/backup_jobs/backup_list_item.html:78
 msgid "Backup-Log"
 msgstr "Backup-Log"
 
@@ -546,11 +583,16 @@ msgstr "Backup-Log"
 msgid "No backups yet."
 msgstr "Noch keine Backups."
 
-#: templates/www/includes/header_search.html:7
+#: templates/www/includes/header_search.html:9
 msgid "search"
 msgstr "suchen"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:51
+#: templates/www/includes/backup_jobs/backup_list_item.html:48
+#, fuzzy
+msgid "nächstes Backup"
+msgstr "Backup erstellen"
+
+#: templates/www/includes/backup_jobs/backup_list_item.html:53
 msgid "Edit Backup"
 msgstr "Backup bearbeiten"
 
@@ -561,6 +603,15 @@ msgstr "Einstellungen"
 #: templates/www/includes/navigation/user_nav.html:32
 msgid "Sign out"
 msgstr "Ausloggen"
+
+#~ msgid "Step 1: select data-source - authenticate"
+#~ msgstr "Schritt 1: Daten-Quelle auswählen - Authentifizierung"
+
+#~ msgid "Search results"
+#~ msgstr "Suche"
+
+#~ msgid "Data-Type"
+#~ msgstr "Speicher-Ziel"
 
 #~ msgid "Registrieren"
 #~ msgstr "Registrieren"
