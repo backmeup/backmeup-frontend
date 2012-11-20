@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-20 13:54+0100\n"
-"PO-Revision-Date: 2012-11-20 14:10\n"
+"POT-Creation-Date: 2012-11-20 14:14+0100\n"
+"PO-Revision-Date: 2012-11-20 14:16\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -472,8 +472,8 @@ msgid "Data-targets"
 msgstr "Speicher-Ziele"
 
 #: templates/www/search_result_detail.html:51
-msgid "gespeichert"
-msgstr ""
+msgid "saved"
+msgstr "gespeichert"
 
 #: templates/www/access/debug_signup.html:51
 msgid "Create Account"
@@ -588,9 +588,8 @@ msgid "search"
 msgstr "suchen"
 
 #: templates/www/includes/backup_jobs/backup_list_item.html:48
-#, fuzzy
-msgid "nächstes Backup"
-msgstr "Backup erstellen"
+msgid "next backup"
+msgstr "nächstes Backup"
 
 #: templates/www/includes/backup_jobs/backup_list_item.html:53
 msgid "Edit Backup"
@@ -603,6 +602,9 @@ msgstr "Einstellungen"
 #: templates/www/includes/navigation/user_nav.html:32
 msgid "Sign out"
 msgstr "Ausloggen"
+
+#~ msgid "nächstes Backup"
+#~ msgstr "Backup erstellen"
 
 #~ msgid "Step 1: select data-source - authenticate"
 #~ msgstr "Schritt 1: Daten-Quelle auswählen - Authentifizierung"
