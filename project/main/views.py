@@ -294,13 +294,18 @@ def job_log(request, job_id):
     for datasource in job['datasources']:
         datasource['title'] = get_source_title(datasource_profiles, datasource['datasourceId'])
     
+    context = {
+        'job': job,
+        'log': job_status['backupStatus'],
+    }
+    try:
+        context['current_status'] = job_status['backupStatus'][0]['type']
+    except:
+        pass
+    
     return render_to_response(
         "www/job_log.html",
-        {
-            'job': job,
-            'log': job_status['backupStatus'],
-            'current_status': job_status['backupStatus'][0]['type']
-        },
+        context,
         context_instance=RequestContext(request))
 
 
