@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-11-20 14:14+0100\n"
-"PO-Revision-Date: 2012-11-20 14:16\n"
+"PO-Revision-Date: 2012-11-20 14:57\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -126,7 +126,7 @@ msgstr "Neues KeyRing-Passwort wiederholen"
 
 #: access/views.py:109
 msgid "Logged out"
-msgstr ""
+msgstr "ausgeloggt"
 
 #: main/forms.py:11
 msgid "now"
@@ -167,7 +167,7 @@ msgstr "Titel"
 
 #: main/forms.py:330
 msgid "Query"
-msgstr ""
+msgstr "Parameter"
 
 #: main/forms.py:349
 msgid "Datasource Filter"
@@ -265,9 +265,8 @@ msgstr "gewählte Daten-Quelle"
 
 #: templates/www/datasink_auth.html:19 templates/www/datasink_select.html:19
 #: templates/www/datasource_auth.html:35 templates/www/job_create.html:18
-#, fuzzy
 msgid "select a different data-source"
-msgstr "gewählte Daten-Quelle"
+msgstr "eine andere Daten-Quelle wählen"
 
 #: templates/www/datasink_auth.html:23 templates/www/datasink_select.html:23
 #: templates/www/datasource_auth.html:42 templates/www/datasource_auth.html:50
@@ -277,9 +276,10 @@ msgid "2. Data-Target"
 msgstr "2. Speicher-Ziel"
 
 #: templates/www/datasink_auth.html:25
-#, fuzzy, python-format
+#, python-format
 msgid "Step 2: select data-target - authenticate %(datasink)s"
-msgstr "Schritt 2: Speicher-Ziel auswählen - Authentifizierung"
+msgstr ""
+"Schritt 2: Speicher-Ziel auswählen - Authentifizierung von %(datasink)s"
 
 #: templates/www/datasink_auth.html:42 templates/www/datasink_select.html:37
 #: templates/www/datasource_auth.html:34
