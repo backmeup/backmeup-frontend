@@ -71,7 +71,7 @@
 {% block additional_js %}
 <script>
 $(function(){
-  $('.form-datasource').on('click', 'label', function() {
+  $('.datasource-group').on('click', 'label', function() {
       $(this).find('input[type="radio"]').attr("checked", "checked");
       $('.form-datasource').submit();
   });

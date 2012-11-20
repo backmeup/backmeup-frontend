@@ -32,7 +32,7 @@
         {% endfor %}
           <div>
             <button type="submit" class="btn">{% trans "next" %}</button>
-             or <a href="{% url datasource-select %}">{% trans "select a different data-source" %}</a>
+             {% trans "or" %} <a href="{% url datasource-select %}">{% trans "select a different data-source" %}</a>
           </div>
         </form>
       </div>

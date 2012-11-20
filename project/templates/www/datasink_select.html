@@ -71,9 +71,12 @@
 {% block additional_js %}
 <script>
 $(function(){
-  $('.form-datasink').on('click', 'label', function() {
+  $('.datasink-group').on('click', 'label', function() {
       $(this).find('input[type="radio"]').attr("checked", "checked");
       $('.form-datasink').submit();
+  });
+  $('#id_datasink_profile').on('change', function() {
+    $('.form-datasink').submit();
   });
 })
 </script>
