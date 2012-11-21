@@ -156,7 +156,11 @@ def datasource_auth(request):
     #    redirect('datasource-select')
 
     form = DatasourceAuthForm(request.POST or None, username=request.user.username, auth_data=request.session['auth_data'])
-
+    
+    if not form.fields:
+        request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
+        return redirect('datasink-select')
+    
     if form.is_valid() or request.session['auth_data']['type'] != 'Input':
         result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
         if not result == False:
@@ -214,6 +218,10 @@ def datasink_auth(request):
     #    redirect('datasink-select')
 
     form = DatasinkAuthForm(request.POST or None, auth_data=request.session['auth_data'])
+    
+    if not form.fields:
+        request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
+        return redirect('job-create')
     
     if form.is_valid() or request.session['auth_data']['type'] != 'Input':
         result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
