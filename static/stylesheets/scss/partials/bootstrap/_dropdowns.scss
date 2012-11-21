@@ -160,6 +160,7 @@
 .user-nav a {
   color: #fff;
   text-decoration: none;
+  display: inline-block;
 }
 .user-nav .user-item .dropdown-toggle:after {
   @include icon_after('\f0d7');

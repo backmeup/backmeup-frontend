@@ -2404,9 +2404,10 @@ a [class*=" icon-"] {
 .user-nav a {
   color: #fff;
   text-decoration: none;
+  display: inline-block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003164}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003165}}
 .user-nav .user-item .dropdown-toggle:after {
   font-family: FontAwesome;
   font-weight: normal;
@@ -2417,19 +2418,19 @@ a [class*=" icon-"] {
   content: "\f0d7";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003167}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003168}}
 .user-nav .dropdown-menu a {
   color: #3a6395;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003171}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003172}}
 .user-nav .dropdown-menu {
   right: -7px;
   left: auto;
   top: 120%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003176}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003177}}
 .user-nav .dropdown-menu:after {
   border-bottom: 6px solid #fff;
   border-left: 6px solid transparent;
@@ -2443,26 +2444,26 @@ a [class*=" icon-"] {
   left: auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003192}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003193}}
 .user-nav .search-item .dropdown-menu {
   padding: 5px;
   right: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003197}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003198}}
 .user-nav .search-item .open .searchsubmit {
   position: absolute;
   right: 10px;
   top: 7px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003201}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003202}}
 .user-nav .search-item .open .searchsubmit:after {
   color: #3a6395;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003206}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003207}}
 .user-nav .search-item #header-search-form.open label:before {
   content: '\f00d';
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003209}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/bootstrap\/_dropdowns\.scss}line{font-family:\00003210}}
 .user-nav .search-item #header-search-field {
   padding-right: 2em;
 }
