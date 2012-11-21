@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-20 17:26+0100\n"
-"PO-Revision-Date: 2012-11-20 17:27\n"
+"POT-Creation-Date: 2012-11-21 14:43+0100\n"
+"PO-Revision-Date: 2012-11-21 14:48\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -128,6 +128,11 @@ msgstr "Neues KeyRing-Passwort wiederholen"
 msgid "Logged out"
 msgstr "ausgeloggt"
 
+#: access/views.py:145
+#, python-format
+msgid "user's email %s is verified"
+msgstr "Die Registrierung mit der E-mail Adresse %s war erfolgreich."
+
 #: main/forms.py:11
 msgid "now"
 msgstr "jetzt"
@@ -148,47 +153,47 @@ msgstr "monatlich"
 msgid "Datasource"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:45 main/forms.py:168 main/views.py:27 main/views.py:38
+#: main/forms.py:45 main/forms.py:170 main/views.py:27 main/views.py:38
 #, python-format
 msgid " - %(account)s"
-msgstr ""
+msgstr "- %(account)s"
 
 #: main/forms.py:49
 #, fuzzy
 msgid "Datasource Profile"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:64 main/forms.py:187
+#: main/forms.py:64 main/forms.py:189
 #, python-format
 msgid "%(plugin)s - profile"
 msgstr "%(plugin)s - Profil"
 
-#: main/forms.py:159
+#: main/forms.py:161
 msgid "Datasink"
 msgstr "Speicher-Ziel"
 
-#: main/forms.py:172
+#: main/forms.py:174
 #, fuzzy
 msgid "Datasink Profile"
 msgstr "Speicher-Ziel"
 
-#: main/forms.py:266 main/forms_debug.py:15
+#: main/forms.py:268 main/forms_debug.py:15
 msgid "Backup Name"
 msgstr "Backup-Name"
 
-#: main/forms.py:278
+#: main/forms.py:280
 msgid "Title"
 msgstr "Titel"
 
-#: main/forms.py:385
+#: main/forms.py:387
 msgid "Query"
 msgstr "Parameter"
 
-#: main/forms.py:404
+#: main/forms.py:406
 msgid "Datasource Filter"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:410
+#: main/forms.py:412
 msgid "Type Filter"
 msgstr "Datei-Typ"
 

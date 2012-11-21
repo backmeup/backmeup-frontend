@@ -178,7 +178,7 @@ class UserEmailVerificationForm(forms.Form):
 
 class UserSettingsForm(forms.Form):
 
-    email = forms.EmailField(label=_('Email'), max_length=254, required=False)
+    email = forms.EmailField(label=_('New email-address'), max_length=254, required=False)
 
     new_password1 = forms.CharField(label=_("New Password"), widget=forms.PasswordInput, required=False)
     new_password2 = forms.CharField(label=_("New Password confirmation"), widget=forms.PasswordInput,

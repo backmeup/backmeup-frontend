@@ -8,11 +8,14 @@
       clear: both;
   } 
 }
-.hidden{
+.hidden {
   display:none;
 }
-.inline{
+.inline {
   display:inline;
+}
+.smaller {
+  @include adjust-font-size-to(14px);
 }
 /* Hide only visually, but have it available for screenreaders: by Jon Neal.
   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */

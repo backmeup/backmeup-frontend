@@ -29,7 +29,9 @@
       {{ form.password.errors }}
     {% endif %}
   </div>
+  {# TODO: add forgot password function #}
   <div><input type="submit" value="{% trans "Sign In" %}" class="btn" /></div>
+  <p><a href="#forgot-password" class="smaller">{% trans "Forgot password?" %}</a></p>
   <input type="hidden" name="next" value="/" />
 </form>
 

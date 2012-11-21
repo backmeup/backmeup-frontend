@@ -142,7 +142,7 @@ def verify_email(request, verify_hash=None):
         form = UserEmailVerificationForm(request.POST or data)
         if form.is_valid():
             email = form.cleaned_data['email']
-            messages.add_message(request, messages.INFO, 'user\'s email %s is verified' % email)
+            messages.add_message(request, messages.INFO, _('user\'s email %s is verified' % email))
             request.session['validated_email'] = email
             return redirect('datasource-select')
         #else:
