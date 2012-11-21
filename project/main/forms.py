@@ -42,11 +42,12 @@ class DatasourceSelectForm(forms.Form):
             profile_choices = [("", "---")]
             
             for item in datasource_profiles:
+                # no need to show profiles without 'identification'
+                # * it's not a completely authenticated profile
+                # * it's a profile whitch doesn't require authentication
                 if 'identification' in item:
                     title = _(item['pluginName'] + " - %(account)s") % {'account': item['identification']}
-                else:
-                    title = item['title']
-                profile_choices.append( (item['datasourceProfileId'], title) )
+                    profile_choices.append( (item['datasourceProfileId'], title) )
             
             self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), choices=profile_choices, required=False)
     
@@ -169,11 +170,13 @@ class DatasinkSelectForm(forms.Form):
             profile_choices = [("", "---")]
         
             for item in datasink_profiles:
+                # no need to show profiles without 'identification'
+                # * it's not a completely authenticated profile
+                # * it's a profile whitch doesn't require authentication
                 if 'identification' in item:
                     title = _(item['pluginName'] + " - %(account)s") % {'account': item['identification']}
-                else:
-                    title = item['title']
-                profile_choices.append( (item['datasinkProfileId'], title) )
+                    profile_choices.append( (item['datasinkProfileId'], title) )
+            
             self.fields['datasink_profile'] = forms.ChoiceField(label=_("Datasink Profile"), choices=profile_choices, required=False)
     
     def clean(self):
