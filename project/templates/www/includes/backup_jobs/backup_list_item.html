@@ -52,7 +52,6 @@
       <ul>
         <li><strike><a href="#link-to-backup-edit-page" class="edit-link">{% trans "Edit Backup" %}</a></strike></li>
         <li>
-          {# TODO: replace 'delete-modal1' with 'delete-modal{{ item.backupJobId }} for actual backup-jobs #}
           <a href="#delete-modal{{ item.backupJobId }}" class="delete-backup-handler" data-toggle="modal">{% trans "Delete Backup" %}</a>
           <div id="delete-modal{{ item.backupJobId }}" class="modal hide" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-header">
