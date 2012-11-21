@@ -46,7 +46,7 @@ class DatasourceSelectForm(forms.Form):
                     title = _(item['pluginName'] + " - %(account)s") % {'account': item['identification']}
                 else:
                     title = item['title']
-                    profile_choices.append( (item['datasourceProfileId'], title) )
+                profile_choices.append( (item['datasourceProfileId'], title) )
             
             self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), choices=profile_choices, required=False)
     
