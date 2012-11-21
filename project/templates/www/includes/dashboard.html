@@ -1,5 +1,9 @@
 {% load i18n %}
 
+{% if needs_email_validation %}
+  <a href="{% url verify-email %}">user needs to validate email</a>
+{% endif %}
+
 <header>
   <h1>{% trans "My Backups" %}</h1>
   <a href="{% url datasource-select %}" class="btn-add">{% trans "Create Backup" %}</a>

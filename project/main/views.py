@@ -88,7 +88,8 @@ def index(request):
                 logout(request)
                 redirect('index')
             else:
-                messages.error(request, _(jobs['errorType']))
+                messages.error(request, _(jobs['errorMessage']))
+                context['needs_email_validation'] = True
         else:
             rest_datasource_profile = RestDatasourceProfile(username=request.user.username)
             datasource_profiles = rest_datasource_profile.get_all()

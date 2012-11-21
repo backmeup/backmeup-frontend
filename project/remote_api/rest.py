@@ -174,6 +174,9 @@ class RestEmailVerification(RestBase):
 
     def verify(self, hash):
         return self._get(path="%s/verifyEmail" % hash)
+    
+    def resend(self, username):
+        return self._get(path="%s/newVerificationEmail" % username)
 
 
 class RestDatasource(RestBase):
