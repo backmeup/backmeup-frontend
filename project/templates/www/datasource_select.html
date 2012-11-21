@@ -18,11 +18,13 @@
         <form action="." method="POST" class="form-datasource">{% csrf_token %}
           {{ form.non_field_errors }}
           
-          <div>
-            <label>{{ form.datasource_profile.label }}</label>
-            {{ form.datasource_profile }}
-            {{ form.datasource_profile.errors }}
-          </div>
+          {% if form.datasource_profile %}
+            <div>
+              <label>{{ form.datasource_profile.label }}</label>
+              {{ form.datasource_profile }}
+              {{ form.datasource_profile.errors }}
+            </div>
+          {% endif %}
           
           <div class="datasource-group">
             {% for item in form.datasource %}

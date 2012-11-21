@@ -34,11 +34,13 @@
           {#             {% endif %} #}
           {#           </div> #}
           
-          <div>
-            <label>{{ form.datasink_profile.label }}</label>
-            {{ form.datasink_profile }}
-            {{ form.datasink_profile.errors }}
-          </div>
+          {% if form.datasink_profile %}
+            <div>
+              <label>{{ form.datasink_profile.label }}</label>
+              {{ form.datasink_profile }}
+              {{ form.datasink_profile.errors }}
+            </div>
+          {% endif %}
           
           <div class="datasink-group">
 
