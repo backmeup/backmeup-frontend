@@ -98,10 +98,15 @@ def index(request):
             
             for job in jobs:
                 # need to cut of first 3 numbers to get valid unix timestamp
-                job['createDate'] = datetime.datetime.fromtimestamp(job['createDate']/1000)
-                job['startDate'] = datetime.datetime.fromtimestamp(job['startDate']/1000)
-                job['lastBackup'] = datetime.datetime.fromtimestamp(job['lastBackup']/1000)
-                job['nextBackup'] = datetime.datetime.fromtimestamp(job['nextBackup']/1000)
+                if 'createDate' in job:
+                    job['createDate'] = datetime.datetime.fromtimestamp(job['createDate']/1000)
+                if 'startDate' in job:
+                    job['startDate'] = datetime.datetime.fromtimestamp(job['startDate']/1000)
+                if 'lastBackup' in job:
+                    job['lastBackup'] = datetime.datetime.fromtimestamp(job['lastBackup']/1000)
+                if 'nextBackup' in job:
+                    job['nextBackup'] = datetime.datetime.fromtimestamp(job['nextBackup']/1000)
+                
                 job['datasink']['title'] = get_sink_title(datasink_profiles, job['datasink']['datasinkId'])
                 #job['datasources'] = []
                 for datasource in job['datasources']:
