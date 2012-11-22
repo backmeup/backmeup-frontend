@@ -3,10 +3,3 @@
 {% load i18n %}
 
 {% block body_class %}class="features"{% endblock %}
-
-{% block content %}{{ block.super }}
-  <div class="register-teaser">
-    <h2>BackMeUp</h2>
-    <a href="{% url signup %}" class="btn">{% trans "Sign Up now" %}</a>
-  </div>
-{% endblock %}

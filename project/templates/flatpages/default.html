@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load i18n %}
+
 {% block html_title %}{{ flatpage.title }}{% endblock %}
 
 {% block content %}
@@ -7,5 +9,8 @@
   <h1>{{ flatpage.title }}</h1>
   {{ flatpage.content }}
 </article>
+<div class="register-teaser">
+  <a href="{% url signup %}" class="btn">{% trans "Sign Up now" %}</a>
+</div>
 {% endblock %}
 

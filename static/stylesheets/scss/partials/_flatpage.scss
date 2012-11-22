@@ -4,6 +4,15 @@
     list-style: disc outside;
   }
 }
+.register-teaser {
+  text-align: center;
+  @include margin-leader(1);
+  @include padding-leader(.5);
+  @include padding-trailer(.5);
+//  @include background-image(linear-gradient(#fff, #f5f5f5));
+  background: $bg-clr-note;
+  border-top: 1px solid $border-clr-note;
+}
 
 // About
 .company-list {
