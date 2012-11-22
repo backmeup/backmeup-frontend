@@ -26,7 +26,7 @@ def get_sink_title(sinks, sink_id):
             if 'identification' in sink:
                 title = _(sink['pluginName'] + " - %(account)s") % {'account': sink['identification']}
             else:
-                title = sink['title']
+                title = _(sink['title'])
             return title
 
 
@@ -37,7 +37,7 @@ def get_source_title(sources, source_id):
             if 'identification' in source:
                 title = _(source['pluginName'] + " - %(account)s") % {'account': source['identification']}
             else:
-                title = source['title']
+                title = _(source['title'])
             return title
     return None
 
@@ -54,11 +54,23 @@ def additional_context(request):
     
     if 'datasource_profile_id' in request.session:
         rest_datasource = RestDatasourceProfile(username=request.user.username)
-        context['datasource_profile'] = rest_datasource.get(request.session['datasource_profile_id'])
+        profile = rest_datasource.get(request.session['datasource_profile_id'])
+        if 'identification' in profile:
+            title = _(profile['pluginName'] + " - %(account)s") % {'account': profile['identification']}
+        else:
+            title = profile['title']
+        profile['good_title'] = title
+        context['datasource_profile'] = profile
     
     if 'datasink_profile_id' in request.session:
         rest_datasink = RestDatasinkProfile(username=request.user.username)
-        context['datasink_profile'] = rest_datasink.get(request.session['datasink_profile_id'])
+        profile = rest_datasink.get(request.session['datasink_profile_id'])
+        if 'identification' in profile:
+            title = _(profile['pluginName'] + " - %(account)s") % {'account': profile['identification']}
+        else:
+            title = profile['title']
+        profile['good_title'] = title
+        context['datasink_profile'] = profile
     
     context['search_form'] = SearchForm(request.POST or None)
     
@@ -122,6 +134,11 @@ def index(request):
 
 @login_required
 def datasource_select(request):
+    try:
+        del request.session['datasource_profile_id']
+        del request.session['datasink_profile_id']
+    except Exception:
+        pass
     form = DatasourceSelectForm(request.POST or None, username=request.user.username)
     if form.is_valid():
         #request.session['key_ring'] = form.cleaned_data['key_ring']
