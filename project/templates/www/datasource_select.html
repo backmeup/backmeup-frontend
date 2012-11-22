@@ -40,14 +40,14 @@
       </div>
     </li>
 
-    {% if datasink_profile.title %}
-    <li class="finished-backup-step">
-      <h3><a href="{% url datasink-select %}">{% trans "2. Data-Target" %}</a></h3>
-      <div class="add-backup-content">
-        <h4>{% trans "selected data-target" %}: {{ datasink_profile.title }}</h4>
-        <a href="{% url datasink-select %}">{% trans "select a different data-sink" %}</a>
-      </div>
-    </li>
+    {% if datasink_profile.good_title %}
+      <li class="finished-backup-step">
+        <h3><a href="{% url datasink-select %}">{% trans "2. Data-Target" %}</a></h3>
+        <div class="add-backup-content">
+          <h4>{% trans "selected data-target" %}: {{ datasink_profile.good_title }}</h4>
+          <a href="{% url datasink-select %}">{% trans "select a different data-sink" %}</a>
+        </div>
+      </li>
     {% else %}
     <li>
       <h3>{% trans "2. Data-Target" %}</h3>
