@@ -26,7 +26,7 @@ def get_sink_title(sinks, sink_id):
             if 'identification' in sink:
                 title = _(sink['pluginName'] + " - %(account)s") % {'account': sink['identification']}
             else:
-                title = sink['title']
+                title = _(sink['title'])
             return title
 
 
@@ -37,7 +37,7 @@ def get_source_title(sources, source_id):
             if 'identification' in source:
                 title = _(source['pluginName'] + " - %(account)s") % {'account': source['identification']}
             else:
-                title = source['title']
+                title = _(source['title'])
             return title
     return None
 
