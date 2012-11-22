@@ -6,11 +6,13 @@
 
 {% block content %}
 <article class="metapage-article">
-  <h1>{{ flatpage.title }}</h1>
   {{ flatpage.content }}
 </article>
-<div class="register-teaser">
-  <a href="{% url signup %}" class="btn">{% trans "Sign Up now" %}</a>
-</div>
+{% endblock %}
+
+{% block register_teaser %}
+  <div class="register-teaser">
+    <a href="{% url signup %}" class="btn">{% trans "Sign Up now" %}</a>
+  </div>
 {% endblock %}
 
