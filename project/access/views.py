@@ -5,11 +5,11 @@
 from django.contrib import messages
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
-#from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 
 # project
 from access.forms import UserCreationForm, UserEmailVerificationForm, UserSettingsForm
-#from remote_api.rest import RestEmailVerification
+from remote_api.rest import RestEmailVerification
 
 
 
@@ -159,6 +159,19 @@ def verify_email(request, verify_hash=None):
     )
 
 
+@login_required
+def verify_email_resend(request):
+    rest = RestEmailVerification()
+    result = rest.resend(username=request.user.username)
+    if 'errorType' in result:
+        messages.add_message(request, messages.ERROR, _(result['errorMessage']))
+        return redirect('index')
+    else:
+        messages.add_message(request, messages.SUCCESS, _('New verification email has been sent.'))
+        return redirect('verify-email')
+
+
+@login_required
 def user_settings(request):
     form = UserSettingsForm(request.user, request.POST or None)
     if form.is_valid():

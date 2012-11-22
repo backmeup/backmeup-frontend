@@ -38,15 +38,18 @@ class DatasourceSelectForm(forms.Form):
         rest_datasource_profile = RestDatasourceProfile(username=self.username)
         datasource_profiles = rest_datasource_profile.get_all()
         
-        profile_choices = [("", "---")]
-        
-        for item in datasource_profiles:
-            if 'identification' in item:
-                title = _(item['pluginName'] + " - %(account)s") % {'account': item['identification']}
-            else:
-                title = item['title']
-            profile_choices.append( (item['datasourceProfileId'], title) )
-        self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), choices=profile_choices, required=False)
+        if len(datasource_profiles):
+            profile_choices = [("", "---")]
+            
+            for item in datasource_profiles:
+                # no need to show profiles without 'identification'
+                # * it's not a completely authenticated profile
+                # * it's a profile whitch doesn't require authentication
+                if 'identification' in item:
+                    title = _(item['pluginName'] + " - %(account)s") % {'account': item['identification']}
+                    profile_choices.append( (item['datasourceProfileId'], title) )
+            
+            self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), choices=profile_choices, required=False)
     
     def clean(self):
         cleaned_data = super(DatasourceSelectForm, self).clean()
@@ -100,7 +103,7 @@ class DatasourceAuthForm(forms.Form):
             #    self.fields['input_value_%s' % i] = forms.CharField(**field_kwargs)
             
             # make sure 'requiredInputs' (= list of dicts) is sorted by 'order' dict value(s)
-            self.auth_data['requiredInputs'] = sorted(self.auth_data['requiredInputs'], key=lambda k: k['order']) 
+            self.auth_data['requiredInputs'] = sorted(self.auth_data['requiredInputs'], key=lambda k: k['order'])
             
             for item in self.auth_data['requiredInputs']:
                 self.fields['input_key_%d' % item['order']] = forms.CharField(widget=forms.HiddenInput, initial=item['name'])
@@ -163,15 +166,18 @@ class DatasinkSelectForm(forms.Form):
         rest_datasink_profile = RestDatasinkProfile(username=self.username)
         datasink_profiles = rest_datasink_profile.get_all()
         
-        profile_choices = [("", "---")]
+        if len(datasink_profiles):
+            profile_choices = [("", "---")]
         
-        for item in datasink_profiles:
-            if 'identification' in item:
-                title = _(item['pluginName'] + " - %(account)s") % {'account': item['identification']}
-            else:
-                title = item['title']
-            profile_choices.append( (item['datasinkProfileId'], title) )
-        self.fields['datasink_profile'] = forms.ChoiceField(label=_("Datasink Profile"), choices=profile_choices, required=False)
+            for item in datasink_profiles:
+                # no need to show profiles without 'identification'
+                # * it's not a completely authenticated profile
+                # * it's a profile whitch doesn't require authentication
+                if 'identification' in item:
+                    title = _(item['pluginName'] + " - %(account)s") % {'account': item['identification']}
+                    profile_choices.append( (item['datasinkProfileId'], title) )
+            
+            self.fields['datasink_profile'] = forms.ChoiceField(label=_("Datasink Profile"), choices=profile_choices, required=False)
     
     def clean(self):
         cleaned_data = super(DatasinkSelectForm, self).clean()

@@ -34,6 +34,14 @@
           {#             {% endif %} #}
           {#           </div> #}
           
+          {% if form.datasink_profile %}
+            <div>
+              <label>{{ form.datasink_profile.label }}</label>
+              {{ form.datasink_profile }}
+              {{ form.datasink_profile.errors }}
+            </div>
+          {% endif %}
+          
           <div class="datasink-group">
 
             {% for item in form.datasink %}
@@ -43,13 +51,6 @@
               {{ form.datasink.errors }}
             {% endif %}
           </div>
-
-          <div>
-            <label>{{ form.datasink_profile.label }}</label>
-            {{ form.datasink_profile }}
-            {{ form.datasink_profile.errors }}
-          </div>
-
           <div>
             <button type="submit" class="btn-next">{% trans "next" %}</button>
           </div>

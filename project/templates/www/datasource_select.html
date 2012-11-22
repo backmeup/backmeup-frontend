@@ -18,6 +18,14 @@
         <form action="." method="POST" class="form-datasource">{% csrf_token %}
           {{ form.non_field_errors }}
           
+          {% if form.datasource_profile %}
+            <div>
+              <label>{{ form.datasource_profile.label }}</label>
+              {{ form.datasource_profile }}
+              {{ form.datasource_profile.errors }}
+            </div>
+          {% endif %}
+          
           <div class="datasource-group">
             {% for item in form.datasource %}
               <label class="icon-{{ item.choice_value|slugify }}">{{ item.tag }} {{ item.choice_label }}</label>
@@ -25,12 +33,6 @@
             {% if form.datasource.errors %}
               {{ form.datasource.errors }}
             {% endif %}
-          </div>
-          
-          <div>
-            <label>{{ form.datasource_profile.label }}</label>
-            {{ form.datasource_profile }}
-            {{ form.datasource_profile.errors }}
           </div>
 
           <button type="submit" class="btn-next">{% trans "next" %}</button>

@@ -88,7 +88,8 @@ def index(request):
                 logout(request)
                 redirect('index')
             else:
-                messages.error(request, _(jobs['errorType']))
+                messages.error(request, _(jobs['errorMessage']))
+                context['needs_email_validation'] = True
         else:
             rest_datasource_profile = RestDatasourceProfile(username=request.user.username)
             datasource_profiles = rest_datasource_profile.get_all()
@@ -98,10 +99,15 @@ def index(request):
             
             for job in jobs:
                 # need to cut of first 3 numbers to get valid unix timestamp
-                job['createDate'] = datetime.datetime.fromtimestamp(job['createDate']/1000)
-                job['startDate'] = datetime.datetime.fromtimestamp(job['startDate']/1000)
-                job['lastBackup'] = datetime.datetime.fromtimestamp(job['lastBackup']/1000)
-                job['nextBackup'] = datetime.datetime.fromtimestamp(job['nextBackup']/1000)
+                if 'createDate' in job:
+                    job['createDate'] = datetime.datetime.fromtimestamp(job['createDate']/1000)
+                if 'startDate' in job:
+                    job['startDate'] = datetime.datetime.fromtimestamp(job['startDate']/1000)
+                if 'lastBackup' in job:
+                    job['lastBackup'] = datetime.datetime.fromtimestamp(job['lastBackup']/1000)
+                if 'nextBackup' in job:
+                    job['nextBackup'] = datetime.datetime.fromtimestamp(job['nextBackup']/1000)
+                
                 job['datasink']['title'] = get_sink_title(datasink_profiles, job['datasink']['datasinkId'])
                 #job['datasources'] = []
                 for datasource in job['datasources']:
@@ -151,7 +157,11 @@ def datasource_auth(request):
     #    redirect('datasource-select')
 
     form = DatasourceAuthForm(request.POST or None, username=request.user.username, auth_data=request.session['auth_data'])
-
+    
+    if not form.fields:
+        request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
+        return redirect('datasink-select')
+    
     if form.is_valid() or request.session['auth_data']['type'] != 'Input':
         result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
         if not result == False:
@@ -209,6 +219,10 @@ def datasink_auth(request):
     #    redirect('datasink-select')
 
     form = DatasinkAuthForm(request.POST or None, auth_data=request.session['auth_data'])
+    
+    if not form.fields:
+        request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
+        return redirect('job-create')
     
     if form.is_valid() or request.session['auth_data']['type'] != 'Input':
         result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
