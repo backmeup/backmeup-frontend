@@ -4,3 +4,39 @@
     list-style: disc outside;
   }
 }
+
+// About
+.company-list {
+  @extend .clearfix;
+  li {
+    float: left;
+    width: 106px;
+    height: 70px;
+    line-height: 70px;
+    display: inline-block;
+    margin: 0 .75em .75em 0;
+    content: "";
+    background-image: url($companySpritePath);
+    background-repeat: no-repeat;
+    vertical-align: middle;
+//    border: 1px solid $clr-link;
+  }
+  $companyPosX: 0;
+  @each $company in xnet, ait, ars, bdf, hagenberg, gtn, uni-linz, uni-salzburg {
+    li.#{$company} {
+      background-position: $companyPosX 0;
+      $companyPosX: $companyPosX - 106px;
+    }
+  }
+  
+  a {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 170px;
+    height: 70px;
+  }
+}
+.sponsor-container {
+  text-align: center;
+}

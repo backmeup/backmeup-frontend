@@ -10,7 +10,7 @@ html {
   line-height: 1.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_base\.scss}line{font-family:\00003124}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_base\.scss}line{font-family:\00003126}}
 .grid {
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(5%, rgba(0, 0, 0, 0.5)), color-stop(5%, rgba(0, 0, 0, 0))), -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(1.63934%, rgba(0, 0, 0, 0)), color-stop(1.63934%, rgba(100, 100, 225, 0.25)), color-stop(8.19672%, rgba(100, 100, 225, 0.25)), color-stop(8.19672%, rgba(0, 0, 0, 0)), color-stop(9.83607%, rgba(0, 0, 0, 0)), color-stop(9.83607%, rgba(100, 100, 225, 0.25)), color-stop(16.39344%, rgba(100, 100, 225, 0.25)), color-stop(16.39344%, rgba(0, 0, 0, 0)), color-stop(18.03279%, rgba(0, 0, 0, 0)), color-stop(18.03279%, rgba(100, 100, 225, 0.25)), color-stop(24.59016%, rgba(100, 100, 225, 0.25)), color-stop(24.59016%, rgba(0, 0, 0, 0)), color-stop(26.22951%, rgba(0, 0, 0, 0)), color-stop(26.22951%, rgba(100, 100, 225, 0.25)), color-stop(32.78689%, rgba(100, 100, 225, 0.25)), color-stop(32.78689%, rgba(0, 0, 0, 0)), color-stop(34.42623%, rgba(0, 0, 0, 0)), color-stop(34.42623%, rgba(100, 100, 225, 0.25)), color-stop(40.98361%, rgba(100, 100, 225, 0.25)), color-stop(40.98361%, rgba(0, 0, 0, 0)), color-stop(42.62295%, rgba(0, 0, 0, 0)), color-stop(42.62295%, rgba(100, 100, 225, 0.25)), color-stop(49.18033%, rgba(100, 100, 225, 0.25)), color-stop(49.18033%, rgba(0, 0, 0, 0)), color-stop(50.81967%, rgba(0, 0, 0, 0)), color-stop(50.81967%, rgba(100, 100, 225, 0.25)), color-stop(57.37705%, rgba(100, 100, 225, 0.25)), color-stop(57.37705%, rgba(0, 0, 0, 0)), color-stop(59.01639%, rgba(0, 0, 0, 0)), color-stop(59.01639%, rgba(100, 100, 225, 0.25)), color-stop(65.57377%, rgba(100, 100, 225, 0.25)), color-stop(65.57377%, rgba(0, 0, 0, 0)), color-stop(67.21311%, rgba(0, 0, 0, 0)), color-stop(67.21311%, rgba(100, 100, 225, 0.25)), color-stop(73.77049%, rgba(100, 100, 225, 0.25)), color-stop(73.77049%, rgba(0, 0, 0, 0)), color-stop(75.40984%, rgba(0, 0, 0, 0)), color-stop(75.40984%, rgba(100, 100, 225, 0.25)), color-stop(81.96721%, rgba(100, 100, 225, 0.25)), color-stop(81.96721%, rgba(0, 0, 0, 0)), color-stop(83.60656%, rgba(0, 0, 0, 0)), color-stop(83.60656%, rgba(100, 100, 225, 0.25)), color-stop(90.16393%, rgba(100, 100, 225, 0.25)), color-stop(90.16393%, rgba(0, 0, 0, 0)), color-stop(91.80328%, rgba(0, 0, 0, 0)), color-stop(91.80328%, rgba(100, 100, 225, 0.25)), color-stop(98.36066%, rgba(100, 100, 225, 0.25)), color-stop(98.36066%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
   background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0) 5%), -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 1.63934%, rgba(100, 100, 225, 0.25) 1.63934%, rgba(100, 100, 225, 0.25) 8.19672%, rgba(0, 0, 0, 0) 8.19672%, rgba(0, 0, 0, 0) 9.83607%, rgba(100, 100, 225, 0.25) 9.83607%, rgba(100, 100, 225, 0.25) 16.39344%, rgba(0, 0, 0, 0) 16.39344%, rgba(0, 0, 0, 0) 18.03279%, rgba(100, 100, 225, 0.25) 18.03279%, rgba(100, 100, 225, 0.25) 24.59016%, rgba(0, 0, 0, 0) 24.59016%, rgba(0, 0, 0, 0) 26.22951%, rgba(100, 100, 225, 0.25) 26.22951%, rgba(100, 100, 225, 0.25) 32.78689%, rgba(0, 0, 0, 0) 32.78689%, rgba(0, 0, 0, 0) 34.42623%, rgba(100, 100, 225, 0.25) 34.42623%, rgba(100, 100, 225, 0.25) 40.98361%, rgba(0, 0, 0, 0) 40.98361%, rgba(0, 0, 0, 0) 42.62295%, rgba(100, 100, 225, 0.25) 42.62295%, rgba(100, 100, 225, 0.25) 49.18033%, rgba(0, 0, 0, 0) 49.18033%, rgba(0, 0, 0, 0) 50.81967%, rgba(100, 100, 225, 0.25) 50.81967%, rgba(100, 100, 225, 0.25) 57.37705%, rgba(0, 0, 0, 0) 57.37705%, rgba(0, 0, 0, 0) 59.01639%, rgba(100, 100, 225, 0.25) 59.01639%, rgba(100, 100, 225, 0.25) 65.57377%, rgba(0, 0, 0, 0) 65.57377%, rgba(0, 0, 0, 0) 67.21311%, rgba(100, 100, 225, 0.25) 67.21311%, rgba(100, 100, 225, 0.25) 73.77049%, rgba(0, 0, 0, 0) 73.77049%, rgba(0, 0, 0, 0) 75.40984%, rgba(100, 100, 225, 0.25) 75.40984%, rgba(100, 100, 225, 0.25) 81.96721%, rgba(0, 0, 0, 0) 81.96721%, rgba(0, 0, 0, 0) 83.60656%, rgba(100, 100, 225, 0.25) 83.60656%, rgba(100, 100, 225, 0.25) 90.16393%, rgba(0, 0, 0, 0) 90.16393%, rgba(0, 0, 0, 0) 91.80328%, rgba(100, 100, 225, 0.25) 91.80328%, rgba(100, 100, 225, 0.25) 98.36066%, rgba(0, 0, 0, 0) 98.36066%, rgba(0, 0, 0, 0) 100%);
@@ -1065,6 +1065,65 @@ a.search-item-link:hover .search-item-header h4 {
 .metapage-article ul {
   padding-left: 1em;
   list-style: disc outside;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_flatpage\.scss}line{font-family:\0000311}}
+.company-list li {
+  float: left;
+  width: 106px;
+  height: 70px;
+  line-height: 70px;
+  display: inline-block;
+  margin: 0 .75em .75em 0;
+  content: "";
+  background-image: url("/static/img/company-sprite.png");
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_flatpage\.scss}line{font-family:\0000326}}
+.company-list li.xnet {
+  background-position: 0 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_flatpage\.scss}line{font-family:\0000326}}
+.company-list li.ait {
+  background-position: -106px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_flatpage\.scss}line{font-family:\0000326}}
+.company-list li.ars {
+  background-position: -212px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_flatpage\.scss}line{font-family:\0000326}}
+.company-list li.bdf {
+  background-position: -318px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_flatpage\.scss}line{font-family:\0000326}}
+.company-list li.hagenberg {
+  background-position: -424px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_flatpage\.scss}line{font-family:\0000326}}
+.company-list li.gtn {
+  background-position: -530px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_flatpage\.scss}line{font-family:\0000326}}
+.company-list li.uni-linz {
+  background-position: -636px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_flatpage\.scss}line{font-family:\0000326}}
+.company-list li.uni-salzburg {
+  background-position: -742px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_flatpage\.scss}line{font-family:\0000332}}
+.company-list a {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 170px;
+  height: 70px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_flatpage\.scss}line{font-family:\0000340}}
+.sponsor-container {
+  text-align: center;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_forms\.scss}line{font-family:\000032}}
@@ -2472,12 +2531,12 @@ a [class*=" icon-"] {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_helper\.scss}line{font-family:\000033}}
-.clearfix:before, #header:before, #content:before, .backup-list .header:before, .sr-list > li:before, .search-item-content:before, .clearfix:after, #header:after, #content:after, .backup-list .header:after, .sr-list > li:after, .search-item-content:after {
+.clearfix:before, #header:before, #content:before, .backup-list .header:before, .sr-list > li:before, .search-item-content:before, .company-list:before, .clearfix:after, #header:after, #content:after, .backup-list .header:after, .sr-list > li:after, .search-item-content:after, .company-list:after {
   content: " ";
   display: table;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Flo\/Dev\/django\/projects\/backmeup\/backmeup-frontend\/static\/stylesheets\/scss\/partials\/_helper\.scss}line{font-family:\000037}}
-.clearfix:after, #header:after, #content:after, .backup-list .header:after, .sr-list > li:after, .search-item-content:after {
+.clearfix:after, #header:after, #content:after, .backup-list .header:after, .sr-list > li:after, .search-item-content:after, .company-list:after {
   clear: both;
 }
 

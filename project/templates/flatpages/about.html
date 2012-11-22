@@ -1,0 +1,21 @@
+{% extends "flatpages/default.html" %}
+
+{% load i18n %}
+
+{% block body_class %}class="about"{% endblock %}
+
+{% block content %}{{ block.super }}
+  <h2>{% trans "Project Partners" %}</h2>
+  <ul class="company-list">
+    <li class="xnet"><a href="http://www.x-net.at" title="X-Net Services GmbH"></a></li>
+    <li class="ait"><a href="http://www.ait.ac.at" title="AIT Austrian Institute of Technology GmbH"></a></li>
+    <li class="ars"><a href="http://www.aec.at/futurelab/" title="Ars Electronica Futurelab"></a></li>
+    <li class="bdf"><a href="http://www.bdf-net.com" title="BDF-net Agentur für neue Medien GmbH"></a></li>
+    <li class="hagenberg"><a href="http://www.fh-ooe.at/campus-hagenberg/" title="FH Hagenberg"></a></li>
+    <li class="gtn"><a href="http://www.gtn-solutions.com" title="gtn gmbh"></a></li>
+    <li class="uni-linz"><a href="http://www.idv.uni-linz.ac.at" title="Institut für Datenverarbeitung an der Johannes Kepler Universität Linz"></a></li>
+    <li class="uni-salzburg"><a href="http://www.uni-salzburg.at/" title="Institut für Verfassungs- und Verwaltungsrecht an der Universität Salzburg"></a></li>
+  </ul>
+  <h2>{% trans "Sponsor" %}</h2>
+  <p class="sponsor-container"><a href="http://www.ffg.at" title="FFG Österreichische Forschungsförderungsgesellschaft"><img src="{{ STATIC_URL }}img/content/ffg.png" alt="FFG Österreichische Forschungsförderungsgesellschaft"/></a></p>
+{% endblock %}
