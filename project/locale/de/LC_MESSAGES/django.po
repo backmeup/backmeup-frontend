@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-23 10:56+0100\n"
-"PO-Revision-Date: 2012-11-23 11:46\n"
+"POT-Creation-Date: 2012-11-23 14:37+0100\n"
+"PO-Revision-Date: 2012-11-23 14:41\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -171,6 +171,14 @@ msgstr "- %(account)s"
 msgid "Datasource Profile"
 msgstr "Schnellzugriff: Daten-Quelle"
 
+#: main/forms.py:52
+msgid ""
+"Choose an existing data-source profile or select a new data-source below"
+msgstr ""
+"Bitte wählen Sie ein bestehendes Datenquellen-Profil (aus einem "
+"vorangegangenem Backup) oder wählen Sie eine neue Datenquelle aus der Liste "
+"unten."
+
 #: main/forms.py:67 main/forms.py:195
 #, python-format
 msgid "%(plugin)s - profile"
@@ -183,6 +191,12 @@ msgstr "Speicher-Ziel"
 #: main/forms.py:180
 msgid "Datasink Profile"
 msgstr "Schnellzugriff: Speicher-Ziel"
+
+#: main/forms.py:180
+msgid "Choose an existing data-sink profile or select a new data-sink below"
+msgstr ""
+"Bitte wählen Sie ein bestehendes Datenziel-Profil (aus einem vorangegangenem"
+" Backup) oder wählen Sie ein neues Datenziel aus der Liste unten."
 
 #: main/forms.py:274 main/forms_debug.py:15
 msgid "Backup Name"
@@ -320,8 +334,8 @@ msgstr "eine andere Daten-Quelle wählen"
 
 #: templates/www/datasink_auth.html:23 templates/www/datasink_select.html:23
 #: templates/www/datasource_auth.html:42 templates/www/datasource_auth.html:50
-#: templates/www/datasource_select.html:45
-#: templates/www/datasource_select.html:53 templates/www/job_create.html:22
+#: templates/www/datasource_select.html:46
+#: templates/www/datasource_select.html:54 templates/www/job_create.html:22
 msgid "2. Data-Target"
 msgstr "2. Speicher-Ziel"
 
@@ -331,10 +345,10 @@ msgid "Step 2: select data-target - authenticate %(datasink)s"
 msgstr ""
 "Schritt 2: Speicher-Ziel auswählen - Authentifizierung von %(datasink)s"
 
-#: templates/www/datasink_auth.html:42 templates/www/datasink_select.html:55
+#: templates/www/datasink_auth.html:42 templates/www/datasink_select.html:48
 #: templates/www/datasource_auth.html:34
 #: templates/www/datasource_options.html:27
-#: templates/www/datasource_select.html:38
+#: templates/www/datasource_select.html:39
 msgid "next"
 msgstr "weiter"
 
@@ -343,24 +357,24 @@ msgid "or"
 msgstr "oder"
 
 #: templates/www/datasink_auth.html:43 templates/www/datasource_auth.html:45
-#: templates/www/datasource_select.html:48 templates/www/job_create.html:25
+#: templates/www/datasource_select.html:49 templates/www/job_create.html:25
 msgid "select a different data-sink"
 msgstr "ein anderes Speicherziel wählen"
 
 #: templates/www/datasink_auth.html:50 templates/www/datasink_auth.html:52
-#: templates/www/datasink_select.html:62 templates/www/datasink_select.html:64
+#: templates/www/datasink_select.html:55 templates/www/datasink_select.html:57
 #: templates/www/datasource_auth.html:58 templates/www/datasource_auth.html:60
-#: templates/www/datasource_select.html:61
-#: templates/www/datasource_select.html:63 templates/www/job_create.html:29
+#: templates/www/datasource_select.html:62
+#: templates/www/datasource_select.html:64 templates/www/job_create.html:29
 msgid "3. Backup-Options"
 msgstr "3. Backup-Optionen"
 
-#: templates/www/datasink_auth.html:55 templates/www/datasink_select.html:67
+#: templates/www/datasink_auth.html:55 templates/www/datasink_select.html:60
 msgid "Step 3: select Backup-Options"
 msgstr "Schritt 3: Backup-Optionen auswählen"
 
 #: templates/www/datasink_select.html:25 templates/www/datasource_auth.html:52
-#: templates/www/datasource_select.html:55
+#: templates/www/datasource_select.html:56
 msgid "Step 2: select data-target"
 msgstr "Schritt 2: Speicher-Ziel auswählen"
 
@@ -369,18 +383,18 @@ msgid "Select Data-Source - Authentication"
 msgstr "Daten-Quelle auswählen - Authentifizierung"
 
 #: templates/www/datasource_auth.html:17
-#, python-format
-msgid "Step 2: select data-target - authenticate %(datasource)s"
+#, fuzzy, python-format
+msgid "Step 2: select data-source - authenticate %(datasource)s"
 msgstr ""
 "Schritt 2: Speicher-Ziel auswählen - Authentifizierung von %(datasource)s"
 
 #: templates/www/datasource_auth.html:44
-#: templates/www/datasource_select.html:47 templates/www/job_create.html:24
+#: templates/www/datasource_select.html:48 templates/www/job_create.html:24
 msgid "selected data-target"
 msgstr "ausgewähltes Speicher-Ziel"
 
 #: templates/www/datasource_auth.html:63
-#: templates/www/datasource_select.html:66 templates/www/job_create.html:31
+#: templates/www/datasource_select.html:67 templates/www/job_create.html:31
 msgid "Step 3: select backup-options"
 msgstr "Schritt 3: Backup-Optionen auswählen"
 
@@ -429,24 +443,21 @@ msgstr "Backup-Aktionen"
 msgid "Create Backup"
 msgstr "Backup erstellen"
 
-#: templates/www/job_log.html:23 templates/www/includes/dashboard.html:30
-#: templates/www/includes/dashboard.html:37
+#: templates/www/job_log.html:23
 #: templates/www/includes/backup_jobs/backup_list_item.html:18
 #: templates/www/includes/backup_jobs/backup_list_item.html:26
 msgid "Data-Source"
 msgstr "Daten-Quelle"
 
-#: templates/www/job_log.html:25 templates/www/includes/dashboard.html:31
-#: templates/www/includes/dashboard.html:45
+#: templates/www/job_log.html:25
 #: templates/www/includes/backup_jobs/backup_list_item.html:19
-#: templates/www/includes/backup_jobs/backup_list_item.html:36
+#: templates/www/includes/backup_jobs/backup_list_item.html:34
 msgid "Data-Target"
 msgstr "Speicher-Ziel"
 
-#: templates/www/job_log.html:27 templates/www/includes/dashboard.html:32
-#: templates/www/includes/dashboard.html:54
+#: templates/www/job_log.html:27
 #: templates/www/includes/backup_jobs/backup_list_item.html:20
-#: templates/www/includes/backup_jobs/backup_list_item.html:45
+#: templates/www/includes/backup_jobs/backup_list_item.html:41
 msgid "Backup-State"
 msgstr "Backup-Status"
 
@@ -564,7 +575,17 @@ msgstr "Registrieren"
 msgid "Account Settings"
 msgstr "Benutzer-Einstellungen"
 
-#: templates/www/access/user_settings.html:39
+#: templates/www/access/user_settings.html:12
+#, fuzzy
+msgid "Change Email-address"
+msgstr "Neue E-mail Adresse"
+
+#: templates/www/access/user_settings.html:22
+#, fuzzy
+msgid "Change password"
+msgstr "Neues Passwort"
+
+#: templates/www/access/user_settings.html:45
 msgid "Save"
 msgstr "speichern"
 
@@ -586,66 +607,15 @@ msgstr ""
 "geschickt. Bitte geben Sie den Bestätigungs-Code oder klicken Sie den "
 "Bestätigungs-Link um Ihre E-mail zu verifizieren."
 
-#: templates/www/access/verify_email.html:12
-msgid "Send verification email again."
-msgstr "Bestätigungsmail erneut senden"
-
-#: templates/www/access/verify_email.html:27
+#: templates/www/access/verify_email.html:25
 msgid "Verify Email"
 msgstr "E-mail bestätigen"
 
-#: templates/www/access/verify_email.html:29
+#: templates/www/access/verify_email.html:26
 msgid "resend verification email"
 msgstr "Bestätigungs-Email erneut senden"
 
-#: templates/www/includes/dashboard.html:26
-#: templates/www/includes/backup_jobs/backup_list_item.html:14
-msgid "Details"
-msgstr "Details"
-
-#: templates/www/includes/dashboard.html:62
-msgid "Edit Backup-Job"
-msgstr "Backup bearbeiten"
-
-#: templates/www/includes/dashboard.html:65
-#: templates/www/includes/dashboard.html:69
-msgid "Delete Backup-Job"
-msgstr "Backup löschen"
-
-#: templates/www/includes/dashboard.html:73
-#: templates/www/includes/backup_jobs/backup_list_item.html:63
-msgid "Do you really want to delete the selected Backup-Job?"
-msgstr "Wollen Sie das ausgewählte Backup wirklich löschen?"
-
-#: templates/www/includes/dashboard.html:75
-#: templates/www/includes/backup_jobs/backup_list_item.html:65
-msgid ""
-"By deleting a Backup-Job no further Backups will be created. Backups that "
-"have already been created will however remain on the data-target and need to"
-" be deleted manually."
-msgstr ""
-"Durch das Löschen eines Backups werden keine neuen Backups dieses Typs "
-"angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten"
-" und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
-
-#: templates/www/includes/dashboard.html:80
-#: templates/www/includes/backup_jobs/backup_list_item.html:71
-msgid "cancel"
-msgstr "abbrechen"
-
-#: templates/www/includes/dashboard.html:81
-#: templates/www/includes/backup_jobs/backup_list_item.html:55
-#: templates/www/includes/backup_jobs/backup_list_item.html:59
-#: templates/www/includes/backup_jobs/backup_list_item.html:72
-msgid "Delete Backup"
-msgstr "Backup löschen"
-
-#: templates/www/includes/dashboard.html:86
-#: templates/www/includes/backup_jobs/backup_list_item.html:77
-msgid "Backup-Log"
-msgstr "Backup-Log"
-
-#: templates/www/includes/dashboard.html:95
+#: templates/www/includes/dashboard.html:19
 msgid "No backups yet."
 msgstr "Noch keine Backups."
 
@@ -700,13 +670,45 @@ msgstr ""
 msgid "Teaser-Text Get Involved"
 msgstr ""
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:48
+#: templates/www/includes/backup_jobs/backup_list_item.html:14
+msgid "Details"
+msgstr "Details"
+
+#: templates/www/includes/backup_jobs/backup_list_item.html:44
 msgid "next backup"
 msgstr "nächstes Backup"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:53
+#: templates/www/includes/backup_jobs/backup_list_item.html:49
 msgid "Edit Backup"
 msgstr "Backup bearbeiten"
+
+#: templates/www/includes/backup_jobs/backup_list_item.html:51
+#: templates/www/includes/backup_jobs/backup_list_item.html:55
+#: templates/www/includes/backup_jobs/backup_list_item.html:67
+msgid "Delete Backup"
+msgstr "Backup löschen"
+
+#: templates/www/includes/backup_jobs/backup_list_item.html:59
+msgid "Do you really want to delete the selected Backup-Job?"
+msgstr "Wollen Sie das ausgewählte Backup wirklich löschen?"
+
+#: templates/www/includes/backup_jobs/backup_list_item.html:61
+msgid ""
+"By deleting a Backup-Job no further Backups will be created. Backups that "
+"have already been created will however remain on the data-target and need to"
+" be deleted manually."
+msgstr ""
+"Durch das Löschen eines Backups werden keine neuen Backups dieses Typs "
+"angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten"
+" und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
+
+#: templates/www/includes/backup_jobs/backup_list_item.html:66
+msgid "cancel"
+msgstr "abbrechen"
+
+#: templates/www/includes/backup_jobs/backup_list_item.html:72
+msgid "Backup-Log"
+msgstr "Backup-Log"
 
 #: templates/www/includes/navigation/user_nav.html:31
 msgid "Account-Settings"
@@ -715,6 +717,15 @@ msgstr "Einstellungen"
 #: templates/www/includes/navigation/user_nav.html:32
 msgid "Sign out"
 msgstr "Ausloggen"
+
+#~ msgid "Send verification email again."
+#~ msgstr "Bestätigungsmail erneut senden"
+
+#~ msgid "Edit Backup-Job"
+#~ msgstr "Backup bearbeiten"
+
+#~ msgid "Delete Backup-Job"
+#~ msgstr "Backup löschen"
 
 #~ msgid "nächstes Backup"
 #~ msgstr "Backup erstellen"

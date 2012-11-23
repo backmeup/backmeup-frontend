@@ -49,7 +49,7 @@ class DatasourceSelectForm(forms.Form):
                     title = _(item['pluginName'] + " - %(account)s") % {'account': item['identification']}
                     profile_choices.append( (item['datasourceProfileId'], title) )
             
-            self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), choices=profile_choices, required=False)
+            self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), choices=profile_choices, help_text=_("Choose an existing data-source profile or select a new data-source below"), required=False)
     
     def clean(self):
         cleaned_data = super(DatasourceSelectForm, self).clean()
@@ -177,7 +177,7 @@ class DatasinkSelectForm(forms.Form):
                     title = _(item['pluginName'] + " - %(account)s") % {'account': item['identification']}
                     profile_choices.append( (item['datasinkProfileId'], title) )
             
-            self.fields['datasink_profile'] = forms.ChoiceField(label=_("Datasink Profile"), choices=profile_choices, required=False)
+            self.fields['datasink_profile'] = forms.ChoiceField(label=_("Datasink Profile"), choices=profile_choices, help_text=_("Choose an existing data-sink profile or select a new data-sink below"), required=False)
     
     def clean(self):
         cleaned_data = super(DatasinkSelectForm, self).clean()
