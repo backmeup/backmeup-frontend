@@ -41,10 +41,6 @@ a:hover {
 ul, ol {
   list-style: none outside;
 }
-//#content ul, {
-//  padding-left: 1em;
-//  list-style-type: circle;
-//}
 ol {
   padding-left: 1em;
   list-style-type: decimal;
@@ -113,7 +109,7 @@ p, ul, ol {
 }
 
 // meta-nav
-#meta-nav ul{
+#meta-nav ul {
   li {
     display: inline;
     float: left;
@@ -165,24 +161,6 @@ p, ul, ol {
 #header-search-field:focus {
 //  width: 140px;
 }
-
-// TO DO: figure out best practice for text-replacement and vertical rhythm and responsive layout
-.copyright {
-  float: left;
-  color: #245E8C;
-  padding-right: 16px;
-//  width: 117px;
-//  height: 1em;
-//  display: inline-block;
-//  @include replace-text('/static/img/backmeup-small.png', 0, 0);
-}
-//.copyright:before {
-//  content: '';
-//  background: url(/static/img/backmeup-icon.png);
-//  display: inline-block;
-//  width: 19px;
-//  height: 16px;
-//}
 
 // --- Backupstate-Icons
 .backupstate-in-progress .backupstate-icon,
@@ -314,19 +292,6 @@ p, ul, ol {
     border-radius: 0 0 $default-border-radius $default-border-radius;
     ul{
       margin-bottom: 0;
-//      @include horizontal-list();
-//      li{
-//        &:before{
-//          content: '\2022';
-//          display: inline-block;
-//          margin-right: .5em;
-//        }
-//        &:first-child:before{
-//          content:"";
-//          display:none;
-//          margin-right:0;
-//        }
-//      }
     }
   }
   .backup-details{
@@ -336,9 +301,6 @@ p, ul, ol {
     padding:.5em .5em;
     border: 1px solid $clr-grey-light;
     border-top-width: 0;
-//    &:last-child{
-//      border-radius: 0 0 $default-border-radius $default-border-radius;
-//    }
     ul.value{
       @include horizontal-list();
       li{
@@ -361,19 +323,6 @@ p, ul, ol {
     background: $bg-clr2;
     > ul{
         margin-bottom: 0;
-//      @include horizontal-list();
-//      li{
-//        &:before{
-//          content: '\2022';
-//          display: inline-block;
-//          margin-right: .5em;
-//        }
-//        &:first-child:before{
-//          content:"";
-//          display:none;
-//          margin-right:0;
-//        }
-//      }
     }
     .edit-link:after{
       @include icon_after('\f040');
@@ -404,7 +353,6 @@ p, ul, ol {
   @include margin-leader(1);
   li{
     h3{
-//      @include adjust-font-size-to($base-font-size);
       border: 1px solid $clr-grey-light;
       border-bottom-width:0;
       border-top-width:0;
@@ -494,12 +442,9 @@ a.search-item-link {
   background: $bg-clr2;
   padding: 0 .375em;
   @include rhythm(0, .125, .125, .5);
-//  border-radius: $default-border-radius $default-border-radius 0 0;
-//  border-bottom: 1px solid $clr-grey-light;
 }
 .search-item-content {
   @extend .clearfix;
-//  padding: 0 .375em;
 }
 .search-item-thumb {
   float: left;
@@ -511,7 +456,6 @@ a.search-item-link {
 .search-item-footer {
   clear: both;
   @include margin-leader(.25);
-//  padding: 0 .375em;
   .file-type {
     float: right;
     padding: 0 3px;
@@ -519,14 +463,6 @@ a.search-item-link {
     color: #fff;
   }
 }
-
-
-.sr-backup-details {
-  h3 {
-//    @include apply-side-rhythm-border(bottom, 2px, 0, $base-font-size, solid);
-  }
-}
-
 
 //--- Search END ---
 
