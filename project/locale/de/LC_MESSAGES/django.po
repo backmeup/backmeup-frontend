@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-21 14:43+0100\n"
-"PO-Revision-Date: 2012-11-21 14:48\n"
+"POT-Creation-Date: 2012-11-23 09:55+0100\n"
+"PO-Revision-Date: 2012-11-23 10:02\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,8 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Translated-Using: django-rosetta 0.6.8\n"
 
-#: access/forms.py:18 access/forms.py:100 access/forms.py:181
-#: access/forms.py:268 templates/www/access/login.html:18
+#: access/forms.py:18 access/forms.py:100 access/forms.py:268
+#: templates/www/access/login.html:18
 msgid "Email"
 msgstr "E-mail"
 
@@ -94,6 +94,10 @@ msgstr "Die beiden KeyRing Passwörter stimmen nicht überein."
 msgid "Verification Key"
 msgstr "Bestätigungs-Code"
 
+#: access/forms.py:181
+msgid "New email-address"
+msgstr "Neue E-mail Adresse"
+
 #: access/forms.py:183 access/forms.py:270
 msgid "New Password"
 msgstr "Neues Passwort"
@@ -133,6 +137,10 @@ msgstr "ausgeloggt"
 msgid "user's email %s is verified"
 msgstr "Die Registrierung mit der E-mail Adresse %s war erfolgreich."
 
+#: access/views.py:170
+msgid "New verification email has been sent."
+msgstr "Die Bestätigungs-Email wurde erneut verschickt."
+
 #: main/forms.py:11
 msgid "now"
 msgstr "jetzt"
@@ -153,47 +161,46 @@ msgstr "monatlich"
 msgid "Datasource"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:45 main/forms.py:170 main/views.py:27 main/views.py:38
+#: main/forms.py:49 main/forms.py:177 main/views.py:27 main/views.py:38
+#: main/views.py:59 main/views.py:69
 #, python-format
 msgid " - %(account)s"
 msgstr "- %(account)s"
 
-#: main/forms.py:49
-#, fuzzy
+#: main/forms.py:52
 msgid "Datasource Profile"
-msgstr "Daten-Quelle"
+msgstr "Schnellzugriff: Daten-Quelle"
 
-#: main/forms.py:64 main/forms.py:189
+#: main/forms.py:67 main/forms.py:195
 #, python-format
 msgid "%(plugin)s - profile"
 msgstr "%(plugin)s - Profil"
 
-#: main/forms.py:161
+#: main/forms.py:164
 msgid "Datasink"
 msgstr "Speicher-Ziel"
 
-#: main/forms.py:174
-#, fuzzy
+#: main/forms.py:180
 msgid "Datasink Profile"
-msgstr "Speicher-Ziel"
+msgstr "Schnellzugriff: Speicher-Ziel"
 
-#: main/forms.py:268 main/forms_debug.py:15
+#: main/forms.py:274 main/forms_debug.py:15
 msgid "Backup Name"
 msgstr "Backup-Name"
 
-#: main/forms.py:280
+#: main/forms.py:286
 msgid "Title"
 msgstr "Titel"
 
-#: main/forms.py:387
+#: main/forms.py:393
 msgid "Query"
 msgstr "Parameter"
 
-#: main/forms.py:406
+#: main/forms.py:412
 msgid "Datasource Filter"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:412
+#: main/forms.py:418
 msgid "Type Filter"
 msgstr "Datei-Typ"
 
@@ -201,11 +208,11 @@ msgstr "Datei-Typ"
 msgid "Key Ring"
 msgstr "KeyRing"
 
-#: main/views.py:77
+#: main/views.py:89
 msgid "Backup was successfully deleted."
 msgstr "Das Backup wurde gelöscht."
 
-#: main/views.py:79
+#: main/views.py:91
 msgid "Backup couldn't be deleted."
 msgstr "Löschen des Backups fehlgeschlagen"
 
@@ -250,7 +257,35 @@ msgstr "facebook - %(account)s"
 msgid "org.backmeup.moodle - %(account)s"
 msgstr "moodle - %(account)s"
 
-#: templates/flatpages/features.html:10
+#: templates/dynamic_message_strings.html:8
+msgid "org.backmeup.twitter - Profil"
+msgstr "Twitter"
+
+#: templates/dynamic_message_strings.html:9
+msgid "org.backmeup.dropbox - Profil"
+msgstr "Dropbox"
+
+#: templates/dynamic_message_strings.html:10
+msgid "org.backmeup.facebook - Profil"
+msgstr "Facebook"
+
+#: templates/dynamic_message_strings.html:11
+msgid "org.backmeup.moodle - Profil"
+msgstr "Moodle"
+
+#: templates/dynamic_message_strings.html:14
+msgid "User has not been activated!"
+msgstr "Ihr Benutzer wurde noch nicht aktiviert."
+
+#: templates/flatpages/about.html:8
+msgid "Project Partners"
+msgstr "Projekt-Partner"
+
+#: templates/flatpages/about.html:19
+msgid "Sponsor"
+msgstr "Fördergeber"
+
+#: templates/flatpages/default.html:15
 msgid "Sign Up now"
 msgstr "Jetzt Registrieren"
 
@@ -285,8 +320,8 @@ msgstr "eine andere Daten-Quelle wählen"
 
 #: templates/www/datasink_auth.html:23 templates/www/datasink_select.html:23
 #: templates/www/datasource_auth.html:42 templates/www/datasource_auth.html:50
-#: templates/www/datasource_select.html:43
-#: templates/www/datasource_select.html:51 templates/www/job_create.html:22
+#: templates/www/datasource_select.html:45
+#: templates/www/datasource_select.html:53 templates/www/job_create.html:22
 msgid "2. Data-Target"
 msgstr "2. Speicher-Ziel"
 
@@ -296,10 +331,10 @@ msgid "Step 2: select data-target - authenticate %(datasink)s"
 msgstr ""
 "Schritt 2: Speicher-Ziel auswählen - Authentifizierung von %(datasink)s"
 
-#: templates/www/datasink_auth.html:42 templates/www/datasink_select.html:53
+#: templates/www/datasink_auth.html:42 templates/www/datasink_select.html:55
 #: templates/www/datasource_auth.html:34
 #: templates/www/datasource_options.html:27
-#: templates/www/datasource_select.html:36
+#: templates/www/datasource_select.html:38
 msgid "next"
 msgstr "weiter"
 
@@ -308,24 +343,24 @@ msgid "or"
 msgstr "oder"
 
 #: templates/www/datasink_auth.html:43 templates/www/datasource_auth.html:45
-#: templates/www/datasource_select.html:46 templates/www/job_create.html:25
+#: templates/www/datasource_select.html:48 templates/www/job_create.html:25
 msgid "select a different data-sink"
 msgstr "ein anderes Speicherziel wählen"
 
 #: templates/www/datasink_auth.html:50 templates/www/datasink_auth.html:52
-#: templates/www/datasink_select.html:60 templates/www/datasink_select.html:62
+#: templates/www/datasink_select.html:62 templates/www/datasink_select.html:64
 #: templates/www/datasource_auth.html:58 templates/www/datasource_auth.html:60
-#: templates/www/datasource_select.html:59
-#: templates/www/datasource_select.html:61 templates/www/job_create.html:29
+#: templates/www/datasource_select.html:61
+#: templates/www/datasource_select.html:63 templates/www/job_create.html:29
 msgid "3. Backup-Options"
 msgstr "3. Backup-Optionen"
 
-#: templates/www/datasink_auth.html:55 templates/www/datasink_select.html:65
+#: templates/www/datasink_auth.html:55 templates/www/datasink_select.html:67
 msgid "Step 3: select Backup-Options"
 msgstr "Schritt 3: Backup-Optionen auswählen"
 
 #: templates/www/datasink_select.html:25 templates/www/datasource_auth.html:52
-#: templates/www/datasource_select.html:53
+#: templates/www/datasource_select.html:55
 msgid "Step 2: select data-target"
 msgstr "Schritt 2: Speicher-Ziel auswählen"
 
@@ -340,12 +375,12 @@ msgstr ""
 "Schritt 2: Speicher-Ziel auswählen - Authentifizierung von %(datasource)s"
 
 #: templates/www/datasource_auth.html:44
-#: templates/www/datasource_select.html:45 templates/www/job_create.html:24
+#: templates/www/datasource_select.html:47 templates/www/job_create.html:24
 msgid "selected data-target"
 msgstr "ausgewähltes Speicher-Ziel"
 
 #: templates/www/datasource_auth.html:63
-#: templates/www/datasource_select.html:64 templates/www/job_create.html:31
+#: templates/www/datasource_select.html:66 templates/www/job_create.html:31
 msgid "Step 3: select backup-options"
 msgstr "Schritt 3: Backup-Optionen auswählen"
 
@@ -361,7 +396,7 @@ msgstr "Daten-Quelle auswählen"
 msgid "Step 1: select data-source"
 msgstr "Schritt 1: Daten-Quelle auswählen"
 
-#: templates/www/index.html:7 templates/www/includes/dashboard.html:4
+#: templates/www/index.html:7 templates/www/includes/dashboard.html:8
 #: templates/www/includes/navigation/user_nav.html:30
 msgid "My Backups"
 msgstr "Meine Backups"
@@ -390,26 +425,26 @@ msgstr "alle auswählen"
 msgid "Backup actions"
 msgstr "Backup-Aktionen"
 
-#: templates/www/job_create.html:80 templates/www/includes/dashboard.html:5
+#: templates/www/job_create.html:81 templates/www/includes/dashboard.html:9
 msgid "Create Backup"
 msgstr "Backup erstellen"
 
-#: templates/www/job_log.html:23 templates/www/includes/dashboard.html:26
-#: templates/www/includes/dashboard.html:33
+#: templates/www/job_log.html:23 templates/www/includes/dashboard.html:30
+#: templates/www/includes/dashboard.html:37
 #: templates/www/includes/backup_jobs/backup_list_item.html:18
 #: templates/www/includes/backup_jobs/backup_list_item.html:26
 msgid "Data-Source"
 msgstr "Daten-Quelle"
 
-#: templates/www/job_log.html:25 templates/www/includes/dashboard.html:27
-#: templates/www/includes/dashboard.html:41
+#: templates/www/job_log.html:25 templates/www/includes/dashboard.html:31
+#: templates/www/includes/dashboard.html:45
 #: templates/www/includes/backup_jobs/backup_list_item.html:19
 #: templates/www/includes/backup_jobs/backup_list_item.html:36
 msgid "Data-Target"
 msgstr "Speicher-Ziel"
 
-#: templates/www/job_log.html:27 templates/www/includes/dashboard.html:28
-#: templates/www/includes/dashboard.html:50
+#: templates/www/job_log.html:27 templates/www/includes/dashboard.html:32
+#: templates/www/includes/dashboard.html:54
 #: templates/www/includes/backup_jobs/backup_list_item.html:20
 #: templates/www/includes/backup_jobs/backup_list_item.html:45
 msgid "Backup-State"
@@ -499,7 +534,7 @@ msgid "Create Account"
 msgstr "Registrieren"
 
 #: templates/www/access/login.html:5 templates/www/access/login.html.py:9
-#: templates/www/access/login.html:32
+#: templates/www/access/login.html:33
 #: templates/www/includes/navigation/user_nav.html:41
 msgid "Sign In"
 msgstr "Einloggen"
@@ -509,6 +544,10 @@ msgid "Username and Password didn't match. Please try again."
 msgstr ""
 "Benutzername und Passwort stimmen nicht überein. Bitte versuchen Sie es "
 "erneut."
+
+#: templates/www/access/login.html:34
+msgid "Forgot password?"
+msgstr "Passwort vergessen?"
 
 #: templates/www/access/signup.html:4 templates/www/access/signup.html.py:8
 #: templates/www/includes/homepage.html:4
@@ -547,31 +586,39 @@ msgstr ""
 "geschickt. Bitte geben Sie den Bestätigungs-Code oder klicken Sie den "
 "Bestätigungs-Link um Ihre E-mail zu verifizieren."
 
-#: templates/www/access/verify_email.html:25
+#: templates/www/access/verify_email.html:12
+msgid "Send verification email again."
+msgstr "Bestätigungsmail erneut senden"
+
+#: templates/www/access/verify_email.html:27
 msgid "Verify Email"
 msgstr "E-mail bestätigen"
 
-#: templates/www/includes/dashboard.html:22
+#: templates/www/access/verify_email.html:29
+msgid "resend verification email"
+msgstr "Bestätigungs-Email erneut senden"
+
+#: templates/www/includes/dashboard.html:26
 #: templates/www/includes/backup_jobs/backup_list_item.html:14
 msgid "Details"
 msgstr "Details"
 
-#: templates/www/includes/dashboard.html:58
+#: templates/www/includes/dashboard.html:62
 msgid "Edit Backup-Job"
 msgstr "Backup bearbeiten"
 
-#: templates/www/includes/dashboard.html:61
 #: templates/www/includes/dashboard.html:65
+#: templates/www/includes/dashboard.html:69
 msgid "Delete Backup-Job"
 msgstr "Backup löschen"
 
-#: templates/www/includes/dashboard.html:69
-#: templates/www/includes/backup_jobs/backup_list_item.html:64
+#: templates/www/includes/dashboard.html:73
+#: templates/www/includes/backup_jobs/backup_list_item.html:63
 msgid "Do you really want to delete the selected Backup-Job?"
 msgstr "Wollen Sie das ausgewählte Backup wirklich löschen?"
 
-#: templates/www/includes/dashboard.html:71
-#: templates/www/includes/backup_jobs/backup_list_item.html:66
+#: templates/www/includes/dashboard.html:75
+#: templates/www/includes/backup_jobs/backup_list_item.html:65
 msgid ""
 "By deleting a Backup-Job no further Backups will be created. Backups that "
 "have already been created will however remain on the data-target and need to"
@@ -581,24 +628,24 @@ msgstr ""
 "angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten"
 " und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
 
-#: templates/www/includes/dashboard.html:76
-#: templates/www/includes/backup_jobs/backup_list_item.html:72
+#: templates/www/includes/dashboard.html:80
+#: templates/www/includes/backup_jobs/backup_list_item.html:71
 msgid "cancel"
 msgstr "abbrechen"
 
-#: templates/www/includes/dashboard.html:77
-#: templates/www/includes/backup_jobs/backup_list_item.html:56
-#: templates/www/includes/backup_jobs/backup_list_item.html:60
-#: templates/www/includes/backup_jobs/backup_list_item.html:73
+#: templates/www/includes/dashboard.html:81
+#: templates/www/includes/backup_jobs/backup_list_item.html:55
+#: templates/www/includes/backup_jobs/backup_list_item.html:59
+#: templates/www/includes/backup_jobs/backup_list_item.html:72
 msgid "Delete Backup"
 msgstr "Backup löschen"
 
-#: templates/www/includes/dashboard.html:82
-#: templates/www/includes/backup_jobs/backup_list_item.html:78
+#: templates/www/includes/dashboard.html:86
+#: templates/www/includes/backup_jobs/backup_list_item.html:77
 msgid "Backup-Log"
 msgstr "Backup-Log"
 
-#: templates/www/includes/dashboard.html:91
+#: templates/www/includes/dashboard.html:95
 msgid "No backups yet."
 msgstr "Noch keine Backups."
 
