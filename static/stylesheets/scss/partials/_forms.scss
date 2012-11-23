@@ -57,6 +57,20 @@ select {
   color: $clr-error;
 }
 
+// --- User Settings --- 
+.settings-fieldset {
+  border: 0;
+  padding: 0;
+  @include margin-trailer(1);
+  border-bottom: 1px solid $clr-grey-light;
+  legend {
+    color: $clr-headline;
+    @include adjust-font-size-to(18px);
+    @include margin-trailer(.5);
+  }
+}
+
+// --- Add Backup ---
 .js {
   .form-datasource, .form-datasink {
     .btn-next {

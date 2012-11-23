@@ -8,27 +8,33 @@
 <h1>{% trans "Account Settings" %}</h1>
 
 <form action="." method="POST">{% csrf_token %}
-  <div>
-    {{ form.email.label }}
-    {{ form.email }}
-    {% if form.email.errors %}
-      {{ form.email.errors }}
-    {% endif %}
-  </div>
-  <div>
-    {{ form.new_password1.label }}
-    {{ form.new_password1 }}
-    {% if form.new_password1.errors %}
-      {{ form.new_password1.errors }}
-    {% endif %}
-  </div>
-  <div>
-    {{ form.new_password2.label }}
-    {{ form.new_password2 }}
-    {% if form.new_password2.errors %}
-      {{ form.new_password2.errors }}
-    {% endif %}
-  </div>
+  <fieldset class="settings-fieldset">
+    <legend>{% trans "Change Email-address" %}</legend>
+    <div>
+      {{ form.email.label }}
+      {{ form.email }}
+      {% if form.email.errors %}
+        {{ form.email.errors }}
+      {% endif %}
+    </div>
+  </fieldset>
+  <fieldset class="settings-fieldset">
+    <legend>{% trans "Change password" %}</legend>
+    <div>
+      {{ form.new_password1.label }}
+      {{ form.new_password1 }}
+      {% if form.new_password1.errors %}
+        {{ form.new_password1.errors }}
+      {% endif %}
+    </div>
+    <div>
+      {{ form.new_password2.label }}
+      {{ form.new_password2 }}
+      {% if form.new_password2.errors %}
+        {{ form.new_password2.errors }}
+      {% endif %}
+    </div>
+  </fieldset>
   <div>
     {{ form.old_password.label }}
     {{ form.old_password }}
