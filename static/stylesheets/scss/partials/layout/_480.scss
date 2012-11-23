@@ -23,4 +23,26 @@
     padding-left: 1em;
   }
   
+  // meta-nav
+  #meta-nav ul {
+    li {
+      display: inline;
+      float: left;
+      padding-left: .5em;
+      &:before {
+        display: inline-block;
+        content: '\2022';
+        margin-right: .5em;
+      }
+      &:first-child {
+        padding-left: 0;
+        &:before {
+          content: '';
+          margin-right: 0;
+          display: none;
+        }
+      }
+    }
+  }
+  
 }

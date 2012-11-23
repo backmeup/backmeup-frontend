@@ -50,7 +50,6 @@ select {
   display: block;
   @include adjust-font-size-to(14px, 1, 16px);
 }
-
 // Form Feedback Styles
 .errorlist,
 .form-error {

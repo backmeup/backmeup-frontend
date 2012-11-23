@@ -108,28 +108,6 @@ p, ul, ol {
   @include horizontal-list;
 }
 
-// meta-nav
-#meta-nav ul {
-  li {
-    display: inline;
-    float: left;
-    padding-left: .5em;
-    &:before {
-      display: inline-block;
-      content: '\2022';
-      margin-right: .5em;
-    }
-    &:first-child {
-      padding-left: 0;
-      &:before {
-        content: '';
-        margin-right: 0;
-        display: none;
-      }
-    }
-  }
-}
-
 // header search
 #header-search-form {
   border-left: 1px solid $clr-text2;
@@ -347,6 +325,18 @@ p, ul, ol {
 }
 // --- Dashboard END
 
+
+// --- Backup-Log
+.backup-log-list {
+  > li {
+    @include apply-side-rhythm-border(bottom, 1px, .5);
+    @include margin-trailer(.5);
+  }
+  ul {
+    margin: 0;
+  }
+}
+// --- Backup-Log END
 
 // --- Create New Backup
 .add-backup-list{

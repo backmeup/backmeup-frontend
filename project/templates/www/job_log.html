@@ -26,21 +26,22 @@
     {# TODO: pass backup-state as classname, eg: "ok", "inactive" #}
     <li><strong>{% trans "Backup-State" %}</strong>: {{ current_status }}{# <span class="icon-backupstate-in-progress">Backup wird ausgeführt</span> #}</li>
   </ul>
-  <ul>
+  <ul class="backup-log-list">
     {% for item in log %}
       <li>
-        {{ item.message }}<br>
-        {{ item.type }}<br>
-        {{ item.timeStamp }}<br>
-        {{ item.category }}<br>
-        {{ item.jobId }}<br>
+        <ul>
+          <li>{{ item.message }}</li>
+          <li>{{ item.type }}</li>
+          <li>{{ item.timeStamp }}</li>
+          <li>{{ item.category }}</li>
+          <li>{{ item.jobId }}</li>
+        </ul>
         {# <ul> #}
-        {#           {% for file in item.files %} #}
-        {#             <li>{{ file }}<li> #}
-        {#           {% endfor %} #}
-        {#         </ul> #}
+        {#   {% for file in item.files %} #}
+        {#     <li>{{ file }}<li> #}
+        {#   {% endfor %} #}
+        {# </ul> #}
       </li>
-      <hr />
     {% endfor %}
   </ul>
 {% endblock content %}
