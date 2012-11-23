@@ -9,8 +9,6 @@
 
 <p>{% trans "An email with a verification key was send to your email-address. Please insert the verification key or click the link in the email to verify your email address." %}</p>
 
-<p><a href="{% url verify-email-resend %}">{% trans "Send verification email again." %}</a></p>
-
 <form action="." method="post">{% csrf_token %}
   {% if form.non_field_errors %}
     {{ form.non_field_errors }}
@@ -25,8 +23,7 @@
   </div>
   
   <p><input type="submit" value="{% trans "Verify Email" %}" class="btn"></p>
-  {# TODO: add resend function. #}
-  <p><a href="#resend-verfication-mail">{% trans "resend verification email" %}</a></p>
+  <p><a href="{% url verify-email-resend %}" class="smaller">{% trans "resend verification email" %}</a></p>
 </form>
 
 {% endblock content %}

@@ -69,7 +69,7 @@
               {% for field in form.field_group_actions %}
               <div>
                 <label>{{ field }}{{ field.label }}</label>
-                HELP_TEXT: {{ field.help_text }}
+                <span class="helptext">{{ field.help_text }}</span>
                 {% if field.errors %}
                   {{ field.errors }}
                 {% endif %}

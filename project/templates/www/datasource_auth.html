@@ -14,7 +14,7 @@
     <li class="active-backup-step">
       <h3>{% trans "1. Data-Source" %}</h3>
       <div class="add-backup-content">
-        <h4>{% blocktrans with datasource=datasource_profile.title %}Step 2: select data-target - authenticate {{ datasource }}{% endblocktrans %}</h4>
+        <h4>{% blocktrans with datasource=datasource_profile.title %}Step 2: select data-source - authenticate {{ datasource }}{% endblocktrans %}</h4>
         <form action="." method="POST">{% csrf_token %}
         
         {% for hidden in form.hidden_fields %}
