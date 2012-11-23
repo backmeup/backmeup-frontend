@@ -4,9 +4,11 @@
   <header class="header">
     <h3>
       {% if item.jobTitle %}
-        {{ item.jobTitle }} ({{ item.createDate|date:"SHORT_DATETIME_FORMAT" }})
+        {{ item.jobTitle }} 
+        {# ({{ item.createDate|date:"SHORT_DATETIME_FORMAT" }}) #}
       {% else %}
-        Backup #{{ item.backupJobId }} ({{ item.createDate|date:"SHORT_DATETIME_FORMAT" }})
+        Backup #{{ item.backupJobId }} 
+        {# ({{ item.createDate|date:"SHORT_DATETIME_FORMAT" }}) #}
         
         {# {{ item.datasources.0.title }} &rarr; {{ item.datasink.title }} ({{ item.createDate|date:"SHORT_DATETIME_FORMAT" }}) #}
       {% endif %}
