@@ -247,11 +247,9 @@ p, ul, ol {
       @include icon_before('\f0c0');
     }
   }
-  li.teaser-help{
+  li.teaser-get-started{
     h3:before{
-      @include icon_before('?');
-      font-family: $body-font;
-      font-weight: bold;
+      @include icon_before('\f0a4');
     }
   }
   

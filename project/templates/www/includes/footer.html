@@ -4,11 +4,20 @@
   <div class="container">
     {# <span class="copyright">BackMeUp</span> #}
     <nav id="meta-nav" class="nav">
-      {% get_flatpages as flatpages %}
+      {# {% get_flatpages as flatpages %} #}
+      {# <ul> #}
+      {#   {% for page in flatpages %} #}
+      {#       <li><a href="{{ page.url }}">{{ page.title }}</a></li> #}
+      {#   {% endfor %} #}
+      {# </ul> #}
       <ul>
-        {% for page in flatpages %}
-            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-        {% endfor %}
+        <li><a href="/about/">{% trans "About" %}</a></li>
+        <li><a href="/features/">{% trans "Features" %}</a></li>
+        <li><a href="/get-started/">{% trans "Get Started" %}</a></li>
+        <li><a href="/get-involved/">{% trans "Get Involved" %}</a></li>
+        <li><a href="/hilfe/">{% trans "Help" %}</a></li>
+        <li><a href="/feedback/">{% trans "Feedback" %}</a></li>
+        <li><a href="/agb/">{% trans "AGBs" %}</a></li>
       </ul>
     </nav>
   </div>

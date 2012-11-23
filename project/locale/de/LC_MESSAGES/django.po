@@ -2,20 +2,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-23 09:55+0100\n"
+"POT-Creation-Date: 2012-11-23 10:56+0100\n"
 "PO-Revision-Date: 2012-11-23 10:02\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Translated-Using: django-rosetta 0.6.8\n"
 
@@ -227,8 +227,8 @@ msgstr "404 - Page Not Found"
 
 #: templates/404.html:9
 msgid ""
-"Sorry, the page you are looking does not exist. Please go to the homepage or"
-" use the search."
+"Sorry, the page you are looking does not exist. Please go to the homepage or "
+"use the search."
 msgstr ""
 "Die aufgerufene Seite existiert nicht oder nicht mehr. Bitte gehen Sie zur "
 "Startseite oder verwenden Sie die Suche."
@@ -621,12 +621,12 @@ msgstr "Wollen Sie das ausgewählte Backup wirklich löschen?"
 #: templates/www/includes/backup_jobs/backup_list_item.html:65
 msgid ""
 "By deleting a Backup-Job no further Backups will be created. Backups that "
-"have already been created will however remain on the data-target and need to"
-" be deleted manually."
+"have already been created will however remain on the data-target and need to "
+"be deleted manually."
 msgstr ""
 "Durch das Löschen eines Backups werden keine neuen Backups dieses Typs "
-"angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten"
-" und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
+"angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten "
+"und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
 
 #: templates/www/includes/dashboard.html:80
 #: templates/www/includes/backup_jobs/backup_list_item.html:71
@@ -649,9 +649,56 @@ msgstr "Backup-Log"
 msgid "No backups yet."
 msgstr "Noch keine Backups."
 
+#: templates/www/includes/footer.html:14
+msgid "About"
+msgstr ""
+
+#: templates/www/includes/footer.html:15
+#: templates/www/includes/homepage.html:10
+msgid "Features"
+msgstr ""
+
+#: templates/www/includes/footer.html:16
+#: templates/www/includes/homepage.html:18
+msgid "Get Started"
+msgstr ""
+
+#: templates/www/includes/footer.html:17
+#: templates/www/includes/homepage.html:26
+msgid "Get Involved"
+msgstr ""
+
+#: templates/www/includes/footer.html:18
+msgid "Help"
+msgstr ""
+
+#: templates/www/includes/footer.html:19
+msgid "Feedback"
+msgstr ""
+
+#: templates/www/includes/footer.html:20
+msgid "AGBs"
+msgstr ""
+
 #: templates/www/includes/header_search.html:9
 msgid "search"
 msgstr "suchen"
+
+#: templates/www/includes/homepage.html:3
+msgid "Teaser-Text Homepage"
+msgstr ""
+
+#: templates/www/includes/homepage.html:12
+msgid "Teaser-Text Features"
+msgstr ""
+
+#: templates/www/includes/homepage.html:20
+msgid "Teaser-Text Get Started"
+msgstr ""
+
+#: templates/www/includes/homepage.html:28
+msgid "Teaser-Text Get Involved"
+msgstr ""
 
 #: templates/www/includes/backup_jobs/backup_list_item.html:48
 msgid "next backup"
