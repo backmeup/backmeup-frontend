@@ -1,8 +1,8 @@
 {% load i18n %}
 
 {% if needs_email_validation %}
-  <a href="{% url verify-email %}">user needs to validate email</a>
-{% endif %}
+  <a href="{% url verify-email %}">{% trans "validate email and activate account" %}</a>
+{% else %}
 
 <header>
   <h1>{% trans "My Backups" %}</h1>
@@ -17,4 +17,5 @@
   </ul>
 {% else %}
   <p>{% trans "No backups yet." %}</p>
+{% endif %}
 {% endif %}

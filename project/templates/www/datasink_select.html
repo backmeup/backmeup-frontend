@@ -66,6 +66,8 @@
 {% block additional_js %}
 <script>
 $(function(){
+  $('#id_datasink_profile option:first').attr('selected', 'selected');
+  
   $('.datasink-group').on('click', 'label', function() {
       $(this).find('input[type="radio"]').attr("checked", "checked");
       $('.form-datasink').submit();

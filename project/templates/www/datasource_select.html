@@ -74,6 +74,8 @@
 {% block additional_js %}
 <script>
 $(function(){
+  $('#id_datasource_profile option:first').attr('selected', 'selected');
+  
   $('.datasource-group').on('click', 'label', function() {
       $(this).find('input[type="radio"]').attr("checked", "checked");
       $('.form-datasource').submit();

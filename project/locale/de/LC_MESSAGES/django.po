@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-23 14:37+0100\n"
-"PO-Revision-Date: 2012-11-23 15:28\n"
+"POT-Creation-Date: 2012-11-23 17:27+0100\n"
+"PO-Revision-Date: 2012-11-23 17:31\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -444,20 +444,20 @@ msgid "Create Backup"
 msgstr "Backup erstellen"
 
 #: templates/www/job_log.html:23
-#: templates/www/includes/backup_jobs/backup_list_item.html:18
-#: templates/www/includes/backup_jobs/backup_list_item.html:26
+#: templates/www/includes/backup_jobs/backup_list_item.html:20
+#: templates/www/includes/backup_jobs/backup_list_item.html:28
 msgid "Data-Source"
 msgstr "Daten-Quelle"
 
 #: templates/www/job_log.html:25
-#: templates/www/includes/backup_jobs/backup_list_item.html:19
-#: templates/www/includes/backup_jobs/backup_list_item.html:34
+#: templates/www/includes/backup_jobs/backup_list_item.html:21
+#: templates/www/includes/backup_jobs/backup_list_item.html:36
 msgid "Data-Target"
 msgstr "Speicher-Ziel"
 
 #: templates/www/job_log.html:27
-#: templates/www/includes/backup_jobs/backup_list_item.html:20
-#: templates/www/includes/backup_jobs/backup_list_item.html:41
+#: templates/www/includes/backup_jobs/backup_list_item.html:22
+#: templates/www/includes/backup_jobs/backup_list_item.html:43
 msgid "Backup-State"
 msgstr "Backup-Status"
 
@@ -615,6 +615,10 @@ msgstr "E-mail bestätigen"
 msgid "resend verification email"
 msgstr "Bestätigungs-Email erneut senden"
 
+#: templates/www/includes/dashboard.html:4
+msgid "validate email and activate account"
+msgstr "Email-Adresse bestätigen und Benutzer aktivieren."
+
 #: templates/www/includes/dashboard.html:19
 msgid "No backups yet."
 msgstr "Noch keine Backups."
@@ -670,29 +674,29 @@ msgstr ""
 msgid "Teaser-Text Get Involved"
 msgstr ""
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:14
+#: templates/www/includes/backup_jobs/backup_list_item.html:16
 msgid "Details"
 msgstr "Details"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:44
+#: templates/www/includes/backup_jobs/backup_list_item.html:46
 msgid "next backup"
 msgstr "nächstes Backup"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:49
+#: templates/www/includes/backup_jobs/backup_list_item.html:51
 msgid "Edit Backup"
 msgstr "Backup bearbeiten"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:51
-#: templates/www/includes/backup_jobs/backup_list_item.html:55
-#: templates/www/includes/backup_jobs/backup_list_item.html:67
+#: templates/www/includes/backup_jobs/backup_list_item.html:53
+#: templates/www/includes/backup_jobs/backup_list_item.html:57
+#: templates/www/includes/backup_jobs/backup_list_item.html:69
 msgid "Delete Backup"
 msgstr "Backup löschen"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:59
+#: templates/www/includes/backup_jobs/backup_list_item.html:61
 msgid "Do you really want to delete the selected Backup-Job?"
 msgstr "Wollen Sie das ausgewählte Backup wirklich löschen?"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:61
+#: templates/www/includes/backup_jobs/backup_list_item.html:63
 msgid ""
 "By deleting a Backup-Job no further Backups will be created. Backups that "
 "have already been created will however remain on the data-target and need to"
@@ -702,11 +706,11 @@ msgstr ""
 "angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten"
 " und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:66
+#: templates/www/includes/backup_jobs/backup_list_item.html:68
 msgid "cancel"
 msgstr "abbrechen"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:72
+#: templates/www/includes/backup_jobs/backup_list_item.html:74
 msgid "Backup-Log"
 msgstr "Backup-Log"
 
