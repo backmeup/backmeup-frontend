@@ -18,4 +18,6 @@
 {% else %}
   <p>{% trans "No backups yet." %}</p>
 {% endif %}
+
+<a href="{% url zip-files %}">{% trans "ZIP Archives" %}</a>
 {% endif %}
