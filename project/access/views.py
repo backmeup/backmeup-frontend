@@ -5,6 +5,8 @@
 from django.contrib import messages
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as django_login
 from django.contrib.auth.decorators import login_required
 
 # project
@@ -121,7 +123,13 @@ def logout(request, next_page=None,
 def signup(request):
     form = UserCreationForm(request.POST or None)
     if form.is_valid():
-        form.save()
+        user = form.save()
+        user = authenticate(username=user.username, password=request.POST['password1'])
+        if user is not None:
+            if user.is_active:
+                print "#alsdkjfalsdjflkjasdflkjasdflkjasdf"
+                django_login(request, user)
+                request.session['key_ring'] = request.POST['password1']
         return redirect('verify-email')
     
     context = {
