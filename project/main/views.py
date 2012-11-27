@@ -237,7 +237,7 @@ def datasink_auth(request):
 
     form = DatasinkAuthForm(request.POST or None, auth_data=request.session['auth_data'])
     
-    if not form.fields:
+    if not form.fields and request.session['auth_data']['type'] == 'Input':
         request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
         return redirect('job-create')
     
