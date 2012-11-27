@@ -135,8 +135,9 @@ def index(request):
 @login_required
 def datasource_select(request):
     try:
-        del request.session['datasource_profile_id']
-        del request.session['datasink_profile_id']
+        if request.method == 'GET':
+            del request.session['datasource_profile_id']
+            del request.session['datasink_profile_id']
     except Exception:
         pass
     form = DatasourceSelectForm(request.POST or None, username=request.user.username)
