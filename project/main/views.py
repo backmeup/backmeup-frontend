@@ -2,7 +2,13 @@
 
 import datetime
 
+import re
+import os
+from django.http import HttpResponse
+from django.core.servers.basehttp import FileWrapper
 
+
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
@@ -12,7 +18,7 @@ from django.template import RequestContext
 from django.utils.translation import ugettext_lazy as _
 
 
-from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile, RestSearch, RestFile
+from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile, RestSearch, RestFile, RestUser
 from main.forms import DatasourceSelectForm, DatasourceAuthForm
 from main.forms import DatasinkSelectForm, DatasinkAuthForm
 from main.forms import JobCreateForm, JobDeleteForm
@@ -51,7 +57,7 @@ def get_job(jobs, job_id):
 
 def additional_context(request):
     context = {}
-    
+
     if 'datasource_profile_id' in request.session:
         rest_datasource = RestDatasourceProfile(username=request.user.username)
         profile = rest_datasource.get(request.session['datasource_profile_id'])
@@ -61,7 +67,7 @@ def additional_context(request):
             title = profile['title']
         profile['good_title'] = title
         context['datasource_profile'] = profile
-    
+
     if 'datasink_profile_id' in request.session:
         rest_datasink = RestDatasinkProfile(username=request.user.username)
         profile = rest_datasink.get(request.session['datasink_profile_id'])
@@ -71,16 +77,16 @@ def additional_context(request):
             title = profile['title']
         profile['good_title'] = title
         context['datasink_profile'] = profile
-    
+
     context['search_form'] = SearchForm(request.POST or None)
-    
+
     return context
 
 
 def index(request):
     context = additional_context(request)
     if request.user.is_authenticated():
-        
+
         ### delete job form start
         job_delete_form = JobDeleteForm(request.POST or None)
         if job_delete_form.is_valid():
@@ -90,7 +96,7 @@ def index(request):
             else:
                 messages.add_message(request, messages.ERROR, _(u'Backup couldn\'t be deleted.'))
         context['job_delete_form'] = job_delete_form
-        
+
         rest_jobs = RestJobs(username=request.user.username)
         jobs = rest_jobs.get_all()
         #### delete job form end
@@ -105,10 +111,10 @@ def index(request):
         else:
             rest_datasource_profile = RestDatasourceProfile(username=request.user.username)
             datasource_profiles = rest_datasource_profile.get_all()
-            
+
             rest_datasink_profile = RestDatasinkProfile(username=request.user.username)
             datasink_profiles = rest_datasink_profile.get_all()
-            
+
             for job in jobs:
                 # need to cut of first 3 numbers to get valid unix timestamp
                 if 'createDate' in job:
@@ -119,13 +125,13 @@ def index(request):
                     job['lastBackup'] = datetime.datetime.fromtimestamp(job['lastBackup']/1000)
                 if 'nextBackup' in job:
                     job['nextBackup'] = datetime.datetime.fromtimestamp(job['nextBackup']/1000)
-                
+
                 job['datasink']['title'] = get_sink_title(datasink_profiles, job['datasink']['datasinkId'])
                 #job['datasources'] = []
                 for datasource in job['datasources']:
                     datasource['title'] = get_source_title(datasource_profiles, datasource['datasourceId'])
             context['jobs'] = jobs
-    
+
     return render_to_response(
         "www/index.html",
         context,
@@ -156,10 +162,10 @@ def datasource_select(request):
                 request.session['next_step'] = 'datasource-auth'
                 return redirect(auth_data['redirectURL'])
             return redirect('datasource-auth')
-    
+
     context = additional_context(request)
     context['form'] = form
-    
+
     return render_to_response(
         "www/datasource_select.html",
         context,
@@ -174,11 +180,11 @@ def datasource_auth(request):
     #    redirect('datasource-select')
 
     form = DatasourceAuthForm(request.POST or None, username=request.user.username, auth_data=request.session['auth_data'])
-    
+
     if not form.fields and request.session['auth_data']['type'] == 'Input':
         request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
         return redirect('datasink-select')
-    
+
     if form.is_valid() or request.session['auth_data']['type'] != 'Input':
         result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
         if not result == False:
@@ -189,10 +195,10 @@ def datasource_auth(request):
             del request.session['auth_data']
             messages.add_message(request, messages.ERROR, 'Some error occured.')
             return redirect(datasource_select)
-    
+
     context = additional_context(request)
     context['form'] = form
-    
+
     return render_to_response(
         "www/datasource_auth.html",
         context,
@@ -218,10 +224,10 @@ def datasink_select(request):
                 request.session['next_step'] = 'datasink-auth'
                 return redirect(auth_data['redirectURL'])
             return redirect('datasink-auth')
-    
+
     context = additional_context(request)
     context['form'] = form
-    
+
     return render_to_response(
         "www/datasink_select.html",
         context,
@@ -236,11 +242,11 @@ def datasink_auth(request):
     #    redirect('datasink-select')
 
     form = DatasinkAuthForm(request.POST or None, auth_data=request.session['auth_data'])
-    
+
     if not form.fields and request.session['auth_data']['type'] == 'Input':
         request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
         return redirect('job-create')
-    
+
     if form.is_valid() or request.session['auth_data']['type'] != 'Input':
         result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
         if not result == False:
@@ -254,10 +260,10 @@ def datasink_auth(request):
             del request.session['auth_data']
             messages.add_message(request, messages.ERROR, 'Some error occured.')
             return redirect(datasink_select)
-    
+
     context = additional_context(request)
     context['form'] = form
-    
+
     return render_to_response(
         "www/datasink_auth.html",
         context,
@@ -267,7 +273,7 @@ def datasink_auth(request):
 @login_required
 def oauth_callback(request):
     request.session['auth_data']['oauth_data'] = request.GET.copy()
-    
+
     next = request.session['next_step']
 
     valid_redirects = [
@@ -288,7 +294,7 @@ def job_create(request):
         'username': request.user.username,
         'key_ring': request.session['key_ring'],
     }
-    
+
     form = JobCreateForm(request.POST or None, extra_data=extra_data)
 
     if form.is_valid():
@@ -308,23 +314,23 @@ def job_create(request):
 def job_log(request, job_id):
     rest_jobs = RestJobs(username=request.user.username)
     job_status = rest_jobs.get_job_status(job_id=job_id)
-    
+
     rest_jobs = RestJobs(username=request.user.username)
     jobs = rest_jobs.get_all()
-    
+
     job = get_job(jobs, job_id=job_id)
-    
+
     rest_datasource_profile = RestDatasourceProfile(username=request.user.username)
     datasource_profiles = rest_datasource_profile.get_all()
-    
+
     rest_datasink_profile = RestDatasinkProfile(username=request.user.username)
     datasink_profiles = rest_datasink_profile.get_all()
-    
+
     job['datasink']['title'] = get_sink_title(datasink_profiles, job['datasink']['datasinkId'])
     #job['datasources'] = []
     for datasource in job['datasources']:
         datasource['title'] = get_source_title(datasource_profiles, datasource['datasourceId'])
-    
+
     context = {
         'job': job,
         'log': job_status['backupStatus'],
@@ -333,7 +339,7 @@ def job_log(request, job_id):
         context['current_status'] = job_status['backupStatus'][0]['type']
     except:
         pass
-    
+
     return render_to_response(
         "www/job_log.html",
         context,
@@ -343,35 +349,35 @@ def job_log(request, job_id):
 @login_required
 def search(request):
     form = SearchForm(request.POST or None)
-    
+
     if form.is_valid():
         result = form.rest_save(request.user.username, request.session['key_ring'])
         return redirect('search-result', search_id=result['searchId'])
-    
+
     referer = request.META.get('HTTP_REFERER', 'index')
-    
+
     return redirect(referer)
 
 
 @login_required
 def search_result(request, search_id):
-    
+
     rest_search = RestSearch(username=request.user.username)
     result = rest_search.get(search_id)
-    
+
     try:
         for item in result['files']:
             item['timeStamp'] = datetime.datetime.fromtimestamp(item['timeStamp']/1000)
             item['simple_type'] = item['type'].split('/')[0]
     except Exception:
         pass
-    
+
     form = SearchFilterForm(request.POST or None, search_result=result)
-    
+
     if form.is_valid():
         new_result = form.rest_save(search_id=search_id, username=request.user.username)
         result = new_result
-    
+
     return render_to_response('www/search_result.html', {
         'result': result,
         'search_id': search_id,
@@ -381,14 +387,48 @@ def search_result(request, search_id):
 
 @login_required
 def file_info(request, search_id, file_id):
-    
+
     rest_file = RestFile(username=request.user.username)
     result = rest_file.get(file_id=file_id)
-    
+
     result['details']['fileInfo']['timeStamp'] = datetime.datetime.fromtimestamp(int(result['details']['fileInfo']['timeStamp'])/1000)
     result['details']['fileInfo']['filename'] = result['details']['fileInfo']['path'].split('/')[-1]
     return render_to_response('www/search_result_detail.html', {
         'file': result['details']['fileInfo'],
         'search_id': search_id,
     }, context_instance=RequestContext(request))
+
+
+@login_required
+def zip_files(request):
+    rest_user = RestUser(username=request.user.username)
+    user = rest_user.get()
+    user_id = int(user['userId'])
     
+    file_list = [f for f in os.listdir(settings.ZIP_ARCHIVES_PATH % user_id) if re.match(settings.ZIP_ARCHIVES_MATCH_PATTERN, f)]
+    return render_to_response('www/zip_file_list.html', {
+        'file_list': file_list,
+    }, context_instance=RequestContext(request))
+
+
+@login_required
+def zip_download(request):
+    """
+    Send a file through Django without loading the whole file into
+    memory at once. The FileWrapper will turn the file object into an
+    iterator for chunks of 8KB.
+    
+    (performance might be improved by using apache mod_xsendfile.)
+    """
+    rest_user = RestUser(username=request.user.username)
+    user = rest_user.get()
+    user_id = int(user['userId'])
+    
+    filename = settings.ZIP_ARCHIVES_PATH % user_id
+    filename = filename + request.GET['f']
+    wrapper = FileWrapper(file(filename))
+    response = HttpResponse(wrapper, content_type='application/zip')
+    response['Content-Disposition'] = 'attachment; filename=' + request.GET['f']
+    response['Content-Length'] = os.path.getsize(filename)
+    return response
+

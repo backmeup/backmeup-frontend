@@ -46,6 +46,9 @@ urlpatterns = patterns('',
     url(r'^search/(?P<search_id>\d+)/$', 'main.views.search_result', name='search-result'),
     url(r'^search/(?P<search_id>\d+)/(?P<file_id>[\w\d:]+)/$', 'main.views.file_info', name='file-info'),
     
+    url(r'^zip_files/$', 'main.views.zip_files', name='zip-files'),
+    url(r'^zip_download/$', 'main.views.zip_download', name='zip-download'),
+    
     # styleguide
     (r'^styleguide$', TemplateView.as_view(template_name='www/styleguide/styleguide.html')),
     

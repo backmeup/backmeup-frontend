@@ -180,3 +180,9 @@ AUTH_PROFILE_MODULE = 'access.UserProfile'
 REST_API_BASE_URL = "http://localhost:8080/"
 
 ACCESS_MIN_PASSWORD_LENGTH = 8
+
+
+ZIP_ARCHIVES_PATH = '/data/backmeup-frontend-backupfiles/%d/zip/'
+
+ZIP_ARCHIVES_MATCH_PATTERN = r'.*\.zip'
+
