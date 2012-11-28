@@ -420,7 +420,45 @@ class RestJobs(RestBase):
             params[params_key] = "true"
         
         return self._post(data=params)
+    
+    def put(self, job_id, data):
+        """
+        sourceProfileIds - Die zu sichernden Quellen
 
+        requiredActionIds - Die durchzuführenden Aktionen
+
+        sinkProfileId - Die einzusetzende Senke
+
+        timeExpression - Der Zeitpunkt, zu dem der Job durchgeführt werden soll (realtime, weekly, monthly)
+
+        keyRing - Das Schlüsselbundpasswort des Benutzers
+        """
+        if not "source_profile_ids" in data:
+            raise ValueError('key "source_profile_id" is missing in argument "data".')
+        #if not "required_action_ids" in data:
+        #    raise ValueError('key "required_action_ids" is missing in argument "data".')
+        if not "sink_profile_ids" in data:
+            raise ValueError('key "sink_profile_id" is missing in argument "data".')
+        if not "time_expression" in data:
+            raise ValueError('key "time_expression" is missing in argument "data".')
+        if not "key_ring" in data:
+            raise ValueError('key "key_ring" is missing in argument "data".')
+
+        params = {
+            'sourceProfiles': data['source_profile_ids'],
+            'actions': data['actions'],
+            'sinkProfileId': data['sink_profile_ids'],
+            'timeExpression': data['time_expression'],
+            'keyRing': data['key_ring'],
+            'jobTitle': data['job_title'],
+        }
+        
+        for item in data['source_options']:
+            params_key = str(params['sourceProfiles']) + "." + item
+            params[params_key] = "true"
+        
+        return self._put(path=job_id + "/", data=params)
+    
     def delete(self, job_id):
         return self._delete(path=job_id)
 
@@ -431,7 +469,10 @@ class RestJobs(RestBase):
             return response['backupJobs']
         else:
             return response
-
+    
+    def get(self, job_id):
+        return self._get(path=job_id + "/")
+    
     def get_job_status(self, job_id):
         return self._get(path=job_id + "/status/")
 

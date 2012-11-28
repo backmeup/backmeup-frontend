@@ -18,10 +18,10 @@ from django.template import RequestContext
 from django.utils.translation import ugettext_lazy as _
 
 
-from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile, RestSearch, RestFile, RestUser
+from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile, RestSearch, RestFile, RestUser, RestAction
 from main.forms import DatasourceSelectForm, DatasourceAuthForm
 from main.forms import DatasinkSelectForm, DatasinkAuthForm
-from main.forms import JobCreateForm, JobDeleteForm
+from main.forms import JobCreateForm, JobDeleteForm, JobEditForm
 from main.forms import SearchForm, SearchFilterForm
 
 
@@ -308,6 +308,69 @@ def job_create(request):
         "www/job_create.html",
         context,
         context_instance=RequestContext(request))
+
+
+@login_required
+def job_edit(request, job_id):
+    rest_jobs = RestJobs(username=request.user.username)
+    job = rest_jobs.get(job_id=job_id)
+    
+    datasource_profile_id = job['sourceProfiles'][0]['id']
+    datasink_profile_id = job['sinkProfileId']
+    
+    rest_datasource_profile = RestDatasourceProfile(username=request.user.username)
+    datasource_profile_options = rest_datasource_profile.options(profile_id=datasource_profile_id, 
+        data={'key_ring': request.session['key_ring']})['sourceOptions']
+    
+    rest_actions = RestAction()
+    actions = rest_actions.get_all()
+    
+    for action in actions:
+        action['options'] = rest_actions.options(action_id=action['actionId'])
+        action['checked'] = False
+        
+        for job_action in job['actions']:
+            if job_action['id'] == action['actionId']:
+                action['checked'] = True
+    
+    extra_data = {
+        'job': job,
+        'datasource_profile_options': datasource_profile_options,
+        'actions': actions,
+    }
+    
+    form = JobEditForm(request.POST or None, extra_data=extra_data)
+    
+    if form.is_valid():
+        new_source_options = []
+        new_actions = []
+
+        for key in form.cleaned_data:
+
+            if key.startswith('datasource_options_value_') and form.cleaned_data[key]:
+                new_source_options.append(form.cleaned_data[key.replace('_value_', '_key_')])
+
+            if key.startswith('actions_value_') and form.cleaned_data[key]:
+                value = form.cleaned_data[key.replace('_value_', '_key_')]
+                new_actions.append(value)
+
+        rest_jobs = RestJobs(username=request.user.username)
+        data = {
+            "key_ring": request.session['key_ring'],
+            'time_expression': form.cleaned_data['time_expression'],
+            'source_profile_ids': datasource_profile_id,
+            'sink_profile_ids': datasink_profile_id,
+            'job_title': form.cleaned_data['title'],
+            'actions': new_actions,
+            'source_options': new_source_options,
+        }
+        job_result = rest_jobs.put(job_id=job_id ,data=data)
+        #messages.add_message(request, messages.ERROR, 'Some error occured.')
+        return redirect('index')
+    
+    return render_to_response("www/job_edit.html", {
+        'form': form,
+    }, context_instance=RequestContext(request))
 
 
 @login_required

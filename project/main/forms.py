@@ -279,6 +279,50 @@ class JobDeleteForm(forms.Form):
         return rest_jobs.delete(job_id=self.cleaned_data['job_id'])
 
 
+class JobEditForm(forms.Form):
+    
+    title = forms.CharField(label=_("Title"), required=True)
+    time_expression = forms.ChoiceField(choices=BACKUP_JOB_TIME_EXPRESSION, initial='realtime')
+    
+    def __init__(self, *args, **kwargs):
+        self.extra_data = kwargs.pop('extra_data')
+        kwargs['initial'] = {
+            'title': self.extra_data['job']['jobTitle'],
+            'time_expression': self.extra_data['job']['timeExpression'],
+        }
+        super(JobEditForm, self).__init__(*args, **kwargs)
+        
+        # datasource options
+        job_datasource_options = self.extra_data['job']['sourceProfiles'][0]['options']
+        
+        for i, item in enumerate(self.extra_data['datasource_profile_options']):
+            value = False
+            for option in job_datasource_options:
+                if option == item:
+                    if job_datasource_options[option] == "true":
+                        value = True
+            
+            self.fields['datasource_options_value_%s' % i] = forms.BooleanField(label=_(item), required=False, initial=value)
+            self.fields['datasource_options_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=item)
+        
+        # actions
+        for i, action in enumerate(self.extra_data['actions']):
+            self.fields['actions_value_%s' % i] = forms.BooleanField(label=_(action['title']), initial=action['checked'], required=False, help_text=_(action['description']))
+            self.fields['actions_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=action['actionId'])
+    
+    def field_group_job(self):
+        return [
+            self['title'],
+            self['time_expression'],
+        ]
+    
+    def field_group_datasource_options(self):
+        return [field for field in self if field.name.startswith('datasource_options_value_')]
+
+    def field_group_actions(self):
+        return [field for field in self if field.name.startswith('actions_value_')]
+
+
 class JobCreateForm(forms.Form):
 
     #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
@@ -289,27 +333,6 @@ class JobCreateForm(forms.Form):
     def __init__(self, *args, **kwargs):
         self.extra_data = kwargs.pop('extra_data')
         super(JobCreateForm, self).__init__(*args, **kwargs)
-        
-        # rest_datasource_profile = RestDatasourceProfile(username=self.username)
-        #         datasource_profiles = rest_datasource_profile.get_all()
-        # 
-        #         datasource_profile_choices = []
-        # 
-        #         for item in datasource_profiles:
-        #             datasource_profile_choices.append((str(item['datasourceProfileId']), item['title']))
-        # 
-        #         self.fields['datasource_profile'] = forms.MultipleChoiceField(label=_("Datasource Profile"), widget=CheckboxSelectMultiple, choices=datasource_profile_choices)
-        # 
-        # 
-        #         rest_datasink_profile = RestDatasinkProfile(username=self.username)
-        #         datasink_profiles = rest_datasink_profile.get_all()
-        # 
-        #         datasink_profile_choices = []
-        # 
-        #         for item in datasink_profiles:
-        #             datasink_profile_choices.append((str(item['datasinkProfileId']), item['title']))
-        # 
-        #         self.fields['datasink_profile'] = forms.MultipleChoiceField(label=_("Datasink Profile"), widget=CheckboxSelectMultiple, choices=datasink_profile_choices)
         
         rest_datasource_profile = RestDatasourceProfile(username=self.extra_data['username'])
         result = rest_datasource_profile.options(profile_id=self.extra_data['datasource_profile_id'], 

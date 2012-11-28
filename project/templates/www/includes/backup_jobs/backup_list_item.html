@@ -48,7 +48,7 @@
     </div>
     <div class="bli-section-options">
       <ul>
-        <li><strike><a href="#link-to-backup-edit-page" class="edit-link">{% trans "Edit Backup" %}</a></strike></li>
+        <li><a href="{% url job-edit job_id=item.backupJobId %}" class="edit-link">{% trans "Edit Backup" %}</a></li>
         <li>
           <a href="#delete-modal{{ item.backupJobId }}" class="delete-backup-handler" data-toggle="modal">{% trans "Delete Backup" %}</a>
           <div id="delete-modal{{ item.backupJobId }}" class="modal hide" tabindex="-1" role="dialog" aria-hidden="true">
