@@ -16,40 +16,18 @@ BACKUP_JOB_TIME_EXPRESSION = (
 
 
 class DatasourceSelectForm(forms.Form):
-
-    #datasource = forms.ChoiceField(label=_("Datasource"), widget=forms.RadioSelect)
-    #profile_name = forms.CharField(label=_("Backup Name"))
-    #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
-
+    
     def __init__(self, *args, **kwargs):
-        self.username = kwargs.pop('username')
+        self.extra_data = kwargs.pop('extra_data')
         super(DatasourceSelectForm, self).__init__(*args, **kwargs)
 
-        rest_datasource = RestDatasource()
-        datasources = rest_datasource.get_all()
+        self.fields['datasource'] = forms.ChoiceField(label=_("Datasource"), widget=forms.RadioSelect, 
+            choices=self.extra_data['datasource_choices'], required=False)
 
-        choices = []
-
-        for item in datasources:
-            choices.append((item['datasourceId'], _(item['title'])))
-        
-        self.fields['datasource'] = forms.ChoiceField(label=_("Datasource"), widget=forms.RadioSelect, choices=choices, required=False)
-        
-        rest_datasource_profile = RestDatasourceProfile(username=self.username)
-        datasource_profiles = rest_datasource_profile.get_all()
-        
-        if len(datasource_profiles):
-            profile_choices = [("", "---")]
-            
-            for item in datasource_profiles:
-                # no need to show profiles without 'identification'
-                # * it's not a completely authenticated profile
-                # * it's a profile whitch doesn't require authentication
-                if 'identification' in item:
-                    title = _(item['pluginName'] + " - %(account)s") % {'account': item['identification']}
-                    profile_choices.append( (item['datasourceProfileId'], title) )
-            
-            self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), choices=profile_choices, help_text=_("Choose an existing data-source profile or select a new data-source below"), required=False)
+        if len(self.extra_data['datasource_profile_choices']):
+            self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), required=False,
+                choices=self.extra_data['datasource_profile_choices'], 
+                help_text=_("Choose an existing data-source profile or select a new data-source below"))
     
     def clean(self):
         cleaned_data = super(DatasourceSelectForm, self).clean()
@@ -60,52 +38,20 @@ class DatasourceSelectForm(forms.Form):
             return cleaned_data
         else:
             raise forms.ValidationError("Please select a existing datasource profile, or create a new one by selecting a datasource.")
-        
-    def rest_save(self, username, key_ring):
-        if self.cleaned_data['datasource']:
-            rest_datasource_profile = RestDatasourceProfile(username=username)
-            profile_name = _("%(plugin)s - profile") % {'plugin': self.cleaned_data['datasource']}
-            data = {
-                "profile_name": profile_name,
-                "key_ring": key_ring,
-            }
-            return rest_datasource_profile.auth(datasource_id=self.cleaned_data['datasource'], data=data)
-        elif self.cleaned_data['datasource_profile']:
-            return int(self.cleaned_data['datasource_profile'])
-        else:
-            return False
 
 
 class DatasourceAuthForm(forms.Form):
-
-    #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
-
+    
     def __init__(self, *args, **kwargs):
-        self.auth_data = kwargs.pop('auth_data')
-        self.username = kwargs.pop('username')
+        self.extra_data = kwargs.pop('extra_data')
         super(DatasourceAuthForm, self).__init__(*args, **kwargs)
         
         # add authentication form fields
-        if self.auth_data['type'] == 'Input':
-            #for i, item in enumerate(self.auth_data['typeMapping']):
-            #    self.fields['input_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=item)
-            #
-            #    field_kwargs = {
-            #        'label': _(item),
-            #    }
-            #
-            #    if not item in self.auth_data['requiredInputs']:
-            #        field_kwargs['required'] = False
-            #
-            #    if self.auth_data['typeMapping'][item] == 'Password':
-            #        field_kwargs['widget'] = forms.PasswordInput
-            #
-            #    self.fields['input_value_%s' % i] = forms.CharField(**field_kwargs)
-            
+        if self.extra_data['auth_data']['type'] == 'Input':
             # make sure 'requiredInputs' (= list of dicts) is sorted by 'order' dict value(s)
-            self.auth_data['requiredInputs'] = sorted(self.auth_data['requiredInputs'], key=lambda k: k['order'])
+            self.extra_data['auth_data']['requiredInputs'] = sorted(self.extra_data['auth_data']['requiredInputs'], key=lambda k: k['order'])
             
-            for item in self.auth_data['requiredInputs']:
+            for item in self.extra_data['auth_data']['requiredInputs']:
                 self.fields['input_key_%d' % item['order']] = forms.CharField(widget=forms.HiddenInput, initial=item['name'])
                 
                 field_kwargs = {
@@ -127,20 +73,6 @@ class DatasourceAuthForm(forms.Form):
                     self.fields['input_value_%s' % item['order']] = forms.BooleanField(**field_kwargs)
                 else:
                     self.fields['input_value_%s' % item['order']] = forms.CharField(**field_kwargs)
-                
-    def rest_save(self, username, key_ring):
-        rest_datasource_profile = RestDatasourceProfile(username=username)
-        data = {
-            "keyRing": key_ring,
-        }
-        if self.auth_data['type'] == 'Input':
-            for key in self.cleaned_data:
-                if key.startswith('input_key_'):
-                    value = self.cleaned_data[key.replace('input_key_', 'input_value_')]
-                    data[self.cleaned_data[key]] = value
-        elif self.auth_data['type'] == 'OAuth':
-            data.update(self.auth_data['oauth_data'])
-        return rest_datasource_profile.auth_post(profile_id=self.auth_data['profileId'], data=data)
 
 
 class DatasinkSelectForm(forms.Form):
@@ -194,8 +126,8 @@ class DatasinkSelectForm(forms.Form):
             rest_datasink_profile = RestDatasinkProfile(username=username)
             profile_name = _("%(plugin)s - profile") % {'plugin': self.cleaned_data['datasink']}
             data = {
-                "profile_name": profile_name,
-                "key_ring": key_ring,
+                "profileName": profile_name,
+                "keyRing": key_ring,
             }
             return rest_datasink_profile.auth(datasink_id=self.cleaned_data['datasink'], data=data)
         elif self.cleaned_data['datasink_profile']:
@@ -275,7 +207,6 @@ class JobDeleteForm(forms.Form):
     
     def rest_save(self, username):
         rest_jobs = RestJobs(username=username)
-        
         return rest_jobs.delete(job_id=self.cleaned_data['job_id'])
 
 
@@ -336,7 +267,7 @@ class JobCreateForm(forms.Form):
         
         rest_datasource_profile = RestDatasourceProfile(username=self.extra_data['username'])
         result = rest_datasource_profile.options(profile_id=self.extra_data['datasource_profile_id'], 
-            data={'key_ring': self.extra_data['key_ring']})
+            data={'keyRing': self.extra_data['key_ring']})
         
         if result and 'sourceOptions' in result:
             for i, item in enumerate(result['sourceOptions']):
@@ -384,29 +315,18 @@ class JobCreateForm(forms.Form):
         
         rest_jobs = RestJobs(username=self.extra_data['username'])
         data = {
-            "key_ring": self.extra_data['key_ring'],
-            'time_expression': self.cleaned_data['time_expression'],
-            'source_profile_ids': self.extra_data['datasource_profile_id'],
-            'sink_profile_ids': self.extra_data['datasink_profile_id'],
-            'job_title': self.cleaned_data['title'],
+            "keyRing": self.extra_data['key_ring'],
+            'timeExpression': self.cleaned_data['time_expression'],
+            'sourceProfiles': self.extra_data['datasource_profile_id'],
+            'sinkProfileId': self.extra_data['datasink_profile_id'],
+            'jobTitle': self.cleaned_data['title'],
             'actions': actions,
-            'source_options': source_options,
         }
+        for item in source_options:
+            params_key = str(data['sourceProfiles']) + "." + item
+            data[params_key] = "true"
+        
         job_result = rest_jobs.post(data=data)
-        
-        #rest_datasource_profile = RestDatasourceProfile(username=self.extra_data['username'])
-        #data = {
-        #    "keyRing": self.extra_data['key_ring'],
-        #}
-        #
-        #datasource_options_result = rest_datasource_profile.put(profile_id=self.extra_data['datasource_profile_id'], 
-        #    job_id=job_result['job']['jobId'], source_options=source_options)
-        #
-        #for key in self.cleaned_data
-        
-        #
-        # actions!!!
-        #
         
         return job_result
 
@@ -417,7 +337,7 @@ class SearchForm(forms.Form):
     
     def rest_save(self, username, key_ring):
         rest_search = RestSearch(username=username)
-        result = rest_search.post({'query': self.cleaned_data['query'], 'key_ring': key_ring})
+        result = rest_search.post({'query': self.cleaned_data['query'], 'keyRing': key_ring})
         return result
 
 

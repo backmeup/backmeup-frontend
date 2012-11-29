@@ -23,12 +23,11 @@ class RestBase(object):
         except Exception as e:
             return False
         if settings.DEBUG:
-            print "... DELETE ..."
-            print "####### url:", self.base_url + path
-            print "###### data:", data
-            print "########### response"
-            print "#### status:", response.status_code
-            print "###### json:", json.dumps(response.json, indent=2)
+            print "...  ..."
+            print "### [DELETE]", self.base_url + path
+            print "request params:", json.dumps(data, indent=2)
+            print "### response.status:", response.status_code
+            print "### response.json:", json.dumps(response.json, indent=2)
             print "............................."
         return response
 
@@ -38,17 +37,14 @@ class RestBase(object):
         except Exception as e:
             return False
         if settings.DEBUG:
-            print "... GET ..."
-            print "####### url:", self.base_url + path
-            print "###### data:", data
-            print "########### response"
-            print "#### status:", response.status_code
-            print "###### json:", json.dumps(response.json, indent=2)
+            print "### [GET]", self.base_url + path
+            print "request params:", json.dumps(data, indent=2)
+            print "### response.status:", response.status_code
+            print "### response.json:", json.dumps(response.json, indent=2)
             print "............................."
         if response.status_code == 204:
             return True
-        else:
-            return response.json
+        return response.json
 
     def _post(self, path="", data=None):
         try:
@@ -56,17 +52,13 @@ class RestBase(object):
         except Exception as e:
             return False
         if settings.DEBUG:
-            print "... POST ..."
-            print "####### url:", self.base_url + path
-            print "###### data:", data
-            print "########### response"
-            print "#### status:", response.status_code
-            print "###### json:", json.dumps(response.json, indent=2)
+            print "### [POST]", self.base_url + path
+            print "request params:", json.dumps(data, indent=2)
+            print "### response.status:", response.status_code
+            print "### response.json:", json.dumps(response.json, indent=2)
             print "............................."
         if response.status_code == 204:
             return True
-        elif response.status_code == 400 or response.status_code == 404 or response.status_code == 401:
-            return False
         return response.json
 
     def _put(self, path="", data=None):
@@ -75,12 +67,10 @@ class RestBase(object):
         except Exception as e:
             return False
         if settings.DEBUG:
-            print "... PUT ..."
-            print "####### url:", self.base_url + path
-            print "###### data:", data
-            print "########### response"
-            print "#### status:", response.status_code
-            print "###### json:", json.dumps(response.json, indent=2)
+            print "### [PUT]", self.base_url + path
+            print "request params:", json.dumps(data, indent=2)
+            print "### response.status:", response.status_code
+            print "### response.json:", json.dumps(response.json, indent=2)
             print "............................."
         if response.status_code == 204:
             return True
@@ -115,55 +105,38 @@ class RestUser(RestBase):
     def post(self, data):
         '''
         create/register/signup user
+        
+        data
+         * password
+         * keyRing
+         * email
+        
         '''
-        if not data:
-            raise ValueError('argument "data" is missing.')
-        # validate?
-        req_params = {
-            'password': data['password'],
-            'keyRing': data['keyRing'],
-            'email': data['email'],
-        }
-        return self._post('register', req_params)
+        return self._post('register', data)
 
     def put(self, data):
         '''
         change user data
+        
+        data
+         * password
+         * keyRing
+         * email
+         * username
+        
         '''
-        if not data:
-            raise ValueError('argument "data" is missing.')
-        # validate?
+        return self._put(data=data)
 
-        req_params = {}
-        if not 'old_password' in data:
-            raise ValueError('argument "data[\'old_password\']" is missing.')
-        req_params['oldPassword'] = data['old_password']
-
-        if 'password' in data:
-            req_params['password'] = data['password']
-        if 'keyRing' in data:
-            req_params['keyRing'] = data['keyRing']
-        if 'email' in data:
-            req_params['email'] = data['email']
-        if 'username' in data:
-            req_params['username'] = data['username']
-
-        return self._put(data=req_params)
-
-    def check_login(self, password):
+    def check_login(self, data):
         '''
         checks if user-password combination is valid to login.
 
         the actual login and session handling is done by the backmeup-frontend.
+        
+        data
+         * password
         '''
-        if not password:
-            raise ValueError('argument "password" is missing.')
-
-        req_params = {
-            'password': password,
-        }
-
-        return self._post(path='login/', data=req_params)
+        return self._post(path='login/', data=data)
 
 
 class RestEmailVerification(RestBase):
@@ -203,10 +176,7 @@ class RestDatasource(RestBase):
 class RestDatasourceProfile(RestBase):
 
     def __init__(self, username, path="datasources/"):
-        if not username:
-            raise ValueError('argument "username" is missing.')
         self.username = username
-
         super(RestDatasourceProfile, self).__init__()
         self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
     
@@ -225,47 +195,34 @@ class RestDatasourceProfile(RestBase):
             return result
 
     def delete(self, profile_id):
-        if not profile_id:
-            raise ValueError('argument "profile_id" is missing.')
         return self._delete(path="profiles/" + profile_id)
 
     def options(self, profile_id, data):
-        if not profile_id:
-            raise ValueError('argument "profile_id" is missing.')
-        if not "key_ring" in data:
-            raise ValueError('key "key_ring is missing in argument "data".')
-        
-        params = {
-            "keyRing": data['key_ring'],
-        }
+        u'''
+        path
+         * profile_id
+        data
+         * keyRing
+        '''
         profile_id = str(profile_id)
-        return self._post(path="profiles/" + profile_id + "/options", data=params)
+        return self._post(path="profiles/" + profile_id + "/options", data=data)
 
     def put(self, profile_id, job_id, source_options):
-        #if not profile_id:
-        #    raise ValueError('argument "profile_id" is missing.')
-        #if not source_options:
-        #    raise ValueError('argument "source_options" is missing.')
-
-        data = {
-            "sourceOptions": source_options,
-        }
+        '''
+        data
+         * sourceOptions
+        '''
         return self._put(path="profiles/" + profile_id + "/" + str(job_id), data=data)
 
     def auth(self, datasource_id, data):
-        if not "profile_name" in data:
-            raise ValueError('key "profile_name is missing in argument "data".')
-        if not "key_ring" in data:
-            raise ValueError('key "key_ring is missing in argument "data".')
-        params = {
-            "profileName": data["profile_name"],
-            "keyRing": data["key_ring"],
-        }
-        return self._post(path="%s/auth" % datasource_id, data=params)
+        '''
+        data
+         * profileName
+         * keyRing
+        '''
+        return self._post(path="%s/auth" % datasource_id, data=data)
 
     def auth_post(self, profile_id, data):
-        #if not "key_ring" in data:
-        #    raise ValueError('key "key_ring" is missing in argument "data".')
         return self._post(path="%s/auth/post" % profile_id, data=data)
 
 
@@ -293,10 +250,7 @@ class RestDatasink(RestBase):
 class RestDatasinkProfile(RestBase):
 
     def __init__(self, username, path="datasinks/"):
-        if not username:
-            raise ValueError('argument "username" is missing.')
         self.username = username
-
         super(RestDatasinkProfile, self).__init__()
         self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
     
@@ -318,19 +272,14 @@ class RestDatasinkProfile(RestBase):
         return self._delete(path="profiles/" + profile_id)
 
     def auth(self, datasink_id, data):
-        if not "profile_name" in data:
-            raise ValueError('key "profile_name" is missing in argument "data".')
-        if not "key_ring" in data:
-            raise ValueError('key "key_ring" is missing in argument "data".')
-        params = {
-            "profileName": data["profile_name"],
-            "keyRing": data["key_ring"],
-        }
-        return self._post(path="%s/auth" % datasink_id, data=params)
+        u'''
+        data
+         * profileName
+         * keyRing
+        '''
+        return self._post(path="%s/auth" % datasink_id, data=data)
 
     def auth_post(self, profile_id, data):
-        #if not "key_ring" in data:
-        #    raise ValueError('key "key_ring is missing in argument "data".')
         return self._post(path="%s/auth/post" % profile_id, data=data)
 
 
@@ -357,17 +306,12 @@ class RestAction(RestBase):
             return result
     
     def post(self, data):
-        if not "name" in data:
-            raise ValueError('key "name" is missing in argument "data".')
-        if not "filename" in data:
-            raise ValueError('key "filename" is missing in argument "data".')
-
-        params = {
-            'name': data['name'],
-            'filename': data['filename'],
-        }
-
-        return self._post(data=params)
+        '''
+        data
+         * name
+         * filename
+        '''
+        return self._post(data=data)
 
     def delete(self, action_id):
         return self._delete(path=action_id + "/")
@@ -376,88 +320,33 @@ class RestAction(RestBase):
 class RestJobs(RestBase):
 
     def __init__(self, username, path="jobs/"):
-        if not username:
-            raise ValueError('argument "username" is missing.')
         self.username = username
-
         super(RestJobs, self).__init__()
         self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
 
     def post(self, data):
         """
-        sourceProfileIds - Die zu sichernden Quellen
-
-        requiredActionIds - Die durchzuführenden Aktionen
-
-        sinkProfileId - Die einzusetzende Senke
-
-        timeExpression - Der Zeitpunkt, zu dem der Job durchgeführt werden soll (realtime, weekly, monthly)
-
-        keyRing - Das Schlüsselbundpasswort des Benutzers
+        data
+         * sourceProfiles
+         * actions
+         * sinkProfileId
+         * timeExpression
+         * keyRing
+         * jobTitle
         """
-        if not "source_profile_ids" in data:
-            raise ValueError('key "source_profile_id" is missing in argument "data".')
-        #if not "required_action_ids" in data:
-        #    raise ValueError('key "required_action_ids" is missing in argument "data".')
-        if not "sink_profile_ids" in data:
-            raise ValueError('key "sink_profile_id" is missing in argument "data".')
-        if not "time_expression" in data:
-            raise ValueError('key "time_expression" is missing in argument "data".')
-        if not "key_ring" in data:
-            raise ValueError('key "key_ring" is missing in argument "data".')
-
-        params = {
-            'sourceProfiles': data['source_profile_ids'],
-            'actions': data['actions'],
-            'sinkProfileId': data['sink_profile_ids'],
-            'timeExpression': data['time_expression'],
-            'keyRing': data['key_ring'],
-            'jobTitle': data['job_title'],
-        }
-        
-        for item in data['source_options']:
-            params_key = str(params['sourceProfiles']) + "." + item
-            params[params_key] = "true"
-        
-        return self._post(data=params)
+        return self._post(data=data)
     
     def put(self, job_id, data):
         """
-        sourceProfileIds - Die zu sichernden Quellen
-
-        requiredActionIds - Die durchzuführenden Aktionen
-
-        sinkProfileId - Die einzusetzende Senke
-
-        timeExpression - Der Zeitpunkt, zu dem der Job durchgeführt werden soll (realtime, weekly, monthly)
-
-        keyRing - Das Schlüsselbundpasswort des Benutzers
+        data:
+         * sourceProfiles
+         * actions
+         * sinkProfileId
+         * timeExpression
+         * keyRing
+         * jobTitle
         """
-        if not "source_profile_ids" in data:
-            raise ValueError('key "source_profile_id" is missing in argument "data".')
-        #if not "required_action_ids" in data:
-        #    raise ValueError('key "required_action_ids" is missing in argument "data".')
-        if not "sink_profile_ids" in data:
-            raise ValueError('key "sink_profile_id" is missing in argument "data".')
-        if not "time_expression" in data:
-            raise ValueError('key "time_expression" is missing in argument "data".')
-        if not "key_ring" in data:
-            raise ValueError('key "key_ring" is missing in argument "data".')
-
-        params = {
-            'sourceProfiles': data['source_profile_ids'],
-            'actions': data['actions'],
-            'sinkProfileId': data['sink_profile_ids'],
-            'timeExpression': data['time_expression'],
-            'keyRing': data['key_ring'],
-            'jobTitle': data['job_title'],
-        }
-        
-        for item in data['source_options']:
-            params_key = str(params['sourceProfiles']) + "." + item
-            params[params_key] = "true"
-        
-        return self._put(path=job_id + "/", data=params)
+        return self._put(path=job_id + "/", data=data)
     
     def delete(self, job_id):
         return self._delete(path=job_id)
@@ -476,9 +365,6 @@ class RestJobs(RestBase):
     def get_job_status(self, job_id):
         return self._get(path=job_id + "/status/")
 
-    #def get_file_status(self, file_id):
-    #    return self._get(path=file_id + "/details/")
-
     def get_user_profile_status(self):
         return self._get(path="/status/overview/")
 
@@ -489,10 +375,7 @@ class RestJobs(RestBase):
 class RestMetadata(RestBase):
 
     def __init__(self, username, path="meta/"):
-        if not username:
-            raise ValueError('argument "username" is missing.')
         self.username = username
-
         super(RestMetadata, self).__init__()
         self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
 
@@ -508,30 +391,26 @@ class RestSearch(RestBase):
         self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
     
     def get(self, search_id, data=None):
-        params = {}
-        if data:
-            if "type" in data:
-                params['type'] = data['type']
-            if "source" in data:
-                params['source'] = data['source']
-        
-        return self._get(path="%d/query/" % int(search_id), data=params)
+        u'''
+        data
+         * type
+         * source
+        '''
+        return self._get(path="%d/query/" % int(search_id), data=data)
         
     def post(self, data):
-        params = {
-            'keyRing': data['key_ring'],
-            'query': data['query']
-        }
-        return self._post(path="search/", data=params)
+        u'''
+        data
+         * keyRing
+         * query
+        '''
+        return self._post(path="search/", data=data)
 
 
 class RestFile(RestBase):
     
     def __init__(self, username, path="jobs/"):
-        if not username:
-            raise ValueError('argument "username" is missing.')
         self.username = username
-        
         super(RestFile, self).__init__()
         self.base_url = "%s%s%s/" % (self.base_url, path, self.username)
     

@@ -1,0 +1,328 @@
+
+### [GET] http://bmu-dev01.x:8080/jobs/t1000@fetzig.at/4/
+request params: null
+### response.status: 200
+### response.json: {
+  "jobTitle": "jo! 2", 
+  "timeExpression": "weekly", 
+  "actions": [], 
+  "jobId": 4, 
+  "sourceProfiles": [
+    {
+      "id": 10, 
+      "options": {
+        "RetweetsByMe": "true", 
+        "Favourites": "true", 
+        "RetweetsOfMe": "true", 
+        "Lists": "true"
+      }
+    }
+  ], 
+  "sinkProfileId": 11
+}
+
+
+### [POST] http://bmu-dev01.x:8080/datasources/t1000@fetzig.at/profiles/10/options
+request params: {
+  "keyRing": "123456789"
+}
+### response.status: 200
+### response.json: {
+  "sourceOptions": [
+    "RetweetsToMe", 
+    "RetweetsByMe", 
+    "RetweetsOfMe", 
+    "Favourites", 
+    "Lists"
+  ]
+}
+
+
+### [GET] http://bmu-dev01.x:8080/actions/
+request params: null
+### response.status: 200
+### response.json: {
+  "actions": [
+    {
+      "actionId": "org.backmeup.indexer", 
+      "description": "The indexer plugin ", 
+      "title": "Indexer "
+    }, 
+    {
+      "actionId": "org.backmeup.filesplitting", 
+      "description": "The file splitter plugin which splits files that exceed a certain file size ", 
+      "title": "File Splitter "
+    }, 
+    {
+      "actionId": "org.backmeup.encryption", 
+      "description": "This plugin encrypts all files by using TrueCrypt", 
+      "title": "Encryption Plugin"
+    }
+  ]
+}
+
+
+### [GET] http://bmu-dev01.x:8080/actions/org.backmeup.indexer/options/
+request params: null
+### response.status: 200
+### response.json: {
+  "actionOptions": []
+}
+
+
+### [GET] http://bmu-dev01.x:8080/actions/org.backmeup.filesplitting/options/
+request params: null
+### response.status: 200
+### response.json: {
+  "actionOptions": [
+    "Test Option 1", 
+    "Test Option 2"
+  ]
+}
+
+
+### [GET] http://bmu-dev01.x:8080/actions/org.backmeup.encryption/options/
+request params: null
+### response.status: 200
+### response.json: {
+  "actionOptions": [
+    "org.backmeup.encryption.password"
+  ]
+}
+
+
+### [POST] http://bmu-dev01.x:8080/jobs/t1000@fetzig.at/
+request params: {
+  "10.RetweetsByMe": "true", 
+  "10.RetweetsOfMe": "true", 
+  "jobTitle": "asdfjklasdf", 
+  "10.Favourites": "true", 
+  "timeExpression": "weekly", 
+  "keyRing": "123456789", 
+  "actions": [
+    "org.backmeup.indexer"
+  ], 
+  "sourceProfiles": 10, 
+  "sinkProfileId": "17", 
+  "10.Lists": "true", 
+  "10.RetweetsToMe": "true"
+}
+### response.status: 200
+### response.json: {
+  "job": {
+    "jobId": 6
+  }, 
+  "hasErrors": false, 
+  "warnings": [
+    {
+      "message": "Plugin doesn't provide a validator", 
+      "type": "NoValidatorAvailable", 
+      "pluginId": "org.backmeup.zip"
+    }
+  ]
+}
+
+
+### [PUT] http://bmu-dev01.x:8080/jobs/t1000@fetzig.at/4/
+request params: {
+  "10.RetweetsByMe": "true", 
+  "10.RetweetsOfMe": "true", 
+  "jobTitle": "jo! 2", 
+  "10.Favourites": "true", 
+  "timeExpression": "weekly", 
+  "keyRing": "123456789", 
+  "actions": [], 
+  "sourceProfiles": 10, 
+  "10.Lists": "true"
+}
+### response.status: 400
+### response.json: {
+  "errorType": "java.lang.NullPointerException"
+}
+
+
+### [PUT] http://bmu-dev01.x:8080/jobs/t1000@fetzig.at/4/
+request params: {
+  "jobTitle": "jo! 2", 
+  "timeExpression": "weekly", 
+  "keyRing": "123456789", 
+  "sinkProfileId": 11, 
+  "actions": []
+}
+### response.status: 400
+### response.json: {
+  "errorType": "java.lang.IllegalArgumentException", 
+  "errorMessage": "There must be at least one source profile to download data from!"
+}
+
+
+### [GET] http://bmu-dev01.x:8080/datasources/t1000@fetzig.at/profiles/
+request params: null
+### response.status: 200
+### response.json: {
+  "sourceProfiles": [
+    {
+      "modifyDate": 1354027858538, 
+      "title": "org.backmeup.twitter - Profil", 
+      "createDate": 1354027858538, 
+      "pluginName": "org.backmeup.twitter", 
+      "identification": "elGreko", 
+      "datasourceProfileId": 10
+    }
+  ], 
+  "user": {
+    "username": "t1000@fetzig.at", 
+    "userId": 13, 
+    "email": "t1000@fetzig.at"
+  }
+}
+
+
+### [GET] http://bmu-dev01.x:8080/datasinks/t1000@fetzig.at/profiles/
+request params: null
+### response.status: 200
+### response.json: {
+  "sinkProfiles": [
+    {
+      "pluginName": "org.backmeup.zip", 
+      "createDate": 1354027864853, 
+      "modifyDate": 1354027864853, 
+      "datasinkProfileId": 11, 
+      "title": "org.backmeup.zip - Profil"
+    }, 
+    {
+      "pluginName": "org.backmeup.zip", 
+      "createDate": 1354118833191, 
+      "modifyDate": 1354118833191, 
+      "datasinkProfileId": 13, 
+      "title": "org.backmeup.zip - Profil"
+    }, 
+    {
+      "pluginName": "org.backmeup.zip", 
+      "createDate": 1354122283101, 
+      "modifyDate": 1354122283101, 
+      "datasinkProfileId": 14, 
+      "title": "org.backmeup.zip - Profil"
+    }
+  ], 
+  "user": {
+    "username": "t1000@fetzig.at", 
+    "userId": 13, 
+    "email": "t1000@fetzig.at"
+  }
+}
+
+
+### [GET] http://bmu-dev01.x:8080/jobs/t1000@fetzig.at/
+request params: null
+### response.status: 200
+### response.json: {
+  "lastBackup": 1354122305287, 
+  "backupJobs": [
+    {
+      "status": "successful", 
+      "lastBackup": 1354027874408, 
+      "modifyDate": 1354122661334, 
+      "datasources": [
+        {
+          "datasourceId": 10, 
+          "identification": "elGreko"
+        }
+      ], 
+      "startDate": 1354027873271, 
+      "jobTitle": "jo! 2", 
+      "createDate": 1354027873275, 
+      "timeExpression": "weekly", 
+      "lastSuccessful": 1354027874408, 
+      "delay": 604800000, 
+      "datasink": {
+        "datasinkId": 11
+      }, 
+      "backupJobId": 4
+    }, 
+    {
+      "status": "successful", 
+      "lastBackup": 1354122306456, 
+      "modifyDate": 1354122306451, 
+      "datasources": [
+        {
+          "datasourceId": 10, 
+          "identification": "elGreko"
+        }
+      ], 
+      "startDate": 1354122305287, 
+      "jobTitle": "asdf", 
+      "createDate": 1354122305289, 
+      "timeExpression": "monthly", 
+      "lastSuccessful": 1354122306456, 
+      "delay": 2629743832, 
+      "datasink": {
+        "datasinkId": 14
+      }, 
+      "backupJobId": 5
+    }
+  ], 
+  "user": {
+    "username": "t1000@fetzig.at", 
+    "userId": 13, 
+    "email": "t1000@fetzig.at"
+  }
+}
+
+
+### [GET] http://bmu-dev01.x:8080/datasources/t1000@fetzig.at/profiles/
+request params: null
+### response.status: 200
+### response.json: {
+  "sourceProfiles": [
+    {
+      "modifyDate": 1354027858538, 
+      "title": "org.backmeup.twitter - Profil", 
+      "createDate": 1354027858538, 
+      "pluginName": "org.backmeup.twitter", 
+      "identification": "elGreko", 
+      "datasourceProfileId": 10
+    }
+  ], 
+  "user": {
+    "username": "t1000@fetzig.at", 
+    "userId": 13, 
+    "email": "t1000@fetzig.at"
+  }
+}
+
+
+### [GET] http://bmu-dev01.x:8080/datasinks/t1000@fetzig.at/profiles/
+request params: null
+### response.status: 200
+### response.json: {
+  "sinkProfiles": [
+    {
+      "pluginName": "org.backmeup.zip", 
+      "createDate": 1354027864853, 
+      "modifyDate": 1354027864853, 
+      "datasinkProfileId": 11, 
+      "title": "org.backmeup.zip - Profil"
+    }, 
+    {
+      "pluginName": "org.backmeup.zip", 
+      "createDate": 1354118833191, 
+      "modifyDate": 1354118833191, 
+      "datasinkProfileId": 13, 
+      "title": "org.backmeup.zip - Profil"
+    }, 
+    {
+      "pluginName": "org.backmeup.zip", 
+      "createDate": 1354122283101, 
+      "modifyDate": 1354122283101, 
+      "datasinkProfileId": 14, 
+      "title": "org.backmeup.zip - Profil"
+    }
+  ], 
+  "user": {
+    "username": "t1000@fetzig.at", 
+    "userId": 13, 
+    "email": "t1000@fetzig.at"
+  }
+}
+
