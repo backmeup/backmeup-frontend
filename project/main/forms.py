@@ -16,40 +16,18 @@ BACKUP_JOB_TIME_EXPRESSION = (
 
 
 class DatasourceSelectForm(forms.Form):
-
-    #datasource = forms.ChoiceField(label=_("Datasource"), widget=forms.RadioSelect)
-    #profile_name = forms.CharField(label=_("Backup Name"))
-    #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
-
+    
     def __init__(self, *args, **kwargs):
-        self.username = kwargs.pop('username')
+        self.extra_data = kwargs.pop('extra_data')
         super(DatasourceSelectForm, self).__init__(*args, **kwargs)
 
-        rest_datasource = RestDatasource()
-        datasources = rest_datasource.get_all()
+        self.fields['datasource'] = forms.ChoiceField(label=_("Datasource"), widget=forms.RadioSelect, 
+            choices=self.extra_data['datasource_choices'], required=False)
 
-        choices = []
-
-        for item in datasources:
-            choices.append((item['datasourceId'], _(item['title'])))
-        
-        self.fields['datasource'] = forms.ChoiceField(label=_("Datasource"), widget=forms.RadioSelect, choices=choices, required=False)
-        
-        rest_datasource_profile = RestDatasourceProfile(username=self.username)
-        datasource_profiles = rest_datasource_profile.get_all()
-        
-        if len(datasource_profiles):
-            profile_choices = [("", "---")]
-            
-            for item in datasource_profiles:
-                # no need to show profiles without 'identification'
-                # * it's not a completely authenticated profile
-                # * it's a profile whitch doesn't require authentication
-                if 'identification' in item:
-                    title = _(item['pluginName'] + " - %(account)s") % {'account': item['identification']}
-                    profile_choices.append( (item['datasourceProfileId'], title) )
-            
-            self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), choices=profile_choices, help_text=_("Choose an existing data-source profile or select a new data-source below"), required=False)
+        if len(self.extra_data['datasource_profile_choices']):
+            self.fields['datasource_profile'] = forms.ChoiceField(label=_("Datasource Profile"), required=False,
+                choices=self.extra_data['datasource_profile_choices'], 
+                help_text=_("Choose an existing data-source profile or select a new data-source below"))
     
     def clean(self):
         cleaned_data = super(DatasourceSelectForm, self).clean()
@@ -60,20 +38,6 @@ class DatasourceSelectForm(forms.Form):
             return cleaned_data
         else:
             raise forms.ValidationError("Please select a existing datasource profile, or create a new one by selecting a datasource.")
-        
-    def rest_save(self, username, key_ring):
-        if self.cleaned_data['datasource']:
-            rest_datasource_profile = RestDatasourceProfile(username=username)
-            profile_name = _("%(plugin)s - profile") % {'plugin': self.cleaned_data['datasource']}
-            data = {
-                "profileName": profile_name,
-                "keyRing": key_ring,
-            }
-            return rest_datasource_profile.auth(datasource_id=self.cleaned_data['datasource'], data=data)
-        elif self.cleaned_data['datasource_profile']:
-            return int(self.cleaned_data['datasource_profile'])
-        else:
-            return False
 
 
 class DatasourceAuthForm(forms.Form):

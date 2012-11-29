@@ -18,7 +18,7 @@ from django.template import RequestContext
 from django.utils.translation import ugettext_lazy as _
 
 
-from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile, RestSearch, RestFile, RestUser, RestAction
+from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile, RestSearch, RestFile, RestUser, RestAction, RestDatasource
 from main.forms import DatasourceSelectForm, DatasourceAuthForm
 from main.forms import DatasinkSelectForm, DatasinkAuthForm
 from main.forms import JobCreateForm, JobDeleteForm, JobEditForm
@@ -158,24 +158,61 @@ def datasource_select(request):
         del request.session['datasink_profile_id']
     except Exception:
         pass
-    form = DatasourceSelectForm(request.POST or None, username=request.user.username)
+    
+    rest_datasource = RestDatasource()
+    datasources = rest_datasource.get_all()
+    datasource_choices = []
+    for item in datasources:
+        datasource_choices.append((item['datasourceId'], _(item['title'])))
+    
+    rest_datasource_profile = RestDatasourceProfile(username=request.user.username)
+    datasource_profiles = rest_datasource_profile.get_all()
+    datasource_profile_choices = []
+    if len(datasource_profiles):
+        for item in datasource_profiles:
+            # no need to show profiles without 'identification'
+            # * it's not a completely authenticated profile
+            # * it's a profile whitch doesn't require authentication
+            if 'identification' in item:
+                title = _(item['pluginName'] + " - %(account)s") % {'account': item['identification']}
+                datasource_profile_choices.append( (item['datasourceProfileId'], title) )
+    if len(datasource_profile_choices):
+        datasource_profile_choices = [("", "---")] + datasource_profile_choices
+    
+    extra_data = {
+        'datasource_choices': datasource_choices,
+        'datasource_profile_choices': datasource_profile_choices,
+    }
+    
+    form = DatasourceSelectForm(request.POST or None, extra_data=extra_data)
+    
     if form.is_valid():
-        #request.session['key_ring'] = form.cleaned_data['key_ring']
-        auth_data = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
-        if isinstance(auth_data, int):
-            request.session['datasource_profile_id'] = auth_data
+        if form.cleaned_data['datasource']:
+            rest_datasource_profile = RestDatasourceProfile(username=request.user.username)
+            profile_name = _("%(plugin)s - profile") % {'plugin': form.cleaned_data['datasource']}
+            data = {
+                "profileName": profile_name,
+                "keyRing": request.session['key_ring'],
+            }
+            result = rest_datasource_profile.auth(datasource_id=self.cleaned_data['datasource'], data=data)
+            
+            if hasError(result):
+                messages.add_message(request, messages.ERROR, getErrorMsg(result))
+            else:
+                request.session['auth_data'] = result
+                if result['type'] == 'OAuth':
+                    request.session['next_step'] = 'datasource-auth'
+                    return redirect(result['redirectURL'])
+                return redirect('datasource-auth')
+
+        elif form.cleaned_data['datasource_profile']:
+            request.session['datasource_profile_id'] = form.cleaned_data['datasource_profile']
             try:
                 del request.session['auth_data']
             except Exception:
                 pass
             return redirect('datasink-select')
-        else:
-            request.session['auth_data'] = auth_data
-            if auth_data['type'] == 'OAuth':
-                request.session['next_step'] = 'datasource-auth'
-                return redirect(auth_data['redirectURL'])
-            return redirect('datasource-auth')
-
+        
     context = additional_context(request)
     context['form'] = form
 
