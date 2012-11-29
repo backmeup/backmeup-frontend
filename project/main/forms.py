@@ -66,8 +66,8 @@ class DatasourceSelectForm(forms.Form):
             rest_datasource_profile = RestDatasourceProfile(username=username)
             profile_name = _("%(plugin)s - profile") % {'plugin': self.cleaned_data['datasource']}
             data = {
-                "profile_name": profile_name,
-                "key_ring": key_ring,
+                "profileName": profile_name,
+                "keyRing": key_ring,
             }
             return rest_datasource_profile.auth(datasource_id=self.cleaned_data['datasource'], data=data)
         elif self.cleaned_data['datasource_profile']:
@@ -194,8 +194,8 @@ class DatasinkSelectForm(forms.Form):
             rest_datasink_profile = RestDatasinkProfile(username=username)
             profile_name = _("%(plugin)s - profile") % {'plugin': self.cleaned_data['datasink']}
             data = {
-                "profile_name": profile_name,
-                "key_ring": key_ring,
+                "profileName": profile_name,
+                "keyRing": key_ring,
             }
             return rest_datasink_profile.auth(datasink_id=self.cleaned_data['datasink'], data=data)
         elif self.cleaned_data['datasink_profile']:
@@ -275,7 +275,6 @@ class JobDeleteForm(forms.Form):
     
     def rest_save(self, username):
         rest_jobs = RestJobs(username=username)
-        
         return rest_jobs.delete(job_id=self.cleaned_data['job_id'])
 
 
@@ -336,7 +335,7 @@ class JobCreateForm(forms.Form):
         
         rest_datasource_profile = RestDatasourceProfile(username=self.extra_data['username'])
         result = rest_datasource_profile.options(profile_id=self.extra_data['datasource_profile_id'], 
-            data={'key_ring': self.extra_data['key_ring']})
+            data={'keyRing': self.extra_data['key_ring']})
         
         if result and 'sourceOptions' in result:
             for i, item in enumerate(result['sourceOptions']):
@@ -384,29 +383,18 @@ class JobCreateForm(forms.Form):
         
         rest_jobs = RestJobs(username=self.extra_data['username'])
         data = {
-            "key_ring": self.extra_data['key_ring'],
-            'time_expression': self.cleaned_data['time_expression'],
-            'source_profile_ids': self.extra_data['datasource_profile_id'],
-            'sink_profile_ids': self.extra_data['datasink_profile_id'],
-            'job_title': self.cleaned_data['title'],
+            "keyRing": self.extra_data['key_ring'],
+            'timeExpression': self.cleaned_data['time_expression'],
+            'sourceProfiles': self.extra_data['datasource_profile_id'],
+            'sinkProfileId': self.extra_data['datasink_profile_id'],
+            'jobTitle': self.cleaned_data['title'],
             'actions': actions,
-            'source_options': source_options,
         }
+        for item in source_options:
+            params_key = str(data['sourceProfiles']) + "." + item
+            data[params_key] = "true"
+        
         job_result = rest_jobs.post(data=data)
-        
-        #rest_datasource_profile = RestDatasourceProfile(username=self.extra_data['username'])
-        #data = {
-        #    "keyRing": self.extra_data['key_ring'],
-        #}
-        #
-        #datasource_options_result = rest_datasource_profile.put(profile_id=self.extra_data['datasource_profile_id'], 
-        #    job_id=job_result['job']['jobId'], source_options=source_options)
-        #
-        #for key in self.cleaned_data
-        
-        #
-        # actions!!!
-        #
         
         return job_result
 
@@ -417,7 +405,7 @@ class SearchForm(forms.Form):
     
     def rest_save(self, username, key_ring):
         rest_search = RestSearch(username=username)
-        result = rest_search.post({'query': self.cleaned_data['query'], 'key_ring': key_ring})
+        result = rest_search.post({'query': self.cleaned_data['query'], 'keyRing': key_ring})
         return result
 
 

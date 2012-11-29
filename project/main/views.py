@@ -25,6 +25,19 @@ from main.forms import JobCreateForm, JobDeleteForm, JobEditForm
 from main.forms import SearchForm, SearchFilterForm
 
 
+def hasError(json_response):
+    if 'errorType' in json_response:
+        return True
+    elif json_response.get('hasErrors', False):
+        return True
+    else:
+        return False
+
+
+def getErrorMsg(json_response):
+    return _(json_response.get('errorMessage', json_response.get('errorType', 'Some error occurred.')))
+
+
 def get_sink_title(sinks, sink_id):
     sink_id = int(sink_id)
     for sink in sinks:
@@ -320,7 +333,7 @@ def job_edit(request, job_id):
     
     rest_datasource_profile = RestDatasourceProfile(username=request.user.username)
     datasource_profile_options = rest_datasource_profile.options(profile_id=datasource_profile_id, 
-        data={'key_ring': request.session['key_ring']})['sourceOptions']
+        data={'keyRing': request.session['key_ring']})['sourceOptions']
     
     rest_actions = RestAction()
     actions = rest_actions.get_all()
@@ -356,17 +369,21 @@ def job_edit(request, job_id):
 
         rest_jobs = RestJobs(username=request.user.username)
         data = {
-            "key_ring": request.session['key_ring'],
-            'time_expression': form.cleaned_data['time_expression'],
-            'source_profile_ids': datasource_profile_id,
-            'sink_profile_ids': datasink_profile_id,
-            'job_title': form.cleaned_data['title'],
+            "keyRing": request.session['key_ring'],
+            'timeExpression': form.cleaned_data['time_expression'],
+            'sourceProfiles': datasource_profile_id,
+            'sinkProfileId': datasink_profile_id,
+            'jobTitle': form.cleaned_data['title'],
             'actions': new_actions,
-            'source_options': new_source_options,
         }
+        for item in new_source_options:
+            params_key = str(data['sourceProfiles']) + "." + item
+            data[params_key] = "true"
         job_result = rest_jobs.put(job_id=job_id ,data=data)
-        #messages.add_message(request, messages.ERROR, 'Some error occured.')
-        return redirect('index')
+        if hasError(job_result):
+            messages.add_message(request, messages.ERROR, getErrorMsg(job_result))
+        else:
+            return redirect('index')
     
     return render_to_response("www/job_edit.html", {
         'form': form,
@@ -424,7 +441,6 @@ def search(request):
 
 @login_required
 def search_result(request, search_id):
-
     rest_search = RestSearch(username=request.user.username)
     result = rest_search.get(search_id)
 
