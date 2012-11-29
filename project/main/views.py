@@ -194,7 +194,7 @@ def datasource_select(request):
                 "profileName": profile_name,
                 "keyRing": request.session['key_ring'],
             }
-            result = rest_datasource_profile.auth(datasource_id=self.cleaned_data['datasource'], data=data)
+            result = rest_datasource_profile.auth(datasource_id=form.cleaned_data['datasource'], data=data)
             
             if hasError(result):
                 messages.add_message(request, messages.ERROR, getErrorMsg(result))
