@@ -27,3 +27,14 @@
     {% include "www/includes/homepage.html" %}
   {% endif %}
 {% endblock content %}
+
+{% block footer_teaser %}
+  {% if not user.is_authenticated %}
+    <div class="footer-teaser">
+      <a href="/get-started/">
+        <strong>{% trans "Get started" %}: </strong>
+        {% trans "Get started teaser-text" %}
+      </a>
+    </div>
+  {% endif %}
+{% endblock %}

@@ -96,7 +96,10 @@ p, ul, ol {
   > li{
     @include horizontal-list-item;
   }
-
+}
+// meta-nav
+#meta-nav ul {
+  @extend .clearfix;
 }
 
 // breadcrumbs

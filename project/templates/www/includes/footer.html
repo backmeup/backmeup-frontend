@@ -1,29 +1,19 @@
 {% load i18n flatpages %}
-
-<footer id="footer">
-  <div class="container">
-    <div class="footer-teaser">
-      <a href="/get-started/">
-        <strong>{% trans "Get started" %}: </strong>
-        {% trans "Get started teaser-text" %}
-      </a>
-    </div>
-    <nav id="meta-nav" class="nav">
-      {# {% get_flatpages as flatpages %} #}
-      {# <ul> #}
-      {#   {% for page in flatpages %} #}
-      {#       <li><a href="{{ page.url }}">{{ page.title }}</a></li> #}
-      {#   {% endfor %} #}
-      {# </ul> #}
-      <ul>
-        <li><a href="/about/">{% trans "About" %}</a></li>
-        <li><a href="/features/">{% trans "Features" %}</a></li>
-        <li><a href="/get-started/">{% trans "Get Started" %}</a></li>
-        <li><a href="/get-involved/">{% trans "Get Involved" %}</a></li>
-        <li><a href="/hilfe/">{% trans "Help" %}</a></li>
-        <li><a href="/feedback/">{% trans "Feedback" %}</a></li>
-        <li><a href="/agb/">{% trans "AGBs" %}</a></li>
-      </ul>
-    </nav>
-  </div>
-</footer>
+    
+<nav id="meta-nav" class="nav">
+  {# {% get_flatpages as flatpages %} #}
+  {# <ul> #}
+  {#   {% for page in flatpages %} #}
+  {#       <li><a href="{{ page.url }}">{{ page.title }}</a></li> #}
+  {#   {% endfor %} #}
+  {# </ul> #}
+  <ul>
+    <li><a href="/about/">{% trans "About" %}</a></li>
+    <li><a href="/features/">{% trans "Features" %}</a></li>
+    <li><a href="/get-started/">{% trans "Get Started" %}</a></li>
+    <li><a href="/get-involved/">{% trans "Get Involved" %}</a></li>
+    <li><a href="/hilfe/">{% trans "Help" %}</a></li>
+    <li><a href="/feedback/">{% trans "Feedback" %}</a></li>
+    <li><a href="/agb/">{% trans "AGBs" %}</a></li>
+  </ul>
+</nav>
