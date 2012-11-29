@@ -8,7 +8,7 @@ textarea {
   color: $clr-text;
 }
 body {
-  background: white;
+  background: $bg-clr0;
 }
 h1,h2,h3,h4,h5,h6 {
   color: $clr-headline;
@@ -62,18 +62,22 @@ p, ul, ol {
   color: white;
   text-decoration: none;
   float: left;
-  @include replace-text("BackMeUp_logo.png", 0, .5em);
-  width:158px;
-  height:2em;
+  @include replace-text("logo.png");
+  width: 180px;
+  height: 48px;
+  margin-left: -6px;
 }
 
 // header
 #header {
   background: $bg-clr1;
   @extend .clearfix;
+  border-bottom: 1px solid #a0a0a0;
 }
 #content {
   background: white;
+  border-bottom: 2px solid #888;
+  border-top: 2px solid $bg-clr2;
   @extend .clearfix;
   @include padding-leader(1);
   @include padding-trailer(1);
@@ -88,8 +92,7 @@ p, ul, ol {
   text-align: right;
 }
 .user-nav {
-  @include padding-leader(.5);
-  @include padding-trailer(.5);
+  padding: 1em 0 .5em;
   > li{
     @include horizontal-list-item;
   }
@@ -103,6 +106,14 @@ p, ul, ol {
   @include padding-leader(.5);
   @include padding-trailer(.5);
   background: $bg-clr2;
+}
+#footer {
+  background: $bg-clr0;
+  border-top: 3px solid #a0a0a0;
+  color: #fff;
+  a {
+    color: #fff;
+  }
 }
 .breadcrumbs ul {
   @include horizontal-list;
