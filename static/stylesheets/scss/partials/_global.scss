@@ -20,7 +20,7 @@ h1 {
 h2 {
   @include adjust-font-size-to(24px);
 }
-h3 {
+h3, .h3 {
   @include adjust-font-size-to(18px);
 }
 h4, h5, h6 {
@@ -365,16 +365,18 @@ p, ul, ol {
 .add-backup-list{
   @include margin-leader(1);
   li{
-    h3{
+    h3, .h3{
       border: 1px solid $clr-grey-light;
       border-bottom-width:0;
       border-top-width:0;
       padding: .5em;
       background: $bg-clr2;
     }
-    &:first-child h3{
-      border-radius: $default-border-radius $default-border-radius 0 0;
-      border-top-width:1px;
+    &:first-child {
+      h3, .h3 {
+        border-radius: $default-border-radius $default-border-radius 0 0;
+        border-top-width:1px;
+      }
     }
     &:last-child .add-backup-content{
       border-radius: 0 0 $default-border-radius $default-border-radius;
@@ -386,7 +388,7 @@ p, ul, ol {
     }
   }
   li.active-backup-step{
-    h3{
+    h3, .h3{
       background: $bg-clr1;
       border-color: $bg-clr1;
       color: $clr-text2;
@@ -408,6 +410,10 @@ p, ul, ol {
   }
 }
 // --- Create New Backup END
+
+.edit-backup-page .h3 {
+  text-align: center;
+}
 
 // --- Backup-Job Log
 .backup-summary-list{

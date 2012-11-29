@@ -9,15 +9,13 @@
   <a href="{% url datasource-select %}" class="btn-add">{% trans "Create Backup" %}</a>
 </header>
 
-{% if jobs %}
-  <ul class="backup-list">
-  {% for item in jobs reversed %}
-    {% include "www/includes/backup_jobs/backup_list_item.html" %}
-  {% endfor %}
-  </ul>
-{% else %}
-  <p>{% trans "No backups yet." %}</p>
-{% endif %}
+<ul class="backup-list">
+{% for item in jobs reversed %}
+  {% include "www/includes/backup_jobs/backup_list_item.html" %}
+{% empty %}
+  <li>{% trans "No backups yet." %}</li>
+{% endfor %}
+</ul>
 
 <a href="{% url zip-files %}">{% trans "ZIP Archives" %}</a>
 {% endif %}
