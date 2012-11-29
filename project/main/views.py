@@ -240,8 +240,10 @@ def datasource_auth(request):
     if not form.fields and request.session['auth_data']['type'] == 'Input':
         request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
         return redirect('datasink-select')
-
-    if form.is_valid():
+    
+    # the form won't be valid if auth type is OAuth
+    # so form.is_valid() works for auth type Input only.
+    if form.is_valid() or request.session['auth_data']['type'] == 'OAuth':
         data = {
             "keyRing": request.session['key_ring'],
         }
