@@ -59,15 +59,39 @@
 }
 
 // --- Home START
-#teaser-nav{
-  li{
-    float: left;
-    width: 30%;
-    margin-left: 5%;    
-    &:first-child{
-      margin-left:0; 
-    }
-  }
+//#teaser-nav{
+//  li{
+//    float: left;
+//    width: 30%;
+//    margin-left: 5%;    
+//    &:first-child{
+//      margin-left:0; 
+//    }
+//  }
+//}
+.home h1 {
+  float: right;
+  font-weight: bold;
+  line-height: 1;
+  text-transform: uppercase;
+  width: 70%;
+}
+.teaser-container {
+  width: 35%;
+  float: right;
+  text-align: right;
+  @include margin-leader(3);
+}
+.teaser-text {
+  clear: both;
+  @include padding-leader(.5);
+}
+.sujet-list {
+  width: 55%;
+  float: left;
+}
+.footer-teaser {
+  @include margin-trailer(2);
 }
 // --- Home END
 

@@ -1,33 +1,48 @@
 {% load i18n flatpages %}
 
-<p>{% trans "Teaser-Text Homepage" %}</p>
-<p><a href="{% url signup %}" class="btn">{% trans "Sign Up" %}</a></p>
+<div class="teaser-container">
+  <h1>Bewahre Deine Daten</h1>
+  <div class="teaser-text">
+    <p>
+      Deine Daten aus der Cloud –<br/> 
+      gesammelt – wo du willst.<br/>
+      <strong>Holen, Speichern, Durchsuchen.</strong>
+    </p>
+    <p><a href="{% url signup %}" class="btn">{% trans "Sign Up" %}</a></p>
+  </div>
+</div>
+<ul class="sujet-list">
+  <li><img src="{{ STATIC_URL }}img/content/sujets/dummy1.jpg" alt="" /></li>
+  {# <li><img src="{{ STATIC_URL }}img/content/sujets/dummy2.jpg" alt="" /></li> #}
+  {# <li><img src="{{ STATIC_URL }}img/content/sujets/dummy3.jpg" alt="" /></li> #}
+</ul>
 
-<nav id="teaser-nav" class="nav">
-  <ul>
-    <li class="teaser-features">
-      <a href="/features/">
-        <h3>{% trans "Features" %}</h3>
-        <div class="teaser-content">
-          {% trans "Teaser-Text Features" %}
-        </div>
-      </a>
-    </li>
-    <li class="teaser-get-started">
-      <a href="/get-started/">
-        <h3>{% trans "Get Started" %}</h3>
-        <div class="teaser-content">
-          {% trans "Teaser-Text Get Started" %}
-        </div>
-      </a>
-    </li>
-    <li class="teaser-get-involved">
-      <a href="/get-involved/">
-        <h3>{% trans "Get Involved" %}</h3>
-        <div class="teaser-content">
-          {% trans "Teaser-Text Get Involved" %}
-        </div>
-      </a>
-    </li>
-  </ul>
-</nav>
+
+{# <nav id="teaser-nav" class="nav"> #}
+{#   <ul> #}
+{#     <li class="teaser-features"> #}
+{#       <a href="/features/"> #}
+{#         <h3>{% trans "Features" %}</h3> #}
+{#         <div class="teaser-content"> #}
+{#           {% trans "Teaser-Text Features" %} #}
+{#         </div> #}
+{#       </a> #}
+{#     </li> #}
+{#     <li class="teaser-get-started"> #}
+{#       <a href="/get-started/"> #}
+{#         <h3>{% trans "Get Started" %}</h3> #}
+{#         <div class="teaser-content"> #}
+{#           {% trans "Teaser-Text Get Started" %} #}
+{#         </div> #}
+{#       </a> #}
+{#     </li> #}
+{#     <li class="teaser-get-involved"> #}
+{#       <a href="/get-involved/"> #}
+{#         <h3>{% trans "Get Involved" %}</h3> #}
+{#         <div class="teaser-content"> #}
+{#           {% trans "Teaser-Text Get Involved" %} #}
+{#         </div> #}
+{#       </a> #}
+{#     </li> #}
+{#   </ul> #}
+{# </nav> #}

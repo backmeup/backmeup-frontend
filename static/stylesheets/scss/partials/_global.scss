@@ -196,47 +196,56 @@ p, ul, ol {
 // --- Backupstate-Icons END
 
 // --- Home START
-#teaser-nav{
-  li{
-    @include margin-trailer(1);
-    > a{
-      color: $clr-text;
-      text-decoration: none;
-      display: block;
-    }
-    > a:hover{
-      box-shadow: 0px 0px 10px #ccc;
-    }
-    h3{
-      padding: .5em;
-      background: $bg-clr1;
-      border: 1px solid $bg-clr1;
-      color: #fff;
-      border-radius: $default-border-radius $default-border-radius 0 0;
-      text-align: center;
-    }
-    .teaser-content{
-      padding: .5em;
-      border-radius: 0 0 $default-border-radius $default-border-radius;
-      border: 1px solid $clr-grey-light;
-    }
+//#teaser-nav{
+//  li{
+//    @include margin-trailer(1);
+//    > a{
+//      color: $clr-text;
+//      text-decoration: none;
+//      display: block;
+//    }
+//    > a:hover{
+//      box-shadow: 0px 0px 10px #ccc;
+//    }
+//    h3{
+//      padding: .5em;
+//      background: $bg-clr1;
+//      border: 1px solid $bg-clr1;
+//      color: #fff;
+//      border-radius: $default-border-radius $default-border-radius 0 0;
+//      text-align: center;
+//    }
+//    .teaser-content{
+//      padding: .5em;
+//      border-radius: 0 0 $default-border-radius $default-border-radius;
+//      border: 1px solid $clr-grey-light;
+//    }
+//  }
+//  li.teaser-features{
+//    h3:before{
+//      @include icon_before('\f0d0');
+//    }
+//  }
+//  li.teaser-get-involved{
+//    h3:before{
+//      @include icon_before('\f0c0');
+//    }
+//  }
+//  li.teaser-get-started{
+//    h3:before{
+//      @include icon_before('\f0a4');
+//    }
+//  }
+//  
+//}
+.footer-teaser {
+  @include margin-trailer(1);
+  a:after {
+    @include icon_after('\f0da');
   }
-  li.teaser-features{
-    h3:before{
-      @include icon_before('\f0d0');
-    }
+  strong {
+    text-transform: uppercase;
   }
-  li.teaser-get-involved{
-    h3:before{
-      @include icon_before('\f0c0');
-    }
-  }
-  li.teaser-get-started{
-    h3:before{
-      @include icon_before('\f0a4');
-    }
-  }
-  
 }
 // --- Home END
 
