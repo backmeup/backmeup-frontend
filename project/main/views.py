@@ -254,7 +254,7 @@ def datasource_auth(request):
                     value = form.cleaned_data[key.replace('input_key_', 'input_value_')]
                     data[form.cleaned_data[key]] = value
         elif request.session['auth_data']['type'] == 'OAuth':
-            data.update(form.auth_data['oauth_data'])
+            data.update(request.session['auth_data']['oauth_data'])
         
         # add authentication data to newly created datasource profile
         rest_datasource_profile = RestDatasourceProfile(username=request.user.username)
