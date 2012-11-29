@@ -41,31 +41,15 @@ class DatasourceSelectForm(forms.Form):
 
 
 class DatasourceAuthForm(forms.Form):
-
-    #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
-
+    
     def __init__(self, *args, **kwargs):
-        self.auth_data = kwargs.pop('auth_data')
-        self.username = kwargs.pop('username')
+        #self.auth_data = kwargs.pop('auth_data')
+        #self.username = kwargs.pop('username')
+        self.extra_data = kwargs.pop('extra_data')
         super(DatasourceAuthForm, self).__init__(*args, **kwargs)
         
         # add authentication form fields
         if self.auth_data['type'] == 'Input':
-            #for i, item in enumerate(self.auth_data['typeMapping']):
-            #    self.fields['input_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=item)
-            #
-            #    field_kwargs = {
-            #        'label': _(item),
-            #    }
-            #
-            #    if not item in self.auth_data['requiredInputs']:
-            #        field_kwargs['required'] = False
-            #
-            #    if self.auth_data['typeMapping'][item] == 'Password':
-            #        field_kwargs['widget'] = forms.PasswordInput
-            #
-            #    self.fields['input_value_%s' % i] = forms.CharField(**field_kwargs)
-            
             # make sure 'requiredInputs' (= list of dicts) is sorted by 'order' dict value(s)
             self.auth_data['requiredInputs'] = sorted(self.auth_data['requiredInputs'], key=lambda k: k['order'])
             
@@ -91,20 +75,6 @@ class DatasourceAuthForm(forms.Form):
                     self.fields['input_value_%s' % item['order']] = forms.BooleanField(**field_kwargs)
                 else:
                     self.fields['input_value_%s' % item['order']] = forms.CharField(**field_kwargs)
-                
-    def rest_save(self, username, key_ring):
-        rest_datasource_profile = RestDatasourceProfile(username=username)
-        data = {
-            "keyRing": key_ring,
-        }
-        if self.auth_data['type'] == 'Input':
-            for key in self.cleaned_data:
-                if key.startswith('input_key_'):
-                    value = self.cleaned_data[key.replace('input_key_', 'input_value_')]
-                    data[self.cleaned_data[key]] = value
-        elif self.auth_data['type'] == 'OAuth':
-            data.update(self.auth_data['oauth_data'])
-        return rest_datasource_profile.auth_post(profile_id=self.auth_data['profileId'], data=data)
 
 
 class DatasinkSelectForm(forms.Form):

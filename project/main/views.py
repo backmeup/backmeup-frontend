@@ -224,28 +224,49 @@ def datasource_select(request):
 
 @login_required
 def datasource_auth(request):
-    #if not 'auth_data' in request.session:
-    #    print "#############################################################NOOOOOOOOOO"
-    #    messages.add_message(request, messages.ERROR, 'Some error occured. It seems like you didn\'t select any datasource. please do here.')
-    #    redirect('datasource-select')
-
-    form = DatasourceAuthForm(request.POST or None, username=request.user.username, auth_data=request.session['auth_data'])
-
+    
+    if request.session['auth_data']['type'] == 'Input':
+        # make sure 'requiredInputs' (= list of dicts) is sorted by 'order' dict value(s)
+        request.session['auth_data']['requiredInputs'] = sorted(request.session['auth_data']['requiredInputs'], key=lambda k: k['order'])
+    
+    extra_data = {
+        'auth_data': request.session['auth_data'],
+    }
+    
+    form = DatasourceAuthForm(request.POST or None, extra_data=extra_data)
+    
+    # redirect to next step if there is no authentication needed...
+    # ... basically means auth type is 'Input' but there are noe input fields definded
     if not form.fields and request.session['auth_data']['type'] == 'Input':
         request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
         return redirect('datasink-select')
 
-    if form.is_valid() or request.session['auth_data']['type'] != 'Input':
-        result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
-        if not result == False:
+    if form.is_valid():
+        data = {
+            "keyRing": request.session['key_ring'],
+        }
+        
+        if request.session['auth_data']['type'] == 'Input':
+            for key in form.cleaned_data:
+                if key.startswith('input_key_'):
+                    value = form.cleaned_data[key.replace('input_key_', 'input_value_')]
+                    data[form.cleaned_data[key]] = value
+        elif request.session['auth_data']['type'] == 'OAuth':
+            data.update(form.auth_data['oauth_data'])
+        
+        # add authentication data to newly created datasource profile
+        rest_datasource_profile = RestDatasourceProfile(username=request.user.username)
+        result = rest_datasource_profile.auth_post(profile_id=request.session['auth_data']['profileId'], data=data)
+        
+        if hasError(result):
+            del request.session['auth_data']
+            messages.add_message(request, messages.ERROR, getErrorMsg(result))
+            return redirect('datasource-select')
+        else:
             request.session['datasource_profile_id'] = request.session['auth_data']['profileId']
             del request.session['auth_data']
             return redirect('datasink-select')
-        else:
-            del request.session['auth_data']
-            messages.add_message(request, messages.ERROR, 'Some error occured.')
-            return redirect(datasource_select)
-
+    
     context = additional_context(request)
     context['form'] = form
 

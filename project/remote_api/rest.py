@@ -44,8 +44,7 @@ class RestBase(object):
             print "............................."
         if response.status_code == 204:
             return True
-        else:
-            return response.json
+        return response.json
 
     def _post(self, path="", data=None):
         try:
@@ -60,8 +59,6 @@ class RestBase(object):
             print "............................."
         if response.status_code == 204:
             return True
-        elif response.status_code == 400 or response.status_code == 404 or response.status_code == 401:
-            return False
         return response.json
 
     def _put(self, path="", data=None):
