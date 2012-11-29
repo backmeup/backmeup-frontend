@@ -43,17 +43,15 @@ class DatasourceSelectForm(forms.Form):
 class DatasourceAuthForm(forms.Form):
     
     def __init__(self, *args, **kwargs):
-        #self.auth_data = kwargs.pop('auth_data')
-        #self.username = kwargs.pop('username')
         self.extra_data = kwargs.pop('extra_data')
         super(DatasourceAuthForm, self).__init__(*args, **kwargs)
         
         # add authentication form fields
-        if self.auth_data['type'] == 'Input':
+        if self.extra_data['auth_data']['type'] == 'Input':
             # make sure 'requiredInputs' (= list of dicts) is sorted by 'order' dict value(s)
-            self.auth_data['requiredInputs'] = sorted(self.auth_data['requiredInputs'], key=lambda k: k['order'])
+            self.extra_data['auth_data']['requiredInputs'] = sorted(self.extra_data['auth_data']['requiredInputs'], key=lambda k: k['order'])
             
-            for item in self.auth_data['requiredInputs']:
+            for item in self.extra_data['auth_data']['requiredInputs']:
                 self.fields['input_key_%d' % item['order']] = forms.CharField(widget=forms.HiddenInput, initial=item['name'])
                 
                 field_kwargs = {
