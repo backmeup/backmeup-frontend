@@ -29,12 +29,21 @@ $(function(){
     }
   })
   
-  
   // --- header search form --- //
   // $('.header-search-handler').on('click', function(){
   //   $('.user-nav').find('li.dropdown').removeClass('open');
   //   $('.header-search-wrap').toggle();
   // })
+  
+  // --- SLIDESHOW --- //
+  $('.sujet').bjqs({
+    'height' : 308,
+    'width' : 519,
+    'responsive' : true,
+    'showcontrols' : false,
+    'animspeed' : 5000,
+    'showmarkers' : false
+  });
   
   // --- LAYOUT --- //
   $('.sr-filter-handler').on('click', function(){
