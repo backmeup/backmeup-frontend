@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-23 17:27+0100\n"
-"PO-Revision-Date: 2012-11-23 17:31\n"
+"POT-Creation-Date: 2012-11-29 15:19+0100\n"
+"PO-Revision-Date: 2012-11-29 15:24\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -128,16 +128,16 @@ msgstr "Neues KeyRing-Passwort"
 msgid "New KeyRing Password confirmation"
 msgstr "Neues KeyRing-Passwort wiederholen"
 
-#: access/views.py:109
+#: access/views.py:111
 msgid "Logged out"
 msgstr "ausgeloggt"
 
-#: access/views.py:145
+#: access/views.py:153
 #, python-format
 msgid "user's email %s is verified"
 msgstr "Die Registrierung mit der E-mail Adresse %s war erfolgreich."
 
-#: access/views.py:170
+#: access/views.py:178
 msgid "New verification email has been sent."
 msgstr "Die Bestätigungs-Email wurde erneut verschickt."
 
@@ -161,8 +161,8 @@ msgstr "monatlich"
 msgid "Datasource"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:49 main/forms.py:177 main/views.py:27 main/views.py:38
-#: main/views.py:59 main/views.py:69
+#: main/forms.py:49 main/forms.py:177 main/views.py:33 main/views.py:44
+#: main/views.py:65 main/views.py:75
 #, python-format
 msgid " - %(account)s"
 msgstr "- %(account)s"
@@ -202,19 +202,19 @@ msgstr ""
 msgid "Backup Name"
 msgstr "Backup-Name"
 
-#: main/forms.py:286
+#: main/forms.py:284 main/forms.py:330
 msgid "Title"
 msgstr "Titel"
 
-#: main/forms.py:393
+#: main/forms.py:416
 msgid "Query"
 msgstr "Parameter"
 
-#: main/forms.py:412
+#: main/forms.py:435
 msgid "Datasource Filter"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:418
+#: main/forms.py:441
 msgid "Type Filter"
 msgstr "Datei-Typ"
 
@@ -222,11 +222,11 @@ msgstr "Datei-Typ"
 msgid "Key Ring"
 msgstr "KeyRing"
 
-#: main/views.py:89
+#: main/views.py:95
 msgid "Backup was successfully deleted."
 msgstr "Das Backup wurde gelöscht."
 
-#: main/views.py:91
+#: main/views.py:97
 msgid "Backup couldn't be deleted."
 msgstr "Löschen des Backups fehlgeschlagen"
 
@@ -287,6 +287,10 @@ msgstr "Facebook"
 msgid "org.backmeup.moodle - Profil"
 msgstr "Moodle"
 
+#: templates/dynamic_message_strings.html:12
+msgid "org.backmeup.zip - Profil"
+msgstr "Zip"
+
 #: templates/dynamic_message_strings.html:14
 msgid "User has not been activated!"
 msgstr "Ihr Benutzer wurde noch nicht aktiviert."
@@ -308,7 +312,7 @@ msgstr "Jetzt Registrieren"
 #: templates/www/datasource_auth.html:5 templates/www/datasource_auth.html:9
 #: templates/www/datasource_select.html:5
 #: templates/www/datasource_select.html:9 templates/www/job_create.html:5
-#: templates/www/job_create.html.py:9
+#: templates/www/job_create.html.py:9 templates/www/job_edit.html:5
 msgid "Create new Backup"
 msgstr "Neues Backup anlegen"
 
@@ -383,7 +387,7 @@ msgid "Select Data-Source - Authentication"
 msgstr "Daten-Quelle auswählen - Authentifizierung"
 
 #: templates/www/datasource_auth.html:17
-#, fuzzy, python-format
+#, python-format
 msgid "Step 2: select data-source - authenticate %(datasource)s"
 msgstr ""
 "Schritt 2: Speicher-Ziel auswählen - Authentifizierung von %(datasource)s"
@@ -423,25 +427,34 @@ msgstr "Willkommen"
 msgid "Select Backup-Options"
 msgstr "Backup-Optionen auswählen"
 
-#: templates/www/job_create.html:39
+#: templates/www/job_create.html:39 templates/www/job_edit.html:24
 msgid "Backup settings"
 msgstr "Backup-Einstellungen"
 
-#: templates/www/job_create.html:52
+#: templates/www/job_create.html:52 templates/www/job_edit.html:37
 msgid "Datasource options"
 msgstr "Daten-Quelle Optionen"
 
-#: templates/www/job_create.html:53
+#: templates/www/job_create.html:53 templates/www/job_edit.html:38
 msgid "toggle all"
 msgstr "alle auswählen"
 
-#: templates/www/job_create.html:67
+#: templates/www/job_create.html:67 templates/www/job_edit.html:52
 msgid "Backup actions"
 msgstr "Backup-Aktionen"
 
 #: templates/www/job_create.html:81 templates/www/includes/dashboard.html:9
 msgid "Create Backup"
 msgstr "Backup erstellen"
+
+#: templates/www/job_edit.html:9
+#: templates/www/includes/backup_jobs/backup_list_item.html:51
+msgid "Edit Backup"
+msgstr "Backup bearbeiten"
+
+#: templates/www/job_edit.html:66
+msgid "Save and start backup-job"
+msgstr ""
 
 #: templates/www/job_log.html:23
 #: templates/www/includes/backup_jobs/backup_list_item.html:20
@@ -540,6 +553,10 @@ msgstr "Speicher-Ziele"
 msgid "saved"
 msgstr "gespeichert"
 
+#: templates/www/zip_file_list.html:5
+msgid "ZIP Files"
+msgstr ""
+
 #: templates/www/access/debug_signup.html:51
 msgid "Create Account"
 msgstr "Registrieren"
@@ -561,8 +578,7 @@ msgid "Forgot password?"
 msgstr "Passwort vergessen?"
 
 #: templates/www/access/signup.html:4 templates/www/access/signup.html.py:8
-#: templates/www/includes/homepage.html:4
-#: templates/www/includes/navigation/user_nav.html:42
+#: templates/www/includes/homepage.html:12
 msgid "Sign Up"
 msgstr "Registrieren"
 
@@ -576,14 +592,12 @@ msgid "Account Settings"
 msgstr "Benutzer-Einstellungen"
 
 #: templates/www/access/user_settings.html:12
-#, fuzzy
 msgid "Change Email-address"
-msgstr "Neue E-mail Adresse"
+msgstr "E-mail Adresse ändern"
 
 #: templates/www/access/user_settings.html:22
-#, fuzzy
 msgid "Change password"
-msgstr "Neues Passwort"
+msgstr "Passwort ändern"
 
 #: templates/www/access/user_settings.html:45
 msgid "Save"
@@ -623,34 +637,43 @@ msgstr "Email-Adresse bestätigen und Benutzer aktivieren."
 msgid "No backups yet."
 msgstr "Noch keine Backups."
 
-#: templates/www/includes/footer.html:14
+#: templates/www/includes/dashboard.html:22
+msgid "ZIP Archives"
+msgstr ""
+
+#: templates/www/includes/footer.html:7
+msgid "Get started"
+msgstr "Los gehts"
+
+#: templates/www/includes/footer.html:8
+msgid "Get started teaser-text"
+msgstr "Dein Backup für Moodle, Facebook, Twitter & mehr"
+
+#: templates/www/includes/footer.html:19
 msgid "About"
 msgstr "Über das Projekt"
 
-#: templates/www/includes/footer.html:15
-#: templates/www/includes/homepage.html:10
+#: templates/www/includes/footer.html:20
 msgid "Features"
 msgstr "Features"
 
-#: templates/www/includes/footer.html:16
-#: templates/www/includes/homepage.html:18
+#: templates/www/includes/footer.html:21
 msgid "Get Started"
 msgstr "Get Started"
 
-#: templates/www/includes/footer.html:17
-#: templates/www/includes/homepage.html:26
+#: templates/www/includes/footer.html:22
 msgid "Get Involved"
 msgstr "Get Involved"
 
-#: templates/www/includes/footer.html:18
+#: templates/www/includes/footer.html:23
 msgid "Help"
 msgstr "Hilfe"
 
-#: templates/www/includes/footer.html:19
+#: templates/www/includes/footer.html:24
 msgid "Feedback"
 msgstr "Feedback"
 
-#: templates/www/includes/footer.html:20
+#: templates/www/includes/footer.html:25
 msgid "AGBs"
 msgstr "AGBs"
 
@@ -658,21 +681,16 @@ msgstr "AGBs"
 msgid "search"
 msgstr "suchen"
 
-#: templates/www/includes/homepage.html:3
-msgid "Teaser-Text Homepage"
-msgstr ""
+#: templates/www/includes/homepage.html:4
+msgid "*homepage headline"
+msgstr "Bewahre Deine Daten"
 
-#: templates/www/includes/homepage.html:12
-msgid "Teaser-Text Features"
+#: templates/www/includes/homepage.html:7
+msgid "*homepage text"
 msgstr ""
-
-#: templates/www/includes/homepage.html:20
-msgid "Teaser-Text Get Started"
-msgstr ""
-
-#: templates/www/includes/homepage.html:28
-msgid "Teaser-Text Get Involved"
-msgstr ""
+"Deine Daten aus der Cloud –<br/> \n"
+"gesammelt – wo du willst.<br/>\n"
+"<strong>Holen, Speichern, Durchsuchen.</strong>"
 
 #: templates/www/includes/backup_jobs/backup_list_item.html:16
 msgid "Details"
@@ -681,10 +699,6 @@ msgstr "Details"
 #: templates/www/includes/backup_jobs/backup_list_item.html:46
 msgid "next backup"
 msgstr "nächstes Backup"
-
-#: templates/www/includes/backup_jobs/backup_list_item.html:51
-msgid "Edit Backup"
-msgstr "Backup bearbeiten"
 
 #: templates/www/includes/backup_jobs/backup_list_item.html:53
 #: templates/www/includes/backup_jobs/backup_list_item.html:57

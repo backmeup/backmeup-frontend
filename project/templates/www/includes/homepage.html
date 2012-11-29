@@ -1,13 +1,9 @@
 {% load i18n flatpages %}
 
 <div class="teaser-container">
-  <h1>Bewahre Deine Daten</h1>
+  <h1>{% trans "*homepage headline" %}</h1>
   <div class="teaser-text">
-    <p>
-      Deine Daten aus der Cloud –<br/> 
-      gesammelt – wo du willst.<br/>
-      <strong>Holen, Speichern, Durchsuchen.</strong>
-    </p>
+    <p>{% trans "*homepage text" %}</p>
     <p><a href="{% url signup %}" class="btn">{% trans "Sign Up" %}</a></p>
   </div>
 </div>
