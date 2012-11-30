@@ -311,7 +311,7 @@ def datasink_select(request):
         'datasink_profile_choices': datasink_profile_choices,
     }
     
-    form = DatasinkSelectForm(request.POST or None, exta_data=extra_data)
+    form = DatasinkSelectForm(request.POST or None, extra_data=extra_data)
     if form.is_valid():
         
         if form.cleaned_data['datasink']:
