@@ -18,10 +18,8 @@ class RestBase(object):
         self.base_url = url
 
     def _delete(self, path="", data=None):
-        try:
-            response = requests.delete(self.base_url + path, data=data)
-        except Exception as e:
-            return False
+        response = requests.delete(self.base_url + path, data=data)
+
         if settings.DEBUG:
             print "...  ..."
             print "### [DELETE]", self.base_url + path
@@ -32,10 +30,8 @@ class RestBase(object):
         return response
 
     def _get(self, path="", data=None):
-        try:
-            response = requests.get(self.base_url + path, data=data)
-        except Exception as e:
-            return False
+        response = requests.get(self.base_url + path, data=data)
+        
         if settings.DEBUG:
             print "### [GET]", self.base_url + path
             print "request params:", json.dumps(data, indent=2)
@@ -47,10 +43,8 @@ class RestBase(object):
         return response.json
 
     def _post(self, path="", data=None):
-        try:
-            response = requests.post(self.base_url + path, data=data)
-        except Exception as e:
-            return False
+        response = requests.post(self.base_url + path, data=data)
+        
         if settings.DEBUG:
             print "### [POST]", self.base_url + path
             print "request params:", json.dumps(data, indent=2)
@@ -62,10 +56,8 @@ class RestBase(object):
         return response.json
 
     def _put(self, path="", data=None):
-        try:
-            response = requests.put(self.base_url + path, data=data)
-        except Exception as e:
-            return False
+        response = requests.put(self.base_url + path, data=data)
+
         if settings.DEBUG:
             print "### [PUT]", self.base_url + path
             print "request params:", json.dumps(data, indent=2)
@@ -188,7 +180,6 @@ class RestDatasourceProfile(RestBase):
     
     def get_all(self):
         result = self._get(path="profiles/")
-        
         if result and 'sourceProfiles' in result:
             return result['sourceProfiles']
         else:
