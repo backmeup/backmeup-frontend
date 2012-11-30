@@ -282,6 +282,16 @@ def datasource_auth(request):
 
 @login_required
 def datasink_select(request):
+    
+    rest_datasink = RestDatasink()
+    datasinks = rest_datasink.get_all()
+
+    datasink_choices = []
+
+    for item in datasinks:
+        datasink_choices.append((item['datasinkId'], item['title']))
+
+    
     form = DatasinkSelectForm(request.POST or None, username=request.user.username)
     if form.is_valid():
         #request.session['key_ring'] = form.cleaned_data['key_ring']
@@ -311,31 +321,47 @@ def datasink_select(request):
 
 @login_required
 def datasink_auth(request):
-    #if not 'auth_data' in request.session:
-    #    print "#############################################################NOOOOOOOOOO"
-    #    messages.add_message(request, messages.ERROR, 'Some error occured. It seems like you didn\'t select any datasink. please do here.')
-    #    redirect('datasink-select')
-
-    form = DatasinkAuthForm(request.POST or None, auth_data=request.session['auth_data'])
+    if request.session['auth_data']['type'] == 'Input':
+        # make sure 'requiredInputs' (= list of dicts) is sorted by 'order' dict value(s)
+        request.session['auth_data']['requiredInputs'] = sorted(request.session['auth_data']['requiredInputs'], key=lambda k: k['order']) 
+    
+    exta_data = {
+        'auth_data': request.session['auth_data'],
+    }
+    
+    form = DatasinkAuthForm(request.POST or None, extra_data=exta_data)
 
     if not form.fields and request.session['auth_data']['type'] == 'Input':
         request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
         return redirect('job-create')
-
-    if form.is_valid() or request.session['auth_data']['type'] != 'Input':
-        result = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
-        if not result == False:
-            request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
-            try:
-                del request.session['auth_data']
-            except Exception:
-                pass
-            return redirect('job-create')
+    
+    # the form won't be valid if auth type is OAuth
+    # so form.is_valid() works for auth type Input only.
+    if form.is_valid() or request.session['auth_data']['type'] == 'OAuth':
+        data = {
+            "keyRing": request.session['key_ring'],
+        }
+        
+        if request.session['auth_data']['type'] == 'Input':
+            for key in form.cleaned_data:
+                if key.startswith('input_key_'):
+                    value = form.cleaned_data[key.replace('input_key_', 'input_value_')]
+                    data[form.cleaned_data[key]] = value
+        elif form.auth_data['type'] == 'OAuth':
+            data.update(form.auth_data['oauth_data'])
+        
+        rest_datasink_profile = RestDatasinkProfile(username=request.user.username)
+        result = rest_datasink_profile.auth_post(profile_id=request.session['auth_data']['profileId'], data=data)
+        
+        if hasError(result):
+            del result.session['auth_data']
+            messages.add_message(request, messages.ERROR, getErrorMsg(result))
+            return redirect('datasource-select')
         else:
+            request.session['datasink_profile_id'] = request.session['auth_data']['profileId']
             del request.session['auth_data']
-            messages.add_message(request, messages.ERROR, 'Some error occured.')
-            return redirect(datasink_select)
-
+            return redirect('job-create')
+        
     context = additional_context(request)
     context['form'] = form
 

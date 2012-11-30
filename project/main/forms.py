@@ -77,23 +77,11 @@ class DatasourceAuthForm(forms.Form):
 
 class DatasinkSelectForm(forms.Form):
 
-    #datasink = forms.ChoiceField(label=_("Datasink"), widget=forms.RadioSelect)
-    #profile_name = forms.CharField(label=_("Backup Name"))
-    #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
-
     def __init__(self, *args, **kwargs):
-        self.username = kwargs.pop('username')
+        self.extra_data = kwargs.pop('extra_data')
         super(DatasinkSelectForm, self).__init__(*args, **kwargs)
 
-        rest_datasink = RestDatasink()
-        datasinks = rest_datasink.get_all()
-
-        choices = []
-
-        for item in datasinks:
-            choices.append((item['datasinkId'], item['title']))
-
-        self.fields['datasink'] = forms.ChoiceField(label=_("Datasink"), widget=forms.RadioSelect, choices=choices, required=False)
+        self.fields['datasink'] = forms.ChoiceField(label=_("Datasink"), widget=forms.RadioSelect, choices=self.extra_data['datasink_choices'], required=False)
         
         rest_datasink_profile = RestDatasinkProfile(username=self.username)
         datasink_profiles = rest_datasink_profile.get_all()
@@ -137,34 +125,15 @@ class DatasinkSelectForm(forms.Form):
 
 
 class DatasinkAuthForm(forms.Form):
-
-    #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
-
+    
     def __init__(self, *args, **kwargs):
-        self.auth_data = kwargs.pop('auth_data')
+        self.extra_data = kwargs.pop('extra_data')
         super(DatasinkAuthForm, self).__init__(*args, **kwargs)
         
         # add authentication form fields
-        if self.auth_data['type'] == 'Input':
-        #    for i, item in enumerate(self.auth_data['typeMapping']):
-        #        self.fields['input_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=item)
-        #
-        #        field_kwargs = {
-        #            'label': _(item),
-        #        }
-        #
-        #        if not item in self.auth_data['requiredInputs']:
-        #            field_kwargs['required'] = False
-        #
-        #        if self.auth_data['typeMapping'][item] == 'Password':
-        #            field_kwargs['widget'] = forms.PasswordInput
-        #
-        #        self.fields['input_value_%s' % i] = forms.CharField(**field_kwargs)
-        
-            # make sure 'requiredInputs' (= list of dicts) is sorted by 'order' dict value(s)
-            self.auth_data['requiredInputs'] = sorted(self.auth_data['requiredInputs'], key=lambda k: k['order']) 
-        
-            for item in self.auth_data['requiredInputs']:
+        if self.extra_data['auth_data']['type'] == 'Input':
+            
+            for item in self.extra_data['auth_data']['requiredInputs']:
                 self.fields['input_key_%d' % item['order']] = forms.CharField(widget=forms.HiddenInput, initial=item['name'])
             
                 field_kwargs = {
@@ -183,21 +152,6 @@ class DatasinkAuthForm(forms.Form):
                     field_kwargs['help_text'] = _(item['description'])
             
                 self.fields['input_value_%s' % item['order']] = forms.CharField(**field_kwargs)
-        
-
-    def rest_save(self, username, key_ring):
-        rest_datasink_profile = RestDatasinkProfile(username=username)
-        data = {
-            "keyRing": key_ring,
-        }
-        if self.auth_data['type'] == 'Input':
-            for key in self.cleaned_data:
-                if key.startswith('input_key_'):
-                    value = self.cleaned_data[key.replace('input_key_', 'input_value_')]
-                    data[self.cleaned_data[key]] = value
-        elif self.auth_data['type'] == 'OAuth':
-            data.update(self.auth_data['oauth_data'])
-        return rest_datasink_profile.auth_post(profile_id=self.auth_data['profileId'], data=data)
 
 
 class JobDeleteForm(forms.Form):
