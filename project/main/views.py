@@ -138,7 +138,9 @@ def index(request):
                     job['lastBackup'] = datetime.datetime.fromtimestamp(job['lastBackup']/1000)
                 if 'nextBackup' in job:
                     job['nextBackup'] = datetime.datetime.fromtimestamp(job['nextBackup']/1000)
-
+                if 'lastSuccessful' in job:
+                    job['lastSuccessful'] = datetime.datetime.fromtimestamp(job['lastSuccessful']/1000)
+                
                 job['datasink']['title'] = get_sink_title(datasink_profiles, job['datasink']['datasinkId'])
                 #job['datasources'] = []
                 for datasource in job['datasources']:
