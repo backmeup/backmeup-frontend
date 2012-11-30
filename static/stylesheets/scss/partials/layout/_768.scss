@@ -80,12 +80,17 @@
 //    }
 //  }
 //}
-.home h1 {
-  float: right;
-  font-weight: bold;
-  line-height: 1;
-  text-transform: uppercase;
-  width: 70%;
+.home {
+  h1 {
+    float: right;
+    font-weight: bold;
+    line-height: 1;
+    text-transform: uppercase;
+    width: 70%;
+  }
+  #content {
+    @include padding-trailer(2);
+  }
 }
 .teaser-container {
   width: 35%;

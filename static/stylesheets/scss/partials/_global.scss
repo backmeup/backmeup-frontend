@@ -241,6 +241,9 @@ p, ul, ol {
 //  }
 //  
 //}
+.teaser-text {
+  @include adjust-font-size-to(18px);
+}
 .footer-teaser {
   @include margin-trailer(1);
   a:after {
