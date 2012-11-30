@@ -19,7 +19,12 @@
     <ul>
       <li><span class="key">{% trans "Data-Source" %}: </span>{{ item.datasources.0.title }}</li>
       <li><span class="key">{% trans "Data-Target" %}: </span>{{ item.datasink.title }}</li>
-      <li><strike><span class="key">{% trans "Backup-State" %}: </span><span class="icon-backupstate-ok">OK</span></strike></li>
+      {# # status is one of the following:  #}
+      {# # * queued: after the job has been created. #}
+      {# # * running: if the job is currently being executed. #}
+      {# # * successful: if the last execution executed successfully. #}
+      {# # * error: if the last execution failed. #}
+      <li><span class="key">{% trans "Backup-State" %}: </span><span class="icon-backupstate-ok">{% trans item.status %}</span></li>
     </ul>
   </div>
   
@@ -40,10 +45,17 @@
     </div>
     {# TODO: pass backup-state as classname, eg: "ok", "inactive" #}
     <div class="bli-section backupstate-ok">
-      <strike><span class="key">{% trans "Backup-State" %}</span></strike>
+      <span class="key">{% trans "Backup-State" %}</span>
       <ul class="value">
-        <li><strike><span class="backupstate-icon">OK</span></strike></li>
-        <li>{% trans "next backup" %}: {{ item.nextBackup|date:"SHORT_DATETIME_FORMAT" }}</li>
+        {# # status is one of the following:  #}
+        {# # * queued: after the job has been created. #}
+        {# # * running: if the job is currently being executed. #}
+        {# # * successful: if the last execution executed successfully. #}
+        {# # * error: if the last execution failed. #}
+        <li><span class="backupstate-icon">{% trans item.status %}</span></li>
+        {% if item.nextBackup %}
+          <li>{% trans "next backup" %}: {{ item.nextBackup|date:"SHORT_DATETIME_FORMAT" }}</li>
+        {% endif %}
       </ul>
     </div>
     <div class="bli-section-options">
