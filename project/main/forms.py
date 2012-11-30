@@ -83,21 +83,8 @@ class DatasinkSelectForm(forms.Form):
 
         self.fields['datasink'] = forms.ChoiceField(label=_("Datasink"), widget=forms.RadioSelect, choices=self.extra_data['datasink_choices'], required=False)
         
-        rest_datasink_profile = RestDatasinkProfile(username=self.username)
-        datasink_profiles = rest_datasink_profile.get_all()
-        
-        if len(datasink_profiles):
-            profile_choices = [("", "---")]
-        
-            for item in datasink_profiles:
-                # no need to show profiles without 'identification'
-                # * it's not a completely authenticated profile
-                # * it's a profile whitch doesn't require authentication
-                if 'identification' in item:
-                    title = _(item['pluginName'] + " - %(account)s") % {'account': item['identification']}
-                    profile_choices.append( (item['datasinkProfileId'], title) )
-            
-            self.fields['datasink_profile'] = forms.ChoiceField(label=_("Datasink Profile"), choices=profile_choices, help_text=_("Choose an existing data-sink profile or select a new data-sink below"), required=False)
+        if len(self.extra_data['datasink_profile_choices']):
+            self.fields['datasink_profile'] = forms.ChoiceField(label=_("Datasink Profile"), choices=self.extra_data['datasink_profile_choices'], help_text=_("Choose an existing data-sink profile or select a new data-sink below"), required=False)
     
     def clean(self):
         cleaned_data = super(DatasinkSelectForm, self).clean()
@@ -108,20 +95,6 @@ class DatasinkSelectForm(forms.Form):
             return cleaned_data
         else:
             raise forms.ValidationError("Please select a existing datasink profile, or create a new one by selecting a datasink.")
-    
-    def rest_save(self, username, key_ring):
-        if self.cleaned_data['datasink']:
-            rest_datasink_profile = RestDatasinkProfile(username=username)
-            profile_name = _("%(plugin)s - profile") % {'plugin': self.cleaned_data['datasink']}
-            data = {
-                "profileName": profile_name,
-                "keyRing": key_ring,
-            }
-            return rest_datasink_profile.auth(datasink_id=self.cleaned_data['datasink'], data=data)
-        elif self.cleaned_data['datasink_profile']:
-            return int(self.cleaned_data['datasink_profile'])
-        else:
-            return False
 
 
 class DatasinkAuthForm(forms.Form):

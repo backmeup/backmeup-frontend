@@ -18,7 +18,7 @@ from django.template import RequestContext
 from django.utils.translation import ugettext_lazy as _
 
 
-from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile, RestSearch, RestFile, RestUser, RestAction, RestDatasource
+from remote_api.rest import RestJobs, RestDatasourceProfile, RestDatasinkProfile, RestSearch, RestFile, RestUser, RestAction, RestDatasource, RestDatasink
 from main.forms import DatasourceSelectForm, DatasourceAuthForm
 from main.forms import DatasinkSelectForm, DatasinkAuthForm
 from main.forms import JobCreateForm, JobDeleteForm, JobEditForm
@@ -290,25 +290,54 @@ def datasink_select(request):
 
     for item in datasinks:
         datasink_choices.append((item['datasinkId'], item['title']))
-
     
-    form = DatasinkSelectForm(request.POST or None, username=request.user.username)
+    rest_datasink_profile = RestDatasinkProfile(username=request.user.username)
+    datasink_profiles = rest_datasink_profile.get_all()
+    datasink_profile_choices = []
+    if len(datasink_profiles):
+        for item in datasink_profiles:
+            # no need to show profiles without 'identification'
+            # * it's not a completely authenticated profile
+            # * it's a profile whitch doesn't require authentication
+            if 'identification' in item:
+                title = _(item['pluginName'] + " - %(account)s") % {'account': item['identification']}
+                datasink_profile_choices.append( (item['datasinkProfileId'], title) )
+    
+    if len(datasink_profile_choices):
+        datasink_profile_choices = [("", "---")] + datasink_profile_choices
+    
+    extra_data = {
+        'datasink_choices': datasink_choices,
+        'datasink_profile_choices': datasink_profile_choices,
+    }
+    
+    form = DatasinkSelectForm(request.POST or None, exta_data=extra_data)
     if form.is_valid():
-        #request.session['key_ring'] = form.cleaned_data['key_ring']
-        auth_data = form.rest_save(username=request.user.username, key_ring=request.session['key_ring'])
-        if isinstance(auth_data, int):
-            request.session['datasink_profile_id'] = auth_data
+        
+        if form.cleaned_data['datasink']:
+            rest_datasink_profile = RestDatasinkProfile(username=request.user.username)
+            profile_name = _("%(plugin)s - profile") % {'plugin': form.cleaned_data['datasink']}
+            data = {
+                "profileName": profile_name,
+                "keyRing": request.session['key_ring'],
+            }
+            result = rest_datasink_profile.auth(datasink_id=form.cleaned_data['datasink'], data=data)
+            
+            if hasError(result):
+                messages.add_message(request, messages.ERROR, getErrorMsg(result))
+            else:
+                request.session['auth_data'] = result
+                if result['type'] == 'OAuth':
+                    request.session['next_step'] = 'datasink-auth'
+                    return redirect(result['redirectURL'])
+                return redirect('datasink-auth')
+        elif form.cleaned_data['datasink_profile']:
+            request.session['datasink_profile_id'] = form.cleaned_data['datasink_profile']
             try:
                 del request.session['auth_data']
             except Exception:
                 pass
             return redirect('job-create')
-        else:
-            request.session['auth_data'] = auth_data
-            if auth_data['type'] == 'OAuth':
-                request.session['next_step'] = 'datasink-auth'
-                return redirect(auth_data['redirectURL'])
-            return redirect('datasink-auth')
 
     context = additional_context(request)
     context['form'] = form
