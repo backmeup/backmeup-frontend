@@ -376,8 +376,8 @@ def datasink_auth(request):
                 if key.startswith('input_key_'):
                     value = form.cleaned_data[key.replace('input_key_', 'input_value_')]
                     data[form.cleaned_data[key]] = value
-        elif form.auth_data['type'] == 'OAuth':
-            data.update(form.auth_data['oauth_data'])
+        elif request.session['auth_data']['type'] == 'OAuth':
+            data.update(request.session['auth_data']['oauth_data'])
         
         rest_datasink_profile = RestDatasinkProfile(username=request.user.username)
         result = rest_datasink_profile.auth_post(profile_id=request.session['auth_data']['profileId'], data=data)
