@@ -24,7 +24,7 @@
       {# # * running: if the job is currently being executed. #}
       {# # * successful: if the last execution executed successfully. #}
       {# # * error: if the last execution failed. #}
-      <li><span class="key">{% trans "Backup-State" %}: </span><span class="icon-backupstate-ok">{% trans item.status %}</span></li>
+      <li><span class="key">{% trans "Backup-State" %}: </span><span class="icon-backupstate-{{ item.status }}">{% trans item.status %}</span></li>
     </ul>
   </div>
   
@@ -43,24 +43,23 @@
         <li>{{ item.datasink.title }}</li>
       </ul>
     </div>
-    {# TODO: pass backup-state as classname, eg: "ok", "inactive" #}
-    <div class="bli-section backupstate-ok">
+    {# # status is one of the following:  #}
+    {# # * queued: after the job has been created. #}
+    {# # * running: if the job is currently being executed. #}
+    {# # * successful: if the last execution executed successfully. #}
+    {# # * error: if the last execution failed. #}
+    <div class="bli-section backupstate-{{ item.status }}">
       <span class="key">{% trans "Backup-State" %}</span>
       <ul class="value">
-        {# # status is one of the following:  #}
-        {# # * queued: after the job has been created. #}
-        {# # * running: if the job is currently being executed. #}
-        {# # * successful: if the last execution executed successfully. #}
-        {# # * error: if the last execution failed. #}
         <li><span class="backupstate-icon">{% trans item.status %}</span></li>
         {% if item.nextBackup %}
           <li>{% trans "next backup" %}: {{ item.nextBackup|date:"SHORT_DATETIME_FORMAT" }}</li>
         {% endif %}
         
         {% if item.lastSuccessful %}
-          <li>{% trans "last successful backup" %}: {{ item.lastSuccessful|date:"SHORT_DATETIME_FORMAT" }}</li>
+          <li>{% trans "Last successful backup" %}: {{ item.lastSuccessful|date:"SHORT_DATETIME_FORMAT" }}</li>
         {% endif %}
-        <li>{% trans "interval" %}: {{ item.timeExpression }}</li>
+        <li>{% trans "Interval" %}: {% blocktrans with interval=item.timeExpression %}{{ interval }}{% endblocktrans %}</li>
       </ul>
     </div>
     <div class="bli-section-options">

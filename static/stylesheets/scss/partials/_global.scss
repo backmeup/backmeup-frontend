@@ -155,8 +155,8 @@ p, ul, ol {
 }
 
 // --- Backupstate-Icons
-.backupstate-in-progress .backupstate-icon,
-.icon-backupstate-in-progress{
+.backupstate-running .backupstate-icon,
+.icon-backupstate-running{
   color: $clr-text;
   &:before{
     content: '';
@@ -169,18 +169,17 @@ p, ul, ol {
     top: 3px;
   }
 }
-.backupstate-ok .backupstate-icon,
-.icon-backupstate-ok{
+.backupstate-successful .backupstate-icon,
+.icon-backupstate-successful{
   color: $clr-ok;
   &:before{
     @include icon_before($icon-ok);
   }
 }
-.backupstate-warning .backupstate-icon,
-.icon-backupstate-warning{
-  color: $clr-warning;
+.backupstate-queued .backupstate-icon,
+.icon-backupstate-queued{
   &:before{
-    @include icon_before($icon-warning);
+    @include icon_before($icon-queued);
   }
 }
 .backupstate-error .backupstate-icon,
@@ -190,8 +189,8 @@ p, ul, ol {
     @include icon_before($icon-error);
   }
 }
-.icon-backupstate-in-progress:before,
-.icon-backupstate-ok:before,
+.icon-backupstate-running:before,
+.icon-backupstate-successful:before,
 .icon-backupstate-warning:before,
 .icon-backupstate-error:before{
   margin-left: .25em;
