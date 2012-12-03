@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-29 15:19+0100\n"
-"PO-Revision-Date: 2012-11-29 15:24\n"
+"POT-Creation-Date: 2012-12-03 13:51+0100\n"
+"PO-Revision-Date: 2012-12-03 14:05\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,12 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Translated-Using: django-rosetta 0.6.8\n"
 
-#: access/forms.py:18 access/forms.py:100 access/forms.py:268
-#: templates/www/access/login.html:18
+#: access/forms.py:18 templates/www/access/login.html:18
 msgid "Email"
 msgstr "E-mail"
 
-#: access/forms.py:20 access/forms.py:102
+#: access/forms.py:20
 msgid "Password"
 msgstr "Passwort"
 
@@ -33,16 +32,15 @@ msgstr "Passwort"
 msgid "Your password needs to be at least %s characters long."
 msgstr "Ihr Passwort muss mind. %s Zeichen lang sein."
 
-#: access/forms.py:22 access/forms.py:103
+#: access/forms.py:22
 msgid "Password confirmation"
 msgstr "Passwort bestätigen"
 
-#: access/forms.py:23 access/forms.py:104 access/forms.py:185
-#: access/forms.py:272
+#: access/forms.py:23 access/forms.py:115
 msgid "Enter the same password as above, for verification."
 msgstr "Passwort wiederholen"
 
-#: access/forms.py:53 access/forms.py:237
+#: access/forms.py:53 access/forms.py:167
 msgid "A user with that email already exists."
 msgstr "Ein Benutzer mit dieser E-mail Adresse existiert bereits."
 
@@ -51,82 +49,39 @@ msgstr "Ein Benutzer mit dieser E-mail Adresse existiert bereits."
 msgid "Password must be at least %d chars."
 msgstr "Ihr Passwort muss mind. %d Zeichen lang sein."
 
-#: access/forms.py:62 access/forms.py:133 access/forms.py:217
-#: access/forms.py:304
+#: access/forms.py:62 access/forms.py:147
 msgid "The two password fields didn't match."
 msgstr "Die beiden Passwörter stimmen nicht überein."
 
-#: access/forms.py:97
-msgid "Username"
-msgstr "Benutzername"
-
-#: access/forms.py:98
-msgid "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."
-msgstr ""
-"Pflichtfeld. 30 Zeichen oder weniger. Erlaubt sind Buchstaben, Zahlen und "
-"@/./+/-/_"
-
-#: access/forms.py:99
-msgid "This value may contain only letters, numbers and @/./+/-/_ characters."
-msgstr "Es sind nur Buchstaben, Zahlen und @/./+/-/_ erlaubt."
-
-#: access/forms.py:106
-msgid "KeyRing Password"
-msgstr "KeyRing Passwort"
-
-#: access/forms.py:107
-msgid "KeyRing Password confirmation"
-msgstr "KeyRing Passwort wiederholen"
-
-#: access/forms.py:108 access/forms.py:276
-msgid "Enter the same KeyRing Password as above, for verification."
-msgstr "Bitte geben Sie dasselbe KeyRing Passwort wie oben ein."
-
-#: access/forms.py:127
-msgid "A user with that username already exists."
-msgstr "Ein Benutzer mit diesem Namen existiert bereits."
-
-#: access/forms.py:140 access/forms.py:313
-msgid "The two KeyRing Password fields didn't match."
-msgstr "Die beiden KeyRing Passwörter stimmen nicht überein."
-
-#: access/forms.py:165
+#: access/forms.py:95
 msgid "Verification Key"
 msgstr "Bestätigungs-Code"
 
-#: access/forms.py:181
+#: access/forms.py:111
 msgid "New email-address"
 msgstr "Neue E-mail Adresse"
 
-#: access/forms.py:183 access/forms.py:270
+#: access/forms.py:113
 msgid "New Password"
 msgstr "Neues Passwort"
 
-#: access/forms.py:184 access/forms.py:271
+#: access/forms.py:114
 msgid "New Password confirmation"
 msgstr "Neues Passwort wiederholen"
 
-#: access/forms.py:191 access/forms.py:278
+#: access/forms.py:121
 msgid "Current Password"
 msgstr "Bestehendes Passwort"
 
-#: access/forms.py:192 access/forms.py:279
+#: access/forms.py:122
 msgid "Enter your current password for verification."
 msgstr "Bestehendes Passwort eingeben"
 
-#: access/forms.py:208 access/forms.py:295
+#: access/forms.py:138
 msgid "Your old password was entered incorrectly. Please enter it again."
 msgstr ""
 "Ihr bestehendes Passwort wurde falsch eingegeben. Bitte versuchen Sie es "
 "erneut."
-
-#: access/forms.py:274
-msgid "New KeyRing Password"
-msgstr "Neues KeyRing-Passwort"
-
-#: access/forms.py:275
-msgid "New KeyRing Password confirmation"
-msgstr "Neues KeyRing-Passwort wiederholen"
 
 #: access/views.py:111
 msgid "Logged out"
@@ -141,37 +96,31 @@ msgstr "Die Registrierung mit der E-mail Adresse %s war erfolgreich."
 msgid "New verification email has been sent."
 msgstr "Die Bestätigungs-Email wurde erneut verschickt."
 
-#: main/forms.py:11
+#: main/forms.py:11 templates/dynamic_message_strings.html:23
 msgid "now"
 msgstr "jetzt"
 
-#: main/forms.py:12
+#: main/forms.py:12 templates/dynamic_message_strings.html:24
 msgid "daily"
 msgstr "täglich"
 
-#: main/forms.py:13
+#: main/forms.py:13 templates/dynamic_message_strings.html:25
 msgid "weekly"
 msgstr "wöchentlich"
 
-#: main/forms.py:14
+#: main/forms.py:14 templates/dynamic_message_strings.html:26
 msgid "monthly"
 msgstr "monatlich"
 
-#: main/forms.py:36 main/forms_debug.py:30
+#: main/forms.py:24
 msgid "Datasource"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:49 main/forms.py:177 main/views.py:33 main/views.py:44
-#: main/views.py:65 main/views.py:75
-#, python-format
-msgid " - %(account)s"
-msgstr "- %(account)s"
-
-#: main/forms.py:52
+#: main/forms.py:28
 msgid "Datasource Profile"
 msgstr "Schnellzugriff: Daten-Quelle"
 
-#: main/forms.py:52
+#: main/forms.py:30
 msgid ""
 "Choose an existing data-source profile or select a new data-source below"
 msgstr ""
@@ -179,56 +128,58 @@ msgstr ""
 "vorangegangenem Backup) oder wählen Sie eine neue Datenquelle aus der Liste "
 "unten."
 
-#: main/forms.py:67 main/forms.py:195
-#, python-format
-msgid "%(plugin)s - profile"
-msgstr "%(plugin)s - Profil"
-
-#: main/forms.py:164
+#: main/forms.py:84
 msgid "Datasink"
 msgstr "Speicher-Ziel"
 
-#: main/forms.py:180
+#: main/forms.py:87
 msgid "Datasink Profile"
 msgstr "Schnellzugriff: Speicher-Ziel"
 
-#: main/forms.py:180
+#: main/forms.py:87
 msgid "Choose an existing data-sink profile or select a new data-sink below"
 msgstr ""
 "Bitte wählen Sie ein bestehendes Datenziel-Profil (aus einem vorangegangenem"
 " Backup) oder wählen Sie ein neues Datenziel aus der Liste unten."
 
-#: main/forms.py:274 main/forms_debug.py:15
+#: main/forms.py:133
 msgid "Backup Name"
 msgstr "Backup-Name"
 
-#: main/forms.py:284 main/forms.py:330
+#: main/forms.py:142 main/forms.py:188
 msgid "Title"
 msgstr "Titel"
 
-#: main/forms.py:416
+#: main/forms.py:263
 msgid "Query"
 msgstr "Parameter"
 
-#: main/forms.py:435
+#: main/forms.py:282
 msgid "Datasource Filter"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:441
+#: main/forms.py:288
 msgid "Type Filter"
 msgstr "Datei-Typ"
 
-#: main/forms_debug.py:17
-msgid "Key Ring"
-msgstr "KeyRing"
+#: main/views.py:46 main/views.py:57 main/views.py:78 main/views.py:88
+#: main/views.py:179 main/views.py:303
+#, python-format
+msgid " - %(account)s"
+msgstr "- %(account)s"
 
-#: main/views.py:95
+#: main/views.py:108
 msgid "Backup was successfully deleted."
 msgstr "Das Backup wurde gelöscht."
 
-#: main/views.py:97
+#: main/views.py:110
 msgid "Backup couldn't be deleted."
 msgstr "Löschen des Backups fehlgeschlagen"
+
+#: main/views.py:194 main/views.py:319
+#, python-format
+msgid "%(plugin)s - profile"
+msgstr "%(plugin)s - Profil"
 
 #: settings/settings.py:44 settings/dev_br/settings.py:44
 #: settings/dev_klem/settings.py:44 settings/live/settings.py:44
@@ -295,6 +246,30 @@ msgstr "Zip"
 msgid "User has not been activated!"
 msgstr "Ihr Benutzer wurde noch nicht aktiviert."
 
+#: templates/dynamic_message_strings.html:15
+msgid "Some error occurred."
+msgstr "Ein Fehler ist aufgetreten."
+
+#: templates/dynamic_message_strings.html:16
+msgid "There must be at least one source profile to download data from!"
+msgstr "Es gibt kein Datenquellen-Profil um Daten herunterzuladen."
+
+#: templates/dynamic_message_strings.html:18
+msgid "queued"
+msgstr "wird vorbereitet"
+
+#: templates/dynamic_message_strings.html:19
+msgid "running"
+msgstr "wird ausgeführt"
+
+#: templates/dynamic_message_strings.html:20
+msgid "successful"
+msgstr "erfolgreich"
+
+#: templates/dynamic_message_strings.html:21
+msgid "error"
+msgstr "Fehler"
+
 #: templates/flatpages/about.html:8
 msgid "Project Partners"
 msgstr "Projekt-Partner"
@@ -312,7 +287,7 @@ msgstr "Jetzt Registrieren"
 #: templates/www/datasource_auth.html:5 templates/www/datasource_auth.html:9
 #: templates/www/datasource_select.html:5
 #: templates/www/datasource_select.html:9 templates/www/job_create.html:5
-#: templates/www/job_create.html.py:9 templates/www/job_edit.html:5
+#: templates/www/job_create.html.py:9
 msgid "Create new Backup"
 msgstr "Neues Backup anlegen"
 
@@ -423,23 +398,31 @@ msgstr "Meine Backups"
 msgid "Welcome"
 msgstr "Willkommen"
 
+#: templates/www/index.html:35
+msgid "Get started"
+msgstr "Los gehts"
+
+#: templates/www/index.html:36
+msgid "Get started teaser-text"
+msgstr "Dein Backup für Moodle, Facebook, Twitter & mehr"
+
 #: templates/www/job_create.html:10
 msgid "Select Backup-Options"
 msgstr "Backup-Optionen auswählen"
 
-#: templates/www/job_create.html:39 templates/www/job_edit.html:24
+#: templates/www/job_create.html:39 templates/www/job_edit.html:25
 msgid "Backup settings"
 msgstr "Backup-Einstellungen"
 
-#: templates/www/job_create.html:52 templates/www/job_edit.html:37
+#: templates/www/job_create.html:52 templates/www/job_edit.html:38
 msgid "Datasource options"
 msgstr "Daten-Quelle Optionen"
 
-#: templates/www/job_create.html:53 templates/www/job_edit.html:38
+#: templates/www/job_create.html:53 templates/www/job_edit.html:39
 msgid "toggle all"
 msgstr "alle auswählen"
 
-#: templates/www/job_create.html:67 templates/www/job_edit.html:52
+#: templates/www/job_create.html:67 templates/www/job_edit.html:53
 msgid "Backup actions"
 msgstr "Backup-Aktionen"
 
@@ -447,30 +430,34 @@ msgstr "Backup-Aktionen"
 msgid "Create Backup"
 msgstr "Backup erstellen"
 
-#: templates/www/job_edit.html:9
-#: templates/www/includes/backup_jobs/backup_list_item.html:51
+#: templates/www/job_edit.html:5 templates/www/job_edit.html.py:11
+#: templates/www/includes/backup_jobs/backup_list_item.html:67
 msgid "Edit Backup"
 msgstr "Backup bearbeiten"
 
-#: templates/www/job_edit.html:66
+#: templates/www/job_edit.html:16
+msgid "Backup-Options"
+msgstr "Backup-Optionen"
+
+#: templates/www/job_edit.html:67
 msgid "Save and start backup-job"
-msgstr ""
+msgstr "Speichern und Backup starten"
 
 #: templates/www/job_log.html:23
 #: templates/www/includes/backup_jobs/backup_list_item.html:20
-#: templates/www/includes/backup_jobs/backup_list_item.html:28
+#: templates/www/includes/backup_jobs/backup_list_item.html:33
 msgid "Data-Source"
 msgstr "Daten-Quelle"
 
 #: templates/www/job_log.html:25
 #: templates/www/includes/backup_jobs/backup_list_item.html:21
-#: templates/www/includes/backup_jobs/backup_list_item.html:36
+#: templates/www/includes/backup_jobs/backup_list_item.html:41
 msgid "Data-Target"
 msgstr "Speicher-Ziel"
 
 #: templates/www/job_log.html:27
-#: templates/www/includes/backup_jobs/backup_list_item.html:22
-#: templates/www/includes/backup_jobs/backup_list_item.html:43
+#: templates/www/includes/backup_jobs/backup_list_item.html:27
+#: templates/www/includes/backup_jobs/backup_list_item.html:52
 msgid "Backup-State"
 msgstr "Backup-Status"
 
@@ -555,7 +542,11 @@ msgstr "gespeichert"
 
 #: templates/www/zip_file_list.html:5
 msgid "ZIP Files"
-msgstr ""
+msgstr "ZIP-Dateien"
+
+#: templates/www/zip_file_list.html:8
+msgid "Download ZIP Files"
+msgstr "ZIP-Dateien runterladen"
 
 #: templates/www/access/debug_signup.html:51
 msgid "Create Account"
@@ -578,7 +569,7 @@ msgid "Forgot password?"
 msgstr "Passwort vergessen?"
 
 #: templates/www/access/signup.html:4 templates/www/access/signup.html.py:8
-#: templates/www/includes/homepage.html:12
+#: templates/www/includes/homepage.html:7
 msgid "Sign Up"
 msgstr "Registrieren"
 
@@ -633,47 +624,39 @@ msgstr "Bestätigungs-Email erneut senden"
 msgid "validate email and activate account"
 msgstr "Email-Adresse bestätigen und Benutzer aktivieren."
 
-#: templates/www/includes/dashboard.html:19
+#: templates/www/includes/dashboard.html:16
 msgid "No backups yet."
 msgstr "Noch keine Backups."
 
-#: templates/www/includes/dashboard.html:22
+#: templates/www/includes/dashboard.html:20
 msgid "ZIP Archives"
-msgstr ""
+msgstr "ZIP-Archiv"
 
-#: templates/www/includes/footer.html:7
-msgid "Get started"
-msgstr "Los gehts"
-
-#: templates/www/includes/footer.html:8
-msgid "Get started teaser-text"
-msgstr "Dein Backup für Moodle, Facebook, Twitter & mehr"
-
-#: templates/www/includes/footer.html:19
+#: templates/www/includes/footer.html:11
 msgid "About"
 msgstr "Über das Projekt"
 
-#: templates/www/includes/footer.html:20
+#: templates/www/includes/footer.html:12
 msgid "Features"
 msgstr "Features"
 
-#: templates/www/includes/footer.html:21
+#: templates/www/includes/footer.html:13
 msgid "Get Started"
 msgstr "Get Started"
 
-#: templates/www/includes/footer.html:22
+#: templates/www/includes/footer.html:14
 msgid "Get Involved"
 msgstr "Get Involved"
 
-#: templates/www/includes/footer.html:23
+#: templates/www/includes/footer.html:15
 msgid "Help"
 msgstr "Hilfe"
 
-#: templates/www/includes/footer.html:24
+#: templates/www/includes/footer.html:16
 msgid "Feedback"
 msgstr "Feedback"
 
-#: templates/www/includes/footer.html:25
+#: templates/www/includes/footer.html:17
 msgid "AGBs"
 msgstr "AGBs"
 
@@ -685,7 +668,7 @@ msgstr "suchen"
 msgid "*homepage headline"
 msgstr "Bewahre Deine Daten"
 
-#: templates/www/includes/homepage.html:7
+#: templates/www/includes/homepage.html:6
 msgid "*homepage text"
 msgstr ""
 "Deine Daten aus der Cloud –<br/> \n"
@@ -696,21 +679,34 @@ msgstr ""
 msgid "Details"
 msgstr "Details"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:46
+#: templates/www/includes/backup_jobs/backup_list_item.html:56
 msgid "next backup"
 msgstr "nächstes Backup"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:53
-#: templates/www/includes/backup_jobs/backup_list_item.html:57
+#: templates/www/includes/backup_jobs/backup_list_item.html:60
+msgid "Last successful backup"
+msgstr "Letztes Backup"
+
+#: templates/www/includes/backup_jobs/backup_list_item.html:62
+msgid "Interval"
+msgstr "Interval"
+
+#: templates/www/includes/backup_jobs/backup_list_item.html:62
+#, python-format
+msgid "%(interval)s"
+msgstr "%(interval)s"
+
 #: templates/www/includes/backup_jobs/backup_list_item.html:69
+#: templates/www/includes/backup_jobs/backup_list_item.html:73
+#: templates/www/includes/backup_jobs/backup_list_item.html:85
 msgid "Delete Backup"
 msgstr "Backup löschen"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:61
+#: templates/www/includes/backup_jobs/backup_list_item.html:77
 msgid "Do you really want to delete the selected Backup-Job?"
 msgstr "Wollen Sie das ausgewählte Backup wirklich löschen?"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:63
+#: templates/www/includes/backup_jobs/backup_list_item.html:79
 msgid ""
 "By deleting a Backup-Job no further Backups will be created. Backups that "
 "have already been created will however remain on the data-target and need to"
@@ -720,11 +716,11 @@ msgstr ""
 "angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten"
 " und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:68
+#: templates/www/includes/backup_jobs/backup_list_item.html:84
 msgid "cancel"
 msgstr "abbrechen"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:74
+#: templates/www/includes/backup_jobs/backup_list_item.html:90
 msgid "Backup-Log"
 msgstr "Backup-Log"
 
@@ -735,6 +731,41 @@ msgstr "Einstellungen"
 #: templates/www/includes/navigation/user_nav.html:32
 msgid "Sign out"
 msgstr "Ausloggen"
+
+#~ msgid "Username"
+#~ msgstr "Benutzername"
+
+#~ msgid "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."
+#~ msgstr ""
+#~ "Pflichtfeld. 30 Zeichen oder weniger. Erlaubt sind Buchstaben, Zahlen und "
+#~ "@/./+/-/_"
+
+#~ msgid "This value may contain only letters, numbers and @/./+/-/_ characters."
+#~ msgstr "Es sind nur Buchstaben, Zahlen und @/./+/-/_ erlaubt."
+
+#~ msgid "KeyRing Password"
+#~ msgstr "KeyRing Passwort"
+
+#~ msgid "KeyRing Password confirmation"
+#~ msgstr "KeyRing Passwort wiederholen"
+
+#~ msgid "Enter the same KeyRing Password as above, for verification."
+#~ msgstr "Bitte geben Sie dasselbe KeyRing Passwort wie oben ein."
+
+#~ msgid "A user with that username already exists."
+#~ msgstr "Ein Benutzer mit diesem Namen existiert bereits."
+
+#~ msgid "The two KeyRing Password fields didn't match."
+#~ msgstr "Die beiden KeyRing Passwörter stimmen nicht überein."
+
+#~ msgid "New KeyRing Password"
+#~ msgstr "Neues KeyRing-Passwort"
+
+#~ msgid "New KeyRing Password confirmation"
+#~ msgstr "Neues KeyRing-Passwort wiederholen"
+
+#~ msgid "Key Ring"
+#~ msgstr "KeyRing"
 
 #~ msgid "Send verification email again."
 #~ msgstr "Bestätigungsmail erneut senden"
