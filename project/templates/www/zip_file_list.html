@@ -4,9 +4,8 @@
 
 {% block html_title %}{% trans "ZIP Files" %}{% endblock %}
 
-{% block body_class %}class="home"{% endblock %}
-
 {% block content %}
+  <h1>{% trans "Download ZIP Files" %}</h1>
   <ul>
     {% for item in file_list %}
       <li><a href="{% url zip-download %}?f={{ item|urlencode }}">{{ item }}</a></li>
