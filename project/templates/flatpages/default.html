@@ -11,8 +11,10 @@
 {% endblock %}
 
 {% block register_teaser %}
+{% if not user.is_authenticated %}
   <div class="register-teaser">
     <a href="{% url signup %}" class="btn">{% trans "Sign Up now" %}</a>
   </div>
+{% endif %}
 {% endblock %}
 
