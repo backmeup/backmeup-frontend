@@ -24,7 +24,7 @@
     {% endfor %}
     <li><strong>{% trans "Data-Target" %}</strong>: {{ job.datasink.title }}</li>
     {# TODO: pass backup-state as classname, eg: "ok", "inactive" #}
-    <li><strong>{% trans "Backup-State" %}</strong>: {{ current_status }}{# <span class="icon-backupstate-in-progress">Backup wird ausgeführt</span> #}</li>
+    <li><strong>{% trans "Backup-State" %}</strong>: <span class="icon-backupstate-{{ current_status }}">{{ current_status }}</span></li>
   </ul>
   <ul class="backup-log-list">
     {% for item in log %}
