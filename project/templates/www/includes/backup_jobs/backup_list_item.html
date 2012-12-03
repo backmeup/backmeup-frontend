@@ -59,7 +59,7 @@
         {% if item.lastSuccessful %}
           <li>{% trans "Last successful backup" %}: {{ item.lastSuccessful|date:"SHORT_DATETIME_FORMAT" }}</li>
         {% endif %}
-        <li>{% trans "Interval" %}: {% blocktrans with interval=item.timeExpression %}{{ interval }}{% endblocktrans %}</li>
+        <li>{% trans "Interval" %}: {{ item.timeExpression }}</li>
       </ul>
     </div>
     <div class="bli-section-options">

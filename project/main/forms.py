@@ -140,7 +140,7 @@ class JobDeleteForm(forms.Form):
 class JobEditForm(forms.Form):
     
     title = forms.CharField(label=_("Title"), required=True)
-    time_expression = forms.ChoiceField(choices=BACKUP_JOB_TIME_EXPRESSION, initial='realtime')
+    time_expression = forms.ChoiceField(choices=BACKUP_JOB_TIME_EXPRESSION, initial='realtime', label=_("Interval"))
     
     def __init__(self, *args, **kwargs):
         self.extra_data = kwargs.pop('extra_data')
@@ -186,7 +186,7 @@ class JobCreateForm(forms.Form):
     #key_ring = forms.CharField(label=_("Key Ring"), widget=forms.PasswordInput)
     
     title = forms.CharField(label=_("Title"), required=True)
-    time_expression = forms.ChoiceField(choices=BACKUP_JOB_TIME_EXPRESSION, initial='realtime')
+    time_expression = forms.ChoiceField(choices=BACKUP_JOB_TIME_EXPRESSION, initial='realtime', label=_("Interval"))
 
     def __init__(self, *args, **kwargs):
         self.extra_data = kwargs.pop('extra_data')

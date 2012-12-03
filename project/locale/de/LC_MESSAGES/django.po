@@ -2,20 +2,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-03 13:51+0100\n"
-"PO-Revision-Date: 2012-12-03 14:05\n"
+"POT-Creation-Date: 2012-12-03 15:37+0100\n"
+"PO-Revision-Date: 2012-12-03 14:53\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Translated-Using: django-rosetta 0.6.8\n"
 
@@ -96,19 +96,19 @@ msgstr "Die Registrierung mit der E-mail Adresse %s war erfolgreich."
 msgid "New verification email has been sent."
 msgstr "Die Bestätigungs-Email wurde erneut verschickt."
 
-#: main/forms.py:11 templates/dynamic_message_strings.html:23
+#: main/forms.py:11
 msgid "now"
 msgstr "jetzt"
 
-#: main/forms.py:12 templates/dynamic_message_strings.html:24
+#: main/forms.py:12
 msgid "daily"
 msgstr "täglich"
 
-#: main/forms.py:13 templates/dynamic_message_strings.html:25
+#: main/forms.py:13
 msgid "weekly"
 msgstr "wöchentlich"
 
-#: main/forms.py:14 templates/dynamic_message_strings.html:26
+#: main/forms.py:14
 msgid "monthly"
 msgstr "monatlich"
 
@@ -139,8 +139,8 @@ msgstr "Schnellzugriff: Speicher-Ziel"
 #: main/forms.py:87
 msgid "Choose an existing data-sink profile or select a new data-sink below"
 msgstr ""
-"Bitte wählen Sie ein bestehendes Datenziel-Profil (aus einem vorangegangenem"
-" Backup) oder wählen Sie ein neues Datenziel aus der Liste unten."
+"Bitte wählen Sie ein bestehendes Datenziel-Profil (aus einem vorangegangenem "
+"Backup) oder wählen Sie ein neues Datenziel aus der Liste unten."
 
 #: main/forms.py:133
 msgid "Backup Name"
@@ -149,6 +149,11 @@ msgstr "Backup-Name"
 #: main/forms.py:142 main/forms.py:188
 msgid "Title"
 msgstr "Titel"
+
+#: main/forms.py:143 main/forms.py:189
+#: templates/www/includes/backup_jobs/backup_list_item.html:62
+msgid "Interval"
+msgstr "Interval"
 
 #: main/forms.py:263
 msgid "Query"
@@ -192,8 +197,8 @@ msgstr "404 - Page Not Found"
 
 #: templates/404.html:9
 msgid ""
-"Sorry, the page you are looking does not exist. Please go to the homepage or"
-" use the search."
+"Sorry, the page you are looking does not exist. Please go to the homepage or "
+"use the search."
 msgstr ""
 "Die aufgerufene Seite existiert nicht oder nicht mehr. Bitte gehen Sie zur "
 "Startseite oder verwenden Sie die Suche."
@@ -240,7 +245,7 @@ msgstr "Moodle"
 
 #: templates/dynamic_message_strings.html:12
 msgid "org.backmeup.zip - Profil"
-msgstr "Zip"
+msgstr "ZIP"
 
 #: templates/dynamic_message_strings.html:14
 msgid "User has not been activated!"
@@ -687,15 +692,6 @@ msgstr "nächstes Backup"
 msgid "Last successful backup"
 msgstr "Letztes Backup"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:62
-msgid "Interval"
-msgstr "Interval"
-
-#: templates/www/includes/backup_jobs/backup_list_item.html:62
-#, python-format
-msgid "%(interval)s"
-msgstr "%(interval)s"
-
 #: templates/www/includes/backup_jobs/backup_list_item.html:69
 #: templates/www/includes/backup_jobs/backup_list_item.html:73
 #: templates/www/includes/backup_jobs/backup_list_item.html:85
@@ -709,12 +705,12 @@ msgstr "Wollen Sie das ausgewählte Backup wirklich löschen?"
 #: templates/www/includes/backup_jobs/backup_list_item.html:79
 msgid ""
 "By deleting a Backup-Job no further Backups will be created. Backups that "
-"have already been created will however remain on the data-target and need to"
-" be deleted manually."
+"have already been created will however remain on the data-target and need to "
+"be deleted manually."
 msgstr ""
 "Durch das Löschen eines Backups werden keine neuen Backups dieses Typs "
-"angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten"
-" und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
+"angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten "
+"und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
 
 #: templates/www/includes/backup_jobs/backup_list_item.html:84
 msgid "cancel"
@@ -732,15 +728,20 @@ msgstr "Einstellungen"
 msgid "Sign out"
 msgstr "Ausloggen"
 
+#~ msgid "%(interval)s"
+#~ msgstr "%(interval)s"
+
 #~ msgid "Username"
 #~ msgstr "Benutzername"
 
-#~ msgid "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."
+#~ msgid ""
+#~ "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."
 #~ msgstr ""
 #~ "Pflichtfeld. 30 Zeichen oder weniger. Erlaubt sind Buchstaben, Zahlen und "
 #~ "@/./+/-/_"
 
-#~ msgid "This value may contain only letters, numbers and @/./+/-/_ characters."
+#~ msgid ""
+#~ "This value may contain only letters, numbers and @/./+/-/_ characters."
 #~ msgstr "Es sind nur Buchstaben, Zahlen und @/./+/-/_ erlaubt."
 
 #~ msgid "KeyRing Password"
