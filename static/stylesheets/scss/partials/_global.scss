@@ -180,6 +180,7 @@ p, ul, ol {
 .icon-backupstate-queued{
   &:before{
     @include icon_before($icon-queued);
+    margin-left: .1em;
   }
 }
 .backupstate-error .backupstate-icon,
