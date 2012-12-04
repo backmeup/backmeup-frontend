@@ -3,19 +3,16 @@
 {% if needs_email_validation %}
   <a href="{% url verify-email %}">{% trans "validate email and activate account" %}</a>
 {% else %}
-
-<header>
-  <h1>{% trans "My Backups" %}</h1>
-  <a href="{% url datasource-select %}" class="btn-add">{% trans "Create Backup" %}</a>
-</header>
-
-<ul class="backup-list">
-{% for item in jobs reversed %}
-  {% include "www/includes/backup_jobs/backup_list_item.html" %}
-{% empty %}
-  <li>{% trans "No backups yet." %}</li>
-{% endfor %}
-</ul>
-
-<a href="{% url zip-files %}">{% trans "ZIP Archives" %}</a>
+  <header>
+    <h1>{% trans "My Backups" %}</h1>
+    <a href="{% url datasource-select %}" class="btn-add">{% trans "Create Backup" %}</a>
+  </header>
+  <ul class="backup-list">
+  {% for item in jobs reversed %}
+    {% include "www/includes/backup_jobs/backup_list_item.html" %}
+  {% empty %}
+    <li>{% trans "No backups yet." %}</li>
+  {% endfor %}
+  </ul>
+  <a href="{% url zip-files %}">{% trans "ZIP Archives" %}</a>
 {% endif %}

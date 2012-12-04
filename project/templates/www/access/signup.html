@@ -11,24 +11,18 @@
   <div>
     {{ form.email.label }}
     {{ form.email }}
-    {% if form.email.errors %}
-      <span class="form-error">{{ form.email.errors }}</span>
-    {% endif %}
+    {{ form.email.errors }}
   </div>
   <div>
     {{ form.password1.label }}
     {{ form.password1 }}
-    {% if form.password1.errors %}
-      <span class="form-error">{{ form.password1.errors }}</span>
-    {% endif %}
     <span class="helptext">{{ form.password1.help_text }}</span>
+    {{ form.password1.errors }}
   </div>
   <div>
     {{ form.password2.label }}
     {{ form.password2 }}
-    {% if form.password2.errors %}
-      <span class="form-error">{{ form.password2.errors }}</span>
-    {% endif %}
+    {{ form.password2.errors }}
   </div>
   <div><input type="submit" value="{% trans "Create account" %}" class="btn"></div>
 </form>
