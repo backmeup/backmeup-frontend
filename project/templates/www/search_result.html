@@ -98,11 +98,14 @@
             <div class="search-item-text">
               <h4>{{ item.title }}</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+              {% if item.type == "image" %}
+                <img src="/thumbnails/{{ request.user.username }}/{{ item.fileId }}" />
+              {% endif %}
             </div>
           </div>
           <footer class="search-item-footer">
             <date>{{ item.timeStamp|date:"SHORT_DATE_FORMAT" }}</date>
-            <span class="file-type">{{ item.simple_type }}</span>
+            <span class="file-type">{{ item.type }}</span>
           </footer>
         </a>
       </li>
