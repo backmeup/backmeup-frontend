@@ -13,11 +13,12 @@ class RestBackend(object):
         """foo"""
         
         remote_user = RestUser(username)
-        if remote_user.check_login({'password':password}):
+        login_result = remote_user.check_login({'password':password})
+        if not 'errorMessage' in login_result:
             try:
                 user = User.objects.get(username=username)
             except User.DoesNotExist:
-                # user will have an "unusable" password
+                # user will have an empty password
                 user = User.objects.create_user(username, '')
                 user.save()
             return user

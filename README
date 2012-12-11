@@ -1,15 +1,25 @@
+backmeup-frontend is a user interface for backmeup (https://github.com/backmeup/backmeup-prototype) built on top of django and python requests library.
+
+backmeup-frontend features:
+ - custom auth backend to validate authentication agains backmeup REST API
+ - dango session handling and rights management
+ - django i18n
+ - responsive design
+
+
 Install
 =======
 
 * install python modules listed in backmeup-frontend/misc/pip-requirements.txt
 * setup apache vhost. example vhost and wsgi config files are in backmeup-frontend/apache/
-* copy/symlink django project settings file to backmeup-frontend/project/settings/settings.py
-* create a db and make sure the db connection settings in the settings.py are correct.
+* copy/symlink django project settings file to backmeup-frontend/project/settings/settings.py and review/edit it to your liking.
+* create a db and make sure the db connection settings in the settings.py are correct!
 * open the shell and do:
  * $ cd backmeup-frontend/project/
+ * ...activate virtualenv (if there is any)
  * $ ./manage.py syncdb
  * $ ./manage.py migrate
-
+ * $ ./manage.py collectstatic
 
 
 FRONTEND-DEVELOPMENT
