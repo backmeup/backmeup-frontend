@@ -109,6 +109,13 @@
 .footer-teaser {
   @include margin-trailer(2);
 }
+.alpha-badge {
+  position: absolute;
+  top: 35px;
+  width: 100px;
+  height: 100px;
+  margin-left: 90px;
+}
 // --- Home END
 
 
