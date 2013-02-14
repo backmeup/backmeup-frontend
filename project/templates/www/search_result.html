@@ -92,14 +92,14 @@
         
         <a href="{% url file-info search_id=search_id file_id=item.fileId %}" class="search-item-link">
           <header class="search-item-header">
-            <h4 class="g24-icon-before-{{ item.datasource|slugify }}">John Doe</h4>
+            <h4 class="g24-icon-before-{{ item.datasource|slugify }}">{{ item.jobName }}</h4>
           </header>
           <div class="search-item-content">
             <div class="search-item-text">
               <h4>{{ item.title }}</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+              <p>{{ item.preview }}</p>
               {% if item.type == "image" %}
-                <img src="/thumbnails/{{ request.user.username }}/{{ item.fileId }}" />
+                <img src="/{{ item.thumbnailUrl }}" />
               {% endif %}
             </div>
           </div>
