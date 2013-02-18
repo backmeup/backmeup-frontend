@@ -561,18 +561,43 @@ def search_result(request, search_id):
     rest_search = RestSearch(username=request.user.username)
     result = rest_search.get(search_id)
 
-    try:
-        for item in result['files']:
-            item['timeStamp'] = datetime.datetime.fromtimestamp(item['timeStamp']/1000)
-            item['simple_type'] = item['type'].split('/')[0]
-    except Exception:
-        pass
-
     form = SearchFilterForm(request.POST or None, search_result=result)
 
     if form.is_valid():
         new_result = form.rest_save(search_id=search_id, username=request.user.username)
         result = new_result
+
+    for item in result['files']:
+        try:
+            if 'timeStamp' in item:
+                item['timeStamp'] = datetime.datetime.fromtimestamp(item['timeStamp']/1000)
+            if 'type' in item:
+                item['simple_type'] = item['type'].split('/')[0]
+            
+        except Exception:
+            pass
+
+        try:
+            old_properties = item['properties']
+
+            new_properties = {}
+
+            for property_item in old_properties:
+                new_properties[property_item['key']] = property_item['value']
+
+            item['properties'] = new_properties
+
+            if 'modified' in item['properties']:
+                # 17.01.2013 08:33:08 MEZ
+
+                # cut timezone[sic!]
+                datetime_string = item['properties']['modified'].split(' ')
+                datetime_string = ' '.join(datetime_string[:-1])
+
+                item['properties']['modified'] = datetime.datetime.strptime(datetime_string, '%d.%m.%Y %H:%M:%S')
+
+        except Exception:
+            pass
 
     return render_to_response('www/search_result.html', {
         'result': result,

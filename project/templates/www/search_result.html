@@ -97,7 +97,7 @@
           <div class="search-item-content">
             <div class="search-item-text">
               <h4>{{ item.title }}</h4>
-              <p>{{ item.preview }}</p>
+              <p>{{ item.preview|safe }}</p>
               {% if item.type == "image" %}
                 <img src="/{{ item.thumbnailUrl }}" />
               {% endif %}
@@ -108,11 +108,31 @@
             <span class="file-type">{{ item.type }}</span>
           </footer>
         </a>
+        {% comment %}
+        <ul>
+          <li>title: {{ item.title }}</li>
+          <li>timeStamp: {{ item.timeStamp|date:"SHORT_DATE_FORMAT" }}</li>
+          <li>jobName: {{ item.jobName }}</li>
+          <li>datasource: {{ item.datasource }}</li>
+          <li>preview: {{ item.preview|safe }}</li>
+          <li>fileId: {{ item.fileId }}</li>
+          <li>properties.source: {{ item.properties.source }}</li>
+          <li>properties.backup_sink: {{ item.properties.backup_sink }}</li>
+          <li>properties.path: {{ item.properties.path }}</li>
+          <li>properties.modified: {{ item.properties.modified|date:"SHORT_DATE_FORMAT" }}</li>
+          <li>properties.destination: {{ item.properties.destination }}</li>
+          <li>properties.parent: {{ item.properties.parent }}</li>
+          <li>properties.file_md5_hash: {{ item.properties.file_md5_hash }}</li>
+        </ul>
+        {% endcomment %}
+        
       </li>
     {% endfor %}
   </ul>
   
-  
+
+
+{% comment %}
     <ul class="sr-list">
     <li>
       <h1>DUMMY</h1>
@@ -120,8 +140,12 @@
     <li>
       <h1>DUMMY</h1>
     </li>
-    
+{% endcomment %}
+
+
     {# Dummy search-results START #}
+
+{% comment %}
     <li>
       <a href="/search-result-details" class="search-item-link">
         <header class="search-item-header">
@@ -179,7 +203,7 @@
         </footer>
       </a>
     </li>
-    
+{% endcomment %}
     {# Dummy search-results START #}
   </ul>
 {% endblock content %}
