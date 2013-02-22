@@ -558,8 +558,16 @@ def search(request):
 
 @login_required
 def search_result(request, search_id):
-    rest_search = RestSearch(username=request.user.username)
-    result = rest_search.get(search_id)
+    if not 'search_results' in request.session:
+        request.session['search_results'] = {}
+
+    # cache search result
+    try:
+        result = request.session['search_results'][search_id]
+    except Exception:
+        rest_search = RestSearch(username=request.user.username)
+        result = rest_search.get(search_id)
+        request.session['search_results'][search_id] = result
 
     form = SearchFilterForm(request.POST or None, search_result=result)
 
@@ -567,6 +575,16 @@ def search_result(request, search_id):
         new_result = form.rest_save(search_id=search_id, username=request.user.username)
         result = new_result
 
+    result = processSearchResult(result)
+
+    return render_to_response('www/search_result.html', {
+        'result': result,
+        'search_id': search_id,
+        'form': form,
+    }, context_instance=RequestContext(request))
+
+
+def processSearchResult(result):
     for item in result['files']:
         try:
             if 'timeStamp' in item:
@@ -598,24 +616,28 @@ def search_result(request, search_id):
 
         except Exception:
             pass
-
-    return render_to_response('www/search_result.html', {
-        'result': result,
-        'search_id': search_id,
-        'form': form,
-    }, context_instance=RequestContext(request))
+    return result
 
 
 @login_required
 def file_info(request, search_id, file_id):
-
     rest_file = RestFile(username=request.user.username)
     result = rest_file.get(file_id=file_id)
 
     result['details']['fileInfo']['timeStamp'] = datetime.datetime.fromtimestamp(int(result['details']['fileInfo']['timeStamp'])/1000)
     result['details']['fileInfo']['filename'] = result['details']['fileInfo']['path'].split('/')[-1]
+
+    search_result = None
+    search_results = processSearchResult(request.session['search_results'][search_id])
+
+    for item in search_results['files']:
+        if item['fileId'] == result['details']['fileInfo']['fileId']:
+            search_result = item
+            break
+
     return render_to_response('www/search_result_detail.html', {
         'file': result['details']['fileInfo'],
+        'search_result': search_result,
         'search_id': search_id,
     }, context_instance=RequestContext(request))
 

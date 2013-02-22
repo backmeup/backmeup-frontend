@@ -1,6 +1,43 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% comment %}
+  EXAMPLE:
+
+
+file:
+{
+  "title": "RIDEUNICORN218102684889285.html", 
+  "sourceId": 222, 
+  "timeStamp": 1361360499570, 
+  "source": "org.backmeup.facebook (Klemens Mantzos)", 
+  "sink": "org.backmeup.zip - Profil", 
+  "path": "/Gruppen/RIDEUNICORN218102684889285.html", 
+  "type": "html", 
+  "fileId": 61360499570"
+}
+
+search_result:
+{
+  "title": "RIDEUNICORN218102684889285.html", 
+  "timeStamp": 1361360499570, 
+  "jobName": "FB Test 1 (alles + indexer)", 
+  "datasource": "org.backmeup.facebook (Klemens Mantzos)", 
+  "preview": "... my facebook: <em>RIDEUNICORN</em> \\tGruppenname:\\t<em>RIDEUNICORN</em> \\tBeschreibung:\\t<em>RIDEUNICORN</em> VIENNA SUNDAY ...", 
+  "type": "html", 
+  "properties": {
+    "source": "facebook",
+    "backup_sink": "org.backmeup.zip - Profil",
+    "path": "/Gruppen/RIDEUNICORN218102684889285.html",
+    "modified": "18.02.2013 17:07:40 MEZ",
+    "destination": "Gruppen/RIDEUNICORN218102684889285.html",
+    "file_md5_hash": "400aacca93e79ab2c90ecd2fca24666f",
+  }, 
+  "fileId": "32:400aacca93e79ab2c90ecd2fca24666f:1361360499570"
+}, 
+
+{% endcomment %}
+
 {% block html_title %}{% trans "Search result details" %}{% endblock %}
 
 {% block breadcrumbs %}
