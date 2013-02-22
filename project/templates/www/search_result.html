@@ -96,10 +96,10 @@
           </header>
           <div class="search-item-content">
             <div class="search-item-text">
-              <h4>{{ item.title }}</h4>
+              <h5>{{ item.title }}</h5>
               <p>{{ item.preview|safe }}</p>
               {% if item.type == "image" %}
-                <img src="/{{ item.thumbnailUrl }}" />
+                <div class="search-item-thumb"><img src="{{ item.thumbnailUrl }}" /></div>
               {% endif %}
             </div>
           </div>

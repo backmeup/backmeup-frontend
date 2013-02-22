@@ -14,6 +14,7 @@
     @extend .clearfix;
     @include margin-trailer(1);
     @include box-sizing('border-box');
+    border: 1px solid $border-clr-search-item;
   }
   p {
     margin: 0;
@@ -24,23 +25,32 @@ a.search-item-link {
   text-decoration: none;
   color: $clr-text;
   &:hover {
+    background: $bg-clr2;
     .search-item-header {
       background: $bg-clr1;
       h4 {
         color: #fff;
       }
     }
+    .search-item-footer {
+      background: $bg-clr1;
+      color: #fff;
+    }
   }
 }
 .search-item-header {
   background: $bg-clr2;
+  border-color: $border-clr-search-item;
   padding: 0 .375em;
   @include rhythm(0, .125, .125, .5);
+  @include apply-side-rhythm-border(bottom, 1px, .125);
 }
 .search-item-content {
   @extend .clearfix;
+  height: 96px;
   max-height: 96px;
   overflow: hidden;
+  padding: 0 .375em;
 }
 .search-item-thumb {
   float: left;
@@ -50,8 +60,12 @@ a.search-item-link {
   }
 }
 .search-item-footer {
+  background: $bg-clr-body;
+  border-color: $border-clr-search-item;
   clear: both;
-  @include margin-leader(.25);
+  padding: 0 .375em;
+  @include rhythm(.5, .125, .125, 0);
+  @include apply-side-rhythm-border(top, 1px, .125);
   .file-type {
     float: right;
     padding: 0 3px;
