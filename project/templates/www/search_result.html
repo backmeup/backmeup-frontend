@@ -99,7 +99,7 @@
               <h5>{{ item.title }}</h5>
               <p>{{ item.preview|safe }}</p>
               {% if item.type == "image" %}
-                <div class="search-item-thumb"><img src="{{ item.thumbnailUrl }}" /></div>
+                <div class="search-item-thumb"><img src="http://backmeup.at/{{ item.thumbnailUrl }}" /></div>
               {% endif %}
             </div>
           </div>

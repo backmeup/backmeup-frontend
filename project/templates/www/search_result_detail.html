@@ -45,8 +45,7 @@ search_result:
     <div class="container">
       <ul>
         <li><a href="/search">{% trans "Search" %}</a></li>
-        <li><a href="/search-result">666 results</a></li>
-        <li><span>Dummy Facebook: 16 results</span></li>
+        <li><span>{{ search_result.title }}</span></li>
       </ul>
     </div>
   </div>
@@ -56,9 +55,9 @@ search_result:
   <h1 class="visuallyhidden">{% trans "Search result details" %}</h1>
   <div class="sr-detail-container">
     <h2>{{ file.title }}</h2>
-    <p>{{ file.preview|safe }}</p>
+    <p>{{ search_result.preview|safe }}</p>
     {% if file.type == "image" %}
-      <div class="search-item-thumb"><img src="{{ file.thumbnailUrl }}" /></div>
+      <div class="search-item-thumb"><img src="http://backmeup.at/{{ search_result.thumbnailUrl }}" /></div>
     {% endif %}
     {# <img src="http://lorempixel.com/660/495/people" /> #}
     {# <p><strike>ADDITIONAL INFOS Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</strike></p> #}
@@ -89,10 +88,10 @@ search_result:
           <li>
             <span>{{ file.sink }}</span>
           </li>
-          <li>
-            <span class="key">{% trans "saved" %}:</span>
-            {# <span class="value"><strike>22.22.2012</strike></span> #}
-          </li>
+          {# <li> #}
+          {#   <span class="key">{% trans "saved" %}:</span> #}
+          {#   <span class="value"><strike>22.22.2012</strike></span> #}
+          {# </li> #}
         </ul>
       </li>
     </ul>
