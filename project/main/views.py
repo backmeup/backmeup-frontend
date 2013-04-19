@@ -648,7 +648,7 @@ def zip_files(request):
     user = rest_user.get()
     user_id = int(user['userId'])
     
-    file_list = [f for f in os.listdir(settings.ZIP_ARCHIVES_PATH % user_id) if re.match(settings.ZIP_ARCHIVES_MATCH_PATTERN, f)]
+    file_list = [f for f in sorted(os.listdir(settings.ZIP_ARCHIVES_PATH % user_id)) if re.match(settings.ZIP_ARCHIVES_MATCH_PATTERN, f)]
     return render_to_response('www/zip_file_list.html', {
         'file_list': file_list,
     }, context_instance=RequestContext(request))
