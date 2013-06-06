@@ -185,8 +185,8 @@ def user_settings(request):
     if form.is_valid():
         result = form.save()
         
-        if not result and 'errorMessage' in result:
-            messages.add_message(request, messages.ERROR, result['errorMessage'])
+        if result and 'errorMessage' in result:
+            messages.add_message(request, messages.ERROR, _(result['errorMessage']))
         return redirect('user-settings')
     
     return render_to_response(
