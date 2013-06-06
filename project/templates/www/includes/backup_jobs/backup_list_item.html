@@ -41,6 +41,9 @@
       <span class="key">{% trans "Data-Target" %}</span>
       <ul class="value">
         <li>{{ item.datasink.title }}</li>
+        {% if item.datasink.title == "ZIP" %}
+          <li><a href="{% url zip-files %}">{% trans "ZIP Archives" %}</a></li>
+        {% endif %}
       </ul>
     </div>
     {# # status is one of the following:  #}
