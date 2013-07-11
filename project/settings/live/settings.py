@@ -186,3 +186,18 @@ ZIP_ARCHIVES_PATH = '/data/backmeup-frontend-backupfiles/%d/zip/'
 
 ZIP_ARCHIVES_MATCH_PATTERN = r'.*\.zip'
 
+# ISSUE #3 : Store user password in (memcached) session
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
+#         # ip:port
+#         'LOCATION': '127.0.0.1:11211',
+#         # socket
+#         'LOCATION': 'unix:/tmp/memcached.sock',
+#         # shared
+#         'LOCATION': [
+#             '172.19.26.240:11211',
+#             '172.19.26.242:11211',
+#         ]
+#     }
+# }
