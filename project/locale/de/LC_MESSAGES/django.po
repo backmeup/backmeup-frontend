@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-03 15:37+0100\n"
+"POT-Creation-Date: 2013-07-11 14:04+0200\n"
 "PO-Revision-Date: 2012-12-03 14:53\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr "Passwort bestätigen"
 msgid "Enter the same password as above, for verification."
 msgstr "Passwort wiederholen"
 
-#: access/forms.py:53 access/forms.py:167
+#: access/forms.py:53 access/forms.py:172
 msgid "A user with that email already exists."
 msgstr "Ein Benutzer mit dieser E-mail Adresse existiert bereits."
 
@@ -96,19 +96,19 @@ msgstr "Die Registrierung mit der E-mail Adresse %s war erfolgreich."
 msgid "New verification email has been sent."
 msgstr "Die Bestätigungs-Email wurde erneut verschickt."
 
-#: main/forms.py:11
+#: main/forms.py:11 templates/dynamic_message_strings.html:23
 msgid "now"
 msgstr "jetzt"
 
-#: main/forms.py:12
+#: main/forms.py:12 templates/dynamic_message_strings.html:24
 msgid "daily"
 msgstr "täglich"
 
-#: main/forms.py:13
+#: main/forms.py:13 templates/dynamic_message_strings.html:25
 msgid "weekly"
 msgstr "wöchentlich"
 
-#: main/forms.py:14
+#: main/forms.py:14 templates/dynamic_message_strings.html:26
 msgid "monthly"
 msgstr "monatlich"
 
@@ -151,7 +151,7 @@ msgid "Title"
 msgstr "Titel"
 
 #: main/forms.py:143 main/forms.py:189
-#: templates/www/includes/backup_jobs/backup_list_item.html:62
+#: templates/www/includes/backup_jobs/backup_list_item.html:65
 msgid "Interval"
 msgstr "Interval"
 
@@ -275,6 +275,26 @@ msgstr "erfolgreich"
 msgid "error"
 msgstr "Fehler"
 
+#: templates/dynamic_message_strings.html:28
+msgid "org.backmeup.twitter"
+msgstr "Twitter"
+
+#: templates/dynamic_message_strings.html:29
+msgid "org.backmeup.dropbox"
+msgstr "Dropbox"
+
+#: templates/dynamic_message_strings.html:30
+msgid "org.backmeup.facebook"
+msgstr "Facebook"
+
+#: templates/dynamic_message_strings.html:31
+msgid "org.backmeup.moodle"
+msgstr "Moodle"
+
+#: templates/dynamic_message_strings.html:32
+msgid "org.backmeup.zip"
+msgstr "ZIP"
+
 #: templates/flatpages/about.html:8
 msgid "Project Partners"
 msgstr "Projekt-Partner"
@@ -283,7 +303,7 @@ msgstr "Projekt-Partner"
 msgid "Sponsor"
 msgstr "Fördergeber"
 
-#: templates/flatpages/default.html:15
+#: templates/flatpages/default.html:16
 msgid "Sign Up now"
 msgstr "Jetzt Registrieren"
 
@@ -394,7 +414,7 @@ msgstr "Daten-Quelle auswählen"
 msgid "Step 1: select data-source"
 msgstr "Schritt 1: Daten-Quelle auswählen"
 
-#: templates/www/index.html:7 templates/www/includes/dashboard.html:8
+#: templates/www/index.html:7 templates/www/includes/dashboard.html:7
 #: templates/www/includes/navigation/user_nav.html:30
 msgid "My Backups"
 msgstr "Meine Backups"
@@ -431,12 +451,12 @@ msgstr "alle auswählen"
 msgid "Backup actions"
 msgstr "Backup-Aktionen"
 
-#: templates/www/job_create.html:81 templates/www/includes/dashboard.html:9
+#: templates/www/job_create.html:81 templates/www/includes/dashboard.html:8
 msgid "Create Backup"
 msgstr "Backup erstellen"
 
 #: templates/www/job_edit.html:5 templates/www/job_edit.html.py:11
-#: templates/www/includes/backup_jobs/backup_list_item.html:67
+#: templates/www/includes/backup_jobs/backup_list_item.html:70
 msgid "Edit Backup"
 msgstr "Backup bearbeiten"
 
@@ -462,7 +482,7 @@ msgstr "Speicher-Ziel"
 
 #: templates/www/job_log.html:27
 #: templates/www/includes/backup_jobs/backup_list_item.html:27
-#: templates/www/includes/backup_jobs/backup_list_item.html:52
+#: templates/www/includes/backup_jobs/backup_list_item.html:55
 msgid "Backup-State"
 msgstr "Backup-Status"
 
@@ -471,7 +491,7 @@ msgid "Search Results"
 msgstr "Suchergebnisse"
 
 #: templates/www/search_result.html:10
-#: templates/www/search_result_detail.html:10
+#: templates/www/search_result_detail.html:47
 #: templates/www/includes/header_search.html:6
 msgid "Search"
 msgstr "Suche"
@@ -515,35 +535,31 @@ msgstr "Suche verfeinern"
 msgid "send"
 msgstr "absenden"
 
-#: templates/www/search_result_detail.html:4
-#: templates/www/search_result_detail.html:19
+#: templates/www/search_result_detail.html:41
+#: templates/www/search_result_detail.html:55
 msgid "Search result details"
 msgstr "Suchergebnis-details"
 
-#: templates/www/search_result_detail.html:25
+#: templates/www/search_result_detail.html:66
 msgid "Backup-Details"
 msgstr "Backup-Details"
 
-#: templates/www/search_result_detail.html:27
-#: templates/www/search_result_detail.html:30
+#: templates/www/search_result_detail.html:68
+#: templates/www/search_result_detail.html:71
 msgid "Data-source"
 msgstr "Daten-Quelle"
 
-#: templates/www/search_result_detail.html:34
+#: templates/www/search_result_detail.html:75
 msgid "creation-date"
 msgstr "erstellt am"
 
-#: templates/www/search_result_detail.html:38
+#: templates/www/search_result_detail.html:79
 msgid "title"
 msgstr "Titel"
 
-#: templates/www/search_result_detail.html:43
+#: templates/www/search_result_detail.html:84
 msgid "Data-targets"
 msgstr "Speicher-Ziele"
-
-#: templates/www/search_result_detail.html:51
-msgid "saved"
-msgstr "gespeichert"
 
 #: templates/www/zip_file_list.html:5
 msgid "ZIP Files"
@@ -574,11 +590,11 @@ msgid "Forgot password?"
 msgstr "Passwort vergessen?"
 
 #: templates/www/access/signup.html:4 templates/www/access/signup.html.py:8
-#: templates/www/includes/homepage.html:7
+#: templates/www/includes/homepage.html:8
 msgid "Sign Up"
 msgstr "Registrieren"
 
-#: templates/www/access/signup.html:33
+#: templates/www/access/signup.html:27
 msgid "Create account"
 msgstr "Registrieren"
 
@@ -629,11 +645,12 @@ msgstr "Bestätigungs-Email erneut senden"
 msgid "validate email and activate account"
 msgstr "Email-Adresse bestätigen und Benutzer aktivieren."
 
-#: templates/www/includes/dashboard.html:16
+#: templates/www/includes/dashboard.html:14
 msgid "No backups yet."
 msgstr "Noch keine Backups."
 
-#: templates/www/includes/dashboard.html:20
+#: templates/www/includes/dashboard.html:17
+#: templates/www/includes/backup_jobs/backup_list_item.html:45
 msgid "ZIP Archives"
 msgstr "ZIP-Archiv"
 
@@ -661,10 +678,6 @@ msgstr "Hilfe"
 msgid "Feedback"
 msgstr "Feedback"
 
-#: templates/www/includes/footer.html:17
-msgid "AGBs"
-msgstr "AGBs"
-
 #: templates/www/includes/header_search.html:9
 msgid "search"
 msgstr "suchen"
@@ -673,7 +686,7 @@ msgstr "suchen"
 msgid "*homepage headline"
 msgstr "Bewahre Deine Daten"
 
-#: templates/www/includes/homepage.html:6
+#: templates/www/includes/homepage.html:7
 msgid "*homepage text"
 msgstr ""
 "Deine Daten aus der Cloud –<br/> \n"
@@ -684,25 +697,25 @@ msgstr ""
 msgid "Details"
 msgstr "Details"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:56
+#: templates/www/includes/backup_jobs/backup_list_item.html:59
 msgid "next backup"
 msgstr "nächstes Backup"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:60
+#: templates/www/includes/backup_jobs/backup_list_item.html:63
 msgid "Last successful backup"
 msgstr "Letztes Backup"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:69
-#: templates/www/includes/backup_jobs/backup_list_item.html:73
-#: templates/www/includes/backup_jobs/backup_list_item.html:85
+#: templates/www/includes/backup_jobs/backup_list_item.html:72
+#: templates/www/includes/backup_jobs/backup_list_item.html:76
+#: templates/www/includes/backup_jobs/backup_list_item.html:88
 msgid "Delete Backup"
 msgstr "Backup löschen"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:77
+#: templates/www/includes/backup_jobs/backup_list_item.html:80
 msgid "Do you really want to delete the selected Backup-Job?"
 msgstr "Wollen Sie das ausgewählte Backup wirklich löschen?"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:79
+#: templates/www/includes/backup_jobs/backup_list_item.html:82
 msgid ""
 "By deleting a Backup-Job no further Backups will be created. Backups that "
 "have already been created will however remain on the data-target and need to "
@@ -712,11 +725,11 @@ msgstr ""
 "angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten "
 "und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:84
+#: templates/www/includes/backup_jobs/backup_list_item.html:87
 msgid "cancel"
 msgstr "abbrechen"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:90
+#: templates/www/includes/backup_jobs/backup_list_item.html:93
 msgid "Backup-Log"
 msgstr "Backup-Log"
 
@@ -727,6 +740,12 @@ msgstr "Einstellungen"
 #: templates/www/includes/navigation/user_nav.html:32
 msgid "Sign out"
 msgstr "Ausloggen"
+
+#~ msgid "saved"
+#~ msgstr "gespeichert"
+
+#~ msgid "AGBs"
+#~ msgstr "AGBs"
 
 #~ msgid "%(interval)s"
 #~ msgstr "%(interval)s"
