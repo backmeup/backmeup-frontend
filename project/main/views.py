@@ -568,6 +568,7 @@ def search_result(request, search_id):
         rest_search = RestSearch(username=request.user.username)
         result = rest_search.get(search_id)
         request.session['search_results'][search_id] = result
+        request.session.modified = True
 
     form = SearchFilterForm(request.POST or None, search_result=result)
 
