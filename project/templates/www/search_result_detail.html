@@ -71,10 +71,12 @@ search_result:
         <span class="key">{% trans "Data-source" %}:</span>
         <span class="value">{{ file.source }}</span>
       </li>
+      {% if file.timeStamp %}
       <li>
         <span class="key">{% trans "creation-date" %}:</span>
         <span class="value">{{ file.timeStamp|date:"SHORT_DATE_FORMAT" }}</span>
       </li>
+      {% endif %}
       <li>
         <span class="key">{% trans "title" %}:</span>
         <span class="value">{{ file.filename }}</span>
