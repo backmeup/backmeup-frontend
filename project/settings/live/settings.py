@@ -201,3 +201,6 @@ ZIP_ARCHIVES_MATCH_PATTERN = r'.*\.zip'
 #         ]
 #     }
 # }
+#
+#
+# SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
