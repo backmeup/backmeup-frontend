@@ -148,7 +148,12 @@ class UserSettingsForm(forms.Form):
         return new_password2
     
     def clean_email(self):
-        email = self.cleaned_data["email"]
+        email = self.cleaned_data.get('email', self.user.username)
+        
+        # nothing changed...
+        if email == self.user.username:
+            return email
+        
         try:
             # check if remote api knows user
             remote_user = RestUser(email)
@@ -175,11 +180,12 @@ class UserSettingsForm(forms.Form):
         new_key_ring = self.cleaned_data.get('new_password1', False)
         new_email = self.cleaned_data.get('email', self.user.username)
         
-        data['old_password'] = old_password
+        data['oldPassword'] = old_password
+        data['oldKeyRing'] = old_password
         if new_password:
             data['password'] = new_password
         if new_key_ring:
-            data['keyRing'] = new_key_ring
+            data['newKeyRing'] = new_key_ring
         if not new_email == self.user.username:
             data['email'] = new_email
             data['username'] = new_email

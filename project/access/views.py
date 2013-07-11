@@ -187,6 +187,9 @@ def user_settings(request):
         
         if result and 'errorMessage' in result:
             messages.add_message(request, messages.ERROR, _(result['errorMessage']))
+        if result and 'messages' in result:
+            for msg in result['messages']:
+                messages.add_message(request, messages.INFO, _(msg))
         return redirect('user-settings')
     
     return render_to_response(
