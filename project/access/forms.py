@@ -141,7 +141,7 @@ class UserSettingsForm(forms.Form):
                 result = rest_properties.get(actionId=action['actionId'])
                 
                 action_value = False
-                if result['value'] == "true":
+                if 'value' in result and result['value'] == "true":
                     action_value = True
                 #if 'errorType' in result and result['errorType'] == "org.backmeup.model.exceptions.UnknownUserPropertyException":
                 
