@@ -208,13 +208,12 @@ class JobCreateForm(forms.Form):
             if action.get('visibility', "") == "job":
                 action['options'] = rest_actions.options(action_id=action['actionId'])
             
-                self.fields['actions_value_%s' % i] = forms.BooleanField(label=_(action['title']), required=False, help_text=_(action['description']))
-                self.fields['actions_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=action['actionId'])
+                self.fields['actions_value_%d' % i] = forms.BooleanField(label=_(action['title']), required=False, help_text=_(action['description']))
+                self.fields['actions_key_%d' % i] = forms.CharField(widget=forms.HiddenInput, initial=action['actionId'])
             
-                # action options are just dummy yet
-                #for j, option in enumerate(action['options']):
-                #    self.fields['action_options_value_%s_%s' % (i, j)] = forms.BooleanField(label=_(option), required=False)
-                #    self.fields['action_options_key_%s_%s' % (i, j)] = forms.CharField(widget=forms.HiddenInput, initial=option)
+                for j, option in enumerate(action['options']):
+                    self.fields['actions_value_%d_option_%d' % (i, j)] = forms.CharField(label=_(option), required=False)
+                    self.fields['actions_key_%d_option_%d' % (i, j)] = forms.CharField(widget=forms.HiddenInput, initial=option)
     
     def field_group_job(self):
         return [
@@ -227,10 +226,12 @@ class JobCreateForm(forms.Form):
 
     def field_group_actions(self):
         return [field for field in self if field.name.startswith('actions_value_')]
-
+    
     def rest_save(self):
         source_options = []
         actions = []
+        
+        data = {}
         
         for key in self.cleaned_data:
             
@@ -238,18 +239,26 @@ class JobCreateForm(forms.Form):
                 source_options.append(self.cleaned_data[key.replace('_value_', '_key_')])
             
             if key.startswith('actions_value_') and self.cleaned_data[key]:
-                value = self.cleaned_data[key.replace('_value_', '_key_')]
-                actions.append(value)
+                if '_option_' in key:
+                    action_key = self.cleaned_data[key.split('_option_')[0].replace('_value_', '_key_')]
+                    
+                    option_key = action_key + '.' + self.cleaned_data[key.replace('_value_', '_key_')]
+                    
+                    option_value = self.cleaned_data[key]
+                    data[option_key] = option_value
+                else:
+                    value = self.cleaned_data[key.replace('_value_', '_key_')]
+                    actions.append(value)
         
         rest_jobs = RestJobs(username=self.extra_data['username'])
-        data = {
-            "keyRing": self.extra_data['key_ring'],
-            'timeExpression': self.cleaned_data['time_expression'],
-            'sourceProfiles': self.extra_data['datasource_profile_id'],
-            'sinkProfileId': self.extra_data['datasink_profile_id'],
-            'jobTitle': self.cleaned_data['title'],
-            'actions': actions,
-        }
+        
+        data["keyRing"] = self.extra_data['key_ring']
+        data['timeExpression'] = self.cleaned_data['time_expression']
+        data['sourceProfiles'] = self.extra_data['datasource_profile_id']
+        data['sinkProfileId'] = self.extra_data['datasink_profile_id']
+        data['jobTitle'] = self.cleaned_data['title']
+        data['actions'] = actions
+        
         for item in source_options:
             params_key = str(data['sourceProfiles']) + "." + item
             data[params_key] = "true"

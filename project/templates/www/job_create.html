@@ -67,13 +67,29 @@
             <legend>{% trans "Backup actions" %}</legend>
             <div class="checkbox-group">
               {% for field in form.field_group_actions %}
-              <div>
-                <label>{{ field }}{{ field.label }}</label>
-                <span class="helptext">{{ field.help_text }}</span>
-                {% if field.errors %}
-                  {{ field.errors }}
-                {% endif %}
-              </div>
+              
+              {% if "option" in field.name %}
+                
+                <div>
+                  <label>{{ field.label }}</label>
+                  {{ field }}
+                  {% if field.errors %}
+                    {{ field.errors }}
+                  {% endif %}
+                </div>
+                
+              {% else %}
+                
+                <div>
+                  <label>{{ field }}{{ field.label }}</label>
+                  <span class="helptext">{{ field.help_text }}</span>
+                  {% if field.errors %}
+                    {{ field.errors }}
+                  {% endif %}
+                </div>
+                
+              {% endif %}
+              
               {% endfor %}
             </div>
           </fieldset>
