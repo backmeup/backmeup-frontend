@@ -4,10 +4,23 @@
 {% block html_title %}{% trans "Account Settings" %}{% endblock %}
 
 {% block content %}
-
+{% if request.GET.index_deactivated == 'true' %}
+<div>
+  <ul class="messages">
+    <li class="info"><button type="button" class="close"></button>{% trans "Search index has been deactivated. Delete existing index?" %}
+    <a href="?index_delete=true">{% trans "yes" %}</a></li>
+  </ul>
+</div>
+{% endif %}
 <h1>{% trans "Account Settings" %}</h1>
 
+
 <form action="." method="POST">{% csrf_token %}
+  
+  {% for hidden in form.hidden_fields %}
+    {{ hidden }}
+  {% endfor %}
+  
   <fieldset class="settings-fieldset">
     <legend>{% trans "Change Email-address" %}</legend>
     <div>
@@ -35,6 +48,19 @@
       {% endif %}
     </div>
   </fieldset>
+  
+  <fieldset class="settings-fieldset">
+    {% for field in form.field_group_actions %}
+      <div>
+        <label>{{ field }}{{ field.label }}</label>
+        <span class="helptext">{{ field.help_text }}</span>
+        {% if field.errors %}
+          {{ field.errors }}
+        {% endif %}
+      </div>
+    {% endfor %}
+  </fieldset>
+  
   <div>
     {{ form.old_password.label }}
     {{ form.old_password }}

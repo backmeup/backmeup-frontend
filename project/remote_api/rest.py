@@ -8,6 +8,10 @@ from django.conf import settings
 # TODO
 # move all requests api specific code to RestBase
 
+ACTION_ID_TO_PROPERTY_NAME = {
+    'org.backmeup.indexer': 'enable.indexing',
+}
+
 
 class RestBase(object):
     u'''
@@ -69,6 +73,31 @@ class RestBase(object):
         return response.json
 
 
+class RestProperties(RestBase):
+    '''
+    '''
+
+    def __init__(self, username, path="users/"):
+        if not username:
+            raise ValueError('argument "username" is missing.')
+        self.username = username
+
+        super(RestProperties, self).__init__()
+        self.base_url = "%s%s%s/properties/" % (self.base_url, path, self.username)
+    
+    def get(self, actionId):
+        '''
+        '''
+        property_name = ACTION_ID_TO_PROPERTY_NAME[actionId]
+        return self._get(path=property_name)
+
+    def post(self, actionId, value):
+        '''
+        '''
+        property_name = ACTION_ID_TO_PROPERTY_NAME[actionId]
+        return self._post(path="%s/%s/" % (property_name, value))
+
+
 class RestUser(RestBase):
     '''
     crud + "check login" methods for user accounts
@@ -88,11 +117,11 @@ class RestUser(RestBase):
         '''
         return self._delete()
 
-    def get(self):
+    def get(self, path=""):
         '''
         get user data or check if user exists
         '''
-        return self._get()
+        return self._get(path=path)
 
     def post(self, data):
         '''

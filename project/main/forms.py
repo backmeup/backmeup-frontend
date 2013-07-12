@@ -205,15 +205,16 @@ class JobCreateForm(forms.Form):
         actions = rest_actions.get_all()
         
         for i, action in enumerate(actions):
-            action['options'] = rest_actions.options(action_id=action['actionId'])
+            if action.get('visibility', "") == "job":
+                action['options'] = rest_actions.options(action_id=action['actionId'])
             
-            self.fields['actions_value_%s' % i] = forms.BooleanField(label=_(action['title']), required=False, help_text=_(action['description']))
-            self.fields['actions_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=action['actionId'])
+                self.fields['actions_value_%s' % i] = forms.BooleanField(label=_(action['title']), required=False, help_text=_(action['description']))
+                self.fields['actions_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=action['actionId'])
             
-            # action options are just dummy yet
-            #for j, option in enumerate(action['options']):
-            #    self.fields['action_options_value_%s_%s' % (i, j)] = forms.BooleanField(label=_(option), required=False)
-            #    self.fields['action_options_key_%s_%s' % (i, j)] = forms.CharField(widget=forms.HiddenInput, initial=option)
+                # action options are just dummy yet
+                #for j, option in enumerate(action['options']):
+                #    self.fields['action_options_value_%s_%s' % (i, j)] = forms.BooleanField(label=_(option), required=False)
+                #    self.fields['action_options_key_%s_%s' % (i, j)] = forms.CharField(widget=forms.HiddenInput, initial=option)
     
     def field_group_job(self):
         return [

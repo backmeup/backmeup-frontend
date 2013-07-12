@@ -8,10 +8,12 @@ from django.template import RequestContext
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as django_login
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 
 # project
 from access.forms import UserCreationForm, UserEmailVerificationForm, UserSettingsForm
-from remote_api.rest import RestEmailVerification
+from remote_api.rest import RestEmailVerification, RestUser
 
 
 
@@ -181,6 +183,14 @@ def verify_email_resend(request):
 
 @login_required
 def user_settings(request):
+    if request.GET.get('index_delete') == 'true':
+        rest_user = RestUser(username=request.user.username)
+        
+        index_delete_result = rest_user.get(path='deleteIndex/')
+        if index_delete_result and 'messages' in index_delete_result:
+            for msg in index_delete_result['messages']:
+                messages.add_message(request, messages.INFO, _(msg))
+    
     form = UserSettingsForm(request.user, request.POST or None)
     if form.is_valid():
         result = form.save()
@@ -192,8 +202,12 @@ def user_settings(request):
                 if msg == "Account password has been changed" and result['type'] == 'success':
                     request.session['key_ring'] = request.POST['new_password1']
                 messages.add_message(request, messages.INFO, _(msg))
-
+        
+        if 'index_deactivated' in result and result['index_deactivated'] == True:
+            url = reverse('user-settings')
+            return HttpResponseRedirect(url + "?index_deactivated=true")
         return redirect('user-settings')
+    
     
     return render_to_response(
         'www/access/user_settings.html',

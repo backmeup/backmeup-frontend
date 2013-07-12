@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 
 # project
 from access.models import User
-from remote_api.rest import RestUser, RestEmailVerification
+from remote_api.rest import RestUser, RestEmailVerification, RestAction, RestProperties
 
 
 class UserCreationForm(forms.ModelForm):
@@ -68,7 +68,7 @@ class UserCreationForm(forms.ModelForm):
     #        self.cleaned_data['username'] = self.cleaned_data['email']
     #    super(UserCreationForm, self).clean()
     #    return self.cleaned_data
-
+    
     def save(self, commit=True):
         user = super(UserCreationForm, self).save(commit=False)
         user.set_password("")
@@ -127,7 +127,32 @@ class UserSettingsForm(forms.Form):
             'email': self.user.username,
         }
         super(UserSettingsForm, self).__init__(*args, **kwargs)
-
+        
+        rest_actions = RestAction()
+        actions = rest_actions.get_all()
+        
+        self.action_old_values = {}
+        
+        rest_properties = RestProperties(username=self.user.username)
+        for i, action in enumerate(actions):
+            if action.get('visibility', "") == "global":
+                action['options'] = rest_actions.options(action_id=action['actionId'])
+                
+                result = rest_properties.get(actionId=action['actionId'])
+                
+                action_value = False
+                if result['value'] == "true":
+                    action_value = True
+                #if 'errorType' in result and result['errorType'] == "org.backmeup.model.exceptions.UnknownUserPropertyException":
+                
+                self.action_old_values['actions_value_%s' % i] = action_value
+                
+                self.fields['actions_value_%s' % i] = forms.BooleanField(label=_(action['title']), initial=action_value, required=False, help_text=_(action['description']))
+                self.fields['actions_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=action['actionId'])
+    
+    def field_group_actions(self):
+        return [field for field in self if field.name.startswith('actions_value_')]
+    
     def clean_old_password(self):
         """
         Validates that the old_password field is correct.
@@ -197,4 +222,23 @@ class UserSettingsForm(forms.Form):
             self.user.email = new_email
             self.user.save()
         
+        rest_properties = RestProperties(username=self.user.username)
+        for key in self.cleaned_data:
+            # check for existing actions_value_N (always "true" if exists)
+            if key.startswith('actions_value_'):
+                if self.cleaned_data[key] != self.action_old_values[key]:
+                    actionId = self.cleaned_data[key.replace('_value_', '_key_')]
+                    
+                    if self.cleaned_data[key] == True:
+                        string_value = 'true'
+                        if actionId == 'org.backmeup.indexer':
+                            result_rest['messages'].append('Indexing new backup jobs has been activated.')
+                    else:    
+                        string_value = 'false'
+                        if actionId == 'org.backmeup.indexer':
+                            result_rest['messages'].append('Indexing new backup jobs has been deacivated.')
+                            result_rest['index_deactivated'] = True
+                            
+                    result_property = rest_properties.post(actionId=actionId, value=string_value)
+            
         return result_rest
