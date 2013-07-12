@@ -189,7 +189,10 @@ def user_settings(request):
             messages.add_message(request, messages.ERROR, _(result['errorMessage']))
         if result and 'messages' in result:
             for msg in result['messages']:
+                if msg == "Account password has been changed" and result['type'] == 'success':
+                    request.session['key_ring'] = request.POST['new_password1']
                 messages.add_message(request, messages.INFO, _(msg))
+
         return redirect('user-settings')
     
     return render_to_response(
