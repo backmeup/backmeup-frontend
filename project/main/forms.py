@@ -249,6 +249,8 @@ class JobCreateForm(forms.Form):
                 else:
                     value = self.cleaned_data[key.replace('_value_', '_key_')]
                     actions.append(value)
+                    if value == 'org.backmeup.encryption':
+                        actions.append('org.backmeup.filesplitting')
         
         rest_jobs = RestJobs(username=self.extra_data['username'])
         
