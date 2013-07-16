@@ -34,7 +34,9 @@ class RestBase(object):
         return response
 
     def _get(self, path="", data=None):
-        response = requests.get(self.base_url + path, data=data)
+        # with data=data the params would be sent as post parameters in the body and not in the URL
+        #response = requests.get(self.base_url + path, data=data)
+        response = requests.get(self.base_url + path, params=data)
         
         if settings.DEBUG:
             print "### [GET]", self.base_url + path
