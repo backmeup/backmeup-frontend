@@ -2,6 +2,7 @@
 
 from django import forms
 from django.utils.translation import ugettext_lazy as _
+from datetime import date, datetime
 #from django.forms.widgets import CheckboxSelectMultiple
 
 #from access.models import User
@@ -295,9 +296,18 @@ class SearchFilterForm(forms.Form):
         
         type_filter_choices = [("", "---"),]
         for item in self.search_result['byType']:
-            type_filter_choices.append((item['title'], _(item['title'])))
+		type_filter_choices.append((item['title'], _(item['title'])))	
+	self.fields['type_filter'] = forms.ChoiceField(label=_('Type Filter'), choices=type_filter_choices, required=False)
+
+	job_filter_choices = [("", "---"),]
+	for item in self.search_result['byJob']:
+	    time=_(item['title']).split(" ")[-1].replace(")", "").replace("(","")
+            text=_(item['title']).split(" ")[:-1]
+            datet=datetime.fromtimestamp(int(time)/1000)
+            datet=datet.strftime("%d.%m.%Y %H:%M:%S")
+            type_filter_choices.append((item['title'], text+" ("+str(datet)+")")
         
-        self.fields['type_filter'] = forms.ChoiceField(label=_('Type Filter'), choices=type_filter_choices, required=False)
+        self.fields['job_filter'] = forms.ChoiceField(label=_('Job Filter'), choices=type_filter_choices, required=False)
     
     def rest_save(self, search_id, username):
         rest_search = RestSearch(username=username)
@@ -306,5 +316,7 @@ class SearchFilterForm(forms.Form):
             data['source'] = self.cleaned_data['datasource_filter']
         if self.cleaned_data['type_filter']:
             data['type'] = self.cleaned_data['type_filter']
+	if self.cleaned_data['type_filter']:
+	    data['job'] = self.cleaned_data['job_filter']
         result = rest_search.get(search_id=search_id, data=data)
         return result
