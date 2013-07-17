@@ -290,7 +290,7 @@ class SearchFilterForm(forms.Form):
         
         datasource_filter_choices = [("", "---"),]
         for item in self.search_result['bySource']:
-            datasource_filter_choices.append((item['title'], _(item['title']).replace("org.backmeup.", ""))
+            datasource_filter_choices.append((item['title'], _(item['title']).replace("org.backmeup.", "")))
         
         self.fields['datasource_filter'] = forms.ChoiceField(label=_('Datasource Filter'), choices=datasource_filter_choices, required=False)
         
