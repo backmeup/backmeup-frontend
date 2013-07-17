@@ -290,7 +290,7 @@ class SearchFilterForm(forms.Form):
         
         datasource_filter_choices = [("", "---"),]
         for item in self.search_result['bySource']:
-            datasource_filter_choices.append((item['title'], _(item['title'])))
+            datasource_filter_choices.append((item['title'], _(item['title']).replace("org.backmeup.", ""))
         
         self.fields['datasource_filter'] = forms.ChoiceField(label=_('Datasource Filter'), choices=datasource_filter_choices, required=False)
         
@@ -305,7 +305,7 @@ class SearchFilterForm(forms.Form):
             text=_(item['title']).split(" ")[:-1]
             datet=datetime.fromtimestamp(int(time)/1000)
             datet=datet.strftime("%d.%m.%Y %H:%M:%S")
-            job_filter_choices.append((item['title'], str(text)+" ("+str(datet)+")"))
+            job_filter_choices.append((item['title'], "".join(text)+" ("+str(datet)+")"))
         
         self.fields['job_filter'] = forms.ChoiceField(label=_('Job Filter'), choices=job_filter_choices, required=False)
     
