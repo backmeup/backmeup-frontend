@@ -305,9 +305,9 @@ class SearchFilterForm(forms.Form):
             text=_(item['title']).split(" ")[:-1]
             datet=datetime.fromtimestamp(int(time)/1000)
             datet=datet.strftime("%d.%m.%Y %H:%M:%S")
-            type_filter_choices.append((item['title'], str(text)+" ("+str(datet)+")"))
+            job_filter_choices.append((item['title'], str(text)+" ("+str(datet)+")"))
         
-        self.fields['job_filter'] = forms.ChoiceField(label=_('Job Filter'), choices=type_filter_choices, required=False)
+        self.fields['job_filter'] = forms.ChoiceField(label=_('Job Filter'), choices=job_filter_choices, required=False)
     
     def rest_save(self, search_id, username):
         rest_search = RestSearch(username=username)
@@ -316,7 +316,7 @@ class SearchFilterForm(forms.Form):
             data['source'] = self.cleaned_data['datasource_filter']
         if self.cleaned_data['type_filter']:
             data['type'] = self.cleaned_data['type_filter']
-	if self.cleaned_data['type_filter']:
+	if self.cleaned_data['job_filter']:
 	    data['job'] = self.cleaned_data['job_filter']
         result = rest_search.get(search_id=search_id, data=data)
         return result
