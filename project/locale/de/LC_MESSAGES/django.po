@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-11 14:04+0200\n"
+"POT-Creation-Date: 2013-07-18 16:27+0200\n"
 "PO-Revision-Date: 2012-12-03 14:53\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr "Passwort bestätigen"
 msgid "Enter the same password as above, for verification."
 msgstr "Passwort wiederholen"
 
-#: access/forms.py:53 access/forms.py:172
+#: access/forms.py:53 access/forms.py:197
 msgid "A user with that email already exists."
 msgstr "Ein Benutzer mit dieser E-mail Adresse existiert bereits."
 
@@ -49,7 +49,7 @@ msgstr "Ein Benutzer mit dieser E-mail Adresse existiert bereits."
 msgid "Password must be at least %d chars."
 msgstr "Ihr Passwort muss mind. %d Zeichen lang sein."
 
-#: access/forms.py:62 access/forms.py:147
+#: access/forms.py:62 access/forms.py:172
 msgid "The two password fields didn't match."
 msgstr "Die beiden Passwörter stimmen nicht überein."
 
@@ -77,50 +77,50 @@ msgstr "Bestehendes Passwort"
 msgid "Enter your current password for verification."
 msgstr "Bestehendes Passwort eingeben"
 
-#: access/forms.py:138
+#: access/forms.py:163
 msgid "Your old password was entered incorrectly. Please enter it again."
 msgstr ""
 "Ihr bestehendes Passwort wurde falsch eingegeben. Bitte versuchen Sie es "
 "erneut."
 
-#: access/views.py:111
+#: access/views.py:113
 msgid "Logged out"
 msgstr "ausgeloggt"
 
-#: access/views.py:153
+#: access/views.py:155
 #, python-format
 msgid "user's email %s is verified"
 msgstr "Die Registrierung mit der E-mail Adresse %s war erfolgreich."
 
-#: access/views.py:178
+#: access/views.py:180
 msgid "New verification email has been sent."
 msgstr "Die Bestätigungs-Email wurde erneut verschickt."
 
-#: main/forms.py:11 templates/dynamic_message_strings.html:23
+#: main/forms.py:12 templates/dynamic_message_strings.html:28
 msgid "now"
 msgstr "jetzt"
 
-#: main/forms.py:12 templates/dynamic_message_strings.html:24
+#: main/forms.py:13 templates/dynamic_message_strings.html:29
 msgid "daily"
 msgstr "täglich"
 
-#: main/forms.py:13 templates/dynamic_message_strings.html:25
+#: main/forms.py:14 templates/dynamic_message_strings.html:30
 msgid "weekly"
 msgstr "wöchentlich"
 
-#: main/forms.py:14 templates/dynamic_message_strings.html:26
+#: main/forms.py:15 templates/dynamic_message_strings.html:31
 msgid "monthly"
 msgstr "monatlich"
 
-#: main/forms.py:24
+#: main/forms.py:25
 msgid "Datasource"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:28
+#: main/forms.py:29
 msgid "Datasource Profile"
 msgstr "Schnellzugriff: Daten-Quelle"
 
-#: main/forms.py:30
+#: main/forms.py:31
 msgid ""
 "Choose an existing data-source profile or select a new data-source below"
 msgstr ""
@@ -128,43 +128,48 @@ msgstr ""
 "vorangegangenem Backup) oder wählen Sie eine neue Datenquelle aus der Liste "
 "unten."
 
-#: main/forms.py:84
+#: main/forms.py:85
 msgid "Datasink"
 msgstr "Speicher-Ziel"
 
-#: main/forms.py:87
+#: main/forms.py:88
 msgid "Datasink Profile"
 msgstr "Schnellzugriff: Speicher-Ziel"
 
-#: main/forms.py:87
+#: main/forms.py:88
 msgid "Choose an existing data-sink profile or select a new data-sink below"
 msgstr ""
 "Bitte wählen Sie ein bestehendes Datenziel-Profil (aus einem vorangegangenem "
 "Backup) oder wählen Sie ein neues Datenziel aus der Liste unten."
 
-#: main/forms.py:133
+#: main/forms.py:134
 msgid "Backup Name"
 msgstr "Backup-Name"
 
-#: main/forms.py:142 main/forms.py:188
+#: main/forms.py:143 main/forms.py:190
 msgid "Title"
 msgstr "Titel"
 
-#: main/forms.py:143 main/forms.py:189
+#: main/forms.py:144 main/forms.py:191
 #: templates/www/includes/backup_jobs/backup_list_item.html:65
 msgid "Interval"
 msgstr "Interval"
 
-#: main/forms.py:263
+#: main/forms.py:277
 msgid "Query"
 msgstr "Parameter"
 
-#: main/forms.py:282
+#: main/forms.py:296
 msgid "Datasource Filter"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:288
+#: main/forms.py:301
 msgid "Type Filter"
+msgstr "Datei-Typ"
+
+#: main/forms.py:311
+#, fuzzy
+msgid "Job Filter"
 msgstr "Datei-Typ"
 
 #: main/views.py:46 main/views.py:57 main/views.py:78 main/views.py:88
@@ -228,72 +233,101 @@ msgid "org.backmeup.moodle - %(account)s"
 msgstr "Moodle (%(account)s)"
 
 #: templates/dynamic_message_strings.html:8
+#, python-format
+msgid "org.backmeup.twitter (%(account)s)"
+msgstr "Twitter (%(account)s)"
+
+#: templates/dynamic_message_strings.html:9
+#, python-format
+msgid "org.backmeup.dropbox (%(account)s)"
+msgstr "Dropbox (%(account)s)"
+
+#: templates/dynamic_message_strings.html:10
+#, python-format
+msgid "org.backmeup.facebook (%(account)s)"
+msgstr "Facebook (%(account)s)"
+
+#: templates/dynamic_message_strings.html:11
+#, python-format
+msgid "org.backmeup.moodle (%(account)s)"
+msgstr "Moodle (%(account)s)"
+
+#: templates/dynamic_message_strings.html:13
 msgid "org.backmeup.twitter - Profil"
 msgstr "Twitter"
 
-#: templates/dynamic_message_strings.html:9
+#: templates/dynamic_message_strings.html:14
 msgid "org.backmeup.dropbox - Profil"
 msgstr "Dropbox"
 
-#: templates/dynamic_message_strings.html:10
+#: templates/dynamic_message_strings.html:15
 msgid "org.backmeup.facebook - Profil"
 msgstr "Facebook"
 
-#: templates/dynamic_message_strings.html:11
+#: templates/dynamic_message_strings.html:16
 msgid "org.backmeup.moodle - Profil"
 msgstr "Moodle"
 
-#: templates/dynamic_message_strings.html:12
+#: templates/dynamic_message_strings.html:17
 msgid "org.backmeup.zip - Profil"
 msgstr "ZIP"
 
-#: templates/dynamic_message_strings.html:14
+#: templates/dynamic_message_strings.html:19
 msgid "User has not been activated!"
 msgstr "Ihr Benutzer wurde noch nicht aktiviert."
 
-#: templates/dynamic_message_strings.html:15
+#: templates/dynamic_message_strings.html:20
 msgid "Some error occurred."
 msgstr "Ein Fehler ist aufgetreten."
 
-#: templates/dynamic_message_strings.html:16
+#: templates/dynamic_message_strings.html:21
 msgid "There must be at least one source profile to download data from!"
 msgstr "Es gibt kein Datenquellen-Profil um Daten herunterzuladen."
 
-#: templates/dynamic_message_strings.html:18
+#: templates/dynamic_message_strings.html:23
 msgid "queued"
 msgstr "wird vorbereitet"
 
-#: templates/dynamic_message_strings.html:19
+#: templates/dynamic_message_strings.html:24
 msgid "running"
 msgstr "wird ausgeführt"
 
-#: templates/dynamic_message_strings.html:20
+#: templates/dynamic_message_strings.html:25
 msgid "successful"
 msgstr "erfolgreich"
 
-#: templates/dynamic_message_strings.html:21
+#: templates/dynamic_message_strings.html:26
 msgid "error"
 msgstr "Fehler"
 
-#: templates/dynamic_message_strings.html:28
+#: templates/dynamic_message_strings.html:33
 msgid "org.backmeup.twitter"
 msgstr "Twitter"
 
-#: templates/dynamic_message_strings.html:29
+#: templates/dynamic_message_strings.html:34
 msgid "org.backmeup.dropbox"
 msgstr "Dropbox"
 
-#: templates/dynamic_message_strings.html:30
+#: templates/dynamic_message_strings.html:35
 msgid "org.backmeup.facebook"
 msgstr "Facebook"
 
-#: templates/dynamic_message_strings.html:31
+#: templates/dynamic_message_strings.html:36
 msgid "org.backmeup.moodle"
 msgstr "Moodle"
 
-#: templates/dynamic_message_strings.html:32
+#: templates/dynamic_message_strings.html:37
 msgid "org.backmeup.zip"
 msgstr "ZIP"
+
+#: templates/dynamic_message_strings.html:39
+#, fuzzy
+msgid "org.backmeup.encryption.password"
+msgstr "Dropbox"
+
+#: templates/dynamic_message_strings.html:40
+msgid "Encryption Plugin"
+msgstr ""
 
 #: templates/flatpages/about.html:8
 msgid "Project Partners"
@@ -451,7 +485,7 @@ msgstr "alle auswählen"
 msgid "Backup actions"
 msgstr "Backup-Aktionen"
 
-#: templates/www/job_create.html:81 templates/www/includes/dashboard.html:8
+#: templates/www/job_create.html:97 templates/www/includes/dashboard.html:8
 msgid "Create Backup"
 msgstr "Backup erstellen"
 
@@ -531,7 +565,7 @@ msgstr "Suchergebnisse filtern"
 msgid "Limit search results"
 msgstr "Suche verfeinern"
 
-#: templates/www/search_result.html:77
+#: templates/www/search_result.html:82
 msgid "send"
 msgstr "absenden"
 
@@ -549,15 +583,15 @@ msgstr "Backup-Details"
 msgid "Data-source"
 msgstr "Daten-Quelle"
 
-#: templates/www/search_result_detail.html:75
+#: templates/www/search_result_detail.html:76
 msgid "creation-date"
 msgstr "erstellt am"
 
-#: templates/www/search_result_detail.html:79
+#: templates/www/search_result_detail.html:81
 msgid "title"
 msgstr "Titel"
 
-#: templates/www/search_result_detail.html:84
+#: templates/www/search_result_detail.html:86
 msgid "Data-targets"
 msgstr "Speicher-Ziele"
 
@@ -599,19 +633,27 @@ msgid "Create account"
 msgstr "Registrieren"
 
 #: templates/www/access/user_settings.html:4
-#: templates/www/access/user_settings.html:8
+#: templates/www/access/user_settings.html:15
 msgid "Account Settings"
 msgstr "Benutzer-Einstellungen"
 
-#: templates/www/access/user_settings.html:12
+#: templates/www/access/user_settings.html:10
+msgid "Search index has been deactivated. Delete existing index?"
+msgstr ""
+
+#: templates/www/access/user_settings.html:11
+msgid "yes"
+msgstr ""
+
+#: templates/www/access/user_settings.html:25
 msgid "Change Email-address"
 msgstr "E-mail Adresse ändern"
 
-#: templates/www/access/user_settings.html:22
+#: templates/www/access/user_settings.html:35
 msgid "Change password"
 msgstr "Passwort ändern"
 
-#: templates/www/access/user_settings.html:45
+#: templates/www/access/user_settings.html:71
 msgid "Save"
 msgstr "speichern"
 
