@@ -166,8 +166,9 @@ class JobEditForm(forms.Form):
         
         # actions
         for i, action in enumerate(self.extra_data['actions']):
-            self.fields['actions_value_%s' % i] = forms.BooleanField(label=_(action['title']), initial=action['checked'], required=False, help_text=_(action['description']))
-            self.fields['actions_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=action['actionId'])
+	    if action.get('visibility', "") == "job":
+            	self.fields['actions_value_%s' % i] = forms.BooleanField(label=_(action['title']), initial=action['checked'], required=False, help_text=_(action['description']))
+            	self.fields['actions_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=action['actionId'])
     
     def field_group_job(self):
         return [
@@ -290,7 +291,7 @@ class SearchFilterForm(forms.Form):
         
         datasource_filter_choices = [("", "---"),]
         for item in self.search_result['bySource']:
-            datasource_filter_choices.append((item['title'], _(item['title']).replace("org.backmeup.", "")))
+            datasource_filter_choices.append((item['title'], _(item['title'])))
         
         self.fields['datasource_filter'] = forms.ChoiceField(label=_('Datasource Filter'), choices=datasource_filter_choices, required=False)
         
