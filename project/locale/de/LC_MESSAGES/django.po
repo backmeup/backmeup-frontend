@@ -802,20 +802,6 @@ msgstr "Einstellungen"
 msgid "Sign out"
 msgstr "Ausloggen"
 
-msgid "org.backmeup.twitter (%(account)s)"
-msgstr "Twitter (%(account)s)"
-
-msgid "org.backmeup.dropbox (%(account)s)"
-msgstr "Dropbox (%(account)s)"
-
-msgid "org.backmeup.facebook (%(account)s)"
-msgstr "Facebook (%(account)s)"
-
-msgid "org.backmeup.moodle (%(account))"
-msgstr "Moodle (%(account)s)"
-
-msgid "org.backmeup.zip (%(account))"
-msgstr "Twitter (%(account)s)"
 
 #~ msgid "saved"
 #~ msgstr "gespeichert"
