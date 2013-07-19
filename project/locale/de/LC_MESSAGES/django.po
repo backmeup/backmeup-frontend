@@ -169,7 +169,7 @@ msgstr "Datei-Typ"
 
 #: main/forms.py:311
 msgid "Job Filter"
-msgstr "Datei-Typ"
+msgstr "Job"
 
 #: main/views.py:46 main/views.py:57 main/views.py:78 main/views.py:88
 #: main/views.py:179 main/views.py:303
@@ -243,7 +243,7 @@ msgstr "Dropbox (%(account)s)"
 
 #: templates/dynamic_message_strings.html:10
 #, python-format
-msgid "org.backmeup.facebook ( %(account)s )"
+msgid "org.backmeup.facebook (%(account)s)"
 msgstr "Facebook (%(account)s)"
 
 #: templates/dynamic_message_strings.html:11
@@ -320,21 +320,20 @@ msgid "org.backmeup.zip"
 msgstr "ZIP"
 
 #: templates/dynamic_message_strings.html:39
-#, fuzzy
 msgid "org.backmeup.encryption.password"
-msgstr "Dropbox"
+msgstr "Passwort"
 
 #: templates/dynamic_message_strings.html:40
 msgid "Encryption Plugin"
-msgstr ""
+msgstr "Verschlüsselung-Plug-in"
 
 #: templates/dynamic_message_strings.html:42
 msgid "image"
-msgstr ""
+msgstr "Bild"
 
 #: templates/dynamic_message_strings.html:43
 msgid "html"
-msgstr ""
+msgstr "HTML"
 
 #: templates/flatpages/about.html:8
 msgid "Project Partners"
