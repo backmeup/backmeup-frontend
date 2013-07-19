@@ -113,12 +113,12 @@
             <date>{{ item.timeStamp|date:"SHORT_DATE_FORMAT" }}</date>
             <span class="file-type">{{ item.type }}</span>
           </footer>
-        </a>
 	{% if item.properties.modified %}
-	<ul>	
+	<ul style="margin-bottom:0px;">	
 		<li>{% trans "modified on" %}: {{ item.properties.modified|date:"SHORT_DATE_FORMAT" }}</li>
 	</ul>
 	{% endif %}
+	</a>
 		
         {% comment %}
         <ul>

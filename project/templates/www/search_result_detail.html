@@ -44,7 +44,7 @@ search_result:
   <div class="breadcrumbs">
     <div class="container">
       <ul>
-        <li><a href="../">{% trans "Search" %}</a></li>
+        <li><a href="/search" onclick="window.history.back();">{% trans "Search" %}</a></li>
         <li><span>{{ search_result.title }}</span></li>
       </ul>
     </div>
@@ -85,7 +85,7 @@ search_result:
       {% endif %}
       {% if file.modified %}
 	<li>
-        <span class="key">{% trans "last modification" %}:</span>
+        <span class="key">{% trans "modification-date" %}:</span>
         <span class="value">{{ file.modified|date:"SHORT_DATE_FORMAT" }}</span>
       </li>
 
