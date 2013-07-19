@@ -109,10 +109,17 @@
             </div>
           </div>
           <footer class="search-item-footer">
+	
             <date>{{ item.timeStamp|date:"SHORT_DATE_FORMAT" }}</date>
             <span class="file-type">{{ item.type }}</span>
           </footer>
         </a>
+	{% if item.properties.modified %}
+	<ul>	
+		<li>{% trans "modified on" %}: {{ item.properties.modified|date:"SHORT_DATE_FORMAT" }}</li>
+	</ul>
+	{% endif %}
+		
         {% comment %}
         <ul>
           <li>title: {{ item.title }}</li>

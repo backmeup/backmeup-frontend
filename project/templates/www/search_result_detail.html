@@ -44,7 +44,7 @@ search_result:
   <div class="breadcrumbs">
     <div class="container">
       <ul>
-        <li><a href="/search">{% trans "Search" %}</a></li>
+        <li><a href="../">{% trans "Search" %}</a></li>
         <li><span>{{ search_result.title }}</span></li>
       </ul>
     </div>
@@ -71,9 +71,28 @@ search_result:
         <span class="key">{% trans "Data-source" %}:</span>
         <span class="value">{{ file.source }}</span>
       </li>
+      {% if file.path %}
+      <li>
+        <span class="key">{% trans "path-in-backup" %}:</span>
+        <span class="value">{{ file.path }}</span>
+      </li>
+      {% endif %}
+      {% if file.created %}
+	<li>
+        <span class="key">{% trans "creation-date" %}:</span>
+        <span class="value">{{ file.created|date:"SHORT_DATE_FORMAT" }}</span>
+      </li>
+      {% endif %}
+      {% if file.modified %}
+	<li>
+        <span class="key">{% trans "last modification" %}:</span>
+        <span class="value">{{ file.modified|date:"SHORT_DATE_FORMAT" }}</span>
+      </li>
+
+      {% endif %}
       {% if file.timeStamp %}
       <li>
-        <span class="key">{% trans "creation-date" %}:</span>
+        <span class="key">{% trans "backup-date" %}:</span>
         <span class="value">{{ file.timeStamp|date:"SHORT_DATE_FORMAT" }}</span>
       </li>
       {% endif %}
