@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-19 08:14+0200\n"
+"POT-Creation-Date: 2013-07-19 08:38+0200\n"
 "PO-Revision-Date: 2012-12-03 14:53\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -168,7 +168,6 @@ msgid "Type Filter"
 msgstr "Datei-Typ"
 
 #: main/forms.py:311
-#, fuzzy
 msgid "Job Filter"
 msgstr "Datei-Typ"
 
@@ -176,7 +175,7 @@ msgstr "Datei-Typ"
 #: main/views.py:179 main/views.py:303
 #, python-format
 msgid " - %(account)s"
-msgstr "- %(account)s"
+msgstr " - %(account)s"
 
 #: main/views.py:108
 msgid "Backup was successfully deleted."
@@ -244,7 +243,7 @@ msgstr "Dropbox (%(account)s)"
 
 #: templates/dynamic_message_strings.html:10
 #, python-format
-msgid "org.backmeup.facebook (%(account)s)"
+msgid "org.backmeup.facebook ( %(account)s )"
 msgstr "Facebook (%(account)s)"
 
 #: templates/dynamic_message_strings.html:11
@@ -336,31 +335,6 @@ msgstr ""
 #: templates/dynamic_message_strings.html:43
 msgid "html"
 msgstr ""
-
-#: templates/dynamic_message_strings.html:45
-#, fuzzy
-msgid "org.backmeup.twitter ({{account}})"
-msgstr "Twitter (%(account)s)"
-
-#: templates/dynamic_message_strings.html:46
-#, fuzzy
-msgid "org.backmeup.dropbox ({{account}})"
-msgstr "Dropbox (%(account)s)"
-
-#: templates/dynamic_message_strings.html:47
-#, fuzzy
-msgid "org.backmeup.facebook ({{account}})"
-msgstr "Facebook (%(account)s)"
-
-#: templates/dynamic_message_strings.html:48
-#, fuzzy
-msgid "org.backmeup.moodle ({{account}})"
-msgstr "Moodle (%(account)s)"
-
-#: templates/dynamic_message_strings.html:49
-#, fuzzy
-msgid "org.backmeup.zip ({{account}})"
-msgstr "Twitter (%(account)s)"
 
 #: templates/flatpages/about.html:8
 msgid "Project Partners"
@@ -815,6 +789,26 @@ msgstr "Einstellungen"
 #: templates/www/includes/navigation/user_nav.html:32
 msgid "Sign out"
 msgstr "Ausloggen"
+
+#, fuzzy
+#~ msgid "org.backmeup.twitter ({{account}})"
+#~ msgstr "Twitter (%(account)s)"
+
+#, fuzzy
+#~ msgid "org.backmeup.dropbox ({{account}})"
+#~ msgstr "Dropbox (%(account)s)"
+
+#, fuzzy
+#~ msgid "org.backmeup.facebook ({{account}})"
+#~ msgstr "Facebook (%(account)s)"
+
+#, fuzzy
+#~ msgid "org.backmeup.moodle ({{account}})"
+#~ msgstr "Moodle (%(account)s)"
+
+#, fuzzy
+#~ msgid "org.backmeup.zip ({{account}})"
+#~ msgstr "Twitter (%(account)s)"
 
 #~ msgid "saved"
 #~ msgstr "gespeichert"
