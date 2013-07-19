@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-19 08:38+0200\n"
+"POT-Creation-Date: 2013-07-19 10:09+0200\n"
 "PO-Revision-Date: 2012-12-03 14:53\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -575,6 +575,11 @@ msgstr "Suche verfeinern"
 msgid "send"
 msgstr "absenden"
 
+#: templates/www/search_result.html:118
+#: templates/www/search_result_detail.html:88
+msgid "modification-date"
+msgstr "Geändert am"
+
 #: templates/www/search_result_detail.html:41
 #: templates/www/search_result_detail.html:55
 msgid "Search result details"
@@ -590,14 +595,22 @@ msgid "Data-source"
 msgstr "Daten-Quelle"
 
 #: templates/www/search_result_detail.html:76
-msgid "creation-date"
-msgstr "erstellt am"
+msgid "path-in-backup"
+msgstr "Pfad im Backup"
 
-#: templates/www/search_result_detail.html:81
+#: templates/www/search_result_detail.html:82
+msgid "creation-date"
+msgstr "Erstellt am"
+
+#: templates/www/search_result_detail.html:95
+msgid "backup-date"
+msgstr "Gesichert am"
+
+#: templates/www/search_result_detail.html:100
 msgid "title"
 msgstr "Titel"
 
-#: templates/www/search_result_detail.html:86
+#: templates/www/search_result_detail.html:105
 msgid "Data-targets"
 msgstr "Speicher-Ziele"
 
@@ -789,25 +802,20 @@ msgstr "Einstellungen"
 msgid "Sign out"
 msgstr "Ausloggen"
 
-#, fuzzy
-#~ msgid "org.backmeup.twitter ({{account}})"
-#~ msgstr "Twitter (%(account)s)"
+msgid "org.backmeup.twitter (%(account)s)"
+msgstr "Twitter (%(account)s)"
 
-#, fuzzy
-#~ msgid "org.backmeup.dropbox ({{account}})"
-#~ msgstr "Dropbox (%(account)s)"
+msgid "org.backmeup.dropbox (%(account)s)"
+msgstr "Dropbox (%(account)s)"
 
-#, fuzzy
-#~ msgid "org.backmeup.facebook ({{account}})"
-#~ msgstr "Facebook (%(account)s)"
+msgid "org.backmeup.facebook (%(account)s)"
+msgstr "Facebook (%(account)s)"
 
-#, fuzzy
-#~ msgid "org.backmeup.moodle ({{account}})"
-#~ msgstr "Moodle (%(account)s)"
+msgid "org.backmeup.moodle (%(account))"
+msgstr "Moodle (%(account)s)"
 
-#, fuzzy
-#~ msgid "org.backmeup.zip ({{account}})"
-#~ msgstr "Twitter (%(account)s)"
+msgid "org.backmeup.zip (%(account))"
+msgstr "Twitter (%(account)s)"
 
 #~ msgid "saved"
 #~ msgstr "gespeichert"
