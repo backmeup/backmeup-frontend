@@ -630,14 +630,19 @@ def file_info(request, search_id, file_id):
 
     search_result = None
     search_results = processSearchResult(request.session['search_results'][search_id])
-
+    source=[{'sourceProfileId':result['details']['fileInfo']['sourceId'], 'title':result['details']['fileInfo']['source'],},]
+    title=result['details']['fileInfo']['source']
+    title=title.split(" ")
+    t=_(title[0])
+    title=t+" "+" ".join(title[1:])
     for item in search_results['files']:
         if item['fileId'] == result['details']['fileInfo']['fileId']:
             search_result = item
             break
-
+    
     return render_to_response('www/search_result_detail.html', {
         'file': result['details']['fileInfo'],
+	'source':title,
         'search_result': search_result,
         'search_id': search_id,
     }, context_instance=RequestContext(request))

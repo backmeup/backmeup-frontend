@@ -42,9 +42,9 @@
       {{ form.non_field_errors }}
       
       <div>
-        <label>{{ form.datasource_filter.label }}</label>
-        {{ form.datasource_filter }}
-        {{ field.datasource_filter.errors }}
+        <label>{% trans form.datasource_filter.label %}</label>
+	{{ form.datasource_filter }}
+	{{ field.datasource_filter.errors }}
       </div>
       
       <div>
@@ -109,17 +109,16 @@
             </div>
           </div>
           <footer class="search-item-footer">
-	
+	<span>{% trans "backup-date" %}:</span>
             <date>{{ item.timeStamp|date:"SHORT_DATE_FORMAT" }}</date>
             <span class="file-type">{{ item.type }}</span>
-          </footer>
 	{% if item.properties.modified %}
 	<ul style="margin-bottom:0px;">	
 		<li>{% trans "modification-date" %}: {{ item.properties.modified|date:"SHORT_DATE_FORMAT" }}</li>
 	</ul>
 	{% endif %}
 	</a>
-		
+	</footer>	
         {% comment %}
         <ul>
           <li>title: {{ item.title }}</li>

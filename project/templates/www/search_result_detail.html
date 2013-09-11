@@ -69,7 +69,7 @@ search_result:
     <ul>
       <li>
         <span class="key">{% trans "Data-source" %}:</span>
-        <span class="value">{{ file.source }}</span>
+	<span class="value">{{source}}</span>
       </li>
       {% if file.path %}
       <li>
@@ -77,16 +77,16 @@ search_result:
         <span class="value">{{ file.path }}</span>
       </li>
       {% endif %}
-      {% if file.created %}
+      {% if search_result.properties.created %}
 	<li>
         <span class="key">{% trans "creation-date" %}:</span>
-        <span class="value">{{ file.created|date:"SHORT_DATE_FORMAT" }}</span>
+        <span class="value">{{ search_result.properties.created|date:"SHORT_DATE_FORMAT" }}</span>
       </li>
       {% endif %}
-      {% if file.modified %}
+      {% if search_result.properties.modified %}
 	<li>
         <span class="key">{% trans "modification-date" %}:</span>
-        <span class="value">{{ file.modified|date:"SHORT_DATE_FORMAT" }}</span>
+        <span class="value">{{ search_result.properties.modified|date:"SHORT_DATE_FORMAT" }}</span>
       </li>
 
       {% endif %}
@@ -106,8 +106,8 @@ search_result:
     <ul>
       <li>
         <ul>
-          <li>
-            <span>{% trans "{{ file.sink }}" %}</span>
+		<li>
+		<span>{% trans file.sink %}</span>
           </li>
           {# <li> #}
           {#   <span class="key">{% trans "saved" %}:</span> #}
