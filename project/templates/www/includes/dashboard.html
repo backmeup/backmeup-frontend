@@ -8,11 +8,29 @@
     <a href="{% url datasource-select %}" class="btn-add">{% trans "Create Backup" %}</a>
   </header>
   <ul class="backup-list">
+	<script type="text/javascript">
+		$(document).ready(function(){
+				$("div.backup-summary").children("ul").each(function(){
+					li=$(this).children("li:first");
+					text=li.html();
+					if(text.length > 55){
+						t=text.substring(0,55)+"...";
+						li.html(t);
+					}
+					nexttext=li.next().html();
+					if(nexttext.length>55){
+						nexttext=nexttext.substring(0,55)+"...";
+						li.next().html(nexttext);
+					}
+
+				
+				});
+		});
+															                                                                  </script>
   {% for item in jobs reversed %}
     {% include "www/includes/backup_jobs/backup_list_item.html" %}
   {% empty %}
     <li>{% trans "No backups yet." %}</li>
   {% endfor %}
   </ul>
-  <a href="{% url zip-files %}">{% trans "ZIP Archives" %}</a>
 {% endif %}
