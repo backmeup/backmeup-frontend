@@ -527,10 +527,10 @@ def job_log(request, job_id):
     #job['datasources'] = []
     for datasource in job['datasources']:
         datasource['title'] = get_source_title(datasource_profiles, datasource['datasourceId'])
-
+    log=job_status['backupStatus']
     context = {
         'job': job,
-        'log': job_status['backupStatus'],
+        'log': log,
     }
     try:
         context['current_status'] = job_status['backupStatus'][0]['type']
@@ -653,8 +653,10 @@ def zip_files(request):
     rest_user = RestUser(username=request.user.username)
     user = rest_user.get()
     user_id = int(user['userId'])
-    
-    file_list = [f for f in sorted(os.listdir(settings.ZIP_ARCHIVES_PATH % user_id)) if re.match(settings.ZIP_ARCHIVES_MATCH_PATTERN, f)]
+    try: 
+    	file_list = [f for f in sorted(os.listdir(settings.ZIP_ARCHIVES_PATH % user_id)) if re.match(settings.ZIP_ARCHIVES_MATCH_PATTERN, f)]
+    except:
+	file_list=[]
     return render_to_response('www/zip_file_list.html', {
         'file_list': file_list,
     }, context_instance=RequestContext(request))

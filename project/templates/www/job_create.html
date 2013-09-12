@@ -14,14 +14,14 @@
     <li class="finished-backup-step">
       <h3>{% trans "1. Data-Source" %}</h3>
       <div class="add-backup-content">
-        <h4>{% trans "selected data-source" %}: {{ datasource_profile.good_title }}</h4>
+        <h4>{% trans "selected data-source" %}: {% trans datasource_profile.good_title %}</h4>
         <a href="{% url datasource-select %}">{% trans "select a different data-source" %}</a>
       </div>
     </li>
     <li class="finished-backup-step">
       <h3>{% trans "2. Data-Target" %}</h3>
       <div class="add-backup-content">
-        <h4>{% trans "selected data-target" %}: {{ datasink_profile.good_title }}</h4>
+	      <h4>{% trans "selected data-target" %}: {% trans datasink_profile.good_title %}</h4>
         <a href="{% url datasink-select %}">{% trans "select a different data-sink" %}</a>
       </div>
     </li>
@@ -54,7 +54,7 @@
             <div class="checkbox-group">
               {% for field in form.field_group_datasource_options %}
               <div>
-                <label>{{ field }}{{ field.label }}</label>
+                <label>{{ field }}{% trans field.label %}</label>
                 {% if field.errors %}
                   {{ field.errors }}
                 {% endif %}
@@ -71,7 +71,7 @@
               {% if "option" in field.name %}
                 
                 <div>
-                  <label>{{ field.label }}</label>
+                  <label>{% trans field.label %}</label>
                   {{ field }}
                   {% if field.errors %}
                     {{ field.errors }}
@@ -81,8 +81,8 @@
               {% else %}
                 
                 <div>
-                  <label>{{ field }}{{ field.label }}</label>
-                  <span class="helptext">{{ field.help_text }}</span>
+                  <label>{{ field }}{% trans field.label %}</label>
+                  <span class="helptext">{% trans field.help_text %}</span>
                   {% if field.errors %}
                     {{ field.errors }}
                   {% endif %}

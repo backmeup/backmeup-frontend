@@ -5,10 +5,16 @@
 {% block html_title %}{% trans "ZIP Files" %}{% endblock %}
 
 {% block content %}
-  <h1>{% trans "Download ZIP Files" %}</h1>
+<h1>{% trans "Download ZIP Files" %}</h1>
+{% if file_list %}
   <ul>
     {% for item in file_list %}
       <li><a href="{% url zip-download %}?f={{ item|urlencode }}">{{ item }}</a></li>
     {% endfor %}
   </ul>
+{% else %}
+<ul>
+	<li>{% trans "No ZIP Files" %}</li>
+</ul>
+{% endif %}
 {% endblock content %}

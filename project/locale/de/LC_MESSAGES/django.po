@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-11 10:20+0200\n"
+"POT-Creation-Date: 2013-09-12 13:32+0200\n"
 "PO-Revision-Date: 2012-12-03 14:53\n"
 "Last-Translator:   <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: access/forms.py:18 templates/www/access/login.html:18
 msgid "Email"
-msgstr "E-mail"
+msgstr "E-Mail"
 
 #: access/forms.py:20
 msgid "Password"
@@ -42,12 +42,12 @@ msgstr "Passwort wiederholen"
 
 #: access/forms.py:53 access/forms.py:197
 msgid "A user with that email already exists."
-msgstr "Ein Benutzer mit dieser E-mail Adresse existiert bereits."
+msgstr "Ein Benutzer mit dieser E-Mail Adresse existiert bereits."
 
 #: access/forms.py:60
-#, python-format
+#, fuzzy, python-format
 msgid "Password must be at least %d chars."
-msgstr "Ihr Passwort muss mind. %d Zeichen lang sein."
+msgstr "Ihr Passwort muss mind. %s Zeichen lang sein."
 
 #: access/forms.py:62 access/forms.py:172
 msgid "The two password fields didn't match."
@@ -59,7 +59,7 @@ msgstr "Bestätigungs-Code"
 
 #: access/forms.py:111
 msgid "New email-address"
-msgstr "Neue E-mail Adresse"
+msgstr "Neue E-Mail Adresse"
 
 #: access/forms.py:113
 msgid "New Password"
@@ -90,11 +90,11 @@ msgstr "ausgeloggt"
 #: access/views.py:155
 #, python-format
 msgid "user's email %s is verified"
-msgstr "Die Registrierung mit der E-mail Adresse %s war erfolgreich."
+msgstr "Die Registrierung mit der E-Mail Adresse %s war erfolgreich."
 
 #: access/views.py:180
 msgid "New verification email has been sent."
-msgstr "Die Bestätigungs-Email wurde erneut verschickt."
+msgstr "Die Bestätigungs-E-Mail wurde erneut verschickt."
 
 #: main/forms.py:12 templates/dynamic_message_strings.html:28
 msgid "now"
@@ -159,15 +159,15 @@ msgstr "Interval"
 msgid "Query"
 msgstr "Parameter"
 
-#: main/forms.py:296
+#: main/forms.py:299
 msgid "Datasource Filter"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:301
+#: main/forms.py:304
 msgid "Type Filter"
 msgstr "Datei-Typ"
 
-#: main/forms.py:311
+#: main/forms.py:314
 msgid "Job Filter"
 msgstr "Job"
 
@@ -339,6 +339,115 @@ msgstr "Bild"
 msgid "html"
 msgstr "HTML"
 
+#: templates/dynamic_message_strings.html:46
+msgid "Firstname"
+msgstr "Vorname"
+
+#: templates/dynamic_message_strings.html:47
+msgid "Surname"
+msgstr "Nachname"
+
+#: templates/dynamic_message_strings.html:48
+msgid "Street"
+msgstr "Straße"
+
+#: templates/dynamic_message_strings.html:49
+msgid "City"
+msgstr "Ort"
+
+#: templates/dynamic_message_strings.html:50
+msgid "Postcode"
+msgstr "PLZ"
+
+#: templates/dynamic_message_strings.html:52
+msgid "Index has been deleted"
+msgstr "Volltext-Indizierung wurde deaktiviert."
+
+#: templates/dynamic_message_strings.html:53
+msgid "User is already active!"
+msgstr "Ihr Benutzer wurde schon aktiviert."
+
+#: templates/dynamic_message_strings.html:54
+msgid "Indexer"
+msgstr "Volltext-Indizierung für globale Suche"
+
+#: templates/dynamic_message_strings.html:55
+msgid "The indexer plugin"
+msgstr "Indiziert die archivierten Daten für die globale Suche."
+
+#: templates/dynamic_message_strings.html:56
+msgid "Profile"
+msgstr "Profile"
+
+#: templates/dynamic_message_strings.html:57
+msgid "Friends"
+msgstr "Freunde"
+
+#: templates/dynamic_message_strings.html:58
+msgid "Friendslists"
+msgstr "Freundes-Listen"
+
+#: templates/dynamic_message_strings.html:59
+msgid "Groups"
+msgstr "Gruppen"
+
+#: templates/dynamic_message_strings.html:60
+msgid "Sites"
+msgstr "Seiten"
+
+#: templates/dynamic_message_strings.html:61
+msgid "Posts"
+msgstr "Postings"
+
+#: templates/dynamic_message_strings.html:62
+msgid "Photos"
+msgstr "Fotos"
+
+#: templates/dynamic_message_strings.html:63
+msgid "Albums"
+msgstr "Alben"
+
+#: templates/dynamic_message_strings.html:64
+msgid "This plugin encrypts all files by using TrueCrypt"
+msgstr "Als Verschlüsselungs-Methode wird TrueCrypt herangezogen."
+
+#: templates/dynamic_message_strings.html:65
+msgid ""
+"To verify the email address of your backmeup account, open the following "
+"link in your browser: "
+msgstr ""
+"Um deinen back me up-Account vollständig zu aktivieren, musst du den "
+"folgenden Link in deinem Browser öffnen:"
+
+#: templates/dynamic_message_strings.html:66
+msgid "Alternatively you might want to enter the verification key manually: "
+msgstr ""
+"Als Alternative kannst du auch den folgenden Bestätigungs-Code in das "
+"entsprechende Feld auf https://www.backmeup.at/verify_email/ eintragen:"
+
+#: templates/dynamic_message_strings.html:67
+msgid ""
+"If you didnt request a backmeup account, you can simply ignore this mail. "
+msgstr ""
+"Du hast dich nicht auf back me up registriert? Dann betrachte dieses E-Mail "
+"als gegenstandslos."
+
+#: templates/dynamic_message_strings.html:68
+msgid "Your password needs to be at least 8 characters long."
+msgstr "Ihr Passwort muss mind. 8 Zeichen lang sein."
+
+#: templates/dynamic_message_strings.html:69
+msgid "Password must be at least 8 chars."
+msgstr "Ihr Passwort muss mind. 8 Zeichen lang sein."
+
+#: templates/dynamic_message_strings.html:70
+msgid "Get Involved!"
+msgstr "Mitarbeiten"
+
+#: templates/dynamic_message_strings.html:71
+msgid "Sign in"
+msgstr "Teilhaben" 
+
 #: templates/flatpages/about.html:8
 msgid "Project Partners"
 msgstr "Projekt-Partner"
@@ -459,9 +568,8 @@ msgid "Step 1: select data-source"
 msgstr "Schritt 1: Daten-Quelle auswählen"
 
 #: templates/www/index.html:7 templates/www/includes/dashboard.html:7
-#: templates/www/includes/navigation/user_nav.html:30
 msgid "My Backups"
-msgstr "Meine Backups"
+msgstr "Meine Backup-Jobs"
 
 #: templates/www/index.html:9
 msgid "Welcome"
@@ -500,7 +608,7 @@ msgid "Create Backup"
 msgstr "Backup erstellen"
 
 #: templates/www/job_edit.html:5 templates/www/job_edit.html.py:11
-#: templates/www/includes/backup_jobs/backup_list_item.html:70
+#: templates/www/includes/backup_jobs/backup_list_item.html:73
 msgid "Edit Backup"
 msgstr "Backup bearbeiten"
 
@@ -579,7 +687,12 @@ msgstr "Suche verfeinern"
 msgid "send"
 msgstr "absenden"
 
-#: templates/www/search_result.html:118
+#: templates/www/search_result.html:112
+#: templates/www/search_result_detail.html:95
+msgid "backup-date"
+msgstr "Gesichert am"
+
+#: templates/www/search_result.html:117
 #: templates/www/search_result_detail.html:88
 msgid "modification-date"
 msgstr "Geändert am"
@@ -606,10 +719,6 @@ msgstr "Pfad im Backup"
 msgid "creation-date"
 msgstr "Erstellt am"
 
-#: templates/www/search_result_detail.html:95
-msgid "backup-date"
-msgstr "Gesichert am"
-
 #: templates/www/search_result_detail.html:100
 msgid "title"
 msgstr "Titel"
@@ -626,13 +735,17 @@ msgstr "ZIP-Dateien"
 msgid "Download ZIP Files"
 msgstr "ZIP-Dateien runterladen"
 
+#: templates/www/zip_file_list.html:17
+msgid "No ZIP Files"
+msgstr "Keine ZIP-Dateien"
+
 #: templates/www/access/debug_signup.html:51
 msgid "Create Account"
 msgstr "Registrieren"
 
 #: templates/www/access/login.html:5 templates/www/access/login.html.py:9
 #: templates/www/access/login.html:33
-#: templates/www/includes/navigation/user_nav.html:41
+#: templates/www/includes/navigation/user_nav.html:42
 msgid "Sign In"
 msgstr "Einloggen"
 
@@ -641,10 +754,6 @@ msgid "Username and Password didn't match. Please try again."
 msgstr ""
 "Benutzername und Passwort stimmen nicht überein. Bitte versuchen Sie es "
 "erneut."
-
-#: templates/www/access/login.html:34
-msgid "Forgot password?"
-msgstr "Passwort vergessen?"
 
 #: templates/www/access/signup.html:4 templates/www/access/signup.html.py:8
 #: templates/www/includes/homepage.html:8
@@ -663,7 +772,8 @@ msgstr "Benutzer-Einstellungen"
 #: templates/www/access/user_settings.html:10
 msgid "Search index has been deactivated. Delete existing index?"
 msgstr ""
-"Der Suchindex wurde deaktiviert. Möchten Sie den existierenden Index löschen?"
+"Die Volltext-Indizierung wurde deaktiviert. Möchten Sie den existierenden "
+"Index löschen?"
 
 #: templates/www/access/user_settings.html:11
 msgid "yes"
@@ -671,7 +781,7 @@ msgstr "Ja"
 
 #: templates/www/access/user_settings.html:25
 msgid "Change Email-address"
-msgstr "E-mail Adresse ändern"
+msgstr "E-Mail Adresse ändern"
 
 #: templates/www/access/user_settings.html:35
 msgid "Change password"
@@ -683,11 +793,11 @@ msgstr "speichern"
 
 #: templates/www/access/verify_email.html:4
 msgid "Verify Email-Adress"
-msgstr "E-mail Adresse bestätigen"
+msgstr "E-Mail Adresse bestätigen"
 
 #: templates/www/access/verify_email.html:8
 msgid "Verify Email-Address"
-msgstr "E-mail Adresse bestätigen"
+msgstr "E-Mail Adresse bestätigen"
 
 #: templates/www/access/verify_email.html:10
 msgid ""
@@ -695,30 +805,25 @@ msgid ""
 "insert the verification key or click the link in the email to verify your "
 "email address."
 msgstr ""
-"Eine E-mail mit einem Bestätigungs-Code wurde an Ihre E-mail Adresse "
+"Eine E-Mail mit einem Bestätigungs-Code wurde an Ihre E-Mail Adresse "
 "geschickt. Bitte geben Sie den Bestätigungs-Code ein oder klicken Sie den "
-"Bestätigungs-Link um Ihre E-mail zu verifizieren."
+"Bestätigungs-Link um Ihre E-Mail zu verifizieren."
 
 #: templates/www/access/verify_email.html:25
 msgid "Verify Email"
-msgstr "E-mail bestätigen"
+msgstr "E-Mail bestätigen"
 
 #: templates/www/access/verify_email.html:26
 msgid "resend verification email"
-msgstr "Bestätigungs-Email erneut senden"
+msgstr "Bestätigungs-E-Mail erneut senden"
 
 #: templates/www/includes/dashboard.html:4
 msgid "validate email and activate account"
-msgstr "Email-Adresse bestätigen und Benutzer aktivieren."
+msgstr "E-Mail-Adresse bestätigen und Benutzer aktivieren."
 
 #: templates/www/includes/dashboard.html:14
 msgid "No backups yet."
 msgstr "Noch keine Backups."
-
-#: templates/www/includes/dashboard.html:17
-#: templates/www/includes/backup_jobs/backup_list_item.html:45
-msgid "ZIP Archives"
-msgstr "ZIP-Archiv"
 
 #: templates/www/includes/footer.html:11
 msgid "About"
@@ -726,15 +831,15 @@ msgstr "Über das Projekt"
 
 #: templates/www/includes/footer.html:12
 msgid "Features"
-msgstr "Features"
+msgstr "Deine Vorteile"
 
 #: templates/www/includes/footer.html:13
 msgid "Get Started"
-msgstr "Get Started"
+msgstr "Los Geht's"
 
 #: templates/www/includes/footer.html:14
 msgid "Get Involved"
-msgstr "Get Involved"
+msgstr "Mitarbeiten"
 
 #: templates/www/includes/footer.html:15
 msgid "Help"
@@ -763,6 +868,11 @@ msgstr ""
 msgid "Details"
 msgstr "Details"
 
+#: templates/www/includes/backup_jobs/backup_list_item.html:45
+#: templates/www/includes/navigation/user_nav.html:31
+msgid "ZIP Archives"
+msgstr "ZIP-Archiv"
+
 #: templates/www/includes/backup_jobs/backup_list_item.html:59
 msgid "next backup"
 msgstr "nächstes Backup"
@@ -771,17 +881,21 @@ msgstr "nächstes Backup"
 msgid "Last successful backup"
 msgstr "Letztes Backup"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:72
-#: templates/www/includes/backup_jobs/backup_list_item.html:76
-#: templates/www/includes/backup_jobs/backup_list_item.html:88
+#: templates/www/includes/backup_jobs/backup_list_item.html:67
+msgid "Backup stopped?"
+msgstr "Backup gestoppt?"
+
+#: templates/www/includes/backup_jobs/backup_list_item.html:75
+#: templates/www/includes/backup_jobs/backup_list_item.html:79
+#: templates/www/includes/backup_jobs/backup_list_item.html:91
 msgid "Delete Backup"
 msgstr "Backup löschen"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:80
+#: templates/www/includes/backup_jobs/backup_list_item.html:83
 msgid "Do you really want to delete the selected Backup-Job?"
 msgstr "Wollen Sie das ausgewählte Backup wirklich löschen?"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:82
+#: templates/www/includes/backup_jobs/backup_list_item.html:85
 msgid ""
 "By deleting a Backup-Job no further Backups will be created. Backups that "
 "have already been created will however remain on the data-target and need to "
@@ -791,21 +905,28 @@ msgstr ""
 "angelegt. Bestehende Backup-Daten bleiben aber auf dem Speicherziel erhalten "
 "und müssen (bei Bedarf) manuell von Ihnen gelöscht werden."
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:87
+#: templates/www/includes/backup_jobs/backup_list_item.html:90
 msgid "cancel"
 msgstr "abbrechen"
 
-#: templates/www/includes/backup_jobs/backup_list_item.html:93
+#: templates/www/includes/backup_jobs/backup_list_item.html:96
 msgid "Backup-Log"
 msgstr "Backup-Log"
 
-#: templates/www/includes/navigation/user_nav.html:31
+#: templates/www/includes/navigation/user_nav.html:30
+msgid "My Backup-Jobs"
+msgstr "Meine Backup-Jobs"
+
+#: templates/www/includes/navigation/user_nav.html:32
 msgid "Account-Settings"
 msgstr "Einstellungen"
 
-#: templates/www/includes/navigation/user_nav.html:32
+#: templates/www/includes/navigation/user_nav.html:33
 msgid "Sign out"
 msgstr "Ausloggen"
+
+#~ msgid "Forgot password?"
+#~ msgstr "Passwort vergessen?"
 
 #~ msgid "saved"
 #~ msgstr "gespeichert"
@@ -815,9 +936,6 @@ msgstr "Ausloggen"
 
 #~ msgid "%(interval)s"
 #~ msgstr "%(interval)s"
-
-#~ msgid "Username"
-#~ msgstr "Benutzername"
 
 #~ msgid ""
 #~ "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."

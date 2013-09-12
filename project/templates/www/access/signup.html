@@ -9,18 +9,18 @@
 
 <form action="." method="post">{% csrf_token %}
   <div>
-    {{ form.email.label }}
+    {% trans form.email.label %}
     {{ form.email }}
     {{ form.email.errors }}
   </div>
   <div>
-    {{ form.password1.label }}
+    {% trans form.password1.label %}
     {{ form.password1 }}
-    <span class="helptext">{{ form.password1.help_text }}</span>
+    <span class="helptext">{% trans form.password1.help_text %}</span>
     {{ form.password1.errors }}
   </div>
   <div>
-    {{ form.password2.label }}
+    {% trans form.password2.label %}
     {{ form.password2 }}
     {{ form.password2.errors }}
   </div>

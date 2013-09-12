@@ -1,5 +1,4 @@
 {% load i18n %}
-
 <li>
   <header class="header">
     <h3>
@@ -18,7 +17,7 @@
   <div class="backup-summary">
     <ul>
 	    <li><span class="key">{% trans "Data-Source" %}: </span>{{ item.datasources.0.title }}</li>
-      <li><span class="key">{% trans "Data-Target" %}: </span>{% trans item.datasink.title %}</li>
+	    <li><span class="key">{% trans "Data-Target" %}: </span>{% trans item.datasink.title %}</li>
       {# # status is one of the following:  #}
       {# # * queued: after the job has been created. #}
       {# # * running: if the job is currently being executed. #}
@@ -63,6 +62,9 @@
           <li>{% trans "Last successful backup" %}: {{ item.lastSuccessful|date:"SHORT_DATETIME_FORMAT" }}</li>
         {% endif %}
 	<li>{% trans "Interval" %}: {% trans item.timeExpression %}</li>
+	{% if item.onHold %}
+	<li>{% trans "Backup stopped?" %}: {% trans item.onHold %}</li>
+	{% endif %}
       </ul>
     </div>
     <div class="bli-section-options">

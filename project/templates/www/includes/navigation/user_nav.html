@@ -27,9 +27,10 @@
           {#  TODO: decide whether to use bootstrap-library or not #}
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>{{ user }}</span></a>
           <ul id="user-dropdown" class="dropdown-menu">
-            <li><a href="/" class="icon-after-inbox">{% trans "My Backups" %}</a></li>
+		  <li><a href="/" class="icon-after-inbox">{% trans "My Backup-Jobs" %}</a></li>
+		  <li><a href="{% url zip-files %}" class="icon-after-inbox">{% trans "ZIP Archives" %}</a></li>
             <li><a href="{% url user-settings %}" class="icon-after-cogs">{% trans "Account-Settings" %}</a></li>
-            <li><a href="{% url access.views.logout %}" class="icon-after-signout">{% trans "Sign out" %}</a></li>
+	    <li><a href="{% url access.views.logout %}" class="icon-after-signout">{% trans "Sign out" %}</a></li>
           </ul>
         </li>
         <li class="dropdown search-item">{% include "www/includes/header_search.html" %}</li>

@@ -13,13 +13,13 @@
 				$("div.backup-summary").children("ul").each(function(){
 					li=$(this).children("li:first");
 					text=li.html();
-					if(text.length > 55){
-						t=text.substring(0,55)+"...";
+					if(text.length > 60){
+						t=text.substring(0,60)+"...";
 						li.html(t);
 					}
 					nexttext=li.next().html();
-					if(nexttext.length>55){
-						nexttext=nexttext.substring(0,55)+"...";
+					if(nexttext.length>60){
+						nexttext=nexttext.substring(0,60)+"...";
 						li.next().html(nexttext);
 					}
 
