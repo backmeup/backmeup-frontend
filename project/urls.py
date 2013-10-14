@@ -42,7 +42,8 @@ urlpatterns = patterns('',
     url(r'^job/create/$', 'main.views.job_create', name="job-create"),
     url(r'^job/log/(?P<job_id>\d+)/$', 'main.views.job_log', name="job-log"),
     url(r'^job/edit/(?P<job_id>\d+)/$', 'main.views.job_edit', name="job-edit"),
-    
+    url(r'^job/status/(?P<job_id>\d+)/$', 'main.views.job_status', name="job-status"),
+
     url(r'^search/$', 'main.views.search', name='search'),
     url(r'^search/(?P<search_id>\d+)/$', 'main.views.search_result', name='search-result'),
     url(r'^search/(?P<search_id>\d+)/(?P<file_id>[\w\d:]+)/$', 'main.views.file_info', name='file-info'),

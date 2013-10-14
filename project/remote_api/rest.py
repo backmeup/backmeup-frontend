@@ -23,6 +23,7 @@ class RestBase(object):
 
     def _delete(self, path="", data=None):
         response = requests.delete(self.base_url + path, data=data)
+	response.encoding = 'utf-8'
 
         if settings.DEBUG:
             print "...  ..."
@@ -37,19 +38,21 @@ class RestBase(object):
         # with data=data the params would be sent as post parameters in the body and not in the URL
         #response = requests.get(self.base_url + path, data=data)
         response = requests.get(self.base_url + path, params=data)
+	response.encoding = 'utf-8'
         
         if settings.DEBUG:
             print "### [GET]", self.base_url + path
             print "request params:", json.dumps(data, indent=2)
             print "### response.status:", response.status_code
             print "### response.json:", json.dumps(response.json, indent=2)
-            print "............................."
+	    print "............................."
         if response.status_code == 204:
             return True
         return response.json
 
     def _post(self, path="", data=None):
         response = requests.post(self.base_url + path, data=data)
+	response.encoding = 'utf-8'
         
         if settings.DEBUG:
             print "### [POST]", self.base_url + path
@@ -63,6 +66,7 @@ class RestBase(object):
 
     def _put(self, path="", data=None):
         response = requests.put(self.base_url + path, data=data)
+	response.encoding = 'utf-8'
 
         if settings.DEBUG:
             print "### [PUT]", self.base_url + path

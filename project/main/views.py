@@ -23,7 +23,7 @@ from main.forms import DatasourceSelectForm, DatasourceAuthForm
 from main.forms import DatasinkSelectForm, DatasinkAuthForm
 from main.forms import JobCreateForm, JobDeleteForm, JobEditForm
 from main.forms import SearchForm, SearchFilterForm
-
+import json
 
 def hasError(json_response):
     if 'errorType' in json_response:
@@ -506,6 +506,19 @@ def job_edit(request, job_id):
         'form': form,
     }, context_instance=RequestContext(request))
 
+@login_required
+def job_status(request, job_id):
+	rest_jobs = RestJobs(username=request.user.username)
+	job_status = rest_jobs.get_job_status(job_id=job_id)
+	jobs = rest_jobs.get_all()
+	job = get_job(jobs, job_id=job_id)
+	response_data={}
+	if job_status['backupStatus'][0]['type']=="info":
+		response_data['status']=job['status']
+	else:
+		response_data['status']=job_status['backupStatus'][0]['type']
+	return HttpResponse(json.dumps(response_data), content_type="application/json")
+
 
 @login_required
 def job_log(request, job_id):
@@ -587,6 +600,7 @@ def search_result(request, search_id):
 
 def processSearchResult(result):
     for item in result['files']:
+	
         try:
             if 'timeStamp' in item:
                 item['timeStamp'] = datetime.datetime.fromtimestamp(item['timeStamp']/1000)

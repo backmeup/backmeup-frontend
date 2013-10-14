@@ -1,4 +1,33 @@
 {% load i18n %}
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		ajax_request();
+	});
+	function ajax_request(){
+		$(".job_id").each(function(){
+			var job_id=$(this).val();
+			var job_s=$("#job_s"+job_id).val();
+			if(job_s!="successful"){
+
+				$.ajax({
+					url:"/job/status/"+job_id+"/",
+                                	dataType: "json",
+					success: function (response_data){
+					if(response_data['status']!="running" && response_data['status']!="error" && response_data['status']!="job_failed"){
+							location.reload()
+						}
+						$("#job_status"+job_id).val(response_data['status']);
+					}
+				});
+																					                                }
+																									});
+		setTimeout(function(){ajax_request();},15000);
+	
+	}
+
+</script>
+
 <li>
   <header class="header">
     <h3>
@@ -23,6 +52,9 @@
       {# # * running: if the job is currently being executed. #}
       {# # * successful: if the last execution executed successfully. #}
       {# # * error: if the last execution failed. #}
+      <input type="hidden" id="job_id" name="job_id" class="job_id" value="{{item.backupJobId}}"/>
+      <input type="hidden" id="job_s{{item.backupJobId}}" name="job_s{{item.backupJobId}}" value="{{item.status}}"/>
+      <input type="hidden" id="job_status{{item.backupJobId}}" name="job_status{{item.backupJobId}}" value=""/>
       <li><span class="key">{% trans "Backup-State" %}: </span><span class="icon-backupstate-{{ item.status }}">{% trans item.status %}</span></li>
     </ul>
   </div>

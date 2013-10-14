@@ -146,8 +146,12 @@ class UserSettingsForm(forms.Form):
                 #if 'errorType' in result and result['errorType'] == "org.backmeup.model.exceptions.UnknownUserPropertyException":
                 
                 self.action_old_values['actions_value_%s' % i] = action_value
-                
-                self.fields['actions_value_%s' % i] = forms.BooleanField(label=_(action['title']), initial=action_value, required=False, help_text=_(action['description']))
+		print "##############################"
+             	print _(action['title'])
+		print action['title']
+		print str([action['title']])
+		print str([action['description']])
+		self.fields['actions_value_%s' % i] = forms.BooleanField(label=_(action['title']), initial=action_value, required=False, help_text=_(action['description']))
                 self.fields['actions_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=action['actionId'])
     
     def field_group_actions(self):
@@ -232,11 +236,11 @@ class UserSettingsForm(forms.Form):
                     if self.cleaned_data[key] == True:
                         string_value = 'true'
                         if actionId == 'org.backmeup.indexer':
-                            result_rest['messages'].append('Indexing new backup jobs has been activated.')
+                            result_rest['messages'].append(_('Indexing new backup jobs has been activated.'))
                     else:    
                         string_value = 'false'
                         if actionId == 'org.backmeup.indexer':
-                            result_rest['messages'].append('Indexing new backup jobs has been deacivated.')
+                            result_rest['messages'].append(_('Indexing new backup jobs has been deactivated.'))
                             result_rest['index_deactivated'] = True
                             
                     result_property = rest_properties.post(actionId=actionId, value=string_value)

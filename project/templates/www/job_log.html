@@ -1,15 +1,39 @@
 {% extends "base.html" %}
 {% load i18n %}
-
+{% load backmeup_tags %}
 {% block html_title %}
   {% if job.jobTitle %}
     {{ job.jobTitle }}
   {% else %}
-    Backup #{{ job.backupJobId }}
+  Backup #{{ job.backupJobId }}
   {% endif %}
 {% endblock %}
 
 {% block content %}
+<script type="text/javascript">
+	$(document).ready(function(){
+			ajax_request();
+	});	
+	function ajax_request(){
+		var job_id=$("#job_id").val();
+		var job_s=$("#job_s").val();
+		if(job_s!="successful"){
+	        	$.ajax({
+	              		url:"/job/status/"+job_id+"/",
+	              		dataType: "json",
+		      		success: function (response_data){
+		      			if(response_data['status']!="running"){
+		      				location.reload()
+			
+					}
+	                       		$("#job_status").val(response_data['status']);
+				}
+																									});
+			}
+		setTimeout(function(){ajax_request();},2000);
+		}
+</script>
+<input type="hidden" id="job_id" name="job_id" value="{{job.backupJobId}}"/>
   {# TODO: replace job.id with job.name #}
   <h1>
     {% if job.jobTitle %}
@@ -18,23 +42,21 @@
       Backup #{{ job.backupJobId }}
     {% endif %}
   </h1>
+  <input type="hidden" name="job_status" id="job_status" value=""/>
   <ul class="backup-summary-list">
     {% for source in job.datasources %}
     <li><strong>{% trans "Data-Source" %}</strong>: {{ source.title }}</li>
     {% endfor %}
     <li><strong>{% trans "Data-Target" %}</strong>: {{ job.datasink.title }}</li>
     {# TODO: pass backup-state as classname, eg: "ok", "inactive" #}
-    <li><strong>{% trans "Backup-State" %}</strong>: <span class="icon-backupstate-{{ current_status }}">{% trans current_status %}</span></li>
+    <input type="hidden" id="job_s" name="job_s" value="{{job.status}}"/>
+    <li><strong>{% trans "Backup-State" %}</strong>: <span class="icon-backupstate-{{ job.status }}">{% trans job.status %}</span></li>
   </ul>
   <ul class="backup-log-list">
     {% for item in log %}
       <li>
         <ul>
-          <li>{{ item.message }}</li>
-          <li>{{ item.type }}</li>
-          <li>{{ item.timeStamp }}</li>
-          <li>{{ item.category }}</li>
-          <li>{{ item.jobId }}</li>
+          <li>{{ item.message }} &nbsp;&nbsp;&nbsp; {{ item.type }} &nbsp;&nbsp;&nbsp; {{item.timeStamp}} &nbsp;&nbsp;&nbsp; {{ item.category }} &nbsp;&nbsp;&nbsp; {{ item.jobId }}</li>
         </ul>
         {# <ul> #}
         {#   {% for file in item.files %} #}

@@ -129,7 +129,6 @@ def signup(request):
         user = authenticate(username=user.username, password=request.POST['password1'])
         if user is not None:
             if user.is_active:
-                print "#alsdkjfalsdjflkjasdflkjasdflkjasdf"
                 django_login(request, user)
                 request.session['key_ring'] = request.POST['password1']
         return redirect('verify-email')
