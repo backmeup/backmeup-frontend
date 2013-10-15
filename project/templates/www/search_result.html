@@ -111,7 +111,12 @@
           <footer class="search-item-footer">
 	<span>{% trans "backup-date" %}:</span>
             <date>{{ item.timeStamp|date:"SHORT_DATE_FORMAT" }}</date>
-            <span class="file-type">{{ item.type }}</span>
+	    <span class="file-type">{{ item.type }}</span>
+	{% if item.properties.created %}
+		<ul style="margin-bottom:0px;"> 
+			<li>{% trans "creation-date" %}: {{ item.properties.created|date:"SHORT_DATE_FORMAT" }}</li>
+	        </ul>
+	{% endif %}
 	{% if item.properties.modified %}
 	<ul style="margin-bottom:0px;">	
 		<li>{% trans "modification-date" %}: {{ item.properties.modified|date:"SHORT_DATE_FORMAT" }}</li>

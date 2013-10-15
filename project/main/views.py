@@ -541,6 +541,9 @@ def job_log(request, job_id):
     for datasource in job['datasources']:
         datasource['title'] = get_source_title(datasource_profiles, datasource['datasourceId'])
     log=job_status['backupStatus']
+    for l in log:
+	if 'timeStamp' in l:
+		l['timeStamp'] = datetime.datetime.fromtimestamp(int(l['timeStamp'])/1000)
     context = {
         'job': job,
         'log': log,

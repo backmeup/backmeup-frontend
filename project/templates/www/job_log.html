@@ -52,11 +52,14 @@
     <input type="hidden" id="job_s" name="job_s" value="{{job.status}}"/>
     <li><strong>{% trans "Backup-State" %}</strong>: <span class="icon-backupstate-{{ job.status }}">{% trans job.status %}</span></li>
   </ul>
-  <ul class="backup-log-list">
+  <ul class="backup-log-list" style="font-size:14px;">
     {% for item in log %}
-      <li>
+      <li style="">
         <ul>
-          <li>{{ item.message }} &nbsp;&nbsp;&nbsp; {{ item.type }} &nbsp;&nbsp;&nbsp; {{item.timeStamp}} &nbsp;&nbsp;&nbsp; {{ item.category }} &nbsp;&nbsp;&nbsp; {{ item.jobId }}</li>
+		{% if item.message %}<li>{{ item.message|slice:":35"}} ... {{ item.message|slice:"-35:"}}</li>{% endif %}
+		<li>{{ item.type }}</li>
+		<li>{{item.timeStamp}}</li>
+		<li>{{ item.category }}</li>
         </ul>
         {# <ul> #}
         {#   {% for file in item.files %} #}

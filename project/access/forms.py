@@ -146,11 +146,6 @@ class UserSettingsForm(forms.Form):
                 #if 'errorType' in result and result['errorType'] == "org.backmeup.model.exceptions.UnknownUserPropertyException":
                 
                 self.action_old_values['actions_value_%s' % i] = action_value
-		print "##############################"
-             	print _(action['title'])
-		print action['title']
-		print str([action['title']])
-		print str([action['description']])
 		self.fields['actions_value_%s' % i] = forms.BooleanField(label=_(action['title']), initial=action_value, required=False, help_text=_(action['description']))
                 self.fields['actions_key_%s' % i] = forms.CharField(widget=forms.HiddenInput, initial=action['actionId'])
     
