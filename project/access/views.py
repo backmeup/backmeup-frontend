@@ -13,7 +13,7 @@ from django.http import HttpResponseRedirect
 
 # project
 from access.forms import UserCreationForm, UserEmailVerificationForm, UserSettingsForm
-from remote_api.rest import RestEmailVerification, RestUser
+from remote_api.rest import RestEmailVerification, RestUser, RestProperties
 
 
 
@@ -152,8 +152,10 @@ def verify_email(request, verify_hash=None):
         if form.is_valid():
             email = form.cleaned_data['email']
 	    messages.add_message(request, messages.INFO, _('user\'s email %(account)s is verified') % {'account':email})
-	    print str([_('user\'s email %(account)s is verified') % {'account':email}])
             request.session['validated_email'] = email
+	    #Volltext-Indizierung auf true
+	    rest_properties = RestProperties(username=email)
+	    result_property = rest_properties.post(actionId="org.backmeup.indexer", value="true")
             return redirect('datasource-select')
         #else:
         #    messages.add_message(request, messages.INFO, 'user\'s email couldn\'t be verified')
