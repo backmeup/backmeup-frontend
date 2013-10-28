@@ -55,15 +55,20 @@
         {% block content %}{% endblock content %}
         
         {% block register_teaser %}{% endblock register_teaser %}
+	</div>
+      <div class="container1">
       </div>
     </div>
   
     {% block footer %}
     <footer id="footer">
-      <div class="container">
+      <div class="footer_container">
         {% block footer_teaser %}{% endblock %}
         {% include "www/includes/footer.html" %}
       </div>
+      </footer>
+    <footer id="footer_sec">
+    <div class="container_footer"><span> &copy; 2013 backmeup.at</span> </div>  	
     </footer>
     {% endblock footer %}
   

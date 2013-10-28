@@ -55,11 +55,10 @@
   <ul class="backup-log-list" style="font-size:14px;">
     {% for item in log %}
       <li style="">
-        <ul>
-		{% if item.message %}<li>{{ item.message|slice:":35"}} ... {{ item.message|slice:"-35:"}}</li>{% endif %}
-		<li>{{ item.type }}</li>
-		<li>{{item.timeStamp}}</li>
-		<li>{{ item.category }}</li>
+      <ul>
+	      <li>{{item.timeStamp|date:'d.m.Y H:i:s'}}</li>
+	      <li>{{ item.type }}</li>
+		{% if item.message %}<li>{{ item.message|slice:":55"}} ... {{ item.message|slice:"-55:"}}</li>{% endif %}
         </ul>
         {# <ul> #}
         {#   {% for file in item.files %} #}

@@ -542,6 +542,7 @@ def job_log(request, job_id):
         datasource['title'] = get_source_title(datasource_profiles, datasource['datasourceId'])
     log=job_status['backupStatus']
     for l in log:
+	l['message']=l['message'].encode("utf-8")
 	if 'timeStamp' in l:
 		l['timeStamp'] = datetime.datetime.fromtimestamp(int(l['timeStamp'])/1000)
     context = {
