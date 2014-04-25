@@ -2120,6 +2120,16 @@ p.bjqs-caption {
         margin-right: 0;
         display: none
     }
+    .container{
+	width:90%;
+	padding: 1.5em 1em;
+	overflow:auto;
+	margin-left:auto;
+	margin-right:auto;
+	height: 90%;
+	background: url("/static/img/shadowtop.png") no-repeat scroll center top rgba(0, 0, 0, 0);
+
+    }
 }
 @media only screen and (min-width: 768px) {
     .breadcrumbs a, .breadcrumbs span {

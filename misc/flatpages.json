@@ -1,0 +1,92 @@
+[
+    {
+        "pk": 5, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "\u00dcber das Projekt", 
+            "url": "/about/", 
+            "template_name": "flatpages/about.html", 
+            "sites": [
+                1
+            ], 
+            "content": "<h1>&Uuml;ber das Projekt \"BackMeUp\"</h1>\r\n<p>Das Ziel von BackMeUp ist die St&auml;rkung des Bewusstseins &uuml;ber die in Web 2.0 verstreuten pers&ouml;nlichen Daten. BackMeUp stellt eine M&ouml;glichkeit zur Datensicherung aus verteilten Online-Plattformen bereit und archiviert die Daten unabh&auml;ngig vom Datenformat sowie mit einer umfassenden Suche versehen.</p>\r\n<h2>Fu\u0308r ein freies Internet</h2>\r\n<p>BackMeUp will die Abh&auml;ngigkeit von den Anbietern von Sozialen Netzwerken verringern und gibt den Usern die Kontrolle &uuml;ber ihr pers&ouml;nliches digitales Erbe zur&uuml;ck. Durch die Auswahl an Datenspeicher-L&ouml;sungen und die transparente Struktur &ndash; BackMeUp ist ein OpenSource-Projekt &ndash; hat der User die Daten wieder selbst in der Hand.</p>\r\n<h2>Eine Antwort auf neue Herausforderungen</h2>\r\n<p>BackMeUp sieht sich als Erg&auml;nzung zu bestehenden Diensten und will aufmerksam machen. Die intensive Nutzung von Cloud Services und Sozialen Netzwerken bringt eine Reihe von Fragen mit sich, die auch gesellschaftspolitische Relevanz besitzen:</p>\r\n<ul>\r\n<li>Ist das Grundrecht auf meine eigenen Daten auch vorhanden, wenn diese im Ausland liegen?</li>\r\n<li>Wem geh&ouml;ren die Daten? Hat ein User noch ein Recht auf seine Daten?</li>\r\n</ul>\r\n<p>Oft ist die Antwort nicht eindeutig. BackMeUp bietet daher die notwendige Sicherheit, um auf die eigenen Daten jeder Zeit wieder zugreifen zu k&ouml;nnen.</p>\r\n<h2>Wer steht hinter BackMeUp?</h2>\r\n<p>BackMeUp wurde in Kooperation von X-Net Services GmbH, AIT Austrian Institute of Technology GmbH, Ars Electronica Futurelab, BDF-net Agentur f&uuml;r neue Medien GmbH, FH Hagenberg, gtn gmbh, dem Institut f&uuml;r Datenverarbeitung an der Johannes Kepler Universit&auml;t Linz und dem Institut f&uuml;r Verfassungs- und Verwaltungsrecht an der Universit&auml;t Salzburg entwickelt.<br />Die Entwicklung von BackMeUp wurde von der FFG &Ouml;sterreichische Forschungsf&ouml;rderungsgesellschaft im Rahmen von COIN - Programmlinie \"Kooperation und Netzwerke\" gef&ouml;rdert.</p>", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Features", 
+            "url": "/features/", 
+            "template_name": "", 
+            "sites": [
+                1
+            ], 
+            "content": "<h1>Deine Daten in deiner Hand!</h1>\r\n<p>Deine Freunde sind auf Facebook mit dir vernetzt, deine Bilder liegen auf Dropbox und deine Lerninhalte auf Moodle? Mit BackMeUp sicherst du deine Daten automatisch. Eine umfassende Such-Funktion gibt dir zudem den notwendigen &Uuml;berblick.</p>\r\n<h2>Sichern wo DU willst</h2>\r\n<p>Du bestimmst selbst, wo deine Daten gesichert sind: Direkt auf deiner Festplatte, im Cloud-Storage mit uneingeschr&auml;nktem Zugriff oder auf DVD, die du dir bequem per Post zusenden l&auml;sst.<br />Mit deinem pers&ouml;nlichen Backup hast du immer Zugang zu deinen Daten, auch wenn Services eingestellt oder Inhalte unbeabsichtigt gel&ouml;scht werden. Erinnerungsfotos und wichtige Unterlagen gehen nicht mehr verloren.</p>\r\n<h2>Suchen - &uuml;ber ALLE deine Daten</h2>\r\n<p>BackMeUp erm&ouml;glicht dir, &uuml;ber alle gesicherten Daten zu suchen. Einfach den gew&uuml;nschten Suchbegriff eingeben und du erh&auml;ltst eine &Uuml;bersicht dar&uuml;ber, wo der gesuchte Begriff oder das Bild &uuml;berall auftaucht. In den Details ist erfasst, aus welcher Datenquelle der Inhalt kommt bzw. wo im Backup er gespeichert ist.</p>\r\n<p>Die Daten sind volltextindiziert - das hei&szlig;t, du findest auch Inhalte, die z.B. in PDFs gespeichert sind.\"</p>\r\n<h2>Automatisch &amp; einfach sicher</h2>\r\n<p>Einmal angelegt, k&uuml;mmert sich BackMeUp automatisch um die Sicherung deiner online Daten - kostenlos. Ohne Mehraufwand ist sichergestellt, dass deine Daten bei dir sind. Nur du hast Zugriff auf deine archivierten Daten, kannst sie durchsuchen und auch verschl&uuml;sseln.<br />Wir geben dir die Kontrolle zur&uuml;ck: Erinnerungsfotos, Pr&auml;sentationen, Freunde &ndash; dein Leben im Netz in deiner Hand!</p>", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Feedback", 
+            "url": "/feedback/", 
+            "template_name": "", 
+            "sites": [
+                1
+            ], 
+            "content": "<h1>Feedback</h1>\r\n<p class=\"p1\">&nbsp;</p>\r\n<p>Hilf uns, BackMeUp weiter zu verbessern. Wir freuen uns &uuml;ber dein Feedback und sind bem&uuml;ht, dein Anliegen so <br />rasch als m&ouml;glich zu bearbeiten. Wir informieren dich auch gerne &uuml;ber die Umsetzung deiner Verbesserungsvorschl&auml;ge.</p>\r\n<p class=\"p1\"><a href=\"mailto:office@backmeup.at%20\">office@backmeup.at</a></p>", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Get Involved", 
+            "url": "/get-involved/", 
+            "template_name": "", 
+            "sites": [
+                1
+            ], 
+            "content": "<h1>Get Involved!</h1>\r\n<p>BackMeUp ist ein Open Source Projekt zur St&auml;rkung des Bewusstseins &uuml;ber die in Web 2.0 verstreuten pers&ouml;nlichen Daten und zur Sicherung dieser Daten. Als Serverl&ouml;sung verf&uuml;gbar, ist BackMeUp unabh&auml;ngig von einem Betreiber. Die BackMeUp Foundation in Linz fungiert als zentraler Ansprechpartner und stellt eine nachhaltige Entwicklung im Umgang mit personenbezogenen Daten f&uuml;r &ouml;sterr. Benutzer und internationale Plattformanbieter sicher.</p>\r\n<h2>Individuell erweitern</h2>\r\n<p>BackMeUp kann von Entwicklern weltweit herangezogen und weiterentwickelt werden. Die Plattform ist modular aufgebaut und verf&uuml;gt &uuml;ber Schnittstellen, um die Basis mit individuellen Funktionen zu erg&auml;nzen und erweitern. Jeder Interessierte hat die M&ouml;glichkeit, an dem Projekt mitzuarbeiten und Plugins sowie Patches zu entwicklen.</p>\r\n<h2>Dokumentation und Code</h2>\r\n<p>Das gesamte Entwicklungs-Projekt inklusive Dokumentation und Code ist auf GitHub zu finden und kann mit einem einfachen GitHub-Client heruntergeladen werden:<a href=\" https://github.com/backmeup/backmeup-prototype/wiki\"> https://github.com/backmeup/backmeup-prototype/wiki</a></p>\r\n<h2>Systemvoraussetzungen</h2>\r\n<p>Um Patches bzw. Plugins entwickeln zu k&ouml;nnen, gibt es folgende Anforderungen:</p>\r\n<ul>\r\n<li>indivuelle Entwicklungsumgebung</li>\r\n<li>GitHub-Client zur Versionsverwaltung</li>\r\n<li>Maven zum Compilieren</li>\r\n<li>Java als Entwicklungssprache</li>\r\n</ul>\r\n<h2>Jetzt mitmachen</h2>\r\n<p>Du hast Interesse und m&ouml;chtest an BackMeUp teilhaben? Wir freuen uns &uuml;ber deine Kontaktaufnahme.</p>\r\n<p>&nbsp;</p>", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Get Started", 
+            "url": "/get-started/", 
+            "template_name": "", 
+            "sites": [
+                1
+            ], 
+            "content": "<h1>Los geht's</h1>\r\n<p>Nach der Registrierung kannst du sofort starten und festlegen, aus welchen sozialen Netzwerken und Plattformen deine Daten gesichert werden sollen. Danach das Speicherziel ausw&auml;hlen und die H&auml;ufigkeit der Sicherungen eingeben. Fertig ist dein Backup-Job.</p>\r\n<h2>1. Datenquelle angeben</h2>\r\n<p>Welche Daten m&ouml;chtest du sichern? Du gibst an, aus welchen sozialen Netzwerken und Plattformen deine pers&ouml;nlichen Fotos, Kontakte, Erinnerungen und Lerninhalte gesichert werden sollen.</p>\r\n<h2>2. Speicherziele w&auml;hlen</h2>\r\n<p>Du kannst dein pers&ouml;nliches Speicherziel selbst w&auml;hlen: Das System speichert nun automatisch und in regelm&auml;&szlig;igen Abst&auml;nden deine Daten in dein Backup. Wenn du es besonders sicher haben m&ouml;chtest, kannst du deine Daten auch verschl&uuml;sseln lassen. Das Passwort dazu kennst nur du.</p>\r\n<h2>3. Alles durchsuchen</h2>\r\n<p>Egal, aus welcher Datenquelle die Daten stammen: Auf BackMeUp kannst du dein gesamtes Backup online durchsuchen &ndash; mit nur einem Klick.</p>\r\n<h2>Sichern wo DU willst</h2>\r\n<p>Du bestimmst selbst, wo deine Daten gesichert werden. Mit deinem pers&ouml;nlichen Backup hast du uneingeschr&auml;nkten Zugang zu deinen Daten, auch wenn Services eingestellt oder Inhalte unbeabsichtigt gel&ouml;scht werden. Erinnerungsfotos, Lerninhalt, Pr&auml;sentation und wichtige Unterlagen gehen nicht mehr verloren. Dein Leben im Netz ist in deiner Hand!</p>", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Hilfe", 
+            "url": "/hilfe/", 
+            "template_name": "", 
+            "sites": [
+                1
+            ], 
+            "content": "<h1>Hilfe</h1>\r\n<h2>Anmelden</h2>\r\n<p><em>Du ben&ouml;tigst lediglich eine g&uuml;ltige E-Mail-Adresse und ein Passwort, um dich bei BackMeUp anzumelden.</em></p>\r\n<p>Zun&auml;chst musst du dich bei BackMeUp registrieren. Daf&uuml;r einfach eine E-Mail-Adresse und ein Passwort angeben. Das Passwort muss ein zweites Mal eingegeben werden, um Tippfehler zu vermeiden und sicherzugehen, dass du dich auch tats&auml;chlich anmelden kannst. Nach erfolgreicher Registrierung erh&auml;ltst du ein E-Mail, um deine Registrierung zu best&auml;tigen. Anschlie&szlig;end kannst du dich jeder Zeit mit deiner E-Mail und mit deinem Passwort auf BackMeUp anmelden.</p>\r\n<p><strong>Tipp:</strong> Du musst dich anmelden, um Infos rund um dein Backup einzusehen oder um die Suche &uuml;ber deine gesamten Daten nutzen zu k&ouml;nnen.</p>\r\n<p><strong>Wichtiger Hinweis:</strong> Achte gut auf dein Passwort: Wird dein Passwort geknackt, k&ouml;nnen andere &uuml;ber deine Daten suchen. Allerdings haben sie damit noch keinen Zugriff auf die tats&auml;chlich abgelegten Daten</p>\r\n<h2>Passwort &auml;ndern</h2>\r\n<p><em>Anleitung zum &Auml;ndern deines Passwortes zum Einloggen und zum Verschl&uuml;sseln eines Backups.</em></p>\r\n<p>Das Passwort kann unter dem Men&uuml;-Punkt Einstellungen ge&auml;ndert werden. Dazu muss ein neues Passwort doppelt eingegeben werden, um Tippfehler zu vermeiden sowie das alte Passwort zur Best&auml;tigung.</p>\r\n<h2>Datenschutz und Sicherheit</h2>\r\n<p><em>Welche Daten werden gespeichert? Wer hat aller Zugriff auf welche Daten?</em></p>\r\n<p>\"Wir handeln nicht mit Daten - und sammeln daher auch nur jene, die f&uuml;r die Erbringung der Backup-Dienstleistung notwendig sind. Bei der Registrierung sind daher nur wenige Daten erforderlich - aber ohne E-Mail-Adresse geht es nicht. Sie dient dazu, die Echtheit deiner Registrierung zu best&auml;tigen.Bei der Verwendung von einzelnen Funktionen kann es sein, dass du zus&auml;tzliche Daten wie zum Beispiel Rechnungs- und Lieferadresse eingeben musst. Das ist zum Beispiel der Fall, wenn du dein Backup auf DVD zugeschickt bekommen m&ouml;chtest. Diese Daten werden dann ausschlie&szlig;lich f&uuml;r den angegebenen Zweck verwendet und ggf. an einen BackMeUp-Dienstleister weitergegeben &ndash; also im Falle der DVD ist das derjenige, der diese brennt, bedruckt und danach verschickt.</p>\r\n<p>Die Daten, die du &uuml;ber BackMeUp sicherst, werden nur in dem von dir ausgew&auml;hlten Datenziel gespeichert. BackMeUp hat keinen Zugriff auf diese Daten. Die f&uuml;r die Suchfunktion notwendigen Metadaten und Vorschaubilder werden allerdings schon bei BackMeUp gespeichert, wobei niemand au&szlig;er dir darauf Zugriff hat. Auch BackMeUp kann diese Daten nicht einsehen, da sie mit deinem Passwort verschl&uuml;sselt sind.</p>\r\n<p><strong>Wichtiger Hinweis:&nbsp;</strong>Achte gut auf dein Passwort: Wird dein Passwort geknackt, k&ouml;nnen andere &uuml;ber deine Daten suchen. Allerdings haben sie damit noch keinen Zugriff auf die tats&auml;chlich abgelegten Daten</p>\r\n<h2>Nach Inhalten &uuml;ber alle Datenquellen suchen</h2>\r\n<p><em>Anleitung zur Suchfunktion</em></p>\r\n<p>Um &uuml;ber alle Daten suchen zu k&ouml;nnen, musst du bereits beim Erstellen des Jobs angeben, dass ein Index erstellt werden soll. Dieser Index enth&auml;lt alle suchrelevanten Metadaten.Alle so indizierten Backups sind dann in der Suche erfasst. Einfach rechts oben den gew&uuml;nschten Suchbegriff eingeben. Du erh&auml;ltst damit eine &Uuml;bersicht, wo dieser Begriff &uuml;berall auftaucht. In den Details ist erfasst, aus welcher Datenquelle der Inhalt kommt bzw. wo im Backup er gespeichert ist.</p>\r\n<h2>Hosting:&nbsp;Systemvorausetzungen</h2>\r\n<p><em>BackMeUp ist als Serverl&ouml;sung verf&uuml;gbar und kann daher von unabh&auml;ngigen Betreibern genutzt werden.</em></p>\r\n<p>Das gesamte Entwicklungs-Projekt inklusive Dokumentation und Code ist auf GitHub zu finden und kann mit einem einfachen GitHub-Client heruntergeladen werden. Auch die Systemvoraussetzungen sind auf GitHub detailliert beschrieben:&nbsp;<a href=\"https://github.com/backmeup/backmeup-prototype/wiki\">https://github.com/backmeup/backmeup-prototype/wiki</a></p>", 
+            "enable_comments": false
+        }
+    }
+]
