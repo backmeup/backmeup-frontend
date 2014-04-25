@@ -51,7 +51,6 @@ class DatasourceAuthForm(forms.Form):
         if self.extra_data['auth_data']['type'] == 'Input':
             # make sure 'requiredInputs' (= list of dicts) is sorted by 'order' dict value(s)
             self.extra_data['auth_data']['requiredInputs'] = sorted(self.extra_data['auth_data']['requiredInputs'], key=lambda k: k['order'])
-            
             for item in self.extra_data['auth_data']['requiredInputs']:
                 self.fields['input_key_%d' % item['order']] = forms.CharField(widget=forms.HiddenInput, initial=item['name'])
                 
@@ -60,7 +59,10 @@ class DatasourceAuthForm(forms.Form):
                 }
                 
                 if 'required' in item:
-                    field_kwargs['required'] = item['required']
+		    if item['name'] == "SSL":
+			field_kwargs['required'] = False
+		    else:
+                    	field_kwargs['required'] = item['required']
                 else:
                     field_kwargs['required'] = False
                 
@@ -214,7 +216,8 @@ class JobCreateForm(forms.Form):
                 self.fields['actions_key_%d' % i] = forms.CharField(widget=forms.HiddenInput, initial=action['actionId'])
             
                 for j, option in enumerate(action['options']):
-                    self.fields['actions_value_%d_option_%d' % (i, j)] = forms.CharField(label=_(option), required=False)
+                    self.fields['actions_value_%d_option_%d' % (i, j)] = forms.CharField(label=_(option), required=False, widget=forms.PasswordInput)
+		    self.fields['actions_value_%d_option_%d' % (i, j)].initial = ""
                     self.fields['actions_key_%d_option_%d' % (i, j)] = forms.CharField(widget=forms.HiddenInput, initial=option)
     
     def field_group_job(self):

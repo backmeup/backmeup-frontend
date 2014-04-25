@@ -3,8 +3,40 @@
 {% load i18n %}
 
 {% block html_title %}{% trans "Create new Backup" %}{% endblock %}
-
+<input type="hidden" value="{% trans 'Encryption passwords did not match!' %}" id="password_message"/>
 {% block content %}
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#id_actions_value_2").change(function(){
+		if($(this).val()=="on"){
+			if($("#id_actions_value_2_option_0").attr("required")=="required"){
+				$("#id_actions_value_2_option_0").removeAttr("required");
+				$("#2nd_password").removeAttr("required");
+			}
+			else{
+				$("#id_actions_value_2_option_0").attr("required", "required");
+                        	$("#2nd_password").attr("required", "required");
+			}
+		}
+		else{
+			$("#id_actions_value_2_option_0").removeAttr("required");
+			$("#2nd_password").removeAttr("required");
+		}
+	});
+	$(".form-job-create").submit(function(){
+		if($("#id_actions_value_2").val()=="on"){
+			if($("#id_actions_value_2_option_0").val() == $("#2nd_password").val()){
+				return true;
+			}
+			else{
+				alert("{% trans 'Encryption passwords did not match!' %}");
+				return false;
+			}
+		}
+	});
+
+});
+</script>
   <hgroup class="hgroup">
     <h1>{% trans "Create new Backup" %}</h1> 
     <h2>{% trans "Select Backup-Options" %}</h2>
@@ -76,7 +108,9 @@
                   {% if field.errors %}
                     {{ field.errors }}
                   {% endif %}
+		  <input type="password" id="2nd_password" name="2nd_password">
                 </div>
+		
                 
               {% else %}
                 
@@ -110,5 +144,6 @@ $(function(){
       toggled = !toggled;
   });
 })
+
 </script>
 {% endblock %}
