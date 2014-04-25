@@ -199,7 +199,7 @@ def datasource_select(request):
             result = rest_datasource_profile.auth(datasource_id=form.cleaned_data['datasource'], data=data)
             
             if hasError(result):
-                messages.add_message(request, messages.ERROR, getErrorMsg(result))
+                messages.add_message(request, messages.ERROR, _(getErrorMsg(result)))
             else:
                 request.session['auth_data'] = result
                 if result['type'] == 'OAuth':

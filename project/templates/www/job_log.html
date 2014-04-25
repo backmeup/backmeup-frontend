@@ -21,7 +21,7 @@
 	        	$.ajax({
 	              		url:"/job/status/"+job_id+"/",
 	              		dataType: "json",
-		      		success: function (response_data){
+				success: function (response_data){
 		      			if(response_data['status']!="running"){
 		      				location.reload()
 			
@@ -30,7 +30,7 @@
 				}
 																									});
 			}
-		setTimeout(function(){ajax_request();},2000);
+		setTimeout(function(){ajax_request();},6000);
 		}
 </script>
 <input type="hidden" id="job_id" name="job_id" value="{{job.backupJobId}}"/>
