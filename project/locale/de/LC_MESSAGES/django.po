@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-15 11:00+0200\n"
+"POT-Creation-Date: 2014-04-20 10:54+0200\n"
 "PO-Revision-Date: 2012-12-03 14:53\n"
 "Last-Translator: <fh@bdf-net.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,12 +95,14 @@ msgstr "Die Volltext-Indizierung für neue Backup-Jobs wurde deaktiviert."
 msgid "Logged out"
 msgstr "ausgeloggt"
 
-#: access/views.py:154 access/views.py:155
-#: templates/dynamic_message_strings.html:13
+#: access/views.py:154 templates/dynamic_message_strings.html:13
+#, python-format
 msgid "user's email %(account)s is verified"
-msgstr "Vielen Dank für deine Registrierung auf back me up. Die verwendete E-Mail-Adresse lautet: %(account)s"
+msgstr ""
+"Vielen Dank für deine Registrierung auf back me up. Die verwendete E-Mail-"
+"Adresse lautet: %(account)s"
 
-#: access/views.py:181
+#: access/views.py:182
 msgid "New verification email has been sent."
 msgstr "Die Bestätigungs-E-Mail wurde erneut verschickt."
 
@@ -136,46 +138,46 @@ msgstr ""
 "vorangegangenem Backup) oder wählen Sie eine neue Datenquelle aus der Liste "
 "unten."
 
-#: main/forms.py:85
+#: main/forms.py:89
 msgid "Datasink"
 msgstr "Speicher-Ziel"
 
-#: main/forms.py:88
+#: main/forms.py:92
 msgid "Datasink Profile"
 msgstr "Schnellzugriff: Speicher-Ziel"
 
-#: main/forms.py:88
+#: main/forms.py:92
 msgid "Choose an existing data-sink profile or select a new data-sink below"
 msgstr ""
 "Bitte wählen Sie ein bestehendes Datenziel-Profil (aus einem vorangegangenem "
 "Backup) oder wählen Sie ein neues Datenziel aus der Liste unten."
 
-#: main/forms.py:134
+#: main/forms.py:138
 msgid "Backup Name"
 msgstr "Backup-Name"
 
-#: main/forms.py:143 main/forms.py:190
+#: main/forms.py:147 main/forms.py:194
 msgid "Title"
 msgstr "Titel"
 
-#: main/forms.py:144 main/forms.py:191
+#: main/forms.py:148 main/forms.py:195
 #: templates/www/includes/backup_jobs/backup_list_item.html:96
 msgid "Interval"
 msgstr "Intervall"
 
-#: main/forms.py:277
+#: main/forms.py:282
 msgid "Query"
 msgstr "Parameter"
 
-#: main/forms.py:299
+#: main/forms.py:304
 msgid "Datasource Filter"
 msgstr "Daten-Quelle"
 
-#: main/forms.py:304
+#: main/forms.py:309
 msgid "Type Filter"
 msgstr "Datei-Typ"
 
-#: main/forms.py:314
+#: main/forms.py:319
 msgid "Job Filter"
 msgstr "Job"
 
@@ -464,6 +466,11 @@ msgstr "Volltext-Indizierung für die globale Suche."
 msgid "Failed to verify email"
 msgstr "Die Bestätigung der E-Mail Adresse schlug fehl."
 
+#: templates/dynamic_message_strings.html:76 templates/www/job_create.html:6
+#: templates/www/job_create.html.py:32
+msgid "Encryption passwords did not match!"
+msgstr "Passwörter für das Verschlüsselung-Plug-in stimmen nicht überein!"
+
 #: templates/flatpages/about.html:8
 msgid "Project Partners"
 msgstr "Projekt-Partner"
@@ -481,7 +488,7 @@ msgstr "Jetzt Registrieren"
 #: templates/www/datasource_auth.html:5 templates/www/datasource_auth.html:9
 #: templates/www/datasource_select.html:5
 #: templates/www/datasource_select.html:9 templates/www/job_create.html:5
-#: templates/www/job_create.html.py:9
+#: templates/www/job_create.html.py:41
 msgid "Create new Backup"
 msgstr "Neues Backup anlegen"
 
@@ -491,24 +498,24 @@ msgstr "Speicher-Ziel auswählen"
 
 #: templates/www/datasink_auth.html:16 templates/www/datasink_select.html:16
 #: templates/www/datasource_auth.html:15
-#: templates/www/datasource_select.html:15 templates/www/job_create.html:15
+#: templates/www/datasource_select.html:15 templates/www/job_create.html:47
 msgid "1. Data-Source"
 msgstr "1. Daten-Quelle"
 
 #: templates/www/datasink_auth.html:18 templates/www/datasink_select.html:18
-#: templates/www/job_create.html:17
+#: templates/www/job_create.html:49
 msgid "selected data-source"
 msgstr "gewählte Daten-Quelle"
 
 #: templates/www/datasink_auth.html:19 templates/www/datasink_select.html:19
-#: templates/www/datasource_auth.html:35 templates/www/job_create.html:18
+#: templates/www/datasource_auth.html:35 templates/www/job_create.html:50
 msgid "select a different data-source"
 msgstr "eine andere Daten-Quelle wählen"
 
 #: templates/www/datasink_auth.html:23 templates/www/datasink_select.html:23
 #: templates/www/datasource_auth.html:42 templates/www/datasource_auth.html:50
 #: templates/www/datasource_select.html:46
-#: templates/www/datasource_select.html:54 templates/www/job_create.html:22
+#: templates/www/datasource_select.html:54 templates/www/job_create.html:54
 msgid "2. Data-Target"
 msgstr "2. Speicher-Ziel"
 
@@ -530,7 +537,7 @@ msgid "or"
 msgstr "oder"
 
 #: templates/www/datasink_auth.html:43 templates/www/datasource_auth.html:45
-#: templates/www/datasource_select.html:49 templates/www/job_create.html:25
+#: templates/www/datasource_select.html:49 templates/www/job_create.html:57
 msgid "select a different data-sink"
 msgstr "ein anderes Speicherziel wählen"
 
@@ -538,7 +545,7 @@ msgstr "ein anderes Speicherziel wählen"
 #: templates/www/datasink_select.html:55 templates/www/datasink_select.html:57
 #: templates/www/datasource_auth.html:58 templates/www/datasource_auth.html:60
 #: templates/www/datasource_select.html:62
-#: templates/www/datasource_select.html:64 templates/www/job_create.html:29
+#: templates/www/datasource_select.html:64 templates/www/job_create.html:61
 msgid "3. Backup-Options"
 msgstr "3. Backup-Optionen"
 
@@ -562,12 +569,12 @@ msgstr ""
 "Schritt 2: Speicher-Ziel auswählen - Authentifizierung von %(datasource)s"
 
 #: templates/www/datasource_auth.html:44
-#: templates/www/datasource_select.html:48 templates/www/job_create.html:24
+#: templates/www/datasource_select.html:48 templates/www/job_create.html:56
 msgid "selected data-target"
 msgstr "ausgewähltes Speicher-Ziel"
 
 #: templates/www/datasource_auth.html:63
-#: templates/www/datasource_select.html:67 templates/www/job_create.html:31
+#: templates/www/datasource_select.html:67 templates/www/job_create.html:63
 msgid "Step 3: select backup-options"
 msgstr "Schritt 3: Backup-Optionen auswählen"
 
@@ -599,27 +606,27 @@ msgstr "Los gehts"
 msgid "Get started teaser-text"
 msgstr "Dein Backup für Moodle, Facebook, Twitter & mehr"
 
-#: templates/www/job_create.html:10
+#: templates/www/job_create.html:42
 msgid "Select Backup-Options"
 msgstr "Backup-Optionen auswählen"
 
-#: templates/www/job_create.html:39 templates/www/job_edit.html:25
+#: templates/www/job_create.html:71 templates/www/job_edit.html:25
 msgid "Backup settings"
 msgstr "Backup-Einstellungen"
 
-#: templates/www/job_create.html:52 templates/www/job_edit.html:38
+#: templates/www/job_create.html:84 templates/www/job_edit.html:38
 msgid "Datasource options"
 msgstr "Daten-Quelle Optionen"
 
-#: templates/www/job_create.html:53 templates/www/job_edit.html:39
+#: templates/www/job_create.html:85 templates/www/job_edit.html:39
 msgid "toggle all"
 msgstr "alle auswählen"
 
-#: templates/www/job_create.html:67 templates/www/job_edit.html:53
+#: templates/www/job_create.html:99 templates/www/job_edit.html:53
 msgid "Backup actions"
 msgstr "Backup-Aktionen"
 
-#: templates/www/job_create.html:97 templates/www/includes/dashboard.html:8
+#: templates/www/job_create.html:131 templates/www/includes/dashboard.html:8
 msgid "Create Backup"
 msgstr "Backup erstellen"
 

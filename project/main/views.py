@@ -426,7 +426,6 @@ def job_create(request):
     }
 
     form = JobCreateForm(request.POST or None, extra_data=extra_data)
-
     if form.is_valid():
         result = form.rest_save()
         if result:
