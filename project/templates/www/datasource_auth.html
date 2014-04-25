@@ -14,7 +14,29 @@
     <li class="active-backup-step">
       <h3>{% trans "1. Data-Source" %}</h3>
       <div class="add-backup-content">
-        <h4>{% blocktrans with datasource=datasource_profile.title %}Step 2: select data-source - authenticate {{ datasource }}{% endblocktrans %}</h4>
+	      <script type="text/javascript">
+		      $(document).ready(function(){
+				      var mail=false;
+				      var moodle=false;
+				$("input[type=hidden]").each(function() {
+					if($(this).val()=="SSL"||$(this).val()=="Port"||$(this).val()=="Host"){
+						mail=true;
+					}
+					if($(this).val()=="Moodle Server Url"){
+						moodle=true;
+					}
+				});
+				
+				if(moodle){
+					$("#mail").hide();
+				}
+				else{
+					$("#moodle").hide();
+				}
+			});
+	      </script>
+	      <h4 id="mail">{{datasource_profile}}{{ datasource_profile.title }} {% blocktrans with datasource=datasource_profile.title %}Step 1: authenticate your mail account{% endblocktrans %}</h4>
+	      <h4 id="moodle">{{datasource_profile}}{{ datasource_profile.title }} {% blocktrans with datasource=datasource_profile.title %}Step 1: authenticate your moodle account{% endblocktrans %}</h4>
         <form action="." method="POST">{% csrf_token %}
         
         {% for hidden in form.hidden_fields %}
